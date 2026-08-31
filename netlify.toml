@@ -1,0 +1,24 @@
+# Static site, no build step. Everything under the repo root is published as-is.
+[build]
+  publish = "."
+  # No bundler; this just refuses to deploy a build with dead links or a
+  # malformed trip card. See scripts/check.mjs.
+  command = "node scripts/check.mjs"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Trip photos are content-stable, so let them cache hard.
+[[headers]]
+  for = "/*/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# The old single-trip site lived at the root. Keep those links alive.
+[[redirects]]
+  from = "/thailand"
+  to = "/thai/"
+  status = 301

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not found · Jabarios</title>
+<meta name="description" content="That page isn't here.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#E9DCC3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--lacquer:#1A120D;--limewash:#E9DCC3;--chili:#A83B27}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:var(--limewash);color:var(--lacquer);
+  font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.6;
+  padding:40px 22px;text-align:center;
+}
+.box{max-width:34ch}
+p.code{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;opacity:.55;margin:0 0 16px;
+}
+h1{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:600;letter-spacing:-.03em;
+  font-size:clamp(38px,9vw,62px);line-height:1.02;margin:0 0 16px;
+}
+h1 em{font-style:normal;color:var(--chili)}
+p.say{margin:0 0 30px;opacity:.82}
+a.home{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  background:var(--lacquer);color:var(--limewash);
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;padding:13px 22px;border-radius:999px;
+  transition:transform .22s cubic-bezier(.2,.7,.3,1);
+}
+a.home:hover{transform:translateY(-2px)}
+a.home:focus-visible{outline:2px solid var(--chili);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){a.home{transition:none}}
+</style>
+</head>
+<body>
+  <div class="box">
+    <p class="code">Error 404</p>
+    <h1>No trip <em>this way</em>.</h1>
+    <p class="say">That page has either moved or was never here. The list of everywhere we're going is one tap away.</p>
+    <a class="home" href="/">
+      <svg width="13" height="9" viewBox="0 0 13 9" fill="none" aria-hidden="true"><path d="M13 4.5H1M4.5 1 1 4.5 4.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All trips
+    </a>
+  </div>
+</body>
+</html>

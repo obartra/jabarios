@@ -40,9 +40,7 @@ const TripSchema = z
         z.object({
           subject: z.string().min(1),
           author: z.string().min(1),
-          licence: z
-            .string()
-            .regex(/^(CC|Public domain)/, 'licence should read like "CC BY-SA 4.0"'),
+          licence: z.string().min(2),
           url: z.url(),
         }),
       )

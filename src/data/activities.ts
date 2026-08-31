@@ -13,7 +13,13 @@ import { z } from 'zod';
 export const CreditSchema = z.object({
   subject: z.string().min(1),
   author: z.string().min(1),
-  licence: z.string().regex(/^(CC|Public domain)/, 'licence should read like "CC BY-SA 4.0"'),
+  /**
+   * How the photo may be used, e.g. "CC BY-SA 4.0", "Public domain", or
+   * "© Cirque du Soleil, used with permission". Free text because not every
+   * usable photo is Creative Commons, but never blank: an uncredited photo is
+   * the thing this field exists to prevent.
+   */
+  licence: z.string().min(2),
   url: z.url(),
 });
 

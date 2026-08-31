@@ -84,8 +84,11 @@ order and the short labels the sticky nav uses.
 
 ## Photos
 
-From Wikimedia Commons under Creative Commons or public domain terms, in
-`public/<slug>/img/`. The cover credit sits on the trip; activity photo credits
+Mostly Wikimedia Commons, under Creative Commons or public domain terms, in
+`public/<slug>/img/`. The `licence` field is free text rather than CC-only,
+because not every usable photo is Creative Commons, but it is never blank:
+swapping in a photo means updating its credit to say where it came from and on
+what terms. The cover credit sits on the trip; activity photo credits
 sit on the activity and are folded into the trip's list automatically, so a
 photo cannot arrive without attribution. The build fails if a trip bundles more
 photos than it credits, or if a declared credit never renders.

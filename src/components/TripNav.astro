@@ -53,6 +53,23 @@ const { sections = [] } = Astro.props;
     border-bottom: 1px solid var(--rule);
   }
 
+  /* The list scrolls sideways on narrow screens. Without this the last item
+     just gets cut off and nothing suggests there is more to the right. */
+  .topnav::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 34px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(233, 220, 195, 0), rgba(233, 220, 195, 0.94));
+  }
+
+  @media (min-width: 780px) {
+    .topnav::after {
+      display: none;
+    }
+  }
+
   ul {
     display: flex;
     gap: 0;

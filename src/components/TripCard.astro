@@ -18,7 +18,7 @@ const chips = [...trip.places, ...trip.notes];
 ---
 
 <a
-  class:list={['trip', 'rev', { feature: trip.featured }]}
+  class="trip rev"
   href={trip.href}
   data-trip
   data-slug={trip.slug}
@@ -83,15 +83,6 @@ const chips = [...trip.places, ...trip.notes];
     transition:
       transform 0.32s cubic-bezier(0.2, 0.7, 0.3, 1),
       box-shadow 0.32s ease;
-  }
-
-  /* The featured trip runs the full row, so it reads as the headline whether
-     there is one trip on the page or nine. */
-  @media (min-width: 760px) {
-    .trip.feature {
-      grid-column: 1 / -1;
-      min-height: 420px;
-    }
   }
 
   .trip:hover {

@@ -66,7 +66,6 @@ const entry = `  {
     notes: [],
     cover: '/${slug}/img/TODO.jpg',
     coverAlt: 'TODO: describe the cover photo.',
-    featured: false,
     credits: [],
   },
 `;

@@ -1,0 +1,368 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import ActivityCard from '../../components/ActivityCard.astro';
+import { tripBySlug } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { durationDays } from '../../lib/trips.ts';
+
+const trip = tripBySlug('vegas');
+const groups = groupedFor('vegas');
+const nights = durationDays(trip) - 1;
+
+const sections = groups.map((g) => ({ href: `#${g.id}`, label: g.short }));
+
+const who = [
+  { name: 'Os', detail: '38' },
+  { name: 'Jabari', detail: '30' },
+  { name: 'Karen', detail: '64' },
+  { name: 'Sa', detail: '50s' },
+];
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  'Four of us, nine nights, arriving on the 18th and flying home on the 27th.';
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{trip.name} · {trip.dateLabel}</p>
+      <h1>Vegas for Christmas, and <em>none of it is compulsory</em>.</h1>
+      <p class="lede">{trip.lede}</p>
+
+      <div class="who">
+        {
+          who.map((p) => (
+            <span class="person">
+              {p.name}
+              <span>{p.detail}</span>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </header>
+
+  <TripNav sections={sections} />
+
+  <section class="shape">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <h2>The idea</h2>
+          <p>
+            This is a pile of things that looked fun, not a plan. Nothing is booked and nothing is
+            decided. Some of it we might do all together, some in twos, some not at all, and that is
+            the whole point of writing it down rather than agreeing an itinerary.
+          </p>
+          <p>
+            Prices are per person unless a card says otherwise, and they are roughly what to expect
+            rather than a quote.
+          </p>
+        </div>
+        <ul class="notes">
+          <li>
+            <b>Doing things apart is fine.</b> Os has work on some of the days, the skydive is not everyone's
+            idea of a morning, and Piranha at one in the morning is definitely not. Most of this works
+            as a two, and some of it works alone.
+          </li>
+          <li>
+            <b>{nights} nights is a long time in Vegas.</b> The Strip wears thin well before the last
+            day, which is why about a third of the cards below are an hour or more out of town.
+          </li>
+          <li>
+            <b>None of us really gamble.</b> Vdara and the Waldorf Astoria are both at CityCenter, both
+            non-gaming and non-smoking, and both do two-bedroom suites, if walking through a lobby instead
+            of a slot floor sounds better.
+          </li>
+          <li>
+            <b>The rodeo misses us.</b> The National Finals Rodeo runs 3 to 12 December, so it is gone
+            before we land. Christmas week is still busy and priced like it.
+          </li>
+          <li>
+            <b>December is properly cold after dark.</b> Highs around 14°C, lows near 4°C. Every outdoor
+            thing here wants a coat.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {
+    groups.map((group, gi) => (
+      <section id={group.id} class:list={['group', { alt: gi % 2 === 1 }]}>
+        <div class="wrap">
+          <div class="head">
+            <h2>{group.label}</h2>
+            <p>{group.note}</p>
+          </div>
+          <div class="grid">
+            {group.items.map((activity, i) => (
+              <ActivityCard activity={activity} eager={gi === 0 && i === 0} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="book">
+    <div class="wrap">
+      <h2>What needs a head start</h2>
+      <p class="intro">
+        Only relevant for whatever we actually feel like doing. Roughly in the order things stop
+        being available.
+      </p>
+      <ol class="order">
+        <li><b>"O"</b><span>Christmas week fills up, and it is dark two nights a week.</span></li>
+        <li><b>Helicopter</b><span>Afternoon slots go first, and winter weather cancels.</span></li>
+        <li><b>Skydive</b><span>Morning slots are the calm ones and the popular ones.</span></li>
+        <li>
+          <b>Battlefield Vegas</b><span>
+            Worth a phone call rather than a web booking, since only the two-person package is
+            published.</span
+          >
+        </li>
+        <li><b>Omega Mart, Neon Museum</b><span>Both timed entry, and dusk goes first.</span></li>
+        <li><b>A car</b><span>Needed for anything in the out-of-town section.</span></li>
+      </ol>
+      <p class="caveat">
+        Prices and schedules here were checked in August 2026 and none of it is booked. Worth
+        confirming before anyone plans a day around it, especially on 24 and 25 December, when
+        opening hours across the city move.
+      </p>
+    </div>
+  </section>
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 60px 0 40px;
+  }
+
+  .hero h1 {
+    max-width: 15ch;
+    font-size: clamp(40px, 8.4vw, 92px);
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--chili);
+  }
+
+  .lede {
+    max-width: 48ch;
+    margin-top: 22px;
+    font-size: clamp(17px, 2.1vw, 20px);
+    opacity: 0.86;
+  }
+
+  .who {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .person {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 18, 13, 0.24);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .person span {
+    opacity: 0.5;
+  }
+
+  section {
+    padding: 62px 0;
+  }
+
+  .shape {
+    padding-top: 54px;
+  }
+
+  .cols {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+
+  .cols h2 {
+    font-size: clamp(24px, 3.4vw, 30px);
+  }
+
+  .cols p {
+    margin-top: 14px;
+    max-width: 46ch;
+    opacity: 0.86;
+  }
+
+  .notes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+
+  .notes li {
+    padding-left: 16px;
+    border-left: 2px solid var(--marigold);
+    font-size: 15.5px;
+    line-height: 1.55;
+    opacity: 0.9;
+  }
+
+  .notes b {
+    font-weight: 600;
+  }
+
+  .group.alt {
+    background: rgba(26, 18, 13, 0.035);
+  }
+
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 18px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .head h2 {
+    font-size: clamp(26px, 4vw, 36px);
+  }
+
+  .head p {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.58;
+  }
+
+  .grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  }
+
+  .book {
+    background: var(--abyss);
+    color: var(--foam);
+  }
+
+  .book h2 {
+    font-size: clamp(26px, 4vw, 36px);
+    margin-bottom: 24px;
+  }
+
+  .order {
+    display: grid;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .order li {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 12ch) 1fr;
+    gap: 14px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+    counter-increment: step;
+  }
+
+  .order li::before {
+    content: '0' counter(step);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    opacity: 0.45;
+  }
+
+  .order b {
+    font-weight: 600;
+  }
+
+  .order span {
+    font-size: 15px;
+    opacity: 0.8;
+  }
+
+  .intro {
+    max-width: 54ch;
+    margin: -10px 0 26px;
+    opacity: 0.78;
+  }
+
+  .caveat {
+    margin: 26px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+    max-width: 62ch;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.7;
+    opacity: 0.6;
+  }
+
+  @media (min-width: 900px) {
+    .cols {
+      grid-template-columns: 1fr 1.15fr;
+      gap: 54px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 40px 0 30px;
+    }
+
+    section {
+      padding: 46px 0;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .head {
+      margin-bottom: 20px;
+    }
+
+    /* Stack the step number above the label so long text keeps its width. */
+    .order li {
+      grid-template-columns: 26px 1fr;
+      gap: 4px 12px;
+      padding: 16px 0;
+    }
+
+    .order b {
+      grid-column: 2;
+    }
+
+    .order span {
+      grid-column: 2;
+    }
+  }
+</style>

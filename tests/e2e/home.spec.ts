@@ -7,7 +7,7 @@ test.describe('homepage', () => {
 
   test('shows a card per trip and links through to it', async ({ page }) => {
     const cards = page.locator('[data-trip]');
-    await expect(cards).toHaveCount(1);
+    await expect(cards).toHaveCount(2);
 
     const thai = cards.filter({ hasText: 'Thailand' });
     await expect(thai.getByRole('heading', { name: 'Thailand' })).toBeVisible();

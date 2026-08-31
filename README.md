@@ -6,14 +6,16 @@ runtime. Netlify builds and deploys every push to `main`.
 ```
 src/
   data/trips.ts          one entry per trip, Zod-validated at build time
+  data/activities.ts     things to do, per trip, with price, duration and credit
   lib/trips.ts           pure date/status logic, shared by build and browser
   layouts/BaseLayout     <head>, fonts, canonical and social tags
-  components/            AppBar, TripNav, TripCard, SiteFooter
+  components/            AppBar, TripNav, TripCard, ActivityCard, SiteFooter
   pages/
     index.astro          homepage, generated from the trip data
     404.astro
     _template/           starter trip page, not routed
     thai/index.astro     Thailand
+    vegas/index.astro    Las Vegas
   scripts/               browser code (reveal, homepage filter and countdown)
   styles/global.css      design tokens and the base layer
 public/                  favicon and per-trip photos, served as-is
@@ -72,8 +74,18 @@ on scroll, the filter and its empty state, the live countdown, the back link,
 no horizontal scroll, no failing requests including lazy-loaded photos, and a
 real 404 status on an unknown path.
 
+## Activities
+
+A trip page can be an itinerary (Thailand) or a scannable menu of options
+(Vegas). For the second kind, add entries to `src/data/activities.ts` under the
+trip's slug. Each one needs a price, a duration, a photo and its credit, and
+renders as a card grouped under its category. `CATEGORIES` sets the section
+order and the short labels the sticky nav uses.
+
 ## Photos
 
-From Wikimedia Commons under Creative Commons licences, in `public/<slug>/img/`
-with attribution in that trip's `credits` array. The build fails if a trip
-bundles photos without credits, or if a declared credit never renders.
+From Wikimedia Commons under Creative Commons or public domain terms, in
+`public/<slug>/img/`. The cover credit sits on the trip; activity photo credits
+sit on the activity and are folded into the trip's list automatically, so a
+photo cannot arrive without attribution. The build fails if a trip bundles more
+photos than it credits, or if a declared credit never renders.

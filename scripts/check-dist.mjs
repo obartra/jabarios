@@ -66,6 +66,9 @@ const BROCHURE = [
   'paradise',
 ];
 
+// Real places whose names collide with the list above.
+const PROPER_NOUNS = ['paradise road', 'paradise, nevada'];
+
 function visibleText(html) {
   // Comments first: one containing a '>' would otherwise leak its tail into
   // the text and trip these rules on an ordinary code note.
@@ -128,7 +131,10 @@ for (const file of pages) {
       .trim();
     fail(rel, `em dash in copy, use a comma, a full stop or "·": "…${near}…"`);
   }
-  const lower = text.toLowerCase();
+  // Strip proper nouns that legitimately contain a listed word before scanning,
+  // so a real street name does not read as brochure copy.
+  let lower = text.toLowerCase();
+  for (const name of PROPER_NOUNS) lower = lower.split(name).join(' ');
   for (const word of BROCHURE) {
     if (lower.includes(word)) fail(rel, `brochure phrasing "${word}" in copy`);
   }

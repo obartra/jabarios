@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { activitiesFor } from './activities.ts';
 import { formatRange, parseDay } from '../lib/trips.ts';
 
 /**
@@ -29,8 +30,6 @@ const TripSchema = z
     /** Card and social image, resolved from public/. */
     cover: z.string().startsWith('/'),
     coverAlt: z.string().min(1),
-    /** Runs the full width of the grid on desktop. */
-    featured: z.boolean().default(false),
     /**
      * Per-photo attribution. Creative Commons requires it, so it is required
      * here too, and scripts/check-dist.mjs fails the build if a bundled photo
@@ -41,7 +40,9 @@ const TripSchema = z
         z.object({
           subject: z.string().min(1),
           author: z.string().min(1),
-          licence: z.string().regex(/^CC /, 'licence should read like "CC BY-SA 4.0"'),
+          licence: z
+            .string()
+            .regex(/^(CC|Public domain)/, 'licence should read like "CC BY-SA 4.0"'),
           url: z.url(),
         }),
       )
@@ -76,7 +77,6 @@ const raw: unknown[] = [
     cover: '/thai/img/similan.jpg',
     coverAlt:
       'Granite boulders and turquoise shallows on Similan Island 8, seen from the ridge above the bay',
-    featured: true,
     credits: [
       {
         subject: 'Wat Arun',
@@ -128,6 +128,30 @@ const raw: unknown[] = [
       },
     ],
   },
+  {
+    slug: 'vegas',
+    name: 'Las Vegas',
+    start: '2026-12-18',
+    end: '2026-12-27',
+    countries: 1,
+    lede: 'We thought Christmas in Vegas would be fun. Four of us, nine nights, and a long list of things we could do: skydiving, a tank, the Grand Canyon from the air, and the desert on the days the Strip wears thin. None of it is booked.',
+    blurb:
+      'Four of us over Christmas. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
+    description:
+      'Four of us in Vegas over Christmas 2026. Skydiving, tanks, the Grand Canyon by helicopter, odd museums and the desert. Ideas, not a plan.',
+    places: ['The Strip', 'Boulder City', 'Grand Canyon West'],
+    notes: ['9 nights', 'No gambling'],
+    cover: '/vegas/img/strip.jpg',
+    coverAlt: 'The Las Vegas Strip at night from the air, lit along its whole length',
+    credits: [
+      {
+        subject: 'Las Vegas Strip at night',
+        author: 'Carol M. Highsmith',
+        licence: 'Public domain',
+        url: 'https://commons.wikimedia.org/wiki/File:Night_aerial_view,_Las_Vegas,_Nevada,_04649u.jpg',
+      },
+    ],
+  },
   // <new-trip> scripts/new-trip.mjs inserts above this line.
 ];
 
@@ -154,6 +178,9 @@ function load(): Trip[] {
 
   return parsed.map((trip) => ({
     ...trip,
+    // Activity photos carry their own credit; merge them in so the footer and
+    // scripts/check-dist.mjs both see one complete list per trip.
+    credits: [...trip.credits, ...activitiesFor(trip.slug).map((a) => a.credit)],
     dateLabel: formatRange(trip.start, trip.end),
     title: `${trip.name} · ${formatRange(trip.start, trip.end)}`,
     href: `/${trip.slug}/`,

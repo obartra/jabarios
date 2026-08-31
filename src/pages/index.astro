@@ -287,7 +287,9 @@ const stats = [
   .grid {
     display: grid;
     gap: 18px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* auto-fit, not auto-fill: with two trips the third track collapses and the
+       cards share the row instead of leaving a gap. */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   }
 
   .empty {

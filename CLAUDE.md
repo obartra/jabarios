@@ -15,6 +15,13 @@ two will disagree eventually.
 <slug> "<Name>" <start> <end>` gets the chrome, meta tags and nav right.
 Copying a page carries over the previous trip's canonical and og tags.
 
+**Always add the trip to `src/data/trips.ts` so it appears on the homepage.**
+A trip page nobody can navigate to is a trip page nobody reads. The homepage
+card, and therefore the only route to the page, is generated from that entry;
+the scaffolder adds it for you, and `scripts/check-dist.mjs` fails the build
+both ways, for a trip with no card and for a card with no trip. Never link a
+trip only from another trip page.
+
 **Shared chrome is a component.** `AppBar`, `TripNav`, `TripCard` and
 `SiteFooter` exist so trips look alike. Page-specific styling belongs in the
 page; anything a second trip would want belongs in `src/styles/global.css` or
@@ -34,7 +41,13 @@ for commit messages, PR bodies or code comments, and it is separate from the
 to people.
 
 The register already exists on the Thailand page. Match it. Every example
-below is real copy from `thai/index.html`.
+below is real copy from `src/pages/thai/index.astro`.
+
+**One thing overrides all of it: who the page is for.** The Thailand page is
+one person's own plan, so it can be direct and tell them what to do. A page
+shared with the people coming on the trip is not that, and the Vegas page is
+the model for those: it offers, it does not instruct. See "Shared trip pages"
+below.
 
 **Write to whoever is going.** Second person, direct.
 
@@ -89,6 +102,30 @@ way that sounds like a person who has been there.
 **Say when you are not sure.** Hedge on the fact, not on the recommendation.
 
 > sources put it around 10–18 October
+
+### Shared trip pages
+
+When a page is for everyone on the trip rather than for one person planning it,
+the register softens. The Vegas page is the reference.
+
+**Offer, do not instruct.** "The dusk slot is the good one" rather than "book
+the dusk slot". "Morning slots are the calm ones" rather than "take the first
+slot". Describe the thing and let people decide.
+
+**Say out loud that nothing is compulsory.** People split up, some work, some
+sleep in, some are not doing the 1am club. A shared page should make doing
+things separately feel expected rather than like defecting.
+
+**"We" and "us", never "you should".** "The rodeo misses us." "Two of these
+suit all four of us." The page is written from inside the group.
+
+**Never imply a decision has been made.** "None of it is booked" and "ideas
+rather than a plan" are load-bearing. Anything that reads like a schedule
+creates an obligation the page did not mean to create.
+
+**Constraints stay factual, and that is not pressure.** Weight limits, age
+limits, timed entry and closing times are useful precisely because they are
+neutral. Keep those; it is the verbs around them that need softening.
 
 ### Do not
 

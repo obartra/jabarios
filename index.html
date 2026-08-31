@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jabarios · Trips</title>
-<meta name="description" content="Where we're going and where we've been. Plans, days, dives and what to book first.">
+<meta name="description" content="Where we're going and where we've been. The days, the dives, and what has to be booked before it goes.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jabarios">
 <meta property="og:title" content="Jabarios · Trips">
@@ -269,7 +269,7 @@ footer .fine{
   <div class="wrap">
     <p class="eyebrow">Os &amp; Jabari</p>
     <h1>Everywhere we're <em>meaning to go</em>.</h1>
-    <p class="lede">One page per trip. The plan, the days, what's booked and what still isn't. Kept honest as it changes.</p>
+    <p class="lede">Hot countries, early starts, and as much time under the water as we can get. Pick a trip.</p>
 
     <div class="stats">
       <div class="stat"><b data-stat="trips">1</b><span>Trip</span></div>
@@ -388,7 +388,7 @@ footer .fine{
   setStat('days', totalDays);
   setStat('next', soonest
     ? new Date(at(soonest, 'start')).toLocaleDateString('en-GB', {month:'short', timeZone:'UTC'})
-    : '—');
+    : 'None');
 
   // ---- next-up countdown -------------------------------------------------
   var strip = document.getElementById('nextup');

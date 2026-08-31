@@ -74,6 +74,41 @@ for (const file of pages) {
   }
 }
 
+// --- house style, the mechanical half of it (see CLAUDE.md for the rest) ---
+// Voice is mostly a judgement call, but two rules are objective enough to pin:
+// no em dashes, and no travel-brochure adjectives. Both are things that creep
+// back in whenever copy gets rewritten.
+const BROCHURE = [
+  'must-see', 'must see', 'breathtaking', 'hidden gem', 'unforgettable',
+  'bucket list', 'stunning', 'nestled', 'vibrant', 'idyllic', 'picturesque',
+  'a feast for the senses', 'like no other', 'world-class', 'paradise',
+];
+
+for (const file of pages) {
+  const rel = relative(ROOT, file);
+  const html = readFileSync(file, 'utf8');
+
+  // Visible copy only: drop comments and script/style bodies first, then tags
+  // and entities. Comments must go before tags, or a comment containing a '>'
+  // leaks its tail into the text and trips these rules on a code note.
+  const text = html
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style)\b[\s\S]*?<\/\1>/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z]+;/g, ' ');
+
+  // Ranges like "15–20 Oct" are fine; em dashes as connectors are not.
+  if (text.includes('\u2014')) {
+    const at = text.indexOf('\u2014');
+    fail(rel, `em dash in copy, use a comma, a full stop or "·": "…${text.slice(Math.max(0, at - 40), at + 40).replace(/\s+/g, ' ').trim()}…"`);
+  }
+
+  const lower = text.toLowerCase();
+  for (const word of BROCHURE) {
+    if (lower.includes(word)) fail(rel, `brochure phrasing "${word}" in copy`);
+  }
+}
+
 // --- trip cards on the homepage drive the pills, stats and countdown ---
 const home = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const cards = [...home.matchAll(/<a class="trip[^"]*"[\s\S]*?<\/a>/g)].map((m) => m[0]);

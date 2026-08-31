@@ -37,11 +37,27 @@ test.describe('Vegas page', () => {
     }
   });
 
-  test('keeps every card image the same height within a row', async ({ page }) => {
-    const heights = await page
-      .locator('section#big .card img')
-      .evaluateAll((imgs) => imgs.map((i) => Math.round(i.getBoundingClientRect().height)));
-    expect(new Set(heights).size).toBe(1);
+  test('keeps every card image the same height within a section', async ({ page }) => {
+    for (const id of ['big', 'cirque', 'museum']) {
+      const heights = await page
+        .locator(`section#${id} .card img`)
+        .evaluateAll((imgs) => imgs.map((i) => Math.round(i.getBoundingClientRect().height)));
+      expect(new Set(heights).size, `section #${id} has ragged image heights`).toBe(1);
+    }
+  });
+
+  test('shows the Cirque photos taller than the landscape ones', async ({ page }) => {
+    const ratio = (sel: string) =>
+      page
+        .locator(sel)
+        .first()
+        .evaluate((img) => {
+          const r = img.getBoundingClientRect();
+          return r.height / r.width;
+        });
+    expect(await ratio('section#cirque .card img')).toBeGreaterThan(
+      await ratio('section#big .card img'),
+    );
   });
 
   test('credits every bundled photo in the footer', async ({ page }) => {
@@ -58,6 +74,22 @@ test.describe('Vegas page', () => {
       await expect(link).toHaveAttribute('target', '_blank');
       await expect(link).toHaveAttribute('rel', /noopener/);
     }
+  });
+
+  test('decodes the Cirque photos, which are AVIF', async ({ page }) => {
+    await page.locator('section#cirque').scrollIntoViewIfNeeded();
+    await page.waitForLoadState('networkidle');
+    const widths = await page.evaluate(() =>
+      [...document.querySelectorAll<HTMLImageElement>('section#cirque img')].map((i) => ({
+        src: i.src.split('/').pop(),
+        natural: i.naturalWidth,
+      })),
+    );
+    // Catches a missing or corrupt file. It will not catch a wrong content type,
+    // since Chromium sniffs image bytes regardless of what the server claims.
+    // Guard against the selector matching nothing and the check passing empty.
+    expect(widths).toHaveLength(5);
+    expect(widths.filter((w) => w.natural === 0)).toEqual([]);
   });
 
   test('never scrolls sideways', async ({ page }) => {

@@ -42,6 +42,15 @@ test.describe('trip page', () => {
 
     expect(failed).toEqual([]);
   });
+
+  test('actually decodes every image, not just fetches it', async ({ page }) => {
+    // A 200 with the wrong content type still counts as "served"; this checks
+    // the browser could really decode the bytes.
+    const broken = await page.evaluate(() =>
+      [...document.images].filter((i) => i.complete && i.naturalWidth === 0).map((i) => i.src),
+    );
+    expect(broken).toEqual([]);
+  });
 });
 
 test.describe('404', () => {

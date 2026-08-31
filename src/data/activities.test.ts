@@ -51,6 +51,23 @@ describe('activities', () => {
     }
   });
 
+  it('keeps one photo aspect per category, or rows end up ragged', () => {
+    const byCategory = new Map<string, Set<string>>();
+    for (const a of vegas) {
+      if (!byCategory.has(a.category)) byCategory.set(a.category, new Set());
+      byCategory.get(a.category)!.add(a.aspect);
+    }
+    for (const [category, aspects] of byCategory) {
+      expect(aspects.size, `category "${category}" mixes ${[...aspects].join(' and ')}`).toBe(1);
+    }
+  });
+
+  it('gives the Cirque cards the portrait crop their photos are shot in', () => {
+    const cirque = vegas.filter((a) => a.category === 'cirque');
+    expect(cirque.length).toBe(5);
+    for (const a of cirque) expect(a.aspect).toBe('portrait');
+  });
+
   it('puts every activity in a known category', () => {
     const ids = new Set(CATEGORIES.map((c) => c.id));
     for (const a of vegas) expect(ids.has(a.category)).toBe(true);

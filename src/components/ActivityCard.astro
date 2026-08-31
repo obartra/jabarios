@@ -12,14 +12,14 @@ const free = /^free/i.test(activity.price);
 ---
 
 <article class="card rev">
-  <div class="shot">
+  <div class:list={['shot', activity.aspect]}>
     <img
       src={activity.photo}
       alt={activity.photoAlt}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
-      width="1600"
-      height="1067"
+      width={activity.aspect === 'portrait' ? 1480 : 1600}
+      height={activity.aspect === 'portrait' ? 1850 : 1067}
     />
   </div>
 
@@ -79,6 +79,13 @@ const free = /^free/i.test(activity.price);
     height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
+  }
+
+  /* Show photography is shot tall. Cropping it to landscape throws most of the
+     frame away, so those cards keep a portrait crop instead. Every card in a
+     category shares one aspect, so rows still line up. */
+  .shot.portrait img {
+    aspect-ratio: 4 / 5;
   }
 
   .body {
@@ -187,6 +194,10 @@ const free = /^free/i.test(activity.price);
   @media (max-width: 560px) {
     .shot img {
       aspect-ratio: 16 / 9;
+    }
+
+    .shot.portrait img {
+      aspect-ratio: 1 / 1;
     }
 
     .body {

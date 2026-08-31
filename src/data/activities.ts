@@ -156,7 +156,11 @@ const raw: Record<string, unknown[]> = {
       duration: '90 minutes',
       blurb:
         'Acrobatics in, on and above a pool holding a million and a half gallons, and the one most people mean when they say they saw a Cirque show. Running since 1998.',
-      facts: ['Bellagio, middle Strip', 'No performances two nights a week', 'The first few rows get wet'],
+      facts: [
+        'Bellagio, middle Strip',
+        'No performances two nights a week',
+        'The first few rows get wet',
+      ],
       photo: '/vegas/img/bellagio.jpg',
       photoAlt: 'The Bellagio fountains at night in front of the hotel',
       link: 'https://www.bellagio.com/en/entertainment/o-cirque-du-soleil.html',

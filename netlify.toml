@@ -1,9 +1,12 @@
-# Static site, no build step. Everything under the repo root is published as-is.
+# Astro static build. `npm run build` runs `astro build` and then
+# scripts/check-dist.mjs, so a dead link, a missing photo credit, a wrong
+# canonical or brochure copy fails the deploy rather than shipping.
 [build]
-  publish = "."
-  # No bundler; this just refuses to deploy a build with dead links or a
-  # malformed trip card. See scripts/check.mjs.
-  command = "node scripts/check.mjs"
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
 
 [[headers]]
   for = "/*"
@@ -11,7 +14,13 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Trip photos are content-stable, so let them cache hard.
+# Astro fingerprints these, so they can never go stale.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Trip photos are content-stable.
 [[headers]]
   for = "/*/img/*"
   [headers.values]

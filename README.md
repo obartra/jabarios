@@ -1,60 +1,79 @@
 # jabarios.com
 
-Trip pages. Hand-written static HTML, no framework, no build step. Netlify
-publishes the repo root as-is on every push to `main`.
+Trip pages. [Astro](https://astro.build) static build, no client framework, no
+runtime. Netlify builds and deploys every push to `main`.
 
 ```
-index.html          homepage, the list of trips
-404.html
-favicon.svg
-thai/index.html     Thailand, 15 Oct – 1 Nov 2026
-thai/img/*.jpg      photos for that trip, bundled with the page
-netlify.toml        publish settings, headers, redirects
-scripts/check.mjs   pre-deploy integrity check (runs as the build command)
+src/
+  data/trips.ts          one entry per trip, Zod-validated at build time
+  lib/trips.ts           pure date/status logic, shared by build and browser
+  layouts/BaseLayout     <head>, fonts, canonical and social tags
+  components/            AppBar, TripNav, TripCard, SiteFooter
+  pages/
+    index.astro          homepage, generated from the trip data
+    404.astro
+    _template/           starter trip page, not routed
+    thai/index.astro     Thailand
+  scripts/               browser code (reveal, homepage filter and countdown)
+  styles/global.css      design tokens and the base layer
+public/                  favicon and per-trip photos, served as-is
+scripts/
+  new-trip.mjs           scaffolds a trip
+  check-dist.mjs         post-build checks, run as part of `npm run build`
+  serve-dist.mjs         Netlify-shaped static server, used by the e2e tests
+tests/e2e/               Playwright, desktop and mobile
 ```
 
 ## Adding a trip
 
-1. Make the folder: `mkdir -p <slug>/img`, and put the page at
-   `<slug>/index.html`. It gets served at `/<slug>/`.
-2. Copy a card in `index.html` and edit it. That block is the only thing the
-   homepage needs:
-
-```html
-<a class="trip rev" href="/<slug>/"
-   data-name="Place" data-start="2027-03-04" data-end="2027-03-18" data-countries="1">
+```bash
+node scripts/new-trip.mjs vegas "Las Vegas" 2026-12-18 2026-12-27
 ```
 
-Everything else is derived at runtime from those dates: the status pill
-(Upcoming / Happening now / Past), the Upcoming/Past filter, the trip and day
-counts in the header, and the countdown to the next departure. Nothing to
-update by hand when a trip becomes the past.
+That writes the entry in `src/data/trips.ts`, the page at
+`src/pages/vegas/index.astro`, and `public/vegas/img/`. Fill in the TODOs in
+the data entry, drop a cover photo in with its credit, and write the page.
 
-Add `class="trip feature rev"` to let a card span two columns on desktop.
+Everything else follows from the data entry and needs no edit: the homepage
+card, the status pill, the day count, the country and days-away totals, the
+countdown to the next departure, the Upcoming/Past filter, the page title,
+canonical, and the social tags. A trip that becomes the past updates itself.
 
-## Checks
+## Commands
 
 ```bash
-node scripts/check.mjs
+npm run dev        # local dev server
+npm run verify     # everything CI runs, in the same order
+npm run build      # astro build, then the post-build checks
+npm test           # unit tests
+npm run test:e2e   # Playwright, against the real build
 ```
 
-Verifies every local `href`/`src` resolves to a real file, that each page has a
-title, description and `lang`, that every `<img>` has `alt`, and that each trip
-card has parseable dates and a live link. Netlify runs it as the build command,
-so a dead link fails the deploy rather than shipping. It also runs in CI on
-every push and PR.
+## What is checked
 
-## Local preview
+CI runs formatting, lint, types, unit tests, the build and the end-to-end
+suite. Netlify runs the build, which includes `scripts/check-dist.mjs`, so a
+broken deploy fails rather than ships.
 
-```bash
-python3 -m http.server 8000
-```
+**Unit** (`src/**/*.test.ts`) covers the date logic: trip duration across a
+daylight-saving change, status on the departure and return day, next-trip
+selection, sorting, countdown, and date-range formatting. Plus the trip data
+itself: unique slugs, dates in order, description length, cover alt text.
 
-Then open http://localhost:8000. Use a server rather than opening the file
-directly, so the root-relative links (`/thai/`, `/favicon.svg`) resolve.
+**Post-build** (`scripts/check-dist.mjs`) runs against `dist/`, so it inspects
+what actually gets served: dead links, missing title/description/lang, images
+without alt text, canonicals that disagree with the URL they are served at,
+`og:image` that is not in the build, every trip having both a page and a card,
+every bundled photo having a credit that renders, and the house style rules
+from `CLAUDE.md`.
+
+**End to end** (`tests/e2e/`) covers what only a browser can: cards revealing
+on scroll, the filter and its empty state, the live countdown, the back link,
+no horizontal scroll, no failing requests including lazy-loaded photos, and a
+real 404 status on an unknown path.
 
 ## Photos
 
-From Wikimedia Commons under Creative Commons licences, bundled per trip.
-Per-photo attribution is in the footer of each trip page. Keep it there when
-adding photos.
+From Wikimedia Commons under Creative Commons licences, in `public/<slug>/img/`
+with attribution in that trip's `credits` array. The build fails if a trip
+bundles photos without credits, or if a declared credit never renders.

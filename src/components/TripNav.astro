@@ -1,0 +1,124 @@
+---
+interface Section {
+  /** In-page anchor, e.g. "#bangkok". */
+  href: string;
+  label: string;
+  /** Optional day range shown faintly after the label, e.g. "15–20". */
+  dates?: string;
+}
+
+interface Props {
+  sections?: Section[];
+}
+
+const { sections = [] } = Astro.props;
+---
+
+<nav class="topnav" aria-label="Sections">
+  <ul>
+    <li>
+      <a class="back" href="/" aria-label="All trips">
+        <svg width="13" height="9" viewBox="0 0 13 9" fill="none" aria-hidden="true">
+          <path
+            d="M13 4.5H1M4.5 1 1 4.5 4.5 8"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        Trips
+      </a>
+    </li>
+    {
+      sections.map((section) => (
+        <li>
+          <a href={section.href}>
+            {section.label}
+            {section.dates && <span class="dt">{section.dates}</span>}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(233, 220, 195, 0.94);
+    backdrop-filter: saturate(1.2) blur(8px);
+    -webkit-backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  ul {
+    display: flex;
+    gap: 0;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  a {
+    display: block;
+    padding: 13px 16px;
+    white-space: nowrap;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  li + li a {
+    border-left: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .dt {
+    margin-left: 7px;
+    opacity: 0.5;
+  }
+
+  .back {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--chili);
+    font-weight: 500;
+  }
+
+  .back svg {
+    transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+
+  .back:hover svg {
+    transform: translateX(-3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .back svg {
+      transition: none;
+    }
+  }
+
+  /* Narrow screens lose the day ranges rather than scrolling for them. */
+  @media (max-width: 640px) {
+    .dt {
+      display: none;
+    }
+
+    a {
+      padding: 13px 14px;
+    }
+  }
+</style>

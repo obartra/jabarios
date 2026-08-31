@@ -1,0 +1,102 @@
+---
+interface Props {
+  /** Per-photo attribution, required wherever photos are shown. */
+  credits?: { subject: string; author: string; licence: string; url: string }[];
+  /** Optional closing line above the credits. */
+  note?: string;
+}
+const { credits = [], note } = Astro.props;
+---
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a class="mark" href="/"><span class="dot" aria-hidden="true"></span>Jabarios</a>
+      <p>jabarios.com</p>
+    </div>
+
+    {note && <p class="note" set:html={note} />}
+
+    {
+      credits.length > 0 ? (
+        <p class="fine">
+          Photographs from Wikimedia Commons, bundled with the page.
+          {credits.map((c) => (
+            <>
+              <br />
+              {c.subject} · {c.author}, {c.licence} · <a href={c.url}>source</a>
+            </>
+          ))}
+        </p>
+      ) : (
+        <p class="fine">
+          Photographs from Wikimedia Commons under Creative Commons licences. Credits on each trip
+          page.
+        </p>
+      )
+    }
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: 72px;
+    padding: 44px 0 40px;
+    background: var(--lacquer);
+    color: var(--limewash);
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 30px;
+    align-items: baseline;
+  }
+
+  .mark {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-right: auto;
+    color: var(--limewash);
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+  }
+
+  .dot {
+    flex: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--chili);
+  }
+
+  .row p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.62;
+  }
+
+  .note {
+    margin: 22px 0 0;
+    opacity: 0.78;
+  }
+
+  .fine {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(233, 220, 195, 0.16);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    opacity: 0.42;
+  }
+
+  .fine a {
+    color: inherit;
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path of this page, e.g. "/thai/". Drives canonical and og:url. */
+  path: string;
+  /** Absolute path under public/, e.g. "/thai/img/similan.jpg". */
+  image?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  themeColor?: string;
+}
+
+const {
+  title,
+  description,
+  path,
+  image = '/thai/img/similan.jpg',
+  ogType = 'website',
+  noindex = false,
+  themeColor = '#E9DCC3',
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://jabarios.com');
+const canonical = new URL(path, site).href;
+const imageUrl = new URL(image, site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Jabarios" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content={themeColor} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    {/* Set before paint so .rev never flashes; see global.css. */}
+    <script is:inline>
+      document.documentElement.className += ' js';
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import { revealOnScroll } from '../scripts/reveal.ts';
+      revealOnScroll();
+    </script>
+  </body>
+</html>

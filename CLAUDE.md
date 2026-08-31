@@ -1,7 +1,29 @@
 # jabarios.com
 
-Trip pages. Hand-written static HTML, no framework, no build step. See
-`README.md` for structure and how to add a trip.
+Trip pages. Astro static build, no client framework. See `README.md` for the
+structure, the commands, and what CI checks.
+
+## Working here
+
+**Trip metadata lives in `src/data/trips.ts` and nowhere else.** Dates, names,
+blurbs, places and photo credits all come from there. The homepage card, the
+day counts, the countdown, the page title and the social tags are derived. If
+you find yourself typing a date into a page, stop: derive it instead, or the
+two will disagree eventually.
+
+**Scaffold a new trip, do not copy an old one.** `node scripts/new-trip.mjs
+<slug> "<Name>" <start> <end>` gets the chrome, meta tags and nav right.
+Copying a page carries over the previous trip's canonical and og tags.
+
+**Shared chrome is a component.** `AppBar`, `TripNav`, `TripCard` and
+`SiteFooter` exist so trips look alike. Page-specific styling belongs in the
+page; anything a second trip would want belongs in `src/styles/global.css` or
+a component.
+
+**Date logic goes in `src/lib/trips.ts` with a test.** It is imported by both
+the build and the browser, so there is one implementation and it is covered.
+
+**Run `npm run verify` before pushing.** It is exactly what CI runs.
 
 ## Voice
 

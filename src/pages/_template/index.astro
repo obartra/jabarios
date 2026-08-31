@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import { tripBySlug } from '../../data/trips.ts';
+
+const trip = tripBySlug('__SLUG__');
+
+// Anchors for the sticky nav. Add one per section below.
+const sections = [{ href: '#plan', label: 'Plan' }];
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{trip.name} · {trip.dateLabel}</p>
+      <h1>__NAME__.</h1>
+      <p class="lede">{trip.lede}</p>
+      <div class="tagrow">
+        {trip.places.map((place) => <span class="tag">{place}</span>)}
+        {trip.notes.map((note) => <span class="tag">{note}</span>)}
+      </div>
+    </div>
+  </header>
+
+  <TripNav sections={sections} />
+
+  <section id="plan">
+    <div class="wrap">
+      <h2>The plan</h2>
+      <p>Write it here. See CLAUDE.md for the voice.</p>
+    </div>
+  </section>
+
+  <SiteFooter credits={trip.credits} />
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 64px 0 40px;
+  }
+
+  .hero h1 {
+    max-width: 14ch;
+    font-size: clamp(46px, 9vw, 104px);
+  }
+
+  .hero h1 :global(em) {
+    font-style: normal;
+    color: var(--chili);
+  }
+
+  .lede {
+    max-width: 46ch;
+    margin-top: 22px;
+    font-size: clamp(17px, 2.1vw, 21px);
+    opacity: 0.86;
+  }
+
+  .tagrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .tag {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 18, 13, 0.24);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  section {
+    padding: 78px 0;
+  }
+</style>

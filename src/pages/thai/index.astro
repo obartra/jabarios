@@ -1,0 +1,1909 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import { tripBySlug } from '../../data/trips.ts';
+
+const trip = tripBySlug('thai');
+
+const sections = [
+  { href: '#bangkok', label: 'Bangkok', dates: '15–20' },
+  { href: '#north', label: 'Chiang Mai', dates: '20–26' },
+  { href: '#andaman', label: 'Khao Lak', dates: '26–31' },
+  { href: '#book', label: 'Book' },
+  { href: '#notes', label: 'Practical' },
+];
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  'Bangkok with Jabari · Chiang Mai and Khao Lak alone · onward to Manila on 1 November.';
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{trip.name} · {trip.dateLabel}</p>
+      <h1>Above the waterline, then <em>well below it</em>.</h1>
+      <p class="lede">{trip.lede}</p>
+      <div class="tagrow">
+        <span class="tag hot">18 days</span>
+        <span class="tag">Bangkok · 5 nights</span>
+        <span class="tag">Chiang Mai · 6 nights</span>
+        <span class="tag">Khao Lak · 5 nights</span>
+        <span class="tag">4 flights</span>
+        <span class="tag">4 dives, day trips</span>
+      </div>
+    </div>
+
+    <div class="wrap profile-shell">
+      <div class="profile-scroll">
+        <svg
+          viewBox="0 0 1200 320"
+          role="img"
+          aria-label="Vertical profile of the trip, from Bangkok at sea level up to Doi Inthanon at 2,565 metres and down to Richelieu Rock at 35 metres below the surface."
+        >
+          <defs>
+            <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#08303B"></stop>
+              <stop offset="100%" stop-color="#04222B"></stop>
+            </linearGradient>
+          </defs>
+          <!-- sea -->
+          <rect x="0" y="132" width="1200" height="188" fill="url(#water)"></rect>
+          <line x1="0" y1="132" x2="1200" y2="132" stroke="#4FD0C6" stroke-width="1" opacity=".7"
+          ></line>
+          <text class="node-val" x="8" y="126">sea level</text>
+
+          <!-- trace -->
+          <polyline
+            class="trace draw"
+            points="70,129 335,127 401,90 534,53 666,11 799,127 866,230 932,127 998,210 1130,129"
+          ></polyline>
+
+          <!-- nodes -->
+          <g>
+            <circle cx="70" cy="129" r="4" fill="#A83B27"></circle>
+            <text class="node-label" x="70" y="112" text-anchor="middle">Bangkok</text>
+            <text class="node-val" x="70" y="98" text-anchor="middle">2 m · 15 Oct</text>
+
+            <circle cx="335" cy="127" r="4" fill="#A83B27"></circle>
+            <text class="node-label" x="335" y="112" text-anchor="middle">Ayutthaya</text>
+            <text class="node-val" x="335" y="98" text-anchor="middle">4 m · 19 Oct</text>
+
+            <circle cx="401" cy="90" r="4" fill="#A83B27"></circle>
+            <text class="node-label" x="401" y="76" text-anchor="middle">Chiang Mai</text>
+            <text class="node-val" x="401" y="62" text-anchor="middle">310 m · 20 Oct</text>
+
+            <circle cx="534" cy="53" r="4" fill="#A83B27"></circle>
+            <text class="node-label" x="534" y="40" text-anchor="middle">Doi Suthep</text>
+            <text class="node-val" x="534" y="26" text-anchor="middle">1,073 m</text>
+
+            <circle cx="666" cy="11" r="4" fill="#A83B27"></circle>
+            <text class="node-label" x="706" y="15">Doi Inthanon · 2,565 m</text>
+
+            <circle cx="799" cy="127" r="4" fill="#A83B27"></circle>
+            <text class="node-label" x="799" y="112" text-anchor="middle">Khao Lak</text>
+            <text class="node-val" x="799" y="98" text-anchor="middle">5 m · 26 Oct</text>
+
+            <circle cx="866" cy="230" r="4" fill="#4FD0C6"></circle>
+            <text class="node-label sea" x="866" y="250" text-anchor="middle">Richelieu Rock</text>
+            <text class="node-val sea" x="866" y="264" text-anchor="middle">−35 m · 27 Oct</text>
+
+            <circle cx="932" cy="127" r="4" fill="#A83B27"></circle>
+            <text class="node-val" x="932" y="112" text-anchor="middle">back on land</text>
+
+            <circle cx="998" cy="210" r="4" fill="#4FD0C6"></circle>
+            <text class="node-label sea" x="998" y="230" text-anchor="middle">Koh Bon</text>
+            <text class="node-val sea" x="998" y="244" text-anchor="middle">−28 m · 29 Oct</text>
+
+            <circle cx="1130" cy="129" r="4" fill="#A83B27"></circle>
+            <text class="node-label" x="1130" y="112" text-anchor="end">Bangkok</text>
+            <text class="node-val" x="1130" y="98" text-anchor="end">31 Oct → Manila</text>
+          </g>
+        </svg>
+      </div>
+      <div class="vprofile" aria-hidden="true">
+        <div class="vp-scale"><span>−35 m</span><span>sea level</span><span>+2,565 m</span></div>
+        <ol>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Bangkok</span><span class="vp-val">2 m · 15 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:1.0%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Ayutthaya</span><span class="vp-val">4 m · 19 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:1.4%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Chiang Mai</span><span class="vp-val">310 m · 20 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:12.5%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Doi Suthep</span><span class="vp-val">1,073 m · 22 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:23.3%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Doi Inthanon</span><span class="vp-val">2,565 m · 24 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:36.0%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Khao Lak</span><span class="vp-val">5 m · 26 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:1.6%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Richelieu Rock</span><span class="vp-val deep"
+                >−35 m · 27 Oct</span
+              >
+            </div>
+            <div class="vp-track"><span class="vp-bar down" style="width:31.5%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Back on land</span><span class="vp-val">0 m · 28 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:0.6%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Koh Bon</span><span class="vp-val deep">−28 m · 29 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar down" style="width:25.2%"></span></div>
+          </li>
+          <li>
+            <div class="vp-meta">
+              <span class="vp-name">Bangkok</span><span class="vp-val">2 m · 31 Oct</span>
+            </div>
+            <div class="vp-track"><span class="vp-bar up" style="width:1.0%"></span></div>
+          </li>
+        </ol>
+      </div>
+      <div class="profile-cap">
+        <span>Height and depth are drawn on separate scales · you surface every night</span>
+        <span>Drag sideways to follow the whole trip</span>
+      </div>
+    </div>
+  </header>
+
+  <TripNav sections={sections} />
+
+  <!-- ============ LEG 1 ============ -->
+  <section id="bangkok">
+    <div class="wrap">
+      <div class="sechead">
+        <span class="secnum">LEG 01</span>
+        <h2>Bangkok</h2>
+      </div>
+      <p class="secmeta">15–20 Oct · 5 nights · with Jabari · arriving from Hanoi</p>
+      <p class="intro">
+        A working week with sightseeing bolted onto the afternoons, not a holiday. The base does
+        more work than the itinerary here: everything below assumes a five-minute walk to Asok or
+        Phrom Phong and a room you can take calls in at three in the morning without waking the
+        other person.
+      </p>
+
+      <div class="clock">
+        <div class="bar">
+          <div class="seg calls">
+            <span class="t">02:00–07:00</span><span class="l">SF calls</span>
+          </div>
+          <div class="seg sleep">
+            <span class="t">07:00–12:30</span><span class="l">sleep</span>
+          </div>
+          <div class="seg out"><span class="t">13:00–21:00</span><span class="l">out</span></div>
+          <div class="seg night">
+            <span class="t">21:00–02:00</span><span class="l">dinner, desk</span>
+          </div>
+        </div>
+        <div class="legend">
+          <span>Bangkok is SF +14</span><span
+            >Sun and Mon here are the SF weekend, so both are free</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <figure class="figure" style="margin-top:38px">
+        <img
+          width="1600"
+          height="1000"
+          src="img/watarun.jpg"
+          alt="Wat Arun lit gold above the Chao Phraya river at dusk"
+          loading="lazy"
+        />
+        <figcaption>Wat Arun from the Chao Phraya · photo miketnorton, CC BY 2.0</figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap" style="margin-top:44px">
+      <p class="eyebrow">Where to stay</p>
+      <div class="grid g3">
+        <div class="card rev">
+          <h4>Somerset Maison Asoke</h4>
+          <div class="sub">Sukhumvit 23 · 4 min to Asok BTS + MRT</div>
+          <p>
+            The default. Two-bedroom units, kitchen, laundry, desks, and the interchange that makes
+            both day trips easy. Licensed serviced residence, so no condo-bylaw surprises.
+          </p>
+          <a
+            class="link"
+            href="https://www.discoverasr.com/en/somerset-serviced-residence/thailand/somerset-maison-asoke-bangkok"
+            >discoverasr.com →</a
+          >
+        </div>
+        <div class="card rev">
+          <h4>Oakwood Residence Sukhumvit 24</h4>
+          <div class="sub">Phrom Phong · 5 min to BTS</div>
+          <p>
+            Quieter end of the same strip, better for sleeping through a hot morning. Emporium and
+            the Thonglor restaurants are walkable, the MRT is one stop away.
+          </p>
+          <a
+            class="link"
+            href="https://www.discoverasr.com/en/oakwood/thailand/oakwood-residence-sukhumvit-24-bangkok"
+            >discoverasr.com →</a
+          >
+        </div>
+        <div class="card rev">
+          <h4>Fraser Suites Sukhumvit</h4>
+          <div class="sub">Sukhumvit 11 · 6 min to Nana BTS</div>
+          <p>
+            Largest units of the three and the best desks. Soi 11 is loud until late, which matters
+            more for Jabari than for you given the call schedule.
+          </p>
+          <a
+            class="link"
+            href="https://www.frasershospitality.com/en/thailand/bangkok/fraser-suites-sukhumvit/"
+            >frasershospitality.com →</a
+          >
+        </div>
+      </div>
+      <p style="font-size:14.5px;opacity:.66;margin-top:16px;max-width:60ch">
+        Not Airbnb. Stays under 30 days in a normal condo need a hotel licence under the Hotel Act,
+        most buildings ban them in their bylaws, and enforcement has been active. The risk lands on
+        you at the front desk, not on the host.
+      </p>
+    </div>
+
+    <div class="wrap" style="margin-top:52px">
+      <p class="eyebrow">What the week allows</p>
+      <p class="intro" style="margin-top:8px">
+        The US weekend lands here as Sunday and Monday, so those two days are wide open and Saturday
+        and Sunday nights have no 02:00 alarm behind them. Everything below is an option rather than
+        a plan. Pick what appeals and ignore the rest.
+      </p>
+      <div class="windows">
+        <div class="win">
+          <div class="d">15</div><div class="w">Thu</div><div class="a">
+            <b>Evening only</b>Landing from Hanoi. Assume nothing.
+          </div>
+        </div>
+        <div class="win">
+          <div class="d">16</div><div class="w">Fri</div><div class="a">
+            <b>13:00 → 21:30</b>Work night after. Home at a reasonable hour.
+          </div>
+        </div>
+        <div class="win free">
+          <div class="d">17</div><div class="w">Sat</div><div class="a">
+            <b>13:00 → late</b>No calls that night. Stay out.
+          </div>
+        </div>
+        <div class="win free">
+          <div class="d">18</div><div class="w">Sun</div><div class="a">
+            <b>Full day → late</b>The best day of the week.
+          </div>
+        </div>
+        <div class="win free">
+          <div class="d">19</div><div class="w">Mon</div><div class="a">
+            <b>Full day → 21:30</b>Calls resume at 02:00 Tuesday.
+          </div>
+        </div>
+        <div class="win">
+          <div class="d">20</div><div class="w">Tue</div><div class="a">
+            <b>Morning only</b>Jabari flies out, Os flies north.
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14.5px;opacity:.7;margin-top:14px;max-width:60ch">
+        <b>Arriving:</b> Hanoi to Suvarnabhumi is about 1h50. Grab to Sukhumvit runs 45–60 minutes and
+        roughly 450 THB, or the Airport Rail Link if traffic is bad, changing at Phaya Thai. Pick up a
+        SIM or switch on an eSIM at the airport.
+      </p>
+      <p style="font-size:14.5px;opacity:.7;margin-top:10px;max-width:60ch">
+        Mid-October is the tail of the rainy season. Storms are heavy, usually mid-afternoon, and
+        usually over within the hour. Keep one indoor option in your pocket every day rather than
+        planning around the rain.
+      </p>
+
+      <h3 class="grouphead">Afternoons</h3>
+      <p class="groupsub">Fits a 13:00 start on any day</p>
+      <div class="optgrid">
+        <div class="opt rev">
+          <h4>Grand Palace &amp; Wat Pho</h4>
+          <div class="meta">3–4 hours · MRT Sanam Chai · 500 + 300 THB</div>
+          <p>
+            The one thing a first-time visitor should not skip. Gold, mirrored glass, and the
+            Emerald Buddha, then the enormous reclining Buddha next door. Hard deadline: the palace
+            stops selling tickets at 15:30, so this only works if you leave on time. Covered
+            shoulders and knees, enforced at the gate.
+          </p>
+          <div class="chips">
+            <span class="chip key">first visit</span><span class="chip">closes 15:30</span><span
+              class="chip">crowded</span
+            >
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Wat Arun and the river</h4>
+          <div class="meta">2 hours · 5 THB ferry from Tha Tien · best 17:00–19:00</div>
+          <p>
+            Cross the Chao Phraya and climb the porcelain-studded prang, then watch it light up from
+            the Thonburi bank. Pairs naturally onto the end of a palace afternoon. Use the express
+            boats to get home instead of a taxi.
+          </p>
+          <div class="chips">
+            <span class="chip key">first visit</span><span class="chip">sunset</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Chatuchak weekend market</h4>
+          <div class="meta">3–4 hours · MRT Kamphaeng Phet · Sat &amp; Sun to about 18:00</div>
+          <p>
+            Fifteen thousand stalls, roughly a square kilometre of them. Pick two sections and
+            abandon the rest. Kamphaeng Phet puts you in the middle rather than at the edge, which
+            matters more than it sounds.
+          </p>
+          <div class="chips">
+            <span class="chip key">Sat or Sun only</span><span class="chip">hot</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Thonburi canals by longtail</h4>
+          <div class="meta">2 hours · from Tha Chang or Tha Tien · about 1,500 THB per boat</div>
+          <p>
+            The old city on the water side: stilt houses, temple landings, monitor lizards, and the
+            Artist's House at Khlong Bang Luang. Hire the whole boat rather than joining a tour, and
+            go late afternoon when the light drops.
+          </p>
+          <div class="chips">
+            <span class="chip">quiet</span><span class="chip">good in drizzle</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Chinatown by daylight</h4>
+          <div class="meta">2–3 hours · MRT Wat Mangkon</div>
+          <p>
+            Different city from the night version. Wat Traimit holds five and a half tonnes of solid
+            gold Buddha, and Talat Noi behind it is old shophouses, car-part workshops and street
+            art. Ends where the food stalls set up.
+          </p>
+          <div class="chips"><span class="chip">walkable</span></div>
+        </div>
+        <div class="opt rev">
+          <h4>Thai cooking class</h4>
+          <div class="meta">4 hours · afternoon sessions widely available</div>
+          <p>
+            Market trip first, then four or five dishes you actually cook. The good ones cap the
+            group at eight. Entirely indoors, which makes it the strongest rain plan on this list.
+          </p>
+          <div class="chips">
+            <span class="chip dry">indoor</span><span class="chip">book ahead</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="grouphead">Full days</h3>
+      <p class="groupsub">Needs Sunday the 18th or Monday the 19th</p>
+      <div class="optgrid">
+        <div class="opt rev">
+          <h4>Ayutthaya</h4>
+          <div class="meta">8–10 hours · car 1h15, or train from Krung Thep Aphiwat</div>
+          <p>
+            The capital the Burmese burned in 1767, left as brick towers and headless Buddhas across
+            a river island. Wat Mahathat has the famous Buddha head grown into fig roots. Rent
+            bicycles at the site. Start early: it is flat, shadeless and hot by eleven, and the
+            towers stay floodlit until about 21:00 if you would rather go late instead.
+          </p>
+          <div class="chips">
+            <span class="chip key">first visit</span><span class="chip">hot, no shade</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Amphawa and the fireflies</h4>
+          <div class="meta">Afternoon and evening · Fri–Sun only · 1h30 each way</div>
+          <p>
+            Leave at 14:00, stop at the Maeklong railway market where the awnings fold away as the
+            train passes through, reach the canal market by 16:00, eat grilled river prawns off the
+            boats, then take a longtail out at dusk to trees full of synchronised fireflies. Back
+            around 22:30, so it needs a free night.
+          </p>
+          <div class="chips">
+            <span class="chip key">Sat or Sun</span><span class="chip">late finish</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Kanchanaburi</h4>
+          <div class="meta">11–12 hours · 2h30 each way</div>
+          <p>
+            The bridge on the River Kwai, the Death Railway cut through cliffs above the water, the
+            Allied war cemetery, and Erawan Falls with seven turquoise pools you can swim in. Heavy
+            history and a genuinely long day, but the most substantial thing within reach of
+            Bangkok.
+          </p>
+          <div class="chips">
+            <span class="chip">long day</span><span class="chip">swimming</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Bang Krachao by bike</h4>
+          <div class="meta">4–5 hours · longtail across from Klong Toey pier</div>
+          <p>
+            A jungle-covered oxbow in the river, six minutes from the city, laced with raised
+            concrete paths through mangrove and palm. Rent bikes at the pier. The Bang Nam Pheung
+            floating market runs weekends. Best in the morning before the heat.
+          </p>
+          <div class="chips"><span class="chip">morning</span><span class="chip">green</span></div>
+        </div>
+        <div class="opt rev">
+          <h4>Ancient City, Muang Boran</h4>
+          <div class="meta">5–6 hours · BTS to Kheha then a short taxi</div>
+          <p>
+            Two hundred hectares laid out in the shape of Thailand, holding full-scale reproductions
+            of temples from every region. You cycle between them and there is almost nobody there.
+            Strange, ambitious, and the opposite of a crowd.
+          </p>
+          <div class="chips"><span class="chip">quiet</span><span class="chip">cycling</span></div>
+        </div>
+        <div class="opt rev">
+          <h4>Ko Kret</h4>
+          <div class="meta">5 hours · taxi to Pak Kret, then a 5 THB ferry</div>
+          <p>
+            A car-free island in the river north of the city, settled by Mon potters. Walk the ring
+            path in an hour, eat, buy terracotta. Liveliest on weekends, half-asleep midweek, which
+            may be the point.
+          </p>
+          <div class="chips"><span class="chip">weekends busier</span></div>
+        </div>
+      </div>
+
+      <h3 class="grouphead">Evenings</h3>
+      <p class="groupsub">Any night, though Saturday and Sunday have no 02:00 alarm</p>
+      <div class="optgrid">
+        <div class="opt rev">
+          <h4>Yaowarat street food</h4>
+          <div class="meta">From 18:00 · MRT Wat Mangkon</div>
+          <p>
+            Bangkok's best eating happens on two blocks of Chinatown after dark. Queue where the
+            Thai families queue. Check whether the nine-day vegetarian festival overlaps your dates,
+            since sources put it around 10–18 October: if it does, the street closes to traffic and
+            turns into an enormous vegan food market instead.
+          </p>
+          <div class="chips">
+            <span class="chip key">first visit</span><span class="chip">check festival</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Muay Thai at Rajadamnern</h4>
+          <div class="meta">From about 18:30 · MRT to Sam Yot then a short ride</div>
+          <p>
+            The older of the two national stadiums, running since 1945. Live band, wild betting
+            section, eight or nine bouts working up from teenagers to the main event. Book ringside
+            rather than the tourist tier.
+          </p>
+          <div class="chips">
+            <span class="chip dry">indoor</span><span class="chip">book ahead</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Jodd Fairs night market</h4>
+          <div class="meta">From 16:00 · MRT Phra Ram 9</div>
+          <p>
+            The current one, not the tourist-bus one. Food-first, packed with Thais, and ten minutes
+            from the base by metro. Good default for a night when nothing is planned.
+          </p>
+          <div class="chips"><span class="chip">easy</span><span class="chip">near base</span></div>
+        </div>
+        <div class="opt rev">
+          <h4>A rooftop</h4>
+          <div class="meta">2 hours · dress code at most</div>
+          <p>
+            Octave at the Marriott Thonglor is three stops from the base and does not need a
+            reservation. Vertigo at the Banyan Tree is higher and more formal. The riverside ones
+            are the famous ones and priced accordingly.
+          </p>
+          <div class="chips"><span class="chip">closed in storms</span></div>
+        </div>
+        <div class="opt rev">
+          <h4>Wat Pho massage school</h4>
+          <div class="meta">1–2 hours · daily until about 18:00</div>
+          <p>
+            The place the whole Thai massage tradition is taught from, attached to the temple.
+            Proper deep work, not a spa. Cheap, and the correct response to a day that got rained
+            out.
+          </p>
+          <div class="chips">
+            <span class="chip dry">indoor</span><span class="chip">rain plan</span>
+          </div>
+        </div>
+        <div class="opt rev">
+          <h4>Jim Thompson House</h4>
+          <div class="meta">90 minutes · BTS National Stadium · last tour late afternoon</div>
+          <p>
+            Six teak houses assembled into one home by the American who rebuilt the Thai silk trade
+            and then vanished in Malaysia in 1967. Short, shaded, air-conditioned in parts, and near
+            the malls if the sky opens.
+          </p>
+          <div class="chips">
+            <span class="chip dry">mostly covered</span><span class="chip">rain plan</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="grouphead">One way to arrange it</h3>
+      <p class="groupsub">If you would rather not decide</p>
+      <div class="rows" style="margin-top:16px">
+        <div class="row hi">
+          <div class="k">Fri 16</div><div class="v">
+            Jim Thompson House, then Wat Arun at sunset, then dinner on Yaowarat. Home by 22:00.
+          </div>
+        </div>
+        <div class="row hi">
+          <div class="k">Sat 17</div><div class="v">
+            Chatuchak from 13:00, dinner in Thonglor, one rooftop. No alarm.
+          </div>
+        </div>
+        <div class="row hi">
+          <div class="k">Sun 18</div><div class="v">
+            Grand Palace and Wat Pho at opening, car at 14:00 to Maeklong and Amphawa, fireflies
+            after dark, back late.
+          </div>
+        </div>
+        <div class="row hi">
+          <div class="k">Mon 19</div><div class="v">
+            Ayutthaya from 07:00, bicycles at the ruins, back by 18:30 for an early dinner before
+            the calls.
+          </div>
+        </div>
+        <div class="row hi">
+          <div class="k">Tue 20</div><div class="v">
+            Pack. Jabari flies out, Os flies to Chiang Mai.
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14.5px;opacity:.7;margin-top:16px;max-width:62ch">
+        The one real collision is Saturday. Chatuchak and Amphawa both want that afternoon and
+        Amphawa only runs Friday to Sunday, so if you want both, Amphawa moves to Sunday and the
+        palace moves to Sunday morning.
+      </p>
+
+      <figure class="figure" style="margin-top:30px">
+        <img
+          width="1600"
+          height="1000"
+          src="img/palace.jpg"
+          alt="Chofa finials on a Grand Palace roof against a hazy Bangkok sunrise"
+          loading="lazy"
+        />
+        <figcaption>Grand Palace roofline · photo Bjørn Erik Pedersen, CC BY-SA 4.0</figcaption>
+      </figure>
+      <figure class="figure" style="margin-top:16px">
+        <img
+          width="1600"
+          height="1060"
+          src="img/amphawa.jpg"
+          alt="Wooden shophouses and food boats along the canal at Amphawa floating market"
+          loading="lazy"
+        />
+        <figcaption>Amphawa · photo Rangan Datta, CC BY-SA 4.0</figcaption>
+      </figure>
+      <figure class="figure" style="margin-top:16px">
+        <img
+          width="1600"
+          height="900"
+          src="img/ayutthaya.jpg"
+          alt="Aerial view of the prangs and galleries of Wat Chaiwatthanaram in Ayutthaya"
+          loading="lazy"
+        />
+        <figcaption>Wat Chaiwatthanaram, Ayutthaya · photo Average trinmo, CC BY-SA 4.0</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ CROSSING ============ -->
+  <div class="crossing">
+    <div class="inner">
+      <span class="txt">20 Oct · Don Mueang → Chiang Mai · alone from here</span>
+    </div>
+  </div>
+
+  <!-- ============ LEG 2 ============ -->
+  <section class="sea" id="north">
+    <div class="wrap">
+      <div class="sechead">
+        <span class="secnum">LEG 02</span>
+        <h2>Chiang Mai</h2>
+      </div>
+      <p class="secmeta">20–26 Oct · 6 nights · solo</p>
+      <p class="intro">
+        Late October is the good seam in the north: the rain has stopped, the burning season is
+        months away, and the nights drop to something you can sleep in. It is also the only week of
+        this trip where the calls and the sightseeing do not fight each other, because most of what
+        you would do here happens in the morning or after dark.
+      </p>
+
+      <div class="grid g3" style="margin-top:34px">
+        <div class="card rev">
+          <h4>Tamarind Village</h4>
+          <div class="sub">Old city · bamboo courtyard</div>
+          <p>
+            Inside the walls, walking distance to Wat Chedi Luang and the Sunday market, quiet
+            enough to work in. The obvious pick for five nights.
+          </p>
+          <a class="link" href="https://www.tamarindvillage.com/">tamarindvillage.com →</a>
+        </div>
+        <div class="card rev">
+          <h4>Rachamankha</h4>
+          <div class="sub">Old city · monastic courtyards</div>
+          <p>
+            Quieter and more austere, built like a Lanna temple compound. Fewer rooms, so it goes
+            first.
+          </p>
+          <a class="link" href="https://www.rachamankha.com/">rachamankha.com →</a>
+        </div>
+        <div class="card rev">
+          <h4>137 Pillars House</h4>
+          <div class="sub">Wat Ket · across the river</div>
+          <p>
+            The comfortable option, teak colonial buildings and a long pool. Ten minutes from the
+            old city by car, which is the trade.
+          </p>
+          <a class="link" href="https://www.137pillarshotels.com/chiang-mai/"
+            >137pillarshotels.com →</a
+          >
+        </div>
+      </div>
+
+      <div style="margin-top:44px">
+        <p class="eyebrow">Worth the days</p>
+        <div class="grid g2">
+          <div class="card rev">
+            <h4>Doi Suthep at first light</h4>
+            <div class="sub">1,073 m · 40 min up the hill</div>
+            <p>
+              Go at 06:00 before the coaches and while the monks are still chanting. The city sits
+              under haze below the terrace. Straight back down for the calls if you shift them, or
+              make this a post-call trip on a day you skip sleep.
+            </p>
+          </div>
+          <div class="card rev">
+            <h4>Doi Inthanon</h4>
+            <div class="sub">2,565 m · full day, 2h each way</div>
+            <p>
+              The highest point in Thailand and the top of this trip's profile. Twin pagodas, the
+              Ang Ka boardwalk through cloud forest, Wachirathan falls. Hire a car and driver rather
+              than joining a minibus tour.
+            </p>
+          </div>
+          <div class="card rev">
+            <h4>Elephant Nature Park</h4>
+            <div class="sub">Mae Taeng · book weeks ahead</div>
+            <p>
+              No riding, no bathing, no performances. It is the sanctuary the others copy the
+              language of, and it sells out well in advance.
+            </p>
+          </div>
+          <div class="card rev">
+            <h4>Both walking streets</h4>
+            <div class="sub">24 and 25 Oct · Wualai, then Ratchadamnoen</div>
+            <p>
+              Saturday is the silversmiths' road and the better of the two. Sunday runs through the
+              old city and now falls inside your stay rather than on the day you fly south. Both
+              start around 16:00.
+            </p>
+          </div>
+        </div>
+        <p style="font-size:14.5px;opacity:.75;margin-top:18px;max-width:62ch">
+          Two dates to know: 23 October is Chulalongkorn Day, a public holiday, so expect domestic
+          crowds at Doi Suthep and Inthanon. 26 October is Ok Phansa, the end of Buddhist Lent, with
+          dawn merit-making at the temples on the morning you fly south.
+        </p>
+        <figure class="figure" style="margin-top:22px">
+          <img
+            width="1600"
+            height="1060"
+            src="img/suthep.jpg"
+            alt="Golden chedi and umbrellas at Wat Phra That Doi Suthep above Chiang Mai"
+            loading="lazy"
+          />
+          <figcaption>Wat Phra That Doi Suthep · photo Arts of Chet, CC BY-SA 4.0</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANDAMAN ============ -->
+  <section class="sea" id="andaman" style="padding-top:0">
+    <div class="wrap"><hr class="rule" /></div>
+    <div class="wrap" style="padding-top:60px">
+      <div class="sechead">
+        <span class="secnum">LEG 03</span>
+        <h2>Khao Lak, by day trip</h2>
+      </div>
+      <p class="secmeta">26–31 Oct · two days on the water · solo</p>
+      <p class="intro">
+        No liveaboard. The Similans sit 70 km offshore with no cell coverage, and a boat that keeps
+        you at sea for four nights during a working week is the one part of this trip that cannot
+        bend. Day trips out of Khao Lak reach the same water, put you back on a wifi connection
+        every evening, and cost two days instead of five.
+      </p>
+
+      <figure class="figure" style="margin-top:30px">
+        <img
+          width="2000"
+          height="840"
+          src="img/similan.jpg"
+          alt="The bay at Similan island number eight seen from the Sail Rock viewpoint"
+          loading="lazy"
+        />
+        <figcaption>
+          Similan island 8 from Sail Rock · photo Mathias Krumbholz, CC BY-SA 3.0
+        </figcaption>
+      </figure>
+
+      <div class="grid g2" style="margin-top:34px">
+        <div class="card rev">
+          <h4>Getting there, 26 Oct</h4>
+          <div class="sub">Chiang Mai → Khao Lak in one day</div>
+          <p>
+            Flight CNX → Phuket, about 2h05 direct. Taxi north to Khao Lak, 1h15. Every day-trip
+            operator wants you in the shop the afternoon before to sign paperwork and try kit on, so
+            land early enough to do that on the 26th.
+          </p>
+        </div>
+        <div class="card rev">
+          <h4>The certification question</h4>
+          <div class="sub">AOW + Nitrox, 30 logged after Ishigaki</div>
+          <p>
+            Thirty is the number the stricter operators ask for on Koh Tachai and Richelieu, so
+            nothing is closed off. Bring the logbook, since the dives that get you there are recent
+            enough that shops will want to see them.
+          </p>
+        </div>
+      </div>
+
+      <div class="card rev" style="margin-top:16px">
+        <h4>Why not the boat</h4>
+        <p>
+          Four nights at sea means no connection, four dives a day, and calls landing at 02:00 with
+          three hours of sleep either side. A handful of newer boats advertise wifi, which in
+          practice is a satellite link nobody should plan a work week around. If you want a Similan
+          liveaboard properly, it wants February to April and a week where diving is the point.
+        </p>
+      </div>
+
+      <div style="margin-top:40px">
+        <p class="eyebrow">One day is enough, two if it goes well</p>
+        <div class="dives">
+          <div class="dive">
+            <span class="day-n">27 Oct · trip 1</span><span class="site">Richelieu Rock</span><span
+              class="depth">−35 m</span
+            ><span class="note"
+              >The one that justifies the flight south. A single horseshoe pinnacle in open water,
+              purple soft coral over every surface, macro on the walls and schooling fish above. Two
+              dives on the same rock, and it does not get old. Long day: pickup around 06:30, back
+              near 18:00.</span
+            >
+          </div>
+          <div class="dive">
+            <span class="day-n">29 Oct · trip 2</span><span class="site"
+              >Koh Bon &amp; Koh Tachai</span
+            ><span class="depth">−28 m</span><span class="note"
+              >The manta option. Limestone ridge at Koh Bon, then a current-swept pinnacle at Tachai
+              with big schools. Pick this over the Similan boulder sites if there is only one more
+              day.</span
+            >
+          </div>
+          <div class="dive">
+            <span class="day-n">spare</span><span class="site">Boonsung wreck, local</span><span
+              class="depth">−18 m</span
+            ><span class="note"
+              >Half day from Khao Lak, an old tin dredger broken into sections and covered in life.
+              The only trip short enough to fit a normal working day, so hold it in reserve for a
+              morning that goes wrong.</span
+            >
+          </div>
+        </div>
+        <p style="font-size:14.5px;opacity:.7;margin-top:14px">
+          Depths are typical maximums, not a plan. Day trips are two dives each and leave at the
+          posted time whether you are on it or not. Book Richelieu first and decide about the second
+          day after you have seen how the 02:00 calls and a 06:30 pickup feel stacked together.
+        </p>
+        <div class="grid g2" style="margin-top:20px">
+          <div class="card rev">
+            <h4>If the second day is too much</h4>
+            <p>
+              The 29th becomes a working day and you fly out rested. Nothing else in the plan moves,
+              and the no-fly buffer only gets longer.
+            </p>
+          </div>
+          <div class="card rev">
+            <h4>If Richelieu gets cancelled</h4>
+            <p>
+              Weather cancels the far northern trips first, since it is the longest crossing. Ask
+              the shop to roll you to the next running day, and keep the local wrecks as the version
+              that sails when the outer trips do not.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <figure class="figure" style="margin-top:30px">
+        <img
+          width="1600"
+          height="1060"
+          src="img/richelieu.jpg"
+          alt="Divers among schooling fish on the pinnacle at Richelieu Rock"
+          loading="lazy"
+        />
+        <figcaption>Richelieu Rock · photo Mr.CMBurns, CC BY-SA 4.0</figcaption>
+      </figure>
+
+      <div style="margin-top:40px">
+        <p class="eyebrow">Shops to ask</p>
+        <div class="grid g3">
+          <div class="card rev">
+            <h4>Khao Lak Explorer</h4>
+            <div class="sub">Opens 25 Oct · guide ratio 1:4</div>
+            <p>
+              One of the few shops already running when you arrive, and they do Richelieu as a day
+              trip. Speedboat out to a larger dive platform, so the crossing is fast and the day is
+              not.
+            </p>
+            <a class="link" href="https://www.khaolakexplorer.com/">khaolakexplorer.com →</a>
+          </div>
+          <div class="card rev">
+            <h4>Sea Dragon</h4>
+            <div class="sub">Day trips plus local half-days</div>
+            <p>
+              The other Khao Lak shop worth an email, and the one with wrecks and house reefs on the
+              menu for a short morning. Free dive computer on Similan trips.
+            </p>
+            <a class="link" href="https://www.seadragondivecenter.com/diving-day-trips/"
+              >seadragondivecenter.com →</a
+            >
+          </div>
+          <div class="card rev">
+            <h4>Big Blue Diving</h4>
+            <div class="sub">Richelieu four days a week</div>
+            <p>
+              Their site says day trips restart in November, so confirm the exact restart date
+              before building the week around them. Worth asking because they run Richelieu more
+              often than anyone.
+            </p>
+            <a class="link" href="https://www.bigbluedivingkhaolak.com/"
+              >bigbluedivingkhaolak.com →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:52px">
+        <p class="eyebrow">Getting out</p>
+        <div class="grid g3">
+          <div class="card rev">
+            <h4>28 Oct · the working day</h4>
+            <div class="sub">Between the two trips</div>
+            <p>
+              Deliberately empty. Calls at 02:00, sleep, then a desk and a pool. Two diving days in
+              a row on this sleep schedule is how you end up doing the second one badly.
+            </p>
+          </div>
+          <div class="card rev">
+            <h4>30 Oct · no-fly day</h4>
+            <div class="sub">Surface interval</div>
+            <p>
+              Twenty-four hours between the last dive and the first flight. Last dive is the morning
+              of the 29th, so this is covered twice over. Beach, massage, the Police Boat 813
+              memorial inland.
+            </p>
+          </div>
+          <div class="card rev">
+            <h4>31 Oct → 1 Nov</h4>
+            <div class="sub">Khao Lak → Bangkok → Manila</div>
+            <p>
+              Taxi to Phuket 1h15, HKT → BKK 1h25, one night near Suvarnabhumi. Bangkok to Manila is
+              3h20 direct the next day.
+            </p>
+          </div>
+        </div>
+        <figure class="figure" style="margin-top:22px">
+          <img
+            width="1600"
+            height="1060"
+            src="img/khaolak.jpg"
+            alt="Empty sand and casuarina trees on the beach at Khao Lak"
+            loading="lazy"
+          />
+          <figcaption>Khao Lak · photo Vyacheslav Argenberg, CC BY 4.0</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="crossing up">
+    <div class="inner">
+      <span class="txt">1 Nov · Suvarnabhumi → Manila · 3h20</span>
+    </div>
+  </div>
+
+  <!-- ============ BOOK IN THIS ORDER ============ -->
+  <section id="book">
+    <div class="wrap">
+      <div class="sechead">
+        <span class="secnum">NEXT</span>
+        <h2>Book in this order</h2>
+      </div>
+      <p class="secmeta">The first two set every other date</p>
+      <ol class="check">
+        <li>
+          <span class="what"
+            ><b>Two day trips out of Khao Lak.</b> Richelieu on the 27th, Koh Bon and Tachai on the 29th.
+            Confirm the shop is actually running that week before booking flights south, since several
+            restart in November.</span
+          ><span class="by">now</span>
+        </li>
+        <li>
+          <span class="what"
+            ><b>Bangkok, five nights.</b> Two-bedroom serviced apartment near Asok or Phrom Phong, refundable
+            rate.</span
+          ><span class="by">now</span>
+        </li>
+        <li>
+          <span class="what"
+            ><b>Four flights.</b> DMK → CNX on the 20th, CNX → HKT on the 26th, HKT → BKK on the 31st,
+            BKK → MNL on the 1st.</span
+          ><span class="by">early Sept</span>
+        </li>
+        <li>
+          <span class="what"
+            ><b>Chiang Mai, six nights, and Elephant Nature Park.</b> The sanctuary books out further
+            ahead than the hotels do.</span
+          ><span class="by">early Sept</span>
+        </li>
+        <li>
+          <span class="what"
+            ><b>Dive insurance.</b> DAN or equivalent with hyperbaric cover. Shops ask for proof at check-in
+            and will sell you a daily policy if you turn up without one.</span
+          ><span class="by">before Oct</span>
+        </li>
+        <li>
+          <span class="what"
+            ><b>Cars for Amphawa and Ayutthaya.</b> Full afternoon and evening, booked through the apartment
+            or a private driver.</span
+          ><span class="by">a week out</span>
+        </li>
+        <li>
+          <span class="what"
+            ><b>TDAC.</b> Free, mandatory, and only accepted within 72 hours of arrival, so it cannot
+            be done early.</span
+          ><span class="by">12–15 Oct</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ NOTES ============ -->
+  <section id="notes" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Practical</p>
+      <div class="notes">
+        <div class="note">
+          <h4>Entry</h4>
+          <p>
+            Both your passports enter without a visa. The permitted stay has been 60 days and is in
+            the middle of being cut back toward 30; either covers 17 days. Six months of passport
+            validity and the onward Manila ticket as proof of exit.
+          </p>
+        </div>
+        <div class="note">
+          <h4>TDAC</h4>
+          <p>
+            The digital arrival card replaced the paper form and is now required of every foreign
+            national. It is free and the only real portal is tdac.immigration.go.th. Everything
+            charging for it is a scam.
+          </p>
+        </div>
+        <div class="note">
+          <h4>Getting around</h4>
+          <p>
+            Grab for cars, Bolt as the cheaper backup, never a flagged street taxi in Bangkok. The
+            MRT takes contactless cards directly; the BTS is smoother with a Rabbit card from any
+            station booth.
+          </p>
+        </div>
+        <div class="note">
+          <h4>Money</h4>
+          <p>
+            Cards work in malls and restaurants, cash everywhere else. ATMs charge a flat 220 THB
+            per withdrawal regardless of amount, so pull large sums rarely.
+          </p>
+        </div>
+        <div class="note">
+          <h4>Weather</h4>
+          <p>
+            Mid-October Bangkok is the tail of the wet season: hot, humid, with hard afternoon
+            storms that pass in an hour. Chiang Mai is drier and cool at night. The Andaman is still
+            settling, so expect swell on the 70 km crossing and visibility below the February peak.
+          </p>
+        </div>
+        <div class="note">
+          <h4>Diving and flying</h4>
+          <p>
+            Twenty-four hours between the last dive and the first flight is the floor. Last dive is
+            the morning of the 29th and the first flight is the 31st, which leaves two clear days
+            and absorbs a boat that comes back late.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style is:global>
+  .sea a:focus-visible {
+    outline-color: var(--surf);
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    padding: 64px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-size: clamp(46px, 9vw, 104px);
+    max-width: 14ch;
+    font-weight: 600;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--chili);
+  }
+  .hero .lede {
+    font-size: clamp(17px, 2.1vw, 21px);
+    max-width: 46ch;
+    margin-top: 22px;
+    opacity: 0.86;
+  }
+  .tagrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(26, 18, 13, 0.24);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+  .tag.hot {
+    background: var(--chili);
+    border-color: var(--chili);
+    color: #f7ecd9;
+  }
+
+  /* ---------- profile chart ---------- */
+  .profile-shell {
+    margin: 46px 0 0;
+    position: relative;
+  }
+  .profile-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .profile-scroll svg {
+    display: block;
+    min-width: 900px;
+    width: 100%;
+    height: auto;
+  }
+  .profile-cap {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    opacity: 0.6;
+    padding: 10px 0 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.16);
+    margin-top: 6px;
+  }
+  .node-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    fill: #1a120d;
+  }
+  .node-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    fill: #1a120d;
+    opacity: 0.55;
+  }
+  .node-label.sea {
+    fill: #d6e7e3;
+  }
+  .node-val.sea {
+    fill: #d6e7e3;
+    opacity: 0.6;
+  }
+  .trace {
+    fill: none;
+    stroke: #a83b27;
+    stroke-width: 2.4;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .trace.draw {
+    stroke-dasharray: 2600;
+    stroke-dashoffset: 2600;
+    animation: draw 2.6s 0.25s cubic-bezier(0.55, 0.1, 0.3, 1) forwards;
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .trace.draw {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* ---------- generic section ---------- */
+  section {
+    padding: 78px 0;
+  }
+  .rule {
+    height: 1px;
+    background: rgba(26, 18, 13, 0.18);
+    border: 0;
+    margin: 0;
+  }
+  .sechead {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .secnum {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    opacity: 0.5;
+  }
+  .sechead h2 {
+    font-size: clamp(32px, 5.2vw, 58px);
+  }
+  .secmeta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    opacity: 0.62;
+    margin-bottom: 34px;
+  }
+  .intro {
+    max-width: 56ch;
+    font-size: 18px;
+  }
+
+  /* ---------- cards ---------- */
+  .grid {
+    display: grid;
+    gap: 16px;
+  }
+  .g3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .g2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.42);
+    border: 1px solid rgba(26, 18, 13, 0.16);
+    border-radius: 3px;
+    padding: 20px;
+  }
+  .card h4 {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .card .sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    opacity: 0.6;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 15.5px;
+    margin-bottom: 0;
+    opacity: 0.88;
+  }
+  .card .link {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--chili);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(168, 59, 39, 0.4);
+    padding-bottom: 1px;
+  }
+  .card .link:hover {
+    border-bottom-color: var(--chili);
+  }
+
+  /* ---------- day shape bar ---------- */
+  .clock {
+    margin: 34px 0 0;
+    border: 1px solid rgba(26, 18, 13, 0.18);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .clock .bar {
+    display: flex;
+    height: 52px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+  }
+  .clock .seg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 6px;
+    line-height: 1.25;
+  }
+  .clock .seg .l {
+    opacity: 0.75;
+  }
+  .seg.calls {
+    background: var(--lacquer);
+    color: #e9dcc3;
+    flex: 5;
+  }
+  .seg.sleep {
+    background: rgba(47, 110, 99, 0.22);
+    flex: 5.5;
+  }
+  .seg.out {
+    background: var(--marigold);
+    color: #1a120d;
+    flex: 8;
+  }
+  .seg.night {
+    background: rgba(26, 18, 13, 0.1);
+    flex: 5.5;
+  }
+  .clock .legend {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    opacity: 0.6;
+    padding: 8px 12px;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  /* ---------- days ---------- */
+  .day {
+    display: grid;
+    grid-template-columns: 132px 1fr;
+    gap: 26px;
+    padding: 26px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.16);
+  }
+  .day:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.16);
+  }
+  .day .when .d {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .day .when .w {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-top: 4px;
+  }
+  .day h3 {
+    font-size: 23px;
+    margin-bottom: 12px;
+  }
+  .rows {
+    display: grid;
+    gap: 9px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .row .k {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    padding-top: 4px;
+  }
+  .row .v {
+    font-size: 15.5px;
+  }
+  .row.hi .k {
+    color: var(--chili);
+    opacity: 1;
+  }
+  .figure {
+    margin-top: 16px;
+  }
+  .figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+  }
+  .figure figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    opacity: 0.5;
+    margin-top: 6px;
+  }
+
+  /* ---------- transition ---------- */
+  .crossing {
+    background: linear-gradient(
+      180deg,
+      var(--limewash) 0%,
+      var(--limewash) 34%,
+      var(--abyss) 34%,
+      var(--abyss) 100%
+    );
+    padding: 0;
+  }
+  .crossing .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 34px 22px;
+    text-align: center;
+  }
+  .crossing .txt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foam);
+  }
+  .crossing.up {
+    background: linear-gradient(
+      180deg,
+      var(--abyss) 0%,
+      var(--abyss) 62%,
+      var(--limewash) 62%,
+      var(--limewash) 100%
+    );
+  }
+  .crossing.up .txt {
+    color: var(--foam);
+  }
+
+  /* ---------- sea half ---------- */
+  .sea {
+    background: var(--abyss);
+    color: var(--foam);
+  }
+  .sea .rule {
+    background: rgba(214, 231, 227, 0.16);
+  }
+  .sea .eyebrow,
+  .sea .secnum,
+  .sea .secmeta {
+    color: var(--foam);
+  }
+  .sea .card {
+    background: rgba(214, 231, 227, 0.05);
+    border-color: rgba(214, 231, 227, 0.16);
+  }
+  .sea .card .link {
+    color: var(--surf);
+    border-bottom-color: rgba(79, 208, 198, 0.4);
+  }
+  .sea .day {
+    border-color: rgba(214, 231, 227, 0.16);
+  }
+  .sea .day:last-child {
+    border-bottom-color: rgba(214, 231, 227, 0.16);
+  }
+  .sea .row.hi .k {
+    color: var(--surf);
+  }
+  .sea .tag {
+    border-color: rgba(214, 231, 227, 0.3);
+  }
+  .sea .tag.hot {
+    background: var(--surf);
+    border-color: var(--surf);
+    color: #04222b;
+  }
+  .sea h1 em {
+    color: var(--surf);
+  }
+
+  /* ---------- dive table ---------- */
+  .dives {
+    margin-top: 26px;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+  }
+  .dive {
+    display: grid;
+    grid-template-columns: 104px 1fr 92px;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(214, 231, 227, 0.12);
+  }
+  .dive .site {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .dive .note {
+    font-size: 14.5px;
+    opacity: 0.72;
+    grid-column: 2;
+  }
+  .dive .depth {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    text-align: right;
+    color: var(--surf);
+  }
+  .dive .day-n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  /* ---------- checklist ---------- */
+  .check {
+    counter-reset: c;
+    display: grid;
+    gap: 0;
+    margin-top: 26px;
+  }
+  .check li {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 44px 1fr 128px;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.16);
+    align-items: baseline;
+  }
+  .check li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.16);
+  }
+  .check li::before {
+    counter-increment: c;
+    content: counter(c, decimal-leading-zero);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    opacity: 0.45;
+  }
+  .check .what {
+    font-size: 16px;
+  }
+  .check .what b {
+    font-weight: 600;
+  }
+  .check .by {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    text-align: right;
+    color: var(--chili);
+  }
+
+  /* ---------- notes ---------- */
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 40px;
+  }
+  .note {
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.16);
+  }
+  .note h4 {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+  .note p {
+    font-size: 15px;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    background: var(--lacquer);
+    color: rgba(233, 220, 195, 0.72);
+    padding: 44px 0;
+    font-size: 13px;
+  }
+  footer a {
+    color: rgba(233, 220, 195, 0.9);
+  }
+  footer .credits {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    line-height: 1.9;
+    opacity: 0.62;
+    margin-top: 14px;
+  }
+
+  /* ---------- reveal ---------- */
+
+  /* ---------- week windows ---------- */
+  .windows {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-top: 26px;
+  }
+  .win {
+    border: 1px solid rgba(26, 18, 13, 0.18);
+    border-radius: 3px;
+    padding: 12px 12px 14px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .win.free {
+    background: rgba(201, 135, 27, 0.16);
+    border-color: rgba(201, 135, 27, 0.5);
+  }
+  .win .d {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .win .w {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin: 3px 0 8px;
+  }
+  .win .a {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+  .win .a b {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- options ---------- */
+  .optgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .opt {
+    border: 1px solid rgba(26, 18, 13, 0.16);
+    border-radius: 3px;
+    padding: 17px;
+    background: rgba(255, 255, 255, 0.34);
+  }
+  .opt h4 {
+    font-size: 18.5px;
+    margin-bottom: 3px;
+  }
+  .opt .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    opacity: 0.6;
+    margin-bottom: 9px;
+  }
+  .opt p {
+    font-size: 15px;
+    margin: 0;
+    opacity: 0.9;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 11px;
+  }
+  .chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(26, 18, 13, 0.22);
+    border-radius: 999px;
+    padding: 3px 8px;
+    opacity: 0.75;
+  }
+  .chip.key {
+    border-color: var(--chili);
+    color: var(--chili);
+    opacity: 1;
+  }
+  .chip.dry {
+    border-color: var(--jade);
+    color: var(--jade);
+    opacity: 1;
+  }
+  .grouphead {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    margin: 38px 0 2px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(26, 18, 13, 0.2);
+  }
+  .groupsub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    opacity: 0.6;
+  }
+
+  /* ---------- vertical profile (small screens) ---------- */
+  .vprofile {
+    display: none;
+    margin-top: 30px;
+  }
+  .vprofile .vp-scale {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    opacity: 0.55;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(26, 18, 13, 0.16);
+  }
+  .vprofile ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .vprofile ol::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(26, 18, 13, 0.26);
+  }
+  .vprofile li {
+    padding: 10px 0 12px;
+    border-bottom: 1px solid rgba(26, 18, 13, 0.09);
+  }
+  .vp-track {
+    position: relative;
+    height: 10px;
+    margin-top: 6px;
+  }
+  .vp-bar {
+    position: absolute;
+    top: 4px;
+    height: 2px;
+    background: var(--chili);
+  }
+  .vp-bar::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--chili);
+  }
+  .vp-bar.up {
+    left: 50%;
+  }
+  .vp-bar.up::after {
+    right: -4px;
+  }
+  .vp-bar.down {
+    right: 50%;
+    background: var(--jade);
+  }
+  .vp-bar.down::after {
+    left: -4px;
+    background: var(--jade);
+  }
+  .vp-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: baseline;
+    position: relative;
+    z-index: 1;
+  }
+  .vp-name {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .vp-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+  .vp-val.deep {
+    color: var(--jade);
+    opacity: 0.95;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1000px) {
+    .g3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .windows {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 860px) {
+    .g3,
+    .g2 {
+      grid-template-columns: 1fr;
+    }
+    .notes {
+      grid-template-columns: 1fr;
+    }
+    .day {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .day .when {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .day .when .w {
+      margin-top: 0;
+    }
+    .check li {
+      grid-template-columns: 34px 1fr;
+    }
+    .check .by {
+      grid-column: 2;
+      text-align: left;
+    }
+    .dive {
+      grid-template-columns: 1fr 84px;
+      gap: 4px 12px;
+    }
+    .dive .day-n {
+      grid-column: 1/-1;
+    }
+    .dive .note {
+      grid-column: 1/-1;
+    }
+    section {
+      padding: 56px 0;
+    }
+    .hero {
+      padding-top: 34px;
+    }
+    .profile-scroll,
+    .profile-cap {
+      display: none;
+    }
+    .vprofile {
+      display: block;
+    }
+    .clock .bar {
+      display: block;
+      height: auto;
+    }
+    .clock .seg {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      text-align: left;
+      padding: 9px 12px;
+      font-size: 12px;
+    }
+    .clock .seg {
+      flex-direction: row;
+    }
+    .clock .seg .l {
+      opacity: 0.8;
+    }
+    .clock .legend {
+      flex-direction: column;
+      gap: 3px;
+      align-items: flex-start;
+      line-height: 1.45;
+    }
+    .row {
+      grid-template-columns: 56px 1fr;
+    }
+    .row .v {
+      font-size: 15px;
+    }
+    .card {
+      padding: 17px;
+    }
+    .windows {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .optgrid {
+      grid-template-columns: 1fr;
+    }
+    .figure img {
+      border-radius: 2px;
+    }
+  }
+  @media (max-width: 420px) {
+    .row {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+    .row .k {
+      padding-top: 0;
+    }
+  }
+</style>

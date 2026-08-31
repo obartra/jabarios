@@ -1,0 +1,341 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppBar from '../components/AppBar.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import TripCard from '../components/TripCard.astro';
+import { trips } from '../data/trips.ts';
+import {
+  countdown,
+  durationDays,
+  nextTrip,
+  parseDay,
+  shortMonth,
+  sortTrips,
+} from '../lib/trips.ts';
+
+const now = Date.now();
+const ordered = sortTrips(trips, now);
+
+const totalDays = trips.reduce((sum, trip) => sum + durationDays(trip), 0);
+const totalCountries = trips.reduce((sum, trip) => sum + trip.countries, 0);
+const next = nextTrip(trips, now);
+const initial = next ? countdown(parseDay(next.start), now) : null;
+
+const stats = [
+  { value: String(trips.length), label: trips.length === 1 ? 'Trip' : 'Trips' },
+  { value: String(totalCountries), label: totalCountries === 1 ? 'Country' : 'Countries' },
+  { value: String(totalDays), label: 'Days away' },
+  { value: next ? shortMonth(next.start) : 'None', label: 'Next departure' },
+];
+---
+
+<BaseLayout
+  title="Jabarios · Trips"
+  description="Where we're going and where we've been. The days, the dives, and what has to be booked before it goes."
+  path="/"
+>
+  <a class="skip" href="#trips">Skip to trips</a>
+  <AppBar current />
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Os &amp; Jabari</p>
+      <h1>Everywhere we're <em>meaning to go</em>.</h1>
+      <p class="lede">
+        Hot countries, early starts, and as much time under the water as we can get. Pick a trip.
+      </p>
+
+      <div class="stats">
+        {
+          stats.map((stat) => (
+            <div class="stat">
+              <b>{stat.value}</b>
+              <span>{stat.label}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="nextup" id="nextup" hidden={!next}>
+        <div class="inner">
+          <p class="lbl">Next up</p>
+          <p class="who">
+            <strong id="nextup-name">{next?.name}</strong>
+            <span id="nextup-when">departs in</span>
+          </p>
+          <div class="clock" id="clock" aria-live="polite" aria-atomic="true">
+            <div><b data-c="d">{initial?.days ?? 0}</b><span>Days</span></div>
+            <div><b data-c="h">{initial?.hours ?? 0}</b><span>Hrs</span></div>
+            <div><b data-c="m">{initial?.minutes ?? 0}</b><span>Min</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="trips">
+    <div class="bar">
+      <h2>The trips</h2>
+      <div class="seg" role="tablist" aria-label="Filter trips">
+        <button role="tab" aria-selected="true" data-filter="all">All</button>
+        <button role="tab" aria-selected="false" data-filter="upcoming">Upcoming</button>
+        <button role="tab" aria-selected="false" data-filter="past">Past</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      {ordered.map((trip, i) => <TripCard trip={trip} now={now} eager={i === 0} />)}
+    </div>
+
+    <p class="empty" id="empty">Nothing here yet.</p>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  import { initHome } from '../scripts/home.ts';
+  initHome();
+</script>
+
+<style>
+  .hero {
+    padding: 58px 0 34px;
+  }
+
+  .hero h1 {
+    max-width: 15ch;
+    font-size: clamp(42px, 8.4vw, 92px);
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--chili);
+  }
+
+  .lede {
+    max-width: 44ch;
+    margin-top: 20px;
+    font-size: clamp(17px, 2.1vw, 20px);
+    opacity: 0.84;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 34px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stat {
+    flex: 1 1 130px;
+    min-width: 0;
+    padding: 16px 26px 15px;
+  }
+
+  .stat + .stat {
+    border-left: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .stat:first-child {
+    padding-left: 0;
+  }
+
+  .stat b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4.2vw, 36px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .stat span {
+    display: block;
+    margin-top: 7px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    opacity: 0.58;
+  }
+
+  .nextup {
+    margin-top: 38px;
+    border-radius: var(--r);
+    overflow: hidden;
+    background: var(--abyss);
+    color: var(--foam);
+  }
+
+  .nextup .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 30px;
+    padding: 22px 26px;
+  }
+
+  .lbl {
+    flex: none;
+    margin: 0;
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .who {
+    flex: 1 1 220px;
+    min-width: 0;
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  .who strong {
+    font-weight: 600;
+  }
+
+  .clock {
+    display: flex;
+    flex: none;
+    gap: 8px;
+  }
+
+  .clock div {
+    min-width: 62px;
+    padding: 9px 10px 7px;
+    border-radius: 12px;
+    border: 1px solid rgba(214, 231, 227, 0.14);
+    background: rgba(214, 231, 227, 0.07);
+    text-align: center;
+  }
+
+  .clock b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .clock span {
+    display: block;
+    margin-top: 5px;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin: 52px 0 20px;
+  }
+
+  .bar h2 {
+    margin-right: auto;
+    font-size: clamp(24px, 3.4vw, 30px);
+  }
+
+  .seg {
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    border: 1px solid var(--rule-soft);
+    background: var(--wash);
+  }
+
+  .seg button {
+    appearance: none;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .seg button[aria-selected='true'] {
+    background: var(--lacquer);
+    color: var(--limewash);
+    box-shadow: 0 1px 3px rgba(26, 18, 13, 0.22);
+  }
+
+  .seg button:not([aria-selected='true']):hover {
+    background: var(--wash);
+  }
+
+  .grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .empty {
+    display: none;
+    padding: 44px 24px;
+    border-radius: var(--r);
+    border: 1px dashed rgba(26, 18, 13, 0.26);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    opacity: 0.6;
+  }
+
+  .empty:global(.on) {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 40px 0 26px;
+    }
+
+    .stat {
+      flex-basis: 50%;
+      padding: 14px 18px 13px;
+    }
+
+    .stat:nth-child(odd) {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .nextup .inner {
+      padding: 20px;
+    }
+
+    .clock div {
+      min-width: 56px;
+    }
+
+    .bar {
+      margin-top: 40px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .seg button {
+      transition: none;
+    }
+  }
+</style>

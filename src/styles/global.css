@@ -1,0 +1,157 @@
+/**
+ * Design tokens and the base layer, shared by every page. Anything that styles
+ * one page only stays in that page; anything a second page would want to copy
+ * belongs here instead. Component chrome (app bar, footer, trip card) lives
+ * with its component.
+ */
+
+:root {
+  /* Land */
+  --lacquer: #1a120d;
+  --limewash: #e9dcc3;
+  --limewash-2: #dfceaf;
+  --chili: #a83b27;
+  --marigold: #c9871b;
+  --jade: #2f6e63;
+
+  /* Water */
+  --abyss: #04222b;
+  --abyss-2: #08303b;
+  --surf: #4fd0c6;
+  --foam: #d6e7e3;
+
+  /* Ink over the limewash ground, pre-mixed so opacity is not guessed at. */
+  --rule: rgba(26, 18, 13, 0.16);
+  --rule-soft: rgba(26, 18, 13, 0.1);
+  --wash: rgba(26, 18, 13, 0.07);
+
+  --maxw: 1180px;
+  --r: 20px;
+
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--limewash);
+  color: var(--lacquer);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0 0 0.9em;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--chili);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  scroll-margin-top: 54px;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.66;
+}
+
+/* Keyboard users get to the content without tabbing the whole nav. */
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: 22px;
+  top: 10px;
+  z-index: 60;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--lacquer);
+  color: var(--limewash);
+}
+
+/*
+ * Reveal on scroll. Gated on .js so a script failure leaves the content
+ * visible rather than permanently transparent.
+ */
+.js .rev {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.js .rev.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .rev {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

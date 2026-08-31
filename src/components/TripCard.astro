@@ -1,0 +1,251 @@
+---
+import type { Trip } from '../data/trips.ts';
+import { durationDays, STATUS_LABEL, statusOf, type TripStatus } from '../lib/trips.ts';
+
+interface Props {
+  trip: Trip;
+  /** Build-time "now". Client script re-derives this so a stale page self-corrects. */
+  now: number;
+  /** The first card is eager; the rest are below the fold. */
+  eager?: boolean;
+}
+
+const { trip, now, eager = false } = Astro.props;
+
+const status: TripStatus = statusOf(trip, now);
+const days = durationDays(trip);
+const chips = [...trip.places, ...trip.notes];
+---
+
+<a
+  class:list={['trip', 'rev', { feature: trip.featured }]}
+  href={trip.href}
+  data-trip
+  data-slug={trip.slug}
+  data-name={trip.name}
+  data-start={trip.start}
+  data-end={trip.end}
+  data-countries={trip.countries}
+  data-status={status}
+>
+  <div class="shot">
+    <img
+      src={trip.cover}
+      alt={trip.coverAlt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      width="1600"
+      height="1067"
+    />
+  </div>
+
+  <div class="body">
+    <div class="top">
+      <span class="pill" data-status-pill>{STATUS_LABEL[status]}</span>
+      <span class="pill">{days} days</span>
+    </div>
+
+    <h3>{trip.name}</h3>
+    <p class="when">{trip.dateLabel}</p>
+    <p class="blurb">{trip.blurb}</p>
+
+    <div class="chips">
+      {chips.map((chip) => <span class="chip">{chip}</span>)}
+    </div>
+
+    <span class="go">
+      Open the plan
+      <svg width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true">
+        <path
+          d="M0 4.5h13M9.5 1 13 4.5 9.5 8"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </div>
+</a>
+
+<style>
+  .trip {
+    position: relative;
+    display: block;
+    min-height: 340px;
+    border-radius: var(--r);
+    overflow: hidden;
+    background: var(--abyss);
+    color: var(--foam);
+    text-decoration: none;
+    box-shadow:
+      0 1px 2px rgba(26, 18, 13, 0.14),
+      0 10px 26px -18px rgba(26, 18, 13, 0.5);
+    transition:
+      transform 0.32s cubic-bezier(0.2, 0.7, 0.3, 1),
+      box-shadow 0.32s ease;
+  }
+
+  /* The featured trip runs the full row, so it reads as the headline whether
+     there is one trip on the page or nine. */
+  @media (min-width: 760px) {
+    .trip.feature {
+      grid-column: 1 / -1;
+      min-height: 420px;
+    }
+  }
+
+  .trip:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 2px 4px rgba(26, 18, 13, 0.16),
+      0 22px 40px -22px rgba(26, 18, 13, 0.6);
+  }
+
+  .trip:active {
+    transform: translateY(-1px);
+  }
+
+  /* Photo, then scrim, then content. Negative z-index would put the photo
+     behind the card's own background and hide it entirely. */
+  .shot {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+
+  .trip:hover .shot img {
+    transform: scale(1.045);
+  }
+
+  .trip::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    /* Bottom-heavy so the copy stays readable over bright water, while the top
+       third of the photo comes through more or less clean. */
+    background: linear-gradient(
+      180deg,
+      rgba(4, 34, 43, 0.12) 0%,
+      rgba(4, 34, 43, 0.45) 30%,
+      rgba(4, 34, 43, 0.86) 55%,
+      rgba(4, 34, 43, 0.96) 100%
+    );
+  }
+
+  .body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    min-height: inherit;
+    padding: 20px 22px 22px;
+  }
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: auto;
+  }
+
+  .pill {
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid rgba(214, 231, 227, 0.28);
+    background: rgba(4, 34, 43, 0.42);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .pill:global(.live) {
+    background: var(--surf);
+    border-color: var(--surf);
+    color: var(--abyss);
+    font-weight: 600;
+  }
+
+  .pill:global(.done) {
+    background: rgba(4, 34, 43, 0.5);
+    opacity: 0.8;
+  }
+
+  h3 {
+    font-size: clamp(28px, 4.4vw, 40px);
+    letter-spacing: -0.03em;
+    text-shadow: 0 1px 14px rgba(4, 34, 43, 0.5);
+  }
+
+  .when {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    opacity: 0.76;
+  }
+
+  .blurb {
+    margin: 2px 0 0;
+    max-width: 52ch;
+    font-size: 15.5px;
+    opacity: 0.86;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .chip {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(214, 231, 227, 0.26);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    opacity: 0.9;
+  }
+
+  .go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .go svg {
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+
+  .trip:hover .go svg {
+    transform: translateX(5px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trip,
+    .shot img,
+    .go svg {
+      transition: none;
+    }
+  }
+</style>

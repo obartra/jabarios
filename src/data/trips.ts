@@ -140,7 +140,7 @@ const raw: unknown[] = [
     description:
       'Four of us in Vegas over Christmas 2026. Skydiving, tanks, the Grand Canyon by helicopter, odd museums and the desert. Ideas, not a plan.',
     places: ['The Strip', 'Boulder City', 'Grand Canyon West'],
-    notes: ['9 nights', 'No gambling'],
+    notes: ['9 nights', 'Nothing booked'],
     cover: '/vegas/img/strip.jpg',
     coverAlt: 'The Las Vegas Strip at night from the air, lit along its whole length',
     credits: [

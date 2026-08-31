@@ -7,7 +7,7 @@ test.describe('Vegas page', () => {
 
   test('lays out every activity as a card with a photo, price and duration', async ({ page }) => {
     const cards = page.locator('.card');
-    await expect(cards).toHaveCount(18);
+    await expect(cards).toHaveCount(22);
 
     for (const card of await cards.all()) {
       await expect(card.locator('img')).toHaveAttribute('src', /^\/vegas\/img\//);
@@ -18,7 +18,7 @@ test.describe('Vegas page', () => {
   });
 
   test('groups activities under headings the nav can reach', async ({ page }) => {
-    for (const id of ['big', 'night', 'museum', 'out', 'free']) {
+    for (const id of ['big', 'cirque', 'night', 'museum', 'out', 'free']) {
       await expect(page.locator(`section#${id} h2`)).toBeVisible();
       await expect(page.locator(`section#${id} .card`).first()).toBeVisible();
     }
@@ -45,9 +45,9 @@ test.describe('Vegas page', () => {
   });
 
   test('credits every bundled photo in the footer', async ({ page }) => {
-    // 18 activity photos plus the cover.
+    // 22 activity photos plus the cover.
     await expect(page.locator('footer .fine').getByRole('link', { name: 'source' })).toHaveCount(
-      19,
+      23,
     );
   });
 

@@ -28,10 +28,16 @@ export const CATEGORIES = [
     note: 'The ones that cost real money and need booking ahead.',
   },
   {
+    id: 'cirque',
+    label: 'Cirque du Soleil',
+    short: 'Cirque',
+    note: 'Five resident shows, and they are not much like each other.',
+  },
+  {
     id: 'night',
     label: 'Shows and nights out',
     short: 'Nights out',
-    note: 'Two of these suit all four of us. One is more of a late one.',
+    note: 'A theatre show, a club, and a screen the size of a building.',
   },
   {
     id: 'museum',
@@ -144,17 +150,13 @@ const raw: Record<string, unknown[]> = {
     },
     {
       id: 'bellagio',
-      name: 'Cirque du Soleil, "O"',
-      category: 'big',
+      name: '"O"',
+      category: 'cirque',
       price: '$110–250 pp',
       duration: '90 minutes',
       blurb:
-        'Five Cirque shows run in Vegas. "O" at the Bellagio is the one that tends to hold a group with a thirty-year age spread. KÀ is the martial-arts one, Mad Apple the party one, Michael Jackson ONE the jukebox.',
-      facts: [
-        'Dark two nights a week',
-        'Christmas week schedules move around',
-        'The first few rows get wet',
-      ],
+        'Acrobatics in, on and above a pool holding a million and a half gallons, and the one most people mean when they say they saw a Cirque show. Running since 1998.',
+      facts: ['Bellagio, middle Strip', 'Dark two nights a week', 'The first few rows get wet'],
       photo: '/vegas/img/bellagio.jpg',
       photoAlt: 'The Bellagio fountains at night in front of the hotel',
       link: 'https://www.bellagio.com/en/entertainment/o-cirque-du-soleil.html',
@@ -166,16 +168,108 @@ const raw: Record<string, unknown[]> = {
       },
     },
     {
+      id: 'mystere',
+      name: 'Mystère',
+      category: 'cirque',
+      price: '$70–160 pp',
+      duration: '90 minutes',
+      blurb:
+        'The oldest of the five, running since 1993, and the most straightforwardly circus of them: acrobatics, clowning and a very large taiko drum. Usually the cheapest ticket of the lot.',
+      facts: [
+        'Treasure Island, north Strip',
+        'No age restriction',
+        'The least expensive of the five',
+      ],
+      photo: '/vegas/img/mystere.jpg',
+      photoAlt: 'The Treasure Island hotel tower on the Las Vegas Strip',
+      link: 'https://www.cirquedusoleil.com/mystere',
+      credit: {
+        subject: 'Treasure Island',
+        author: 'Markbriggs at English Wikipedia',
+        licence: 'Public domain',
+        url: 'https://commons.wikimedia.org/wiki/File:Treasure_Island_Hotel_Las_Vegas.jpg',
+      },
+    },
+    {
+      id: 'ka',
+      name: 'KÀ',
+      category: 'cirque',
+      price: '$85–220 pp',
+      duration: '90 minutes',
+      blurb:
+        'A martial-arts story told on a stage that tilts to vertical and moves through the room, which is more of the spectacle than the acrobatics are. The most plot-driven of the five.',
+      facts: [
+        'MGM Grand, south Strip',
+        'Under 18s need an adult',
+        'Loud, dark, and heavy on pyrotechnics',
+      ],
+      photo: '/vegas/img/ka.jpg',
+      photoAlt: 'The MGM Grand hotel lit green at night',
+      link: 'https://www.cirquedusoleil.com/ka',
+      credit: {
+        subject: 'MGM Grand at night',
+        author: 'Tristan Surtel',
+        licence: 'CC BY-SA 4.0',
+        url: 'https://commons.wikimedia.org/wiki/File:MGM_Grand_hotel,_Las_Vegas_by_night.jpg',
+      },
+    },
+    {
+      id: 'mjone',
+      name: 'Michael Jackson ONE',
+      category: 'cirque',
+      price: '$80–200 pp',
+      duration: '90 minutes',
+      blurb:
+        'Built around the catalogue rather than a story, so it lands as a gig with acrobatics in it as much as a Cirque show. The easiest of the five to enjoy without concentrating.',
+      facts: [
+        'Mandalay Bay, far south Strip',
+        'Under 16s need an adult',
+        'Familiar music the whole way through',
+      ],
+      photo: '/vegas/img/mjone.jpg',
+      photoAlt: 'The gold towers of Mandalay Bay against a clear sky',
+      link: 'https://www.cirquedusoleil.com/michael-jackson-one',
+      credit: {
+        subject: 'Mandalay Bay',
+        author: 'Cyberdoomslayer',
+        licence: 'CC BY-SA 4.0',
+        url: 'https://commons.wikimedia.org/wiki/File:Mandalay_Bay_Hotel_Las_Vegas_(July_15_2008).jpg',
+      },
+    },
+    {
+      id: 'madapple',
+      name: 'Mad Apple',
+      category: 'cirque',
+      price: '$70–180 pp',
+      duration: '75 minutes',
+      blurb:
+        'A New York themed variety night: stand-up, magic, a live band, and acrobatics in between. Later, looser and more adult than the rest, and the shortest of the five.',
+      facts: [
+        'New York-New York, middle Strip',
+        '18+, for adult language in the comedy',
+        'Bar on the stage before it starts',
+      ],
+      photo: '/vegas/img/madapple.jpg',
+      photoAlt: 'The skyline replica towers of New York-New York on the Strip',
+      link: 'https://www.cirquedusoleil.com/mad-apple',
+      credit: {
+        subject: 'New York-New York',
+        author: 'King of Hearts',
+        licence: 'CC BY-SA 3.0',
+        url: 'https://commons.wikimedia.org/wiki/File:New_York_New_York_Las_Vegas_December_2013.jpg',
+      },
+    },
+    {
       id: 'flamingo',
       name: "RuPaul's Drag Race Live",
       category: 'night',
       price: '$60–150 pp',
       duration: '75 minutes',
       blurb:
-        'At the Flamingo, with a rotating cast of Drag Race alumni. A seated theatre show rather than a club, which makes it the drag night that works for all four of us at once.',
+        'At the Flamingo, with a rotating cast of Drag Race alumni. A seated theatre show with a running time and an interval, rather than a club night.',
       facts: [
         'Seated theatre show, not a club',
-        "Hamburger Mary's does a drag brunch, if daytime suits better",
+        "Hamburger Mary's does a drag brunch, for a daytime version",
         'Christmas week slots go early',
       ],
       photo: '/vegas/img/flamingo.jpg',
@@ -195,7 +289,7 @@ const raw: Record<string, unknown[]> = {
       price: 'Free to $20 cover',
       duration: 'As long as you last',
       blurb:
-        'The Fruit Loop on Paradise Road, a mile off the Strip. Resident queens, guest Drag Race alumni, open until dawn. More of a late-night, smaller-group thing than a whole-party one.',
+        'The Fruit Loop on Paradise Road, a mile off the Strip. Resident queens, guest Drag Race alumni, and it runs until dawn.',
       facts: [
         'Busiest after midnight',
         'Free entry most weeknights',
@@ -352,7 +446,7 @@ const raw: Record<string, unknown[]> = {
       price: '$15 per car',
       duration: 'Half a day',
       blurb:
-        'An hour northeast. Red Aztec sandstone, petroglyphs, and short walks rather than hikes, which is what makes it the desert day that suits everyone rather than the fit half of a group.',
+        'An hour northeast. Red Aztec sandstone, petroglyphs, and short marked walks rather than hikes, most of them under a mile.',
       facts: [
         'White Domes and Fire Wave are the two most people do',
         'No food inside the park',

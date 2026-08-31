@@ -13,13 +13,6 @@ const nights = durationDays(trip) - 1;
 
 const sections = groups.map((g) => ({ href: `#${g.id}`, label: g.short }));
 
-const who = [
-  { name: 'Os', detail: '38' },
-  { name: 'Jabari', detail: '30' },
-  { name: 'Karen', detail: '64' },
-  { name: 'Sa', detail: '50s' },
-];
-
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
   'Four of us, nine nights, arriving on the 18th and flying home on the 27th.';
@@ -37,17 +30,6 @@ const note =
       <p class="eyebrow">{trip.name} · {trip.dateLabel}</p>
       <h1>Christmas in Vegas. <em>Help yourself</em>.</h1>
       <p class="lede">{trip.lede}</p>
-
-      <div class="who">
-        {
-          who.map((p) => (
-            <span class="person">
-              {p.name}
-              <span>{p.detail}</span>
-            </span>
-          ))
-        }
-      </div>
     </div>
   </header>
 
@@ -70,18 +52,13 @@ const note =
         </div>
         <ul class="notes">
           <li>
-            <b>Doing things apart is fine.</b> Os has work on some of the days, the skydive is not everyone's
-            idea of a morning, and Piranha at one in the morning is definitely not. Most of this works
-            as a two, and some of it works alone.
-          </li>
-          <li>
             <b>{nights} nights is a long time in Vegas.</b> The Strip wears thin well before the last
             day, which is why about a third of the cards below are an hour or more out of town.
           </li>
           <li>
-            <b>None of us really gamble.</b> Vdara and the Waldorf Astoria are both at CityCenter, both
-            non-gaming and non-smoking, and both do two-bedroom suites, if walking through a lobby instead
-            of a slot floor sounds better.
+            <b>Nothing on this list is a casino.</b> That is what this page happens to collect, rather
+            than a comment on anyone. If a hotel without a slot floor appeals, Vdara and the Waldorf Astoria
+            are both at CityCenter, non-gaming, non-smoking, and do two-bedroom suites.
           </li>
           <li>
             <b>The rodeo misses us.</b> The National Finals Rodeo runs 3 to 12 December, so it is gone
@@ -165,28 +142,6 @@ const note =
     margin-top: 22px;
     font-size: clamp(17px, 2.1vw, 20px);
     opacity: 0.86;
-  }
-
-  .who {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 28px;
-  }
-
-  .person {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 6px;
-    padding: 5px 13px;
-    border-radius: 999px;
-    border: 1px solid rgba(26, 18, 13, 0.24);
-    font-family: var(--font-mono);
-    font-size: 12px;
-  }
-
-  .person span {
-    opacity: 0.5;
   }
 
   section {

@@ -166,9 +166,10 @@ const raw: Record<string, unknown[]> = {
       price: '$110–250 pp',
       duration: '90 minutes',
       blurb:
-        'Acrobatics in, on and above a pool holding a million and a half gallons, and the one most people mean when they say they saw a Cirque show. Running since 1998.',
+        'The water one. A pool holding a million and a half gallons, twenty-five feet deep, with sixteen hydraulic platforms that lift the stage out of it and drop it away again mid-scene. Synchronised swimmers, sixty-foot dives, and scuba divers working under the surface for the whole show.',
       facts: [
         'Bellagio, middle Strip',
+        'Eight Olympians in the cast',
         'No performances two nights a week',
         'The first few rows get wet',
       ],

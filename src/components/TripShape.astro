@@ -1,0 +1,91 @@
+---
+/**
+ * The two-column block under the hero: a short prose statement of what the
+ * trip is, and beside it the constraints that shape it. The notes are the part
+ * people actually read, so they get the marigold rule and a bold lead.
+ */
+interface Props {
+  title?: string;
+  /** Paragraphs of the left-hand column. */
+  paragraphs: string[];
+  /** Right-hand column. `lead` is bolded and runs into `rest`. */
+  notes: { lead: string; rest: string }[];
+}
+
+const { title = 'The idea', paragraphs, notes } = Astro.props;
+---
+
+<section class="shape">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>{title}</h2>
+        {paragraphs.map((text) => <p>{text}</p>)}
+      </div>
+      <ul class="notes">
+        {
+          notes.map((note) => (
+            <li>
+              <b>{note.lead}</b> {note.rest}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .shape {
+    padding: 54px 0 62px;
+  }
+
+  .cols {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+
+  .cols h2 {
+    font-size: clamp(24px, 3.4vw, 30px);
+  }
+
+  .cols p {
+    margin-top: 14px;
+    max-width: 46ch;
+    opacity: 0.86;
+  }
+
+  .notes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+
+  .notes li {
+    padding-left: 16px;
+    border-left: 2px solid var(--marigold);
+    font-size: 15.5px;
+    line-height: 1.55;
+    opacity: 0.9;
+  }
+
+  .notes b {
+    font-weight: 600;
+  }
+
+  @media (min-width: 900px) {
+    .cols {
+      grid-template-columns: 1fr 1.15fr;
+      gap: 54px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .shape {
+      padding: 40px 0 46px;
+    }
+  }
+</style>

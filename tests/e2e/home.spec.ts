@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { trips } from '../../src/data/trips.ts';
 
 test.describe('homepage', () => {
   test.beforeEach(async ({ page }) => {
@@ -7,7 +8,10 @@ test.describe('homepage', () => {
 
   test('shows a card per trip and links through to it', async ({ page }) => {
     const cards = page.locator('[data-trip]');
-    await expect(cards).toHaveCount(2);
+    // Derived from the trip data, so adding a trip does not fail this test for
+    // the wrong reason. check-dist.mjs is what proves the card and the page
+    // agree; this proves the homepage actually renders one for every trip.
+    await expect(cards).toHaveCount(trips.length);
 
     const thai = cards.filter({ hasText: 'Thailand' });
     await expect(thai.getByRole('heading', { name: 'Thailand' })).toBeVisible();

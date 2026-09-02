@@ -1,0 +1,55 @@
+---
+import type { Trip } from '../data/trips.ts';
+
+/**
+ * The top of a trip page: the dated eyebrow, the headline and the lede. The
+ * eyebrow and lede come from the trip data so they can never disagree with the
+ * dates; the headline is a slot because it is the one line per trip that is
+ * genuinely written rather than derived.
+ */
+interface Props {
+  trip: Trip;
+  /** Tighter measure for a long headline. Defaults to the Vegas setting. */
+  maxWidth?: string;
+}
+
+const { trip, maxWidth = '15ch' } = Astro.props;
+---
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">{trip.name} · {trip.dateLabel}</p>
+    <h1 style={`max-width:${maxWidth}`}><slot /></h1>
+    <p class="lede">{trip.lede}</p>
+    <slot name="tags" />
+  </div>
+</header>
+
+<style>
+  .hero {
+    padding: 60px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 7.8vw, 88px);
+  }
+
+  /* Slotted, so the emphasis colour has to reach out of this component. */
+  .hero h1 :global(em) {
+    font-style: normal;
+    color: var(--chili);
+  }
+
+  .lede {
+    max-width: 48ch;
+    margin-top: 22px;
+    font-size: clamp(17px, 2.1vw, 20px);
+    opacity: 0.86;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 40px 0 30px;
+    }
+  }
+</style>

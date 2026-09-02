@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import TripHero from '../../components/TripHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ActivityGroups from '../../components/ActivityGroups.astro';
+import BookingOrder from '../../components/BookingOrder.astro';
+import { tripBySlug } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { durationDays } from '../../lib/trips.ts';
+
+const trip = tripBySlug('groundhog');
+const groups = groupedFor('groundhog');
+const nights = durationDays(trip) - 1;
+
+const sections = [
+  { href: '#days', label: 'The two days' },
+  ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
+  { href: '#eat', label: 'Eating' },
+];
+
+/** The programmed half. Everything after the 2nd is deliberately not here. */
+const timeline = [
+  {
+    when: 'Mon 1 Feb',
+    what: 'Fly into Pittsburgh, drive to Punxsutawney',
+    detail:
+      'Pittsburgh is the nearest airport with real connections, about 75 miles and an hour and a half out. DuBois is closer but barely served. Check in, eat in town, be asleep by nine.',
+  },
+  {
+    when: 'Tue 2 Feb, 02:00',
+    what: 'Up, and out',
+    detail:
+      'Ticket booths open at 02:00 and buses start at 03:00 from Barclay Square. There is no parking at the Knob, so the bus is the way in whether we like it or not.',
+  },
+  {
+    when: '03:00 to 07:25',
+    what: "Gobbler's Knob",
+    detail:
+      'Four and a half hours standing in a field in the dark, with a stage, a band and tens of thousands of people. The Inner Circle appear around 06:30 and Phil comes out at 07:25.',
+  },
+  {
+    when: 'Late morning',
+    what: 'Breakfast, then Phil at the library',
+    detail:
+      'Barclay Square is the middle of everything and Phil’s Burrow is thirty seconds off it, free and open to the street. Eat before the whole town tries to at once.',
+  },
+  {
+    when: 'Tue 2 Feb, afternoon',
+    what: 'Drive east to Philadelphia',
+    detail:
+      'About 290 miles and five hours across the state, most of it on I-80. That puts us at Jabari’s in West Philly for the evening, on very little sleep.',
+  },
+  {
+    when: 'Wed 3 to Tue 9 Feb',
+    what: 'Nothing in particular',
+    detail:
+      'Seven nights with no schedule. Some of us will work, some will sleep in, and the cards below are ideas rather than anything anyone signed up for.',
+  },
+];
+
+const eating = [
+  {
+    name: 'Toast Cafe',
+    where: '500 S 52nd St',
+    detail:
+      'West Philly brunch, open since 2022. Oxtail and grits, fish and grits, praline french toast. Closed Mondays and shuts mid afternoon, so it is a morning plan or it is nothing.',
+  },
+  {
+    name: "Booker's",
+    where: '5021 Baltimore Ave',
+    detail:
+      'Southern-leaning New American on Baltimore Avenue, open since 2017. Lunch 10:00 to 14:30, dinner 17:00 to 22:00, and the gap between them has caught people out.',
+  },
+  {
+    name: 'Umami Steak and Sushi',
+    where: '727 Walnut St',
+    detail:
+      'Steaks and sushi in a basement room off Washington Square. Worth flagging that this one is across the river in Center City rather than round the corner, so it is a proper evening out. Steaks $42 to $65.',
+  },
+];
+
+const booking = [
+  {
+    label: 'The room on the 1st',
+    detail:
+      'The town holds a few dozen beds against a crowd of tens of thousands, and people book a year out. Philadelphia is Jabari’s spare room, so this is the only bed on the trip anyone has to pay for.',
+  },
+  {
+    label: 'A hire car',
+    detail:
+      'Needed from Pittsburgh, and it has to survive a 290 mile drive east on the 2nd. Worth pricing a one-way drop in Philadelphia against keeping it all week.',
+  },
+  {
+    label: 'Flights',
+    detail: 'Into Pittsburgh, home out of Philadelphia. Different airports at each end.',
+  },
+  { label: 'Magic Gardens', detail: 'Timed tickets, and they do sell out. Closed Tuesdays.' },
+];
+
+const caveat =
+  'Prices and opening hours here were checked in September 2026. The Groundhog Day details come from recent years and the Groundhog Club publishes the real ones nearer the date, so the bus times and the $5 gate are worth confirming in January.';
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  `${nights} nights: one in Punxsutawney, the rest at Jabari's in West Philly.`;
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <TripHero trip={trip} maxWidth="17ch">One <em>groundhog</em>, then a week off.</TripHero>
+
+  <TripNav sections={sections} />
+
+  <section id="days" class="days">
+    <div class="wrap">
+      <SectionHead title="The two days that are a plan" note="Everything after the 2nd is not." />
+      <ol class="timeline">
+        {
+          timeline.map((step) => (
+            <li>
+              <span class="when">{step.when}</span>
+              <div>
+                <b>{step.what}</b>
+                <p>{step.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <ActivityGroups groups={groups} />
+
+  <section id="eat" class="eat">
+    <div class="wrap">
+      <SectionHead title="Eating" note="Three that came recommended. The rest is Jabari's call." />
+      <ul class="places">
+        {
+          eating.map((place) => (
+            <li>
+              <div class="who">
+                <b>{place.name}</b>
+                <span>{place.where}</span>
+              </div>
+              <p>{place.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <BookingOrder
+    intro="Short list, because most of this trip does not need one. The first item is the only genuinely urgent thing on it."
+    items={booking}
+    caveat={caveat}
+  />
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style>
+  .days {
+    padding: 54px 0 62px;
+  }
+
+  .timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: minmax(0, 15ch) 1fr;
+    gap: 6px 24px;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .timeline li:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .when {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    opacity: 0.55;
+    padding-top: 3px;
+  }
+
+  .timeline b {
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .timeline p {
+    margin: 6px 0 0;
+    max-width: 58ch;
+    font-size: 15.5px;
+    line-height: 1.55;
+    opacity: 0.84;
+  }
+
+  .eat {
+    padding: 62px 0;
+    background: rgba(26, 18, 13, 0.035);
+  }
+
+  .places {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .places li {
+    padding-left: 16px;
+    border-left: 2px solid var(--marigold);
+  }
+
+  .who {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 10px;
+  }
+
+  .who b {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .who span {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.58;
+  }
+
+  .places p {
+    margin: 8px 0 0;
+    max-width: 46ch;
+    font-size: 15.5px;
+    line-height: 1.55;
+    opacity: 0.86;
+  }
+
+  @media (min-width: 760px) {
+    .places {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .days {
+      padding: 40px 0 46px;
+    }
+
+    .eat {
+      padding: 46px 0;
+    }
+
+    .timeline li {
+      grid-template-columns: 1fr;
+      gap: 2px;
+      padding: 18px 0;
+    }
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import ActivityCard from './ActivityCard.astro';
+import SectionHead from './SectionHead.astro';
+import type { Activity, Category } from '../data/activities.ts';
+
+/**
+ * Every section of a menu-style trip page, generated from groupedFor(slug).
+ * The section ids match the category ids, so the sticky nav anchors work
+ * without the page repeating the list.
+ */
+interface Props {
+  groups: (Category & { items: Activity[] })[];
+  /** Tint alternate sections. Off when a page interleaves its own sections. */
+  alternate?: boolean;
+}
+
+const { groups, alternate = true } = Astro.props;
+---
+
+{
+  groups.map((group, gi) => (
+    <section id={group.id} class:list={['group', { alt: alternate && gi % 2 === 1 }]}>
+      <div class="wrap">
+        <SectionHead title={group.label} note={group.note} />
+        <div class="grid">
+          {group.items.map((activity, i) => (
+            <ActivityCard activity={activity} eager={gi === 0 && i === 0} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))
+}
+
+<style>
+  .group {
+    padding: 62px 0;
+  }
+
+  .group.alt {
+    background: rgba(26, 18, 13, 0.035);
+  }
+
+  .grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  }
+
+  @media (max-width: 640px) {
+    .group {
+      padding: 46px 0;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

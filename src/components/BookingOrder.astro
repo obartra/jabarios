@@ -1,0 +1,119 @@
+---
+/**
+ * The dark closing section: what has to be booked, roughly in the order things
+ * stop being available, then the caveat about when the prices were checked.
+ * Every menu-style trip ends with one of these.
+ */
+interface Props {
+  title?: string;
+  intro: string;
+  items: { label: string; detail: string }[];
+  caveat: string;
+}
+
+const { title = 'What needs a head start', intro, items, caveat } = Astro.props;
+---
+
+<section class="book">
+  <div class="wrap">
+    <h2>{title}</h2>
+    <p class="intro">{intro}</p>
+    <ol class="order">
+      {
+        items.map((item) => (
+          <li>
+            <b>{item.label}</b>
+            <span>{item.detail}</span>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="caveat">{caveat}</p>
+  </div>
+</section>
+
+<style>
+  .book {
+    padding: 62px 0;
+    background: var(--abyss);
+    color: var(--foam);
+  }
+
+  .book h2 {
+    font-size: clamp(26px, 4vw, 36px);
+    margin-bottom: 24px;
+  }
+
+  .intro {
+    max-width: 54ch;
+    margin: -10px 0 26px;
+    opacity: 0.78;
+  }
+
+  .order {
+    display: grid;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .order li {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 14ch) 1fr;
+    gap: 14px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+    counter-increment: step;
+  }
+
+  .order li::before {
+    content: '0' counter(step);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    opacity: 0.45;
+  }
+
+  .order b {
+    font-weight: 600;
+  }
+
+  .order span {
+    font-size: 15px;
+    opacity: 0.8;
+  }
+
+  .caveat {
+    margin: 26px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+    max-width: 62ch;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.7;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 640px) {
+    .book {
+      padding: 46px 0;
+    }
+
+    /* Stack the step number above the label so long text keeps its width. */
+    .order li {
+      grid-template-columns: 26px 1fr;
+      gap: 4px 12px;
+      padding: 16px 0;
+    }
+
+    .order b {
+      grid-column: 2;
+    }
+
+    .order span {
+      grid-column: 2;
+    }
+  }
+</style>

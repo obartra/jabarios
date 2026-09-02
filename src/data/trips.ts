@@ -150,6 +150,56 @@ const raw: unknown[] = [
       },
     ],
   },
+  {
+    slug: 'palm-springs',
+    name: 'Palm Springs',
+    start: '2027-04-10',
+    end: '2027-04-24',
+    countries: 1,
+    lede: 'Two weeks in the desert, and the valley is running three festival weekends while we are in it. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.',
+    blurb:
+      'Fourteen nights in the desert, across both Coachella weekends and Stagecoach. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
+    description:
+      'Fourteen nights in Palm Springs in April 2027, across both Coachella weekends. Joshua Tree, the tram, the Salton Sea. Ideas, not a plan.',
+    places: ['Palm Springs', 'Joshua Tree', 'Pioneertown', 'The Salton Sea'],
+    notes: ['14 nights', 'Nothing booked'],
+    cover: '/palm-springs/img/cover.jpg',
+    coverAlt:
+      'A Palm Springs aerial tram car on its cables high above the rock walls of Chino Canyon',
+    credits: [
+      {
+        subject: 'Palm Springs Aerial Tramway over Chino Canyon',
+        author: 'Matthew Field',
+        licence: 'CC BY-SA 3.0',
+        url: 'https://commons.wikimedia.org/wiki/File:Palm_springs_aerial_tramway.jpg',
+      },
+    ],
+  },
+  {
+    slug: 'groundhog',
+    name: 'Groundhog Day and Philly',
+    start: '2027-02-01',
+    end: '2027-02-09',
+    countries: 1,
+    lede: 'A groundhog is lifted out of a stump at 07:25 on 2 February, in front of a field of people who queued for a bus at three in the morning. We drive up the day before and sleep in town. Then five hours east to Jabari’s in West Philly, and a week with nothing in it.',
+    blurb:
+      'Two planned days in a frozen Pennsylvania field, then a week in West Philly with no schedule. The Groundhog Day logistics, and somewhere to eat afterwards.',
+    description:
+      'Groundhog Day at Gobbler’s Knob on 2 February 2027, then a week in West Philly. The plan for the first two days, options for the rest.',
+    places: ['Punxsutawney', 'West Philly'],
+    notes: ['8 nights', 'One 3am start'],
+    cover: '/groundhog/img/cover.jpg',
+    coverAlt:
+      'The Inner Circle in top hats on the stage at Gobbler’s Knob, holding Phil up over a crowd of raised phones',
+    credits: [
+      {
+        subject: "Groundhog Day at Gobbler's Knob, 2024",
+        author: 'Anthony Quintano',
+        licence: 'CC BY 2.0',
+        url: "https://commons.wikimedia.org/wiki/File:Groundhog_Day_Punxsutawney_Phil_Gobbler's_Knob_2024_(53509499129).jpg",
+      },
+    ],
+  },
   // <new-trip> scripts/new-trip.mjs inserts above this line.
 ];
 

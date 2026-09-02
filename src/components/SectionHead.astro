@@ -1,0 +1,47 @@
+---
+/**
+ * The heading rule that opens every section on a menu-style trip page: a title
+ * with a small mono note beside it. Shared so a page's own bespoke sections
+ * line up with the generated activity groups.
+ */
+interface Props {
+  title: string;
+  note?: string;
+}
+
+const { title, note } = Astro.props;
+---
+
+<div class="head">
+  <h2>{title}</h2>
+  {note && <p>{note}</p>}
+</div>
+
+<style>
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 18px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .head h2 {
+    font-size: clamp(26px, 4vw, 36px);
+  }
+
+  .head p {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.58;
+  }
+
+  @media (max-width: 640px) {
+    .head {
+      margin-bottom: 20px;
+    }
+  }
+</style>

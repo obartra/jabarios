@@ -189,9 +189,9 @@ const raw: unknown[] = [
     start: '2026-12-20',
     end: '2026-12-27',
     countries: 1,
-    lede: 'Christmas at Jabari\u2019s in West Philly, with him and his mom. Seven nights, nothing scheduled in them, and a flight south to Brasil on the 27th. The cards below are for the days that are not Christmas.',
+    lede: 'Christmas at Jabari’s in West Philly, with him and his mom. Seven nights, nothing scheduled in them, and a flight south to Brasil on the 27th. The cards below are for the days that are not Christmas.',
     blurb:
-      'Christmas week at Jabari\u2019s in West Philly, with him and his mom. Seven nights with nothing in them, then a flight to Brasil on the 27th.',
+      'Christmas week at Jabari’s in West Philly, with him and his mom. Seven nights with nothing in them, then a flight to Brasil on the 27th.',
     description:
       'Christmas 2026 in West Philly with Jabari and his mom. Seven nights, no schedule, and what stays open over the holiday.',
     places: ['West Philly', 'Center City'],
@@ -200,6 +200,31 @@ const raw: unknown[] = [
     cover: '/philly/img/magicgardens.jpg',
     coverAlt: 'A wall covered in mosaic made from bottles, mirrors, tiles and a bicycle wheel',
     credits: [],
+  },
+  {
+    slug: 'brasil',
+    name: 'Brasil',
+    start: '2027-01-15',
+    end: '2027-01-29',
+    countries: 1,
+    lede: 'Two weeks north, most of it in Maranhão. The lagoons that made Lençóis famous are rain-fed and fill between January and June, so in the middle of January there are dunes and not much water. That is the trade for having the place close to empty.',
+    blurb:
+      'Fourteen nights in Maranhão, timed around being in the country rather than around the lagoons. White dunes, an almost empty park, and São Luís at both ends.',
+    description:
+      'Fourteen nights in Maranhão in January 2027. Lençóis Maranhenses out of season, São Luís and the Rio Preguiças, and what is actually there in January.',
+    places: ['São Luís', 'Barreirinhas', 'Lençóis Maranhenses'],
+    notes: ['14 nights', 'Low water'],
+    cover: '/brasil/img/cover.jpg',
+    coverAlt:
+      'Two people walking a sandbar between a lagoon and white dunes at sunset in Lençóis Maranhenses',
+    credits: [
+      {
+        subject: 'Lençóis Maranhenses at sunset',
+        author: 'Julio Cesar Goncalves Corrêa, edited by Aristeas',
+        licence: 'CC BY-SA 4.0',
+        url: 'https://commons.wikimedia.org/wiki/File:Casal_de_turistas_caminha_em_uma_duna,_enquanto_o_dia_morre_nos_Len%C3%A7%C3%B3is_Maranhenses_(edited).jpg',
+      },
+    ],
   },
   // <new-trip> scripts/new-trip.mjs inserts above this line.
 ];

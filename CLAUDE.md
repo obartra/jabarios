@@ -135,7 +135,7 @@ change", "everything you need in one place" are all wrong. Write about the
 travel instead.
 
 **No brochure language.** No "must-see", "breathtaking", "hidden gem",
-"stunning", "nestled", "vibrant", "bucket list". `scripts/check.mjs` fails the
+"stunning", "nestled", "vibrant", "bucket list". `scripts/check-dist.mjs` fails the
 build on a list of these. Extend the list rather than working around it.
 
 **No em dashes.** Use a comma, a full stop, or `·`, which is the separator the

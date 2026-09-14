@@ -14,8 +14,7 @@ src/
     index.astro          homepage, generated from the trip data
     404.astro
     _template/           starter trip page, not routed
-    thai/index.astro     Thailand
-    vegas/index.astro    Las Vegas
+    <slug>/index.astro   one per trip; the slugs come from data/trips.ts
   scripts/               browser code (reveal, homepage filter and countdown)
   styles/global.css      design tokens and the base layer
 public/                  favicon and per-trip photos, served as-is

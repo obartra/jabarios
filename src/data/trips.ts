@@ -184,29 +184,22 @@ const raw: unknown[] = [
     ],
   },
   {
-    slug: 'groundhog',
-    name: 'Groundhog Day and Philly',
-    start: '2027-02-01',
-    end: '2027-02-09',
+    slug: 'philly',
+    name: 'Philadelphia',
+    start: '2026-12-20',
+    end: '2026-12-27',
     countries: 1,
-    lede: 'A groundhog is lifted out of a stump at 07:25 on 2 February, in front of a field of people who queued for a bus at three in the morning. We drive up the day before and sleep in town. Then five hours east to Jabari’s in West Philly, and a week with nothing in it.',
+    lede: 'Christmas at Jabari\u2019s in West Philly, with him and his mom. Seven nights, nothing scheduled in them, and a flight south to Brasil on the 27th. The cards below are for the days that are not Christmas.',
     blurb:
-      'Two planned days in a frozen Pennsylvania field, then a week in West Philly with no schedule. The Groundhog Day logistics, and somewhere to eat afterwards.',
+      'Christmas week at Jabari\u2019s in West Philly, with him and his mom. Seven nights with nothing in them, then a flight to Brasil on the 27th.',
     description:
-      'Groundhog Day at Gobbler’s Knob on 2 February 2027, then a week in West Philly. The plan for the first two days, options for the rest.',
-    places: ['Punxsutawney', 'West Philly'],
-    notes: ['8 nights', 'One 3am start'],
-    cover: '/groundhog/img/cover.jpg',
-    coverAlt:
-      'The Inner Circle in top hats on the stage at Gobbler’s Knob, holding Phil up over a crowd of raised phones',
-    credits: [
-      {
-        subject: "Groundhog Day at Gobbler's Knob, 2024",
-        author: 'Anthony Quintano',
-        licence: 'CC BY 2.0',
-        url: "https://commons.wikimedia.org/wiki/File:Groundhog_Day_Punxsutawney_Phil_Gobbler's_Knob_2024_(53509499129).jpg",
-      },
-    ],
+      'Christmas 2026 in West Philly with Jabari and his mom. Seven nights, no schedule, and what stays open over the holiday.',
+    places: ['West Philly', 'Center City'],
+    notes: ['7 nights', 'Christmas Day'],
+    // Credited on the activity that uses it, so it is not repeated here.
+    cover: '/philly/img/magicgardens.jpg',
+    coverAlt: 'A wall covered in mosaic made from bottles, mirrors, tiles and a bicycle wheel',
+    credits: [],
   },
   // <new-trip> scripts/new-trip.mjs inserts above this line.
 ];

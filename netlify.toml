@@ -31,3 +31,10 @@
   from = "/thailand"
   to = "/thai/"
   status = 301
+
+# Groundhog Day was cancelled and the week became Christmas in Philadelphia.
+# The old page was live, so send it somewhere rather than 404.
+[[redirects]]
+  from = "/groundhog/*"
+  to = "/philly/"
+  status = 301

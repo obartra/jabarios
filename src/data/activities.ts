@@ -101,17 +101,11 @@ export const CATEGORIES: Record<string, readonly Category[]> = {
     },
     { id: 'free', label: 'Free, and worth it', short: 'Free', note: 'No ticket, no booking.' },
   ],
-  groundhog: [
+  philly: [
     {
-      id: 'punxsutawney',
-      label: 'The Punxsutawney part',
-      short: 'Punxsutawney',
-      note: 'Two days, and the only stretch of this trip that is actually a plan.',
-    },
-    {
-      id: 'philly',
+      id: 'out',
       label: 'If we leave the house',
-      short: 'In Philly',
+      short: 'Out',
       note: 'Jabari lives here. This is not a list to work through.',
     },
   ],
@@ -1075,95 +1069,22 @@ const raw: Record<string, unknown[]> = {
       },
     },
   ],
-  groundhog: [
-    {
-      id: 'sleep',
-      name: 'A bed in Punxsutawney',
-      category: 'punxsutawney',
-      price: '$150–250 a room',
-      duration: 'The night of the 1st',
-      blurb:
-        'The one thing on this trip that has to be booked, because Philadelphia is Jabari’s spare room and this is not. The town has a handful of Victorian bed and breakfasts and one old hotel, and between them they hold a few dozen rooms against a crowd of tens of thousands.',
-      facts: [
-        'Winslow House, Barclay and the Plantation are the bed and breakfasts in town',
-        'The Pantall Hotel on Mahoning Street is the other option in walking distance',
-        'People book a year out, so five months ahead is already late',
-        'Indiana and DuBois are 30 to 40 minutes away and hold more rooms',
-      ],
-      photo: '/groundhog/img/pantall.jpg',
-      photoAlt:
-        'The four-storey red brick Pantall Hotel on a street corner in downtown Punxsutawney',
-      credit: {
-        subject: 'The Pantall Hotel, Punxsutawney',
-        author: 'Andre Carrotflower',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:26_-_20180728_-_Punxsutawney,_PA.jpg',
-      },
-    },
-    {
-      id: 'gobblers-knob',
-      name: "Gobbler's Knob, before dawn",
-      category: 'punxsutawney',
-      price: '$5 pp, under 12 free',
-      duration: '03:00 to about 08:00',
-      blurb:
-        'It happens in a clearing two miles outside town. Gates open at 03:00, the Inner Circle come out in top hats and morning coats around 06:30, and Phil is lifted out of a stump at 07:25. The prediction itself takes about a minute, and the wait is most of the experience.',
-      facts: [
-        'Ticket booths open 02:00, gates 03:00, prediction around 07:25',
-        'Buses run from Barclay Square and three other stops from 03:00',
-        'No parking at the Knob, and no bags, alcohol or chairs',
-        'Below freezing, in the dark, standing on frozen mud for hours',
-      ],
-      photo: '/groundhog/img/knob.jpg',
-      photoAlt:
-        'Men in top hats and overcoats holding a scroll while one of them holds up a groundhog',
-      link: 'https://www.groundhog.org/',
-      credit: {
-        subject: "Groundhog Day at Gobbler's Knob",
-        author: 'Anthony Quintano',
-        licence: 'CC BY 2.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Groundhog_Day,_Punxsutawney,_2013-1.jpg',
-      },
-    },
-    {
-      id: 'phil',
-      name: 'Phil, and the town afterwards',
-      category: 'punxsutawney',
-      price: 'Free',
-      duration: 'A couple of hours before we drive',
-      blurb:
-        'Phil spends the other 364 days in a lit enclosure built into the wall of the town library, with a window onto Barclay Square, and costs nothing to visit. The square runs games and street music through the festival, and the community centre screens the film on a loop.',
-      facts: [
-        "Phil's Burrow is at the library on Barclay Square, visible from the street",
-        'Free screenings of the 1993 film run at the community centre',
-        'Painted Phil statues are dotted around the town',
-        'Every restaurant is swamped on the 2nd, so eat early or wait',
-      ],
-      photo: '/groundhog/img/phil.jpg',
-      photoAlt:
-        'A groundhog held up at arm’s length against bare winter trees at dawn, lit by a floodlight',
-      credit: {
-        subject: 'Punxsutawney Phil',
-        author: 'Chris Flook',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Punxsutawney_Phil_2018.jpg',
-      },
-    },
+  philly: [
     {
       id: 'bartrams',
       name: "Bartram's Garden",
-      category: 'philly',
+      category: 'out',
       price: 'Free',
       duration: 'A couple of hours',
       blurb:
-        'Fifty acres on the Schuylkill at the bottom of West Philly, laid out by John Bartram from 1728, which makes it the oldest surviving botanic garden in the country. Free, almost empty in February, and a twenty minute walk or a short ride from the house.',
+        'Fifty acres on the Schuylkill at the bottom of West Philly, laid out by John Bartram from 1728, which makes it the oldest surviving botanic garden in the country. Free, almost empty in December, and a twenty minute walk or a short ride from the house.',
       facts: [
         'Grounds are free and open daily, dawn to dusk',
         'House tours are seasonal and limited, so worth checking before going',
         'On the river, so it is colder and windier than the street',
-        'Bare in February, which makes the river and the skyline easier to see',
+        'Bare in December, which makes the river and the skyline easier to see',
       ],
-      photo: '/groundhog/img/bartrams.jpg',
+      photo: '/philly/img/bartrams.jpg',
       photoAlt:
         'The stone front of John Bartram’s 18th century house behind a path lined with flower beds',
       link: 'https://bartramsgarden.org/',
@@ -1177,18 +1098,18 @@ const raw: Record<string, unknown[]> = {
     {
       id: 'magic-gardens',
       name: "Philadelphia's Magic Gardens",
-      category: 'philly',
+      category: 'out',
       price: '$15 adults, $12 students',
       duration: 'An hour',
       blurb:
-        'Isaiah Zagar spent fourteen years covering half a block of South Street in mosaic made of bottles, bicycle wheels, mirror and broken tile. Half of it is outdoors, so February is cold, but winter light on all that glass is the better version.',
+        'Isaiah Zagar spent fourteen years covering half a block of South Street in mosaic made of bottles, bicycle wheels, mirror and broken tile. Half of it is outdoors, so December is cold, but winter light on all that glass is the better version.',
       facts: [
         'Closed Tuesdays, otherwise 11:00 to 18:00',
         'Tickets regularly sell out, so book online rather than turning up',
         'Largely outdoors and unheated',
         'Zagar murals carry on for several blocks around, for free',
       ],
-      photo: '/groundhog/img/magicgardens.jpg',
+      photo: '/philly/img/magicgardens.jpg',
       photoAlt: 'A wall covered in mosaic made from bottles, mirrors, tiles and a bicycle wheel',
       link: 'https://www.phillymagicgardens.org/',
       credit: {

@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import TripHero from '../../components/TripHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ActivityGroups from '../../components/ActivityGroups.astro';
+import BookingOrder from '../../components/BookingOrder.astro';
+import { tripBySlug } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { durationDays, requireDates } from '../../lib/trips.ts';
+
+const trip = tripBySlug('philly');
+const groups = groupedFor('philly');
+const nights = durationDays(requireDates(trip, trip.slug)) - 1;
+
+const sections = [
+  { href: '#week', label: 'The week' },
+  ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
+  { href: '#eat', label: 'Eating' },
+];
+
+/** Two fixed points in seven nights. Everything between them is deliberately empty. */
+const timeline = [
+  {
+    when: 'Sun 20 Dec',
+    what: 'Into Philadelphia',
+    detail:
+      'The Airport Line runs from every PHL terminal to 30th Street in about twenty minutes, then it is a short ride west. Cheaper than a cab and usually faster at that hour.',
+  },
+  {
+    when: 'Mon 21 to Thu 24',
+    what: 'Nothing in particular',
+    detail:
+      'Four days with nothing in them. Jabari is at home and working some of it, so these are the days for the cards below, or for none of them.',
+  },
+  {
+    when: 'Fri 25 Dec',
+    what: 'Christmas, with Jabari and his mom',
+    detail:
+      'The one fixed point in the week. Almost nothing in the city is open, SEPTA runs a Sunday timetable, and that is rather the point of spending it indoors.',
+  },
+  {
+    when: 'Sat 26 Dec',
+    what: 'Everything reopens',
+    detail:
+      'Boxing Day is not a holiday in the US, so the 26th is an ordinary Saturday. Anything missed because of Christmas is open again, and busy with it.',
+  },
+  {
+    when: 'Sun 27 Dec',
+    what: 'South to Brasil',
+    detail:
+      'A separate trip and a separate booking. Worth knowing the flight time before planning anything into the last morning.',
+  },
+];
+
+const eating = [
+  {
+    name: 'Toast Cafe',
+    where: '500 S 52nd St',
+    detail:
+      'West Philly brunch, open since 2022. Oxtail and grits, fish and grits, praline french toast. Closed Mondays and shuts mid afternoon, so it is a morning plan or it is nothing.',
+  },
+  {
+    name: "Booker's",
+    where: '5021 Baltimore Ave',
+    detail:
+      'Southern-leaning New American on Baltimore Avenue, open since 2017. Lunch 10:00 to 14:30, dinner 17:00 to 22:00, and the gap between them has caught people out.',
+  },
+  {
+    name: 'Umami Steak and Sushi',
+    where: '727 Walnut St',
+    detail:
+      'Steaks and sushi in a basement room off Washington Square. Across the river in Center City rather than round the corner, so it is a proper evening out. Steaks $42 to $65.',
+  },
+];
+
+const booking = [
+  {
+    label: 'The flight south on the 27th',
+    detail:
+      'The only hard deadline in the week, and the only thing here that cannot move. Everything else bends around it.',
+  },
+  {
+    label: 'Magic Gardens',
+    detail:
+      'Timed tickets that do sell out. Closed Tuesdays, and 22 December is the only Tuesday in the week, so that day is out either way.',
+  },
+  {
+    label: 'A table for the 26th',
+    detail:
+      'The Saturday after Christmas is one of the busiest restaurant nights of the year. Booker’s and Umami both want calling ahead for it.',
+  },
+  {
+    label: 'Somewhere to sleep',
+    detail:
+      'Nothing to book. Jabari has the spare room, which is why this is the shortest list on the site.',
+  },
+];
+
+const caveat =
+  'Opening hours here were checked in September 2026, and holiday hours are the ones most likely to have moved since. Anything on the 24th, 25th or 26th is worth a phone call rather than a website.';
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  `${nights} nights at Jabari’s in West Philly, Christmas Day with him and his mom.`;
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <TripHero trip={trip} maxWidth="18ch">Christmas at Jabari's, then <em>south</em>.</TripHero>
+
+  <TripNav sections={sections} />
+
+  <section id="week" class="week">
+    <div class="wrap">
+      <SectionHead
+        title="The shape of the week"
+        note="Two fixed points. The rest is deliberately empty."
+      />
+      <ol class="timeline">
+        {
+          timeline.map((step) => (
+            <li>
+              <span class="when">{step.when}</span>
+              <div>
+                <b>{step.what}</b>
+                <p>{step.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <ActivityGroups groups={groups} />
+
+  <section id="eat" class="eat">
+    <div class="wrap">
+      <SectionHead title="Eating" note="Three that came recommended. The rest is Jabari's call." />
+      <ul class="places">
+        {
+          eating.map((place) => (
+            <li>
+              <div class="who">
+                <b>{place.name}</b>
+                <span>{place.where}</span>
+              </div>
+              <p>{place.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <BookingOrder
+    intro="Short list, because most of this week does not need one. Only the first item has a deadline attached."
+    items={booking}
+    caveat={caveat}
+  />
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style>
+  .week {
+    padding: 54px 0 62px;
+  }
+
+  .timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 148px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline .when {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding-top: 3px;
+    opacity: 0.72;
+  }
+
+  .timeline b {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .timeline p {
+    margin: 6px 0 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  .eat {
+    padding: 54px 0 70px;
+  }
+
+  .places {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .places li {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .places li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .places .who b {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .places .who span {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.66;
+  }
+
+  .places p {
+    margin: 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  @media (max-width: 760px) {
+    .timeline li,
+    .places li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

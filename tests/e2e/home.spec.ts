@@ -71,3 +71,43 @@ test.describe('homepage', () => {
     expect(overflow).toBe(false);
   });
 });
+
+test.describe('a trip with no dates', () => {
+  // Found in the data rather than hard-coded, so this keeps testing the right
+  // card once Vegas gets its dates and some other trip becomes the undated one.
+  const undated = trips.find((trip) => trip.dates === null);
+
+  test.beforeEach(async ({ page }) => {
+    test.skip(undated === undefined, 'no undated trip in the data');
+    await page.goto('/');
+  });
+
+  test('says so instead of showing a range, and drops the day count', async ({ page }) => {
+    const card = page.locator(`[data-slug="${undated!.slug}"]`);
+    await expect(card).toContainText('Dates not set');
+    // The status pill is the only one: there is no day count to show.
+    await expect(card.locator('.top .pill')).toHaveCount(1);
+  });
+
+  test('marks itself undated and labels the pill to match', async ({ page }) => {
+    const card = page.locator(`[data-slug="${undated!.slug}"]`);
+    await expect(card).toHaveAttribute('data-status', 'undated');
+    await expect(card.locator('[data-status-pill]')).toHaveText('Dates not set');
+  });
+
+  // This is the test that proves the client script kept the card. An undated
+  // card looks identical before and after hydration, so the filter is the only
+  // place the difference shows: a card the script never read is a card it can
+  // never hide, and it would sit there under "Past" forever.
+  test('filters as upcoming, because it has not happened', async ({ page }) => {
+    const card = page.locator(`[data-slug="${undated!.slug}"]`);
+    await page.getByRole('tab', { name: 'Upcoming' }).click();
+    await expect(card).toBeVisible();
+    await page.getByRole('tab', { name: 'Past' }).click();
+    await expect(card).toBeHidden();
+  });
+
+  test('is never the trip the countdown points at', async ({ page }) => {
+    await expect(page.locator('#nextup-name')).not.toHaveText(undated!.name);
+  });
+});

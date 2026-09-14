@@ -163,7 +163,7 @@ const raw: Record<string, unknown[]> = {
         '18+, photo ID at the door',
         'Under 240 lb, height and weight proportionate',
         'Most operators run a free Strip pickup',
-        'Properly cold at 12,500 ft in December',
+        'Properly cold at 12,500 ft in winter',
       ],
       photo: '/vegas/img/skydive.jpg',
       photoAlt: 'A skydiver in freefall against a blue sky, arms spread',
@@ -357,7 +357,7 @@ const raw: Record<string, unknown[]> = {
       facts: [
         'Seated theatre show, not a club',
         "Hamburger Mary's does a drag brunch, for a daytime version",
-        'Christmas week slots go early',
+        'Holiday week slots go early',
       ],
       photo: '/vegas/img/flamingo.jpg',
       photoAlt: 'The Flamingo Las Vegas hotel and its sign reflected in water',
@@ -399,7 +399,7 @@ const raw: Record<string, unknown[]> = {
       price: '$99–199 pp',
       duration: '75 minutes',
       blurb:
-        'The Eagles residency runs 4 to 12 December, before we land, so the immersive screening is what is on. It earns the ticket for the room more than for the film.',
+        'Residencies and the immersive screening alternate, so what is on depends entirely on the week we pick. The screening earns the ticket for the room more than for the film.',
       facts: [
         'Programme changes, so the calendar is worth a look',
         'Upper bowl is fine and much cheaper',
@@ -425,7 +425,7 @@ const raw: Record<string, unknown[]> = {
         'Two hundred-odd dead casino signs laid out in a yard. The dusk slot is the good one, with the daylight going and the restored signs coming on; the daytime ticket is a different and lesser thing.',
       facts: [
         'Dusk slots sell out first',
-        'Outdoors, and cold after dark in December',
+        'Outdoors, and cold after dark in winter',
         'Twenty minutes from the middle Strip',
       ],
       photo: '/vegas/img/neon.jpg',
@@ -625,7 +625,7 @@ const raw: Record<string, unknown[]> = {
       price: 'Free',
       duration: '30 minutes',
       blurb:
-        'Rebuilt five times a year by a team of about a hundred, and the winter display is up for the whole trip. Quietest before ten in the morning or after eleven at night.',
+        'Rebuilt five times a year by a team of about a hundred, so which display is up depends on when we go. Quietest before ten in the morning or after eleven at night.',
       facts: [
         'Open 24 hours',
         'Winter display runs to early January',

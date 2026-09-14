@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { trips, tripBySlug } from './trips.ts';
-import { durationDays, formatRange, parseDay } from '../lib/trips.ts';
+import { durationDays, formatRange, parseDay, UNDATED_LABEL } from '../lib/trips.ts';
 
 describe('trip data', () => {
   it('loads and validates every trip at import time', () => {
@@ -9,9 +9,25 @@ describe('trip data', () => {
 
   it('derives the date label from the dates, so they cannot disagree', () => {
     for (const trip of trips) {
-      expect(trip.dateLabel).toBe(formatRange(trip.start, trip.end));
+      expect(trip.dateLabel).toBe(
+        trip.dates ? formatRange(trip.dates.start, trip.dates.end) : UNDATED_LABEL,
+      );
       expect(trip.title).toContain(trip.name);
       expect(trip.href).toBe(`/${trip.slug}/`);
+    }
+  });
+
+  it('carries both dates or neither, never one', () => {
+    for (const trip of trips) {
+      expect(trip.start === undefined).toBe(trip.end === undefined);
+      expect(trip.dates === null).toBe(trip.start === undefined);
+    }
+  });
+
+  it('keeps an undated trip out of its own title, so the tab reads as a name', () => {
+    for (const trip of trips.filter((t) => t.dates === null)) {
+      expect(trip.title).toBe(trip.name);
+      expect(trip.title).not.toContain(UNDATED_LABEL);
     }
   });
 
@@ -22,9 +38,10 @@ describe('trip data', () => {
   });
 
   it('never ends a trip before it starts', () => {
-    for (const trip of trips) {
-      expect(parseDay(trip.end)).toBeGreaterThanOrEqual(parseDay(trip.start));
-      expect(durationDays(trip)).toBeGreaterThan(0);
+    for (const { dates } of trips) {
+      if (!dates) continue;
+      expect(parseDay(dates.end)).toBeGreaterThanOrEqual(parseDay(dates.start));
+      expect(durationDays(dates)).toBeGreaterThan(0);
     }
   });
 

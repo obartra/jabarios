@@ -4,7 +4,18 @@ import tseslint from 'typescript-eslint';
 import astro from 'eslint-plugin-astro';
 
 export default [
-  { ignores: ['dist/', '.astro/', 'node_modules/', 'playwright-report/', 'test-results/'] },
+  {
+    // .claude/worktrees holds agent checkouts of this same repo. Linting them
+    // makes every file ambiguous about which tsconfig root it belongs to.
+    ignores: [
+      'dist/',
+      '.astro/',
+      'node_modules/',
+      'playwright-report/',
+      'test-results/',
+      '.claude/',
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,

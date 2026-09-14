@@ -5,13 +5,18 @@ import {
   formatRange,
   nextTrip,
   parseDay,
+  requireDates,
   shortMonth,
   sortTrips,
   statusOf,
+  UNDATED_LABEL,
 } from './trips.ts';
 
 const thai = { start: '2026-10-15', end: '2026-11-01' };
 const at = (iso: string) => Date.parse(iso);
+/** sortTrips and nextTrip take whole trips, so fixtures carry a dates field. */
+const dated = (slug: string, start: string, end: string) => ({ slug, dates: { start, end } });
+const undated = (slug: string) => ({ slug, dates: null });
 
 describe('parseDay', () => {
   it('anchors a calendar day at midday UTC', () => {
@@ -56,12 +61,27 @@ describe('statusOf', () => {
     expect(statusOf(day, at('2026-05-04T08:00:00Z'))).toBe('now');
     expect(statusOf(day, at('2026-05-05T08:00:00Z'))).toBe('past');
   });
+
+  it('calls a trip with no dates undated, whatever the clock says', () => {
+    expect(statusOf(null, at('2026-08-31T00:00:00Z'))).toBe('undated');
+    expect(statusOf(null, at('2099-01-01T00:00:00Z'))).toBe('undated');
+  });
+});
+
+describe('requireDates', () => {
+  it('returns the dates when they are there', () => {
+    expect(requireDates({ dates: thai }, 'thai')).toEqual(thai);
+  });
+
+  it('throws naming the trip, rather than letting a page render nothing', () => {
+    expect(() => requireDates({ dates: null }, 'vegas')).toThrow(/"vegas" needs dates/);
+  });
 });
 
 describe('nextTrip', () => {
-  const past = { slug: 'a', start: '2025-01-01', end: '2025-01-10' };
-  const soon = { slug: 'b', start: '2026-10-15', end: '2026-11-01' };
-  const later = { slug: 'c', start: '2027-03-04', end: '2027-03-18' };
+  const past = dated('a', '2025-01-01', '2025-01-10');
+  const soon = dated('b', '2026-10-15', '2026-11-01');
+  const later = dated('c', '2027-03-04', '2027-03-18');
   const now = at('2026-08-31T00:00:00Z');
 
   it('picks the soonest departure that has not finished', () => {
@@ -79,15 +99,20 @@ describe('nextTrip', () => {
   it('returns null for an empty list', () => {
     expect(nextTrip([], now)).toBeNull();
   });
+
+  it('never picks an undated trip, because there is nothing to count down to', () => {
+    expect(nextTrip([undated('someday'), later], now)?.slug).toBe('c');
+    expect(nextTrip([undated('someday')], now)).toBeNull();
+  });
 });
 
 describe('sortTrips', () => {
   it('puts upcoming first soonest-first, then past most-recent-first', () => {
     const trips = [
-      { slug: 'old', start: '2024-01-01', end: '2024-01-10' },
-      { slug: 'later', start: '2027-03-04', end: '2027-03-18' },
-      { slug: 'recent', start: '2025-06-01', end: '2025-06-10' },
-      { slug: 'soon', start: '2026-10-15', end: '2026-11-01' },
+      dated('old', '2024-01-01', '2024-01-10'),
+      dated('later', '2027-03-04', '2027-03-18'),
+      dated('recent', '2025-06-01', '2025-06-10'),
+      dated('soon', '2026-10-15', '2026-11-01'),
     ];
     expect(sortTrips(trips, at('2026-08-31T00:00:00Z')).map((t) => t.slug)).toEqual([
       'soon',
@@ -97,13 +122,34 @@ describe('sortTrips', () => {
     ]);
   });
 
-  it('does not mutate its input', () => {
+  it('sits undated trips after the upcoming ones but ahead of the finished ones', () => {
     const trips = [
-      { slug: 'b', start: '2027-01-01', end: '2027-01-02' },
-      { slug: 'a', start: '2026-01-01', end: '2026-01-02' },
+      dated('old', '2024-01-01', '2024-01-10'),
+      undated('someday'),
+      dated('soon', '2026-10-15', '2026-11-01'),
     ];
+    expect(sortTrips(trips, at('2026-08-31T00:00:00Z')).map((t) => t.slug)).toEqual([
+      'soon',
+      'someday',
+      'old',
+    ]);
+  });
+
+  it('keeps undated trips in the order they were written', () => {
+    const trips = [undated('b'), undated('a')];
+    expect(sortTrips(trips, at('2026-08-31T00:00:00Z')).map((t) => t.slug)).toEqual(['b', 'a']);
+  });
+
+  it('does not mutate its input', () => {
+    const trips = [dated('b', '2027-01-01', '2027-01-02'), dated('a', '2026-01-01', '2026-01-02')];
     sortTrips(trips, at('2025-01-01T00:00:00Z'));
     expect(trips.map((t) => t.slug)).toEqual(['b', 'a']);
+  });
+});
+
+describe('UNDATED_LABEL', () => {
+  it('is the one sentence an undated trip says about itself', () => {
+    expect(UNDATED_LABEL).toBe('Dates not set');
   });
 });
 

@@ -41,6 +41,12 @@ card, the status pill, the day count, the country and days-away totals, the
 countdown to the next departure, the Upcoming/Past filter, the page title,
 canonical, and the social tags. A trip that becomes the past updates itself.
 
+`start` and `end` are optional, together. A trip nobody has scheduled leaves
+both out and gets a "Dates not set" pill, no day count, and no place in the
+countdown or the days-away total. It sorts after the trips that do have dates
+and ahead of the finished ones. A page that reads the dates should call
+`requireDates`, which fails the build rather than rendering an empty range.
+
 ## Commands
 
 ```bash

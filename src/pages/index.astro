@@ -16,16 +16,17 @@ import {
 const now = Date.now();
 const ordered = sortTrips(trips, now);
 
-const totalDays = trips.reduce((sum, trip) => sum + durationDays(trip), 0);
+// An undated trip adds no days: we do not know how many it is yet.
+const totalDays = trips.reduce((sum, trip) => sum + (trip.dates ? durationDays(trip.dates) : 0), 0);
 const totalCountries = trips.reduce((sum, trip) => sum + trip.countries, 0);
 const next = nextTrip(trips, now);
-const initial = next ? countdown(parseDay(next.start), now) : null;
+const initial = next ? countdown(parseDay(next.dates.start), now) : null;
 
 const stats = [
   { value: String(trips.length), label: trips.length === 1 ? 'Trip' : 'Trips' },
   { value: String(totalCountries), label: totalCountries === 1 ? 'Country' : 'Countries' },
   { value: String(totalDays), label: 'Days away' },
-  { value: next ? shortMonth(next.start) : 'None', label: 'Next departure' },
+  { value: next ? shortMonth(next.dates.start) : 'None', label: 'Next departure' },
 ];
 ---
 

@@ -8,12 +8,23 @@
 
 export const DAY_MS = 86_400_000;
 
-export type TripStatus = 'past' | 'now' | 'upcoming';
+export type TripStatus = 'past' | 'now' | 'upcoming' | 'undated';
 
 /** Everything here needs only the two calendar days, so that is all it asks for. */
 export interface DateRange {
   start: string;
   end: string;
+}
+
+/**
+ * A trip we want to take but have not put a date on. The dates are absent
+ * rather than empty or zeroed, so nothing downstream can accidentally treat an
+ * unplanned trip as one departing on the epoch. Everything date-derived (the
+ * day count, the countdown, the next-departure stat) has to skip it rather
+ * than guess.
+ */
+export interface MaybeDated {
+  dates: DateRange | null;
 }
 
 /**
@@ -28,40 +39,77 @@ export function parseDay(iso: string): number {
   return ms;
 }
 
-/** Inclusive of both the departure and return day, which is how people count trips. */
-export function durationDays(trip: DateRange): number {
-  return Math.round((parseDay(trip.end) - parseDay(trip.start)) / DAY_MS) + 1;
+/**
+ * For a page written about a trip that has dates. If the dates ever go missing
+ * that is a mistake in trips.ts, not a case for the page to paper over, so this
+ * fails the build loudly rather than rendering "null nights".
+ */
+export function requireDates(trip: MaybeDated, slug: string): DateRange {
+  if (!trip.dates) throw new Error(`trip "${slug}" needs dates: this page reads them`);
+  return trip.dates;
 }
 
-export function statusOf(trip: DateRange, now: number): TripStatus {
+/** Inclusive of both the departure and return day, which is how people count trips. */
+export function durationDays(dates: DateRange): number {
+  return Math.round((parseDay(dates.end) - parseDay(dates.start)) / DAY_MS) + 1;
+}
+
+export function statusOf(dates: DateRange | null, now: number): TripStatus {
+  if (!dates) return 'undated';
   // The end day counts as still travelling right up to its own midnight.
-  if (now >= parseDay(trip.end) + DAY_MS / 2) return 'past';
-  if (now >= parseDay(trip.start) - DAY_MS / 2) return 'now';
+  if (now >= parseDay(dates.end) + DAY_MS / 2) return 'past';
+  if (now >= parseDay(dates.start) - DAY_MS / 2) return 'now';
   return 'upcoming';
 }
+
+/**
+ * The one place this sentence is written. The card pill and the trip page's
+ * date line both read it, so an undated trip cannot say two different things
+ * about itself in two places.
+ */
+export const UNDATED_LABEL = 'Dates not set';
 
 export const STATUS_LABEL: Record<TripStatus, string> = {
   past: 'Past',
   now: 'Happening now',
   upcoming: 'Upcoming',
+  undated: UNDATED_LABEL,
 };
 
-/** Soonest departure first among trips that have not finished; null if none. */
-export function nextTrip<T extends DateRange>(trips: T[], now: number): T | null {
+/**
+ * Soonest departure first among trips that have not finished; null if none.
+ * An undated trip can never be the next one: there is nothing to count down to.
+ * The return type carries that narrowing so callers can read the dates without
+ * a second check.
+ */
+export function nextTrip<T extends MaybeDated>(
+  trips: T[],
+  now: number,
+): (T & { dates: DateRange }) | null {
   const ahead = trips
-    .filter((t) => statusOf(t, now) !== 'past')
-    .sort((a, b) => parseDay(a.start) - parseDay(b.start));
+    .filter(
+      (t): t is T & { dates: DateRange } => t.dates !== null && statusOf(t.dates, now) !== 'past',
+    )
+    .sort((a, b) => parseDay(a.dates.start) - parseDay(b.dates.start));
   return ahead[0] ?? null;
 }
 
-/** Upcoming trips soonest-first, then past trips most-recent-first. */
-export function sortTrips<T extends DateRange>(trips: T[], now: number): T[] {
+/**
+ * Trips we are taking, then trips we mean to take, then trips we took: upcoming
+ * soonest-first, undated in the order they were written, past most-recent-first.
+ * Undated sits in the middle because it has not happened, so burying it under
+ * finished trips would read as though it had.
+ */
+const SORT_RANK: Record<TripStatus, number> = { now: 0, upcoming: 0, undated: 1, past: 2 };
+
+export function sortTrips<T extends MaybeDated>(trips: T[], now: number): T[] {
   return [...trips].sort((a, b) => {
-    const aPast = statusOf(a, now) === 'past';
-    const bPast = statusOf(b, now) === 'past';
-    if (aPast !== bPast) return aPast ? 1 : -1;
-    const delta = parseDay(a.start) - parseDay(b.start);
-    return aPast ? -delta : delta;
+    const rankA = SORT_RANK[statusOf(a.dates, now)];
+    const rankB = SORT_RANK[statusOf(b.dates, now)];
+    if (rankA !== rankB) return rankA - rankB;
+    if (!a.dates || !b.dates) return 0;
+    const delta = parseDay(a.dates.start) - parseDay(b.dates.start);
+    return rankA === SORT_RANK.past ? -delta : delta;
   });
 }
 

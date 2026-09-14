@@ -12,8 +12,8 @@ interface Props {
 
 const { trip, now, eager = false } = Astro.props;
 
-const status: TripStatus = statusOf(trip, now);
-const days = durationDays(trip);
+const status: TripStatus = statusOf(trip.dates, now);
+const days = trip.dates ? durationDays(trip.dates) : null;
 const chips = [...trip.places, ...trip.notes];
 ---
 
@@ -23,8 +23,8 @@ const chips = [...trip.places, ...trip.notes];
   data-trip
   data-slug={trip.slug}
   data-name={trip.name}
-  data-start={trip.start}
-  data-end={trip.end}
+  data-start={trip.dates?.start}
+  data-end={trip.dates?.end}
   data-countries={trip.countries}
   data-status={status}
 >
@@ -42,11 +42,11 @@ const chips = [...trip.places, ...trip.notes];
   <div class="body">
     <div class="top">
       <span class="pill" data-status-pill>{STATUS_LABEL[status]}</span>
-      <span class="pill">{days} days</span>
+      {days !== null && <span class="pill">{days} days</span>}
     </div>
 
     <h3>{trip.name}</h3>
-    <p class="when">{trip.dateLabel}</p>
+    {trip.dates && <p class="when">{trip.dateLabel}</p>}
     <p class="blurb">{trip.blurb}</p>
 
     <div class="chips">

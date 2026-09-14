@@ -10,13 +10,13 @@ import {
   parseDay,
   STATUS_LABEL,
   statusOf,
-  type DateRange,
+  type MaybeDated,
   type TripStatus,
 } from '../lib/trips.ts';
 
 type Filter = 'all' | 'upcoming' | 'past';
 
-interface CardTrip extends DateRange {
+interface CardTrip extends MaybeDated {
   el: HTMLElement;
   name: string;
 }
@@ -25,19 +25,22 @@ const PILL_CLASS: Record<TripStatus, string> = {
   past: 'pill done',
   now: 'pill live',
   upcoming: 'pill',
+  undated: 'pill',
 };
 
 function readCards(): CardTrip[] {
   return Array.from(document.querySelectorAll<HTMLElement>('[data-trip]')).flatMap((el) => {
     const { start, end, name } = el.dataset;
-    if (!start || !end || !name) return [];
-    return [{ el, start, end, name }];
+    if (!name) return [];
+    // A card with no dates still needs painting and filtering, so it stays in
+    // the list with dates null rather than being dropped on the floor.
+    return [{ el, name, dates: start && end ? { start, end } : null }];
   });
 }
 
 function paintStatus(cards: CardTrip[], now: number): void {
   for (const card of cards) {
-    const status = statusOf(card, now);
+    const status = statusOf(card.dates, now);
     card.el.dataset.status = status;
     const pill = card.el.querySelector<HTMLElement>('[data-status-pill]');
     if (pill) {
@@ -62,11 +65,11 @@ function startCountdown(cards: CardTrip[]): void {
 
   strip.hidden = false;
   nameEl.textContent = next.name;
-  const departure = parseDay(next.start);
+  const departure = parseDay(next.dates.start);
 
   const tick = (): boolean => {
     const now = Date.now();
-    if (statusOf(next, now) !== 'upcoming') {
+    if (statusOf(next.dates, now) !== 'upcoming') {
       clock.hidden = true;
       whenEl.textContent = 'is happening now.';
       return false;

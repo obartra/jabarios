@@ -8,11 +8,11 @@ import ActivityGroups from '../../components/ActivityGroups.astro';
 import BookingOrder from '../../components/BookingOrder.astro';
 import { tripBySlug } from '../../data/trips.ts';
 import { groupedFor } from '../../data/activities.ts';
-import { durationDays } from '../../lib/trips.ts';
+import { durationDays, requireDates } from '../../lib/trips.ts';
 
 const trip = tripBySlug('palm-springs');
 const groups = groupedFor('palm-springs');
-const nights = durationDays(trip) - 1;
+const nights = durationDays(requireDates(trip, trip.slug)) - 1;
 
 const sections = groups.map((g) => ({ href: `#${g.id}`, label: g.short }));
 

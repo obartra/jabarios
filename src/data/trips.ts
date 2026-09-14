@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { activitiesFor } from './activities.ts';
-import { formatRange, parseDay } from '../lib/trips.ts';
+import { formatRange, parseDay, UNDATED_LABEL, type DateRange } from '../lib/trips.ts';
 
 /**
  * One entry per trip, validated at build time. This is the single source of
@@ -13,9 +13,13 @@ const TripSchema = z
     /** URL segment. The trip is served at /<slug>/. */
     slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug must be lowercase kebab-case'),
     name: z.string().min(1),
-    /** Calendar days, inclusive of both ends. */
-    start: z.iso.date(),
-    end: z.iso.date(),
+    /**
+     * Calendar days, inclusive of both ends. Both are optional together: a trip
+     * we want to take but have not scheduled has neither, and the card, the day
+     * count and the countdown all skip it rather than invent a date.
+     */
+    start: z.iso.date().optional(),
+    end: z.iso.date().optional(),
     countries: z.number().int().positive().default(1),
     /** Hero line on the trip page. */
     lede: z.string().min(1),
@@ -46,12 +50,18 @@ const TripSchema = z
       )
       .default([]),
   })
-  .refine((t) => parseDay(t.end) >= parseDay(t.start), {
+  .refine((t) => (t.start === undefined) === (t.end === undefined), {
+    message: 'a trip needs both start and end, or neither',
+    path: ['end'],
+  })
+  .refine((t) => !t.start || !t.end || parseDay(t.end) >= parseDay(t.start), {
     message: 'end must not be before start',
     path: ['end'],
   });
 
 export type Trip = z.infer<typeof TripSchema> & {
+  /** Both days or neither, resolved once so consumers test one thing. */
+  dates: DateRange | null;
   /** Derived, never authored, so the label can never disagree with the dates. */
   dateLabel: string;
   title: string;
@@ -129,16 +139,14 @@ const raw: unknown[] = [
   {
     slug: 'vegas',
     name: 'Las Vegas',
-    start: '2026-12-18',
-    end: '2026-12-27',
     countries: 1,
-    lede: 'We thought Christmas in Vegas would be fun. Four of us, nine nights, and a long list of things we could do: skydiving, a tank, the Grand Canyon from the air, and the desert on the days the Strip wears thin. None of it is booked.',
+    lede: 'Four of us, whenever we get to it, and a long list of things we could do: skydiving, a tank, the Grand Canyon from the air, and the desert on the days the Strip wears thin. No dates yet, and none of it is booked.',
     blurb:
-      'Four of us over Christmas. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
+      'Four of us, dates still open. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
     description:
-      'Four of us in Vegas over Christmas 2026. Skydiving, tanks, the Grand Canyon by helicopter, odd museums and the desert. Ideas, not a plan.',
+      'Four of us in Vegas, dates still open. Skydiving, tanks, the Grand Canyon by helicopter, odd museums and the desert. Ideas, not a plan.',
     places: ['The Strip', 'Boulder City', 'Grand Canyon West'],
-    notes: ['9 nights', 'Nothing booked'],
+    notes: ['Nothing booked'],
     cover: '/vegas/img/strip.jpg',
     coverAlt: 'The Las Vegas Strip at night from the air, lit along its whole length',
     credits: [
@@ -224,15 +232,22 @@ function load(): Trip[] {
     seen.add(trip.slug);
   }
 
-  return parsed.map((trip) => ({
-    ...trip,
-    // Activity photos carry their own credit; merge them in so the footer and
-    // scripts/check-dist.mjs both see one complete list per trip.
-    credits: [...trip.credits, ...activitiesFor(trip.slug).map((a) => a.credit)],
-    dateLabel: formatRange(trip.start, trip.end),
-    title: `${trip.name} · ${formatRange(trip.start, trip.end)}`,
-    href: `/${trip.slug}/`,
-  }));
+  return parsed.map((trip) => {
+    // The schema guarantees both or neither, so one check settles both.
+    const dates = trip.start && trip.end ? { start: trip.start, end: trip.end } : null;
+    return {
+      ...trip,
+      // Activity photos carry their own credit; merge them in so the footer and
+      // scripts/check-dist.mjs both see one complete list per trip.
+      credits: [...trip.credits, ...activitiesFor(trip.slug).map((a) => a.credit)],
+      dates,
+      dateLabel: dates ? formatRange(dates.start, dates.end) : UNDATED_LABEL,
+      // An undated trip's title is just its name: "Las Vegas · Dates not set"
+      // reads as broken in a browser tab and a social card.
+      title: dates ? `${trip.name} · ${formatRange(dates.start, dates.end)}` : trip.name,
+      href: `/${trip.slug}/`,
+    };
+  });
 }
 
 export const trips: Trip[] = load();

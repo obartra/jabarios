@@ -8,11 +8,9 @@ import ActivityGroups from '../../components/ActivityGroups.astro';
 import BookingOrder from '../../components/BookingOrder.astro';
 import { tripBySlug } from '../../data/trips.ts';
 import { groupedFor } from '../../data/activities.ts';
-import { durationDays } from '../../lib/trips.ts';
 
 const trip = tripBySlug('vegas');
 const groups = groupedFor('vegas');
-const nights = durationDays(trip) - 1;
 
 const sections = groups.map((g) => ({ href: `#${g.id}`, label: g.short }));
 
@@ -23,7 +21,7 @@ const paragraphs = [
 
 const notes = [
   {
-    lead: `${nights} nights is a long time in Vegas.`,
+    lead: 'A week is a long time in Vegas.',
     rest: 'The Strip wears thin well before the last day, which is why about a third of the cards below are an hour or more out of town.',
   },
   {
@@ -31,17 +29,17 @@ const notes = [
     rest: 'If a hotel without a slot floor appeals, Vdara and the Waldorf Astoria are both at CityCenter, non-gaming, non-smoking, and do two-bedroom suites.',
   },
   {
-    lead: 'The rodeo misses us.',
-    rest: 'The National Finals Rodeo runs 3 to 12 December, so it is gone before we land. Christmas week is still busy and priced like it.',
+    lead: 'Three stretches to avoid when we pick dates.',
+    rest: 'The National Finals Rodeo runs 3 to 12 December and Christmas week is busy and priced like it. CES takes the first full week of January and is worse than both.',
   },
   {
-    lead: 'December is properly cold after dark.',
-    rest: 'Highs around 14°C, lows near 4°C. Every outdoor thing here wants a coat.',
+    lead: 'Winter is the season for everything below.',
+    rest: 'December highs sit around 14°C and lows near 4°C, cold enough after dark to want a coat. July is 40°C and rules out most of the outdoor cards entirely.',
   },
 ];
 
 const booking = [
-  { label: '"O"', detail: 'Christmas week fills up, and it does not run every night.' },
+  { label: '"O"', detail: 'Holiday weeks fill up, and it does not run every night.' },
   { label: 'Helicopter', detail: 'Afternoon slots go first, and winter weather cancels.' },
   { label: 'Skydive', detail: 'Morning slots are the calm ones and the popular ones.' },
   {
@@ -54,11 +52,11 @@ const booking = [
 ];
 
 const caveat =
-  'Prices and schedules here were checked in August 2026 and none of it is booked. Worth confirming before anyone plans a day around it, especially on 24 and 25 December, when opening hours across the city move.';
+  'Prices and schedules here were checked in August 2026 and none of it is booked. Worth confirming once we have dates, especially if we land on a public holiday, when opening hours across the city move.';
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
-  'Four of us, nine nights, arriving on the 18th and flying home on the 27th.';
+  'Four of us. Nobody has picked a week yet, so everything below is still open.';
 ---
 
 <BaseLayout
@@ -68,7 +66,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip}>Christmas in Vegas. <em>Help yourself</em>.</TripHero>
+  <TripHero trip={trip}>Vegas, when we get to it. <em>Help yourself</em>.</TripHero>
 
   <TripNav sections={sections} />
 

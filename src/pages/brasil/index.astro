@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import TripHero from '../../components/TripHero.astro';
+import TripShape from '../../components/TripShape.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ActivityGroups from '../../components/ActivityGroups.astro';
+import BookingOrder from '../../components/BookingOrder.astro';
+import { tripBySlug } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { durationDays, requireDates } from '../../lib/trips.ts';
+
+const trip = tripBySlug('brasil');
+const groups = groupedFor('brasil');
+const nights = durationDays(requireDates(trip, trip.slug)) - 1;
+
+const sections = [
+  ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
+  { href: '#ayahuasca', label: 'Ayahuasca' },
+];
+
+const paragraphs = [
+  'Two weeks in the north, built around already being in the country rather than around the thing the park is famous for. Nothing is booked.',
+  'Prices are per person unless a card says otherwise, and they are roughly what to expect rather than a quote.',
+];
+
+const notes = [
+  {
+    lead: 'The lagoons will mostly not be there.',
+    rest: 'They are rain-fed. The rains start in January and the water peaks around June to September, so mid-January is dunes, a few pools, and hardly anyone else walking on them.',
+  },
+  {
+    lead: 'Barreirinhas is four hours from the plane.',
+    rest: 'São Luís is the only airport with real connections, and the road east is about 250 km. It is a half day at each end of the park section, not a hop.',
+  },
+  {
+    lead: 'January is the wet season on this coast.',
+    rest: 'Hot, humid and a downpour most afternoons, usually short. It is the rain that eventually fills the lagoons, just not in time for us.',
+  },
+  {
+    lead: 'The ayahuasca part is not in Maranhão.',
+    rest: 'The established churches are concentrated in Acre, Rondônia and Brasília, roughly 3,000 km west. That is an internal flight and several days, not a side trip from Barreirinhas.',
+  },
+];
+
+/**
+ * Deliberately prose rather than an activity card. This one has real medical
+ * contraindications, and a photo card next to a boat trip would frame it as
+ * another thing to book.
+ */
+const routes = [
+  {
+    name: 'An established church',
+    where: 'Mostly Acre, Rondônia and Brasília',
+    detail:
+      'Santo Daime, União do Vegetal and Barquinha have been running since the first half of the 20th century and are what the Brazilian regulation was written around. Ritual rather than therapeutic, in Portuguese, usually a donation rather than a price, and they expect a visitor to a congregation rather than a customer.',
+  },
+  {
+    name: 'A retreat centre',
+    where: 'Manaus, Acre, and Alto Paraíso',
+    detail:
+      'Built for visitors, English-speaking, several days with screening and integration sessions either side. More expensive and far more variable, because anyone can open one. The screening is the thing to judge them on, not the website.',
+  },
+];
+
+const checks = [
+  'What medication rules you out. Any honest operation asks this before taking money, and SSRIs, SNRIs and MAOIs are the ones that matter most, because the combination risks serotonin syndrome.',
+  'Whether they ask about heart conditions and about a personal or family history of psychosis. If they do not ask, that is the answer.',
+  'Who is actually running the ceremony, by name, and how long they have been doing it.',
+  'What happens if something goes wrong at three in the morning: who is awake, what medical help is reachable, and how far away it is.',
+];
+
+const flags = [
+  'No medical screening, or a form nobody reads back to you',
+  'Claims to cure a named illness, or to fix an addiction',
+  'Pressure to pay in full before any conversation about your health',
+  'No named facilitators, or a website with only first names and stock photography',
+];
+
+const booking = [
+  {
+    label: 'São Luís to Barreirinhas',
+    detail:
+      'A shared transfer or a hire car. The road is fine; it is the four hours that needs planning around rather than the surface.',
+  },
+  {
+    label: 'The 4x4 into the park',
+    detail:
+      'Entry is capped and timed, and the vehicles go out full even out of season. Booked in Barreirinhas the day before rather than months ahead.',
+  },
+  {
+    label: 'Somewhere in Atins',
+    detail:
+      'Small, reached by boat or 4x4, and the good places are few enough to sell out. Worth deciding early whether we are staying there or day-tripping from Barreirinhas.',
+  },
+  {
+    label: 'The flight west, if the ayahuasca leg happens',
+    detail:
+      'São Luís to Rio Branco or Porto Velho is a long way with a connection. This is the decision that shapes the second week, so it wants making before the first one.',
+  },
+];
+
+const caveat =
+  'The boat prices and the park entry position were checked in September 2026; the 4x4 and the pousadas were not, and both move with the agency and the season. Nothing on this page is booked, and the ayahuasca section is a list of questions to ask rather than a recommendation of anywhere.';
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  `${nights} nights in Maranhão, out of season and knowingly so.`;
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <TripHero trip={trip} maxWidth="19ch">White dunes, and <em>not much water</em>.</TripHero>
+
+  <TripNav sections={sections} />
+
+  <TripShape paragraphs={paragraphs} notes={notes} />
+
+  <ActivityGroups groups={groups} />
+
+  <section id="ayahuasca" class="aya">
+    <div class="wrap">
+      <SectionHead
+        title="Ayahuasca"
+        note="Legal in Brasil for ritual use. Two routes to it, and neither is near the park."
+      />
+
+      <p class="intro">
+        Brasil regulates religious and ritual use under CONAD's 2010 resolution, and that position
+        has been stable for years. It is not a controlled tourist product, though, so the difference
+        between routes matters more than the legality does.
+      </p>
+
+      <ul class="places">
+        {
+          routes.map((route) => (
+            <li>
+              <div class="who">
+                <b>{route.name}</b>
+                <span>{route.where}</span>
+              </div>
+              <p>{route.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="cols">
+        <div>
+          <h3>What to ask before booking anything</h3>
+          <ul class="ticks">{checks.map((check) => <li>{check}</li>)}</ul>
+        </div>
+        <div>
+          <h3>What rules a place out</h3>
+          <ul class="ticks flags">{flags.map((flag) => <li>{flag}</li>)}</ul>
+        </div>
+      </div>
+
+      <p class="med">
+        The medication question is the one that actually hurts people. Ayahuasca contains MAO
+        inhibitors, and mixing those with an SSRI, an SNRI or another MAOI risks serotonin syndrome,
+        which is a hospital problem rather than a rough night. A doctor who knows your history is a
+        better source on this than anyone selling a ceremony.
+      </p>
+    </div>
+  </section>
+
+  <BookingOrder
+    intro="Four things, roughly in the order they stop being easy. Everything else can wait until we are there."
+    items={booking}
+    caveat={caveat}
+  />
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style>
+  .aya {
+    padding: 54px 0 70px;
+  }
+
+  .intro {
+    max-width: 68ch;
+    margin: 0 0 30px;
+    font-size: clamp(16px, 1.9vw, 18px);
+    opacity: 0.88;
+  }
+
+  .places {
+    margin: 0 0 40px;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .places li {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .places li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .places .who b {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .places .who span {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.66;
+  }
+
+  .places p {
+    margin: 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+
+  .cols h3 {
+    margin: 0 0 14px;
+    font-size: clamp(16px, 1.9vw, 19px);
+  }
+
+  .ticks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+
+  .ticks li {
+    position: relative;
+    padding-left: 22px;
+    max-width: 52ch;
+    opacity: 0.86;
+    font-size: 15px;
+  }
+
+  .ticks li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0.5;
+  }
+
+  .ticks.flags li::before {
+    content: '×';
+    color: var(--chili);
+    opacity: 0.8;
+  }
+
+  .med {
+    margin: 36px 0 0;
+    padding: 18px 20px;
+    max-width: 72ch;
+    border-left: 2px solid var(--chili);
+    background: rgba(26, 18, 13, 0.04);
+    font-size: 15px;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 760px) {
+    .places li,
+    .cols {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .cols {
+      gap: 30px;
+    }
+  }
+</style>

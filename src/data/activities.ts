@@ -109,6 +109,20 @@ export const CATEGORIES: Record<string, readonly Category[]> = {
       note: 'Jabari lives here. This is not a list to work through.',
     },
   ],
+  brasil: [
+    {
+      id: 'park',
+      label: 'The park and the river',
+      short: 'The park',
+      note: 'Everything here runs out of Barreirinhas, four hours from the airport.',
+    },
+    {
+      id: 'city',
+      label: 'São Luís',
+      short: 'São Luís',
+      note: 'The way in and the way out, and worth more than a night on each end.',
+    },
+  ],
 };
 
 export function categoriesFor(slug: string): readonly Category[] {
@@ -538,7 +552,7 @@ const raw: Record<string, unknown[]> = {
       link: 'https://parks.nv.gov/parks/valley-of-fire',
       credit: {
         subject: 'Valley of Fire',
-        author: 'Cl\u00e9ment Bardot',
+        author: 'Clément Bardot',
         licence: 'CC BY-SA 3.0',
         url: 'https://commons.wikimedia.org/wiki/File:Valley_of_fire_State_Park.jpg',
       },
@@ -1117,6 +1131,79 @@ const raw: Record<string, unknown[]> = {
         author: 'Cassiopeia321',
         licence: 'CC BY-SA 3.0',
         url: 'https://commons.wikimedia.org/wiki/File:Magic_Garden_in_Philadelphia.jpg',
+      },
+    },
+  ],
+  brasil: [
+    {
+      id: 'lagoons',
+      name: 'The lagoons, and when they are not there',
+      category: 'park',
+      price: 'No entry fee; the 4x4 out of Barreirinhas is the cost',
+      duration: 'Half a day',
+      blurb:
+        'The photograph everyone has seen is July. The lagoons are rain-fed, they fill from January to June and they are at their fullest from about June to September, so a mid-January trip gets white dunes, a handful of pools and almost nobody else on them. Worth knowing before we get there rather than on the dune.',
+      facts: [
+        'Rains start in January; the water arrives after it, not with it',
+        'June to September is the version in the photographs',
+        'Barreirinhas and Atins charge nothing; Santo Amaro is R$ 10 for three days',
+        'No shade anywhere in the park, and it sits just south of the equator',
+      ],
+      photo: '/brasil/img/lagoons.jpg',
+      photoAlt: 'White dunes above a wide full lagoon in Lençóis Maranhenses in the wet season',
+      link: 'https://www.gov.br/icmbio/pt-br/assuntos/biodiversidade/unidade-de-conservacao/unidades-de-biomas/caatinga/lista-de-ucs/parna-dos-lencois-maranhenses',
+      credit: {
+        subject: 'Dunes and lagoons, Lençóis Maranhenses',
+        author: 'Heris Luiz Cordeiro Rocha',
+        licence: 'CC BY-SA 3.0, cropped',
+        url: 'https://commons.wikimedia.org/wiki/File:Dunas_e_lagoas_dos_Len%C3%A7ois_Maranhenses_(cropped).jpg',
+      },
+    },
+    {
+      id: 'preguicas',
+      name: 'Down the Rio Preguiças',
+      category: 'park',
+      price: 'From R$ 120 pp',
+      duration: '09:00 to 16:00',
+      blurb:
+        'The Circuito Caburé runs 46 km downriver through mangrove, stopping at Vassouras, at the lighthouse in Mandacaru, and at the sandbar at Caburé where the Preguiças meets the Atlantic. It is the one thing here that is arguably better out of season, when the water is clear rather than brown with runoff.',
+      facts: [
+        'Three stops: Vassouras, Mandacaru and Caburé, with lunch not included',
+        'Ponta da Brasília, where the river meets the sea, is about R$ 15 more',
+        'Small open boats, so it is sun the whole way',
+        'Atins can be reached the same way, and is worth staying in',
+      ],
+      photo: '/brasil/img/preguicas.jpg',
+      photoAlt: 'Mangrove trees with exposed roots along the bank of the Rio Preguiças',
+      credit: {
+        subject: 'Mangrove on the Rio Preguiças',
+        author: 'Cinthia Picelli',
+        licence: 'CC BY-SA 4.0',
+        url: 'https://commons.wikimedia.org/wiki/File:APA_da_Foz_do_Rio_das_Pregui%C3%A7as_-_Pequenos_Len%C3%A7%C3%B3is_-_Regi%C3%A3o_Lagunar_Adjacente_-_Cinthia_Picelli_(01)_01.jpg',
+      },
+    },
+    {
+      id: 'centro',
+      name: 'The old town, São Luís',
+      category: 'city',
+      price: 'Free to walk',
+      duration: 'An afternoon',
+      blurb:
+        'A few thousand colonial buildings faced in Portuguese tile, put up when this was a cotton port, and a UNESCO site since 1997. Parts of it are beautifully kept and parts are falling down, sometimes on the same street, which is most of the reason to walk it.',
+      facts: [
+        'Centro Histórico is walkable, and hilly cobbles the whole way',
+        'Quiet after dark outside the few busy streets',
+        'January is the wet season here too, so afternoons come with rain',
+        'Reggae is the local music, which surprises people',
+      ],
+      photo: '/brasil/img/saoluis.jpg',
+      photoAlt:
+        'A tiled colonial facade in São Luís with three blue doors and blue and yellow azulejos',
+      credit: {
+        subject: 'Centro Histórico, São Luís',
+        author: 'Prburley',
+        licence: 'CC BY 4.0',
+        url: 'https://commons.wikimedia.org/wiki/File:Rua_Portugal_S%C3%A3o_Lu%C3%ADs_Maranh%C3%A3o_2025-6049.jpg',
       },
     },
   ],

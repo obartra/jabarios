@@ -20,19 +20,19 @@ const sections = [
   { href: '#eat', label: 'Eating' },
 ];
 
-/** Two fixed points in seven nights. Everything between them is deliberately empty. */
+/** Two fixed points in eight nights. Everything between them is deliberately empty. */
 const timeline = [
   {
-    when: 'Sun 20 Dec',
+    when: 'Sat 19 Dec',
     what: 'Into Philadelphia',
     detail:
-      'The Airport Line runs from every PHL terminal to 30th Street in about twenty minutes, then it is a short ride west. Cheaper than a cab and usually faster at that hour.',
+      'Straight up from Miami after checkout, on a flight not bought yet. The Airport Line runs from every PHL terminal to 30th Street in about twenty minutes, then it is a short ride west. Cheaper than a cab and usually faster at that hour.',
   },
   {
-    when: 'Mon 21 to Thu 24',
+    when: 'Sun 20 to Thu 24',
     what: 'Nothing in particular',
     detail:
-      'Four days with nothing in them. Jabari is working some of it, so these are the days for the cards below, or for none of them.',
+      'Five days with nothing in them. Jabari is working some of it, so these are the days for the cards below, or for none of them.',
   },
   {
     when: 'Fri 25 Dec',
@@ -77,9 +77,12 @@ const eating = [
 
 const booking = [
   {
+    label: 'The flight up from Miami',
+    detail: 'Saturday the 19th, after the 11:00 checkout. Not bought yet.',
+  },
+  {
     label: 'The flight south on the 27th',
-    detail:
-      'The only hard deadline in the week, and the only thing here that cannot move. Everything else bends around it.',
+    detail: 'Bought, and the one thing here that cannot move. Everything else bends around it.',
   },
   {
     label: 'Magic Gardens',
@@ -164,7 +167,7 @@ const note =
   </section>
 
   <BookingOrder
-    intro="Short list, because most of this week does not need one. Only the first item has a deadline attached."
+    intro="Short list, because most of this week does not need one. The flight south is already bought; the flight up from Miami is not."
     items={booking}
     caveat={caveat}
   />

@@ -9,11 +9,9 @@ import ActivityGroups from '../../components/ActivityGroups.astro';
 import BookingOrder from '../../components/BookingOrder.astro';
 import { tripBySlug } from '../../data/trips.ts';
 import { groupedFor } from '../../data/activities.ts';
-import { durationDays, requireDates } from '../../lib/trips.ts';
 
 const trip = tripBySlug('brasil');
 const groups = groupedFor('brasil');
-const nights = durationDays(requireDates(trip, trip.slug)) - 1;
 
 const sections = [
   ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
@@ -21,13 +19,18 @@ const sections = [
 ];
 
 const paragraphs = [
-  'Two weeks in the north, built around already being in the country rather than around the thing the park is famous for. Nothing is booked.',
+  'Os flies down from Philadelphia on 27 December, already booked, and spends New Year and the first week with friends. The two weeks after that are ours, and where they go is still open: somewhere in Brasil, somewhere else in South or Central America, or the Caribbean.',
+  'The rest of this page is the idea that got furthest, two weeks in Maranhão in the north. Nothing is booked, and it is one option rather than the plan.',
   'Prices are per person unless a card says otherwise, and they are roughly what to expect rather than a quote.',
 ];
 
 const notes = [
   {
-    lead: 'The lagoons will mostly not be there.',
+    lead: 'Where is the first decision.',
+    rest: 'Everything else, flights, the season, the rain, follows from it, and January means rainy season in some of these places and high season in others.',
+  },
+  {
+    lead: 'In Maranhão, the lagoons will mostly not be there.',
     rest: 'They are rain-fed. The rains start in January and the water peaks around June to September, so mid-January is dunes, a few pools, and hardly anyone else walking on them.',
   },
   {
@@ -80,6 +83,11 @@ const flags = [
 
 const booking = [
   {
+    label: 'Where',
+    detail:
+      'The decision everything else waits on. Flights out of Brasil to the rest of the region are the constraint worth checking first.',
+  },
+  {
     label: 'São Luís to Barreirinhas',
     detail:
       'A shared transfer or a hire car. The road is fine; it is the four hours that needs planning around rather than the surface.',
@@ -106,7 +114,7 @@ const caveat =
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
-  `${nights} nights in Maranhão, out of season and knowingly so.`;
+  'Rough dates and an open destination. Os is there from New Year.';
 ---
 
 <BaseLayout
@@ -116,7 +124,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip} maxWidth="19ch">White dunes, and <em>not much water</em>.</TripHero>
+  <TripHero trip={trip} maxWidth="19ch">Two weeks, <em>somewhere south</em>.</TripHero>
 
   <TripNav sections={sections} />
 
@@ -172,7 +180,7 @@ const note =
   </section>
 
   <BookingOrder
-    intro="Four things, roughly in the order they stop being easy. Everything else can wait until we are there."
+    intro="Five things, roughly in the order they stop being easy. Everything else can wait until we are there."
     items={booking}
     caveat={caveat}
   />

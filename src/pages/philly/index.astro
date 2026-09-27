@@ -32,11 +32,11 @@ const timeline = [
     when: 'Mon 21 to Thu 24',
     what: 'Nothing in particular',
     detail:
-      'Four days with nothing in them. Jabari is at home and working some of it, so these are the days for the cards below, or for none of them.',
+      'Four days with nothing in them. Jabari is working some of it, so these are the days for the cards below, or for none of them.',
   },
   {
     when: 'Fri 25 Dec',
-    what: 'Christmas, with Jabari and his mom',
+    what: 'Christmas, with Jabari’s mom',
     detail:
       'The one fixed point in the week. Almost nothing in the city is open, SEPTA runs a Sunday timetable, and that is rather the point of spending it indoors.',
   },
@@ -94,7 +94,7 @@ const booking = [
   {
     label: 'Somewhere to sleep',
     detail:
-      'Nothing to book. Jabari has the spare room, which is why this is the shortest list on the site.',
+      'Nothing to book. It is Jabari’s place, which is why this is the shortest list on the site.',
   },
 ];
 
@@ -103,7 +103,7 @@ const caveat =
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
-  `${nights} nights at Jabari’s in West Philly, Christmas Day with him and his mom.`;
+  `${nights} nights in West Philly, and Christmas Day with Jabari’s mom.`;
 ---
 
 <BaseLayout
@@ -113,7 +113,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip} maxWidth="18ch">Christmas at Jabari's, then <em>south</em>.</TripHero>
+  <TripHero trip={trip} maxWidth="18ch">Christmas in West Philly, then <em>south</em>.</TripHero>
 
   <TripNav sections={sections} />
 
@@ -143,7 +143,10 @@ const note =
 
   <section id="eat" class="eat">
     <div class="wrap">
-      <SectionHead title="Eating" note="Three that came recommended. The rest is Jabari's call." />
+      <SectionHead
+        title="Eating"
+        note="Three that came recommended. The rest is Jabari’s local knowledge."
+      />
       <ul class="places">
         {
           eating.map((place) => (

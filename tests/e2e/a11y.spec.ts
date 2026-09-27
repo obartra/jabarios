@@ -12,7 +12,7 @@ const pages = ['/', '/date-night/', ...trips.map((t) => t.href), '/no-such-page/
 test.describe('WCAG AA', () => {
   // Scroll-reveal fades cards in; with reduced motion they render at full
   // opacity, so axe measures the real colours rather than a mid-fade frame.
-  test.use({ reducedMotion: 'reduce' });
+  test.use({ contextOptions: { reducedMotion: 'reduce' } });
 
   for (const path of pages) {
     test(`${path} has no AA violations`, async ({ page }) => {

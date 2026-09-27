@@ -40,20 +40,33 @@ for commit messages, PR bodies or code comments, and it is separate from the
 "writing in my voice" rules in the global config, which are for things I send
 to people.
 
-The register already exists on the Thailand page. Match it. Every example
-below is real copy from `src/pages/thai/index.astro`.
+**Every page is for both of us, and about travelling together.** The site
+is Os and Jabari's, not one person's plan shown to the other. The point of
+these trips is time together, so that is the centre of every page: what we
+do together comes first, and the rest is framed around it. This overrides
+anything below that seems to pull the other way.
 
-**One thing overrides all of it: who the page is for.** The Thailand page is
-one person's own plan, so it can be direct and tell them what to do. A page
-shared with the people coming on the trip is not that, and the Vegas page is
-the model for those: it offers, it does not instruct. See "Shared trip pages"
-below.
+**"We" and "us", never "you".** No page is addressed to one reader. Not "a
+room you can take calls in", but "a room Os can take calls in without waking
+Jabari". `scripts/check-dist.mjs` fails the build on second person in page
+copy.
 
-**Write to whoever is going.** Second person, direct.
+**When the trip splits, name the person.** Some legs are one of us alone or
+with family (Os north to Chiang Mai, Os with family in Vietnam). Say so in
+the third person, by name: "Os heads north", "We meet in Hanoi on the 13th".
+Never write it from either person's side ("with him", "alone from here", "at
+Jabari's, with him and his mom").
 
-> a room you can take calls in at three in the morning without waking the other person
+**Names, not pronouns.** Neither of us has stated pronouns for the site, so
+use names ("Jabari’s mom", "Os’s parents"), never he, she, his or her.
 
-> The risk lands on you at the front desk, not on the host.
+**Neither of us is "home".** Os is fully nomadic. Nothing is "closer to
+home", "back home" or "at home" unless it is literally about one named
+person's house ("Jabari’s place").
+
+**Offer, do not instruct.** The shared register below is the default for
+every page, including the Thailand one. The examples in this section are real
+copy from `src/pages/thai/index.astro`.
 
 **Verdict first, then the reason.** Lead with the judgement so it can be
 skimmed. Justify after.
@@ -74,7 +87,7 @@ Never "cheap", "quick", "huge", "ancient".
 **Name the constraint plainly.** The useful part is usually the thing that
 will ruin the day if it is missed.
 
-> Hard deadline: the palace stops selling tickets at 15:30, so this only works if you leave on time.
+> Hard deadline: the palace stops selling tickets at 15:30, so this only works if we leave on time.
 
 > Covered shoulders and knees, enforced at the gate.
 
@@ -105,8 +118,8 @@ way that sounds like a person who has been there.
 
 ### Shared trip pages
 
-When a page is for everyone on the trip rather than for one person planning it,
-the register softens. The Vegas page is the reference.
+Every page is shared, so this is the register everywhere. The Vegas page is
+the cleanest reference.
 
 **Offer, do not instruct.** "The dusk slot is the good one" rather than "book
 the dusk slot". "Morning slots are the calm ones" rather than "take the first
@@ -116,7 +129,7 @@ slot". Describe the thing and let people decide.
 sleep in, some are not doing the 1am club. A shared page should make doing
 things separately feel expected rather than like defecting.
 
-**"We" and "us", never "you should".** "The rodeo misses us." "Two of these
+**Written from inside the group.** "The rodeo misses us." "Two of these
 suit all four of us." The page is written from inside the group.
 
 **Never imply a decision has been made.** "None of it is booked" and "ideas
@@ -126,6 +139,14 @@ creates an obligation the page did not mean to create.
 **Constraints stay factual, and that is not pressure.** Weight limits, age
 limits, timed entry and closing times are useful precisely because they are
 neutral. Keep those; it is the verbs around them that need softening.
+
+### Private details stay off the site
+
+The site is public and every trip has dates on it. Lodging addresses, booking
+or listing links, host names and anything that says how close the stay is to
+a named place ("on our block", "next door to Palace") never go on a page.
+"Up the hill from the bay in Kailua-Kona" is the right level. Check-in and
+checkout times are fine.
 
 ### Do not
 

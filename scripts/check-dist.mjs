@@ -75,6 +75,12 @@ const PROPER_NOUNS = [
   'diversparadise.miami',
 ];
 
+// Names that contain "your" and are not addressed to anyone.
+const SECOND_PERSON_NAMES = ['kill your idol'];
+
+// Phrases that only make sense from one person's point of view.
+const ONE_SIDED = ['closer to home', 'back home', 'alone from here'];
+
 function visibleText(html) {
   // Comments first: one containing a '>' would otherwise leak its tail into
   // the text and trip these rules on an ordinary code note. Then anything
@@ -146,6 +152,22 @@ for (const file of pages) {
   for (const name of PROPER_NOUNS) lower = lower.split(name).join(' ');
   for (const word of BROCHURE) {
     if (lower.includes(word)) fail(rel, `brochure phrasing "${word}" in copy`);
+  }
+
+  // Every page is written for both of us, as "we". See "Voice" in CLAUDE.md.
+  let shared = lower;
+  for (const name of SECOND_PERSON_NAMES) shared = shared.split(name).join(' ');
+  const second = shared.match(/\b(you|your|yours|yourself|yourselves)\b/);
+  if (second) {
+    const at = second.index;
+    const near = shared
+      .slice(Math.max(0, at - 40), at + 40)
+      .replace(/\s+/g, ' ')
+      .trim();
+    fail(rel, `second person in copy, write "we" or name the person: "…${near}…"`);
+  }
+  for (const phrase of ONE_SIDED) {
+    if (shared.includes(phrase)) fail(rel, `"${phrase}" reads from one of our sides, not both`);
   }
 }
 

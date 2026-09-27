@@ -106,7 +106,7 @@ export const CATEGORIES: Record<string, readonly Category[]> = {
       id: 'out',
       label: 'If we leave the house',
       short: 'Out',
-      note: 'Jabari lives here. This is not a list to work through.',
+      note: 'Home turf for Jabari, so this is not a list to work through.',
     },
   ],
   brasil: [
@@ -152,7 +152,7 @@ export const CATEGORIES: Record<string, readonly Category[]> = {
     },
     {
       id: 'hanoi',
-      label: 'Hanoi, with Jabari',
+      label: 'Hanoi, together',
       short: 'Hanoi',
       note: 'The 13th and 14th have nothing in them.',
     },
@@ -442,7 +442,7 @@ const raw: Record<string, unknown[]> = {
       name: 'Piranha',
       category: 'night',
       price: 'Free to $20 cover',
-      duration: 'As long as you last',
+      duration: 'As long as we last',
       blurb:
         'The Fruit Loop on Paradise Road, a mile off the Strip. Resident queens, guest Drag Race alumni, and it runs until dawn.',
       facts: [
@@ -1030,7 +1030,7 @@ const raw: Record<string, unknown[]> = {
       price: 'About $63 pp',
       duration: '60 minutes, plus an hour each way',
       blurb:
-        'A domed wooden building in Landers, put up by a man who said the design came from Venusians and was meant to reverse ageing. It does neither, but the acoustics are genuinely unusual: you lie on a mat while someone plays twenty-two quartz bowls.',
+        'A domed wooden building in Landers, put up by a man who said the design came from Venusians and was meant to reverse ageing. It does neither, but the acoustics are genuinely unusual: everyone lies on a mat while someone plays twenty-two quartz bowls.',
       facts: [
         'Public sessions sell out weeks to months ahead',
         'Built without a single nail, which is the reason it sounds like that',
@@ -1683,7 +1683,7 @@ const raw: Record<string, unknown[]> = {
       price: 'Free to wander',
       duration: '13 and 14 Oct',
       blurb:
-        'The two days with Jabari, both free. Hoan Kiem Lake and the red bridge to Ngoc Son Temple, the Temple of Literature, egg coffee at Café Giảng, Train Street if it is open that week, and the water puppets by the lake.',
+        'Our two days, both free. Hoan Kiem Lake and the red bridge to Ngoc Son Temple, the Temple of Literature, egg coffee at Café Giảng, Train Street if it is open that week, and the water puppets by the lake.',
       facts: [
         'Water puppets sell out, so a day ahead',
         'Train Street access comes and goes, worth asking the hotel',

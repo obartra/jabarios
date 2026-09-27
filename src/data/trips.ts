@@ -75,11 +75,11 @@ const raw: unknown[] = [
     start: '2026-10-15',
     end: '2026-11-01',
     countries: 1,
-    lede: 'Five nights in Bangkok with Jabari, working nights and out from midday. Then north to Chiang Mai alone, and two days on the water out of Khao Lak before Manila.',
+    lede: 'Five nights in Bangkok together, in from Hanoi, working nights and out from midday. Then Os heads north to Chiang Mai, and two days on the water out of Khao Lak before Manila.',
     blurb:
-      'Five nights in Bangkok with Jabari, then north to Chiang Mai alone, and two days on the water out of Khao Lak before Manila.',
+      'Five nights in Bangkok together, then Os north to Chiang Mai and two days on the water out of Khao Lak before Manila.',
     description:
-      'Bangkok with Jabari, then Chiang Mai and the Similans alone. The days, the dives, and what to book first.',
+      'Bangkok together, then Os on to Chiang Mai and the Similans. The days, the dives, and what to book first.',
     places: ['Bangkok', 'Chiang Mai', 'Khao Lak'],
     notes: ['4 dives'],
     cover: '/thai/img/similan.jpg',
@@ -187,11 +187,11 @@ const raw: unknown[] = [
     start: '2026-12-20',
     end: '2026-12-27',
     countries: 1,
-    lede: 'Christmas at Jabari’s in West Philly, with him and his mom. Seven nights, nothing scheduled in them, and a flight south on the 27th. The cards below are for the days that are not Christmas.',
+    lede: 'Christmas in West Philly at Jabari’s place, with Jabari’s mom. Seven nights, nothing scheduled in them, and a flight south on the 27th. The cards below are for the days that are not Christmas.',
     blurb:
-      'Christmas week at Jabari’s in West Philly, with him and his mom. Seven nights with nothing in them, then a flight south on the 27th.',
+      'Christmas week in West Philly at Jabari’s place, with Jabari’s mom. Seven nights with nothing in them, then a flight south on the 27th.',
     description:
-      'Christmas 2026 in West Philly with Jabari and his mom. Seven nights, no schedule, and what stays open over the holiday.',
+      'Christmas 2026 in West Philly at Jabari’s, with Jabari’s mom. Seven nights, no schedule, and what stays open over the holiday.',
     places: ['West Philly', 'Center City'],
     notes: ['7 nights', 'Christmas Day'],
     // Credited on the activity that uses it, so it is not repeated here.
@@ -256,11 +256,11 @@ const raw: unknown[] = [
     start: '2026-10-02',
     end: '2026-10-15',
     countries: 1,
-    lede: 'Thirteen nights with Os’s parents, Hanoi as the base and three trips out into the limestone: the rice fields of Ninh Binh, a night on a boat in Lan Ha Bay, and the Ha Giang loop to the Chinese border. Jabari joins in Hanoi for the last two days, then the two of us fly on to Bangkok.',
+    lede: 'Os’s fortnight with family in Vietnam, Hanoi as the base and three trips out into the limestone. We meet in Hanoi on the 13th for two slow days with Os’s parents, then fly on to Bangkok together.',
     blurb:
-      'Thirteen nights with Os’s parents out of Hanoi: Ninh Binh, a night in Lan Ha Bay and the Ha Giang loop. Jabari joins for the last two days in Hanoi, then Bangkok.',
+      'Os’s fortnight with family out of Hanoi, then two slow days there together from the 13th before we fly on to Bangkok.',
     description:
-      'Vietnam in October 2026 with family. Hanoi, Ninh Binh, Lan Ha Bay and the Ha Giang loop, and Jabari for the last two days before Thailand.',
+      'Vietnam in October 2026: Os with family out of Hanoi, then two days together in Hanoi before Thailand.',
     places: ['Hanoi', 'Ninh Binh', 'Lan Ha Bay', 'Ha Giang'],
     notes: ['13 nights', 'All booked'],
     // Credited on the activity that uses it, so it is not repeated here.

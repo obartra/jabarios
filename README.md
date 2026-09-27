@@ -48,6 +48,12 @@ countdown or the days-away total. It sorts after the trips that do have dates
 and ahead of the finished ones. A page that reads the dates should call
 `requireDates`, which fails the build rather than rendering an empty range.
 
+## Merging
+
+`main` requires the three CI jobs to pass, with no bypass, so every change
+arrives through a PR. Open one and mark it `gh pr merge --auto --squash`; it
+merges itself once CI is green.
+
 ## Commands
 
 ```bash
@@ -93,9 +99,11 @@ order and the short labels the sticky nav uses.
 
 `/date-night/` is not a trip. It renders a shared Google Doc that we both edit
 in Google Docs, so the list can grow from a phone without a commit.
-`.github/workflows/sync-doc.yml` runs `scripts/sync-doc.mjs` every 15 minutes,
-and when the doc changed it builds and pushes the new snapshot to `main`, which
-Netlify deploys. The build never touches the network.
+`.github/workflows/sync-doc.yml` runs `scripts/sync-doc.mjs` every 15 minutes.
+When the doc changed, it commits the new snapshot to the `sync/date-night`
+branch, opens a PR, starts CI on it, and turns on auto-merge, so the edit lands
+on `main` (and Netlify deploys it) once the required checks pass. Every sync
+leaves a PR behind as a record. The build never touches the network.
 
 The doc has to stay shared as "anyone with the link can view", or the export
 comes back as a sign-in page. The parser refuses that rather than wiping the

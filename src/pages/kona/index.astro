@@ -121,21 +121,65 @@ const evening = [
 
 const sky = ['Jupiter', 'Saturn', 'Andromeda', 'The Orion Nebula', 'The Milky Way'];
 
-/** The two that pick up in Kona. Checked on their own sites in September 2026. */
+/**
+ * Every tour with telescope time that picks up in Kona, from the operators'
+ * own sites in September 2026. Prices are per person before tax.
+ */
 const tours = [
   {
-    name: 'Hawaii Forest & Trail',
-    price: 'From $315 each',
-    url: 'https://hawaii-forest.com/tour_category/maunakea-summit-stargazing/',
-    detail:
-      'Twelve guests at most, a picnic dinner, and the deep-sky photos emailed afterwards. Pickup at the King Kamehameha, at the bottom of the hill. Free cancellation up to 24 hours before.',
+    name: 'Hawaiʻi Forest & Trail',
+    pick: true,
+    price: 'From $315',
+    url: 'https://hawaii-forest.com/tours/maunakea-summit-stars-adventure/',
+    rows: [
+      ['Pickup', 'King Kamehameha, walkable from town, early afternoon'],
+      ['Dinner', 'Warm picnic dinner at about 9,200 ft'],
+      ['Hot drinks', 'Hot chocolate and dessert'],
+      ['Telescope', '11-inch Celestron, plus a digital scope'],
+      ['Photos', 'Deep-sky images emailed afterwards'],
+      ['Group', '12 at most'],
+      ['Cancel', 'Free until 24 hours before'],
+    ],
   },
   {
     name: 'Mauna Kea Summit Adventures',
-    price: 'From $330 each',
+    price: 'From $330',
     url: 'https://maunakea.com/sunset-stargazing-tour/',
-    detail:
-      'The hot dinner, a lasagna at the visitor station. Pickup at Kona Crossroads at 13:55, back at 22:05 on the December schedule. No refunds inside 24 hours.',
+    rows: [
+      ['Pickup', 'Kona Crossroads at 13:55, a short ride up the hill'],
+      ['Back', '22:05, on the published December schedule'],
+      ['Dinner', 'Hot lasagna and a brownie at the visitor station'],
+      ['Hot drinks', 'Yes'],
+      ['Telescope', '11-inch Celestron CPC 1100'],
+      ['Group', 'Up to 14'],
+      ['Cancel', '24 hours’ notice, no refund inside that'],
+    ],
+  },
+  {
+    name: 'Taikobo Signature Tour',
+    price: '$270, plus a $20 mountain fee',
+    url: 'https://maunakeasunset.com/',
+    rows: [
+      ['Pickup', 'Their office up the hill, early afternoon'],
+      ['Dinner', 'None, snacks only, so eat first'],
+      ['Hot drinks', 'Hot chocolate'],
+      ['Telescope', 'Yes, size not stated'],
+      ['Weather', '$50 each back if cloud spoils the stars'],
+      ['Group', '3 to 13'],
+    ],
+  },
+  {
+    name: 'Hawaiian Eyes Tours',
+    price: '$270',
+    url: 'https://minshuku.us/products/136adeeb-d0f1-56be-b95f-965e24b15f8f?lng=en-US',
+    rows: [
+      ['Pickup', 'The Target lot, about 14:15'],
+      ['Back', 'Late, 22:45 to 23:15'],
+      ['Dinner', 'A sandwich'],
+      ['Hot drinks', 'Yes'],
+      ['Telescope', 'A reflector, size not stated'],
+      ['Cancel', 'Free until 48 hours before'],
+    ],
   },
 ];
 
@@ -175,7 +219,7 @@ const booking = [
   {
     label: 'The Mauna Kea tour',
     detail:
-      'Thursday the 10th. Small vans, and the new moon is on the 8th, so the week is in demand. Ages 13 and up.',
+      'Hawaiʻi Forest & Trail for Thursday the 10th, about $720 to $760 for two with tax and a tip. Twelve seats, and the new moon is on the 8th, so the week is in demand. Worth checking the pickup time at checkout.',
   },
   {
     label: 'The manta boat',
@@ -249,19 +293,6 @@ const note =
               ))
             }
           </ol>
-          <ul class="mk-tours">
-            {
-              tours.map((t) => (
-                <li>
-                  <div>
-                    <a href={t.url}>{t.name}</a>
-                    <span>{t.price}</span>
-                  </div>
-                  <p>{t.detail}</p>
-                </li>
-              ))
-            }
-          </ul>
         </div>
         <figure>
           <img
@@ -277,11 +308,35 @@ const note =
           </figcaption>
         </figure>
       </div>
+      <h3 class="mk-h3">The tours, side by side</h3>
+      <ul class="mk-tours">
+        {
+          tours.map((t) => (
+            <li class:list={{ pick: t.pick }}>
+              <div class="mk-tour-head">
+                <a href={t.url}>{t.name}</a>
+                <span>{t.price}</span>
+              </div>
+              {t.pick && <p class="mk-pick">The pick</p>}
+              <dl>
+                {t.rows.map(([k, v]) => (
+                  <>
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </>
+                ))}
+              </dl>
+            </li>
+          ))
+        }
+      </ul>
       <p class="mk-note">
-        The new moon is on the 8th, so Thursday is as dark as the mountain gets. The visitor station
-        at 9,200 ft is free and open until 21:00, but its public telescopes stopped in 2019. It now
-        runs one free telescope night a month by reservation: October's and November's fell on the
-        10th, and December's date should appear in mid-November.
+        All four include summit sunset, parkas, transport and a telescope session, and all refuse
+        anyone who has been on scuba in the previous 24 hours. Hawaiʻi Forest &amp; Trail is the
+        pick: the only pickup we can walk to, the smallest group, and the photos to keep. For two
+        people it comes to roughly $720 to $760 with tax and a tip. Nobody near Kona runs a
+        telescope-only night without the summit that works without a car. The new moon is on the
+        8th, so Thursday is about as dark as the mountain gets.
       </p>
     </div>
   </section>
@@ -516,12 +571,18 @@ const note =
     }
   }
 
+  .mk-h3 {
+    margin: 44px 0 0;
+    font-size: clamp(20px, 2.6vw, 26px);
+  }
+
   .mk-tours {
-    margin: 26px 0 0;
+    margin: 18px 0 0;
     padding: 0;
     list-style: none;
     display: grid;
     gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .mk-tours li {
@@ -531,7 +592,7 @@ const note =
     background: rgba(214, 231, 227, 0.05);
   }
 
-  .mk-tours div {
+  .mk-tour-head {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -551,9 +612,38 @@ const note =
     font-size: 12px;
   }
 
-  .mk-tours p {
-    margin: 8px 0 0;
-    font-size: 15px;
-    opacity: 0.78;
+  .mk-tours li.pick {
+    border-color: var(--surf);
+  }
+
+  .mk-pick {
+    margin: 6px 0 0;
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .mk-tours dl {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 6px 12px;
+    margin: 12px 0 0;
+    font-size: 14.5px;
+  }
+
+  .mk-tours dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-top: 3px;
+    opacity: 0.55;
+  }
+
+  .mk-tours dd {
+    margin: 0;
+    opacity: 0.86;
   }
 </style>

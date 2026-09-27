@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import TripHero from '../../components/TripHero.astro';
+import TripShape from '../../components/TripShape.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ActivityGroups from '../../components/ActivityGroups.astro';
+import { tripBySlug } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { durationDays, requireDates } from '../../lib/trips.ts';
+
+const trip = tripBySlug('vietnam');
+const groups = groupedFor('vietnam');
+const nights = durationDays(requireDates(trip, trip.slug)) - 1;
+
+/** The family's own site has the full day-by-day, in English and Catalan. */
+const FULL_PLAN = 'https://viatgevietnam.netlify.app/';
+
+const sections = [
+  { href: '#days', label: 'The days' },
+  ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
+  { href: '#plan', label: 'Full plan' },
+];
+
+const paragraphs = [
+  'Os’s parents’ trip, with Hanoi as home base for two weeks. Three trips out and back, and the big suitcases never leave the hotel.',
+  'Everything with a time on it is booked, cars and all. The days in Hanoi are deliberately empty.',
+];
+
+const notes = [
+  {
+    lead: 'Jabari’s part is short.',
+    rest: 'The 13th to the 15th, in Hanoi. Two easy days with nothing planned, then the airport together.',
+  },
+  {
+    lead: 'Then Thailand.',
+    rest: 'One car to Noi Bai for all four on the 15th. Os’s parents fly home to Barcelona, and the two of us fly to Bangkok.',
+  },
+  {
+    lead: 'Ha Giang is the long bit.',
+    rest: 'Six hours each way by car, and the two drives are half of the trip’s travel time. The loop climbs a kilometre on the first day and stays up there.',
+  },
+];
+
+const days = [
+  {
+    when: '2 to 3 Oct',
+    what: 'Hanoi',
+    detail: 'Land at 20:05 from Tokyo, and a free day to recover.',
+  },
+  {
+    when: '4 to 5 Oct',
+    what: 'Ninh Binh',
+    detail: 'Trang An by boat, Hoa Lu, a night under the cliffs.',
+  },
+  { when: '5 to 6 Oct', what: 'Lan Ha Bay', detail: 'A night at anchor among the islands.' },
+  {
+    when: '7 to 12 Oct',
+    what: 'Ha Giang',
+    detail: 'The loop to the border and back, five nights.',
+  },
+  { when: '13 to 14 Oct', what: 'Hanoi, with Jabari', detail: 'Nothing scheduled.' },
+  { when: '15 Oct', what: 'Everyone flies out', detail: 'Barcelona for two, Bangkok for two.' },
+];
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  `${nights} nights with family out of Hanoi, then Thailand.`;
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <TripHero trip={trip} maxWidth="17ch">Three ways to read <em>limestone</em>.</TripHero>
+
+  <TripNav sections={sections} />
+
+  <TripShape paragraphs={paragraphs} notes={notes} />
+
+  <section id="days" class="days">
+    <div class="wrap">
+      <SectionHead title="The fortnight" note="Thirteen nights, more than half of them in Hanoi." />
+      <ol class="timeline">
+        {
+          days.map((d) => (
+            <li>
+              <span class="when">{d.when}</span>
+              <div>
+                <b>{d.what}</b>
+                <p>{d.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <ActivityGroups groups={groups} />
+
+  <section id="plan" class="plan">
+    <div class="wrap">
+      <a class="out" href={FULL_PLAN}>
+        <span class="lbl">The full plan</span>
+        <strong>Every day, every car and every bed</strong>
+        <span class="go">In English and Catalan <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style>
+  .days {
+    padding: 54px 0 62px;
+  }
+
+  .timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline .when {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding-top: 3px;
+    opacity: 0.72;
+  }
+
+  .timeline b {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .timeline p {
+    margin: 4px 0 0;
+    opacity: 0.84;
+  }
+
+  .plan {
+    padding: 30px 0 10px;
+  }
+
+  .out {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 20px;
+    padding: 26px 28px;
+    border-radius: var(--r);
+    background: var(--abyss);
+    color: var(--foam);
+    text-decoration: none;
+  }
+
+  .out:hover {
+    background: var(--abyss-2);
+  }
+
+  .out .lbl {
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .out strong {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.8vw, 28px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .out .go {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+
+  @media (max-width: 760px) {
+    .timeline li {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+</style>

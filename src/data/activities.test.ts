@@ -31,8 +31,11 @@ describe('activities', () => {
     for (const a of items) {
       expect(a.price.trim()).not.toBe('');
       expect(a.duration.trim()).not.toBe('');
-      // A price is either free or has a number in it. "Reasonable" is not a price.
-      expect(/free/i.test(a.price) || /\d/.test(a.price), `"${a.id}" price: ${a.price}`).toBe(true);
+      // A price is free, already booked, or has a number in it. "Reasonable" is not a price.
+      expect(
+        /free|^booked$/i.test(a.price) || /\d/.test(a.price),
+        `"${a.id}" price: ${a.price}`,
+      ).toBe(true);
     }
   });
 

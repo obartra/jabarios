@@ -184,16 +184,16 @@ const raw: unknown[] = [
   {
     slug: 'philly',
     name: 'Philadelphia',
-    start: '2026-12-20',
+    start: '2026-12-19',
     end: '2026-12-27',
     countries: 1,
-    lede: 'Christmas in West Philly at Jabari’s place, with Jabari’s mom. Seven nights, nothing scheduled in them, and a flight south on the 27th. The cards below are for the days that are not Christmas.',
+    lede: 'Christmas in West Philly at Jabari’s place, with Jabari’s mom. Eight nights, nothing scheduled in them, and a flight south on the 27th. The cards below are for the days that are not Christmas.',
     blurb:
-      'Christmas week in West Philly at Jabari’s place, with Jabari’s mom. Seven nights with nothing in them, then a flight south on the 27th.',
+      'Christmas week in West Philly at Jabari’s place, with Jabari’s mom. Eight nights with nothing in them, then a flight south on the 27th.',
     description:
-      'Christmas 2026 in West Philly at Jabari’s, with Jabari’s mom. Seven nights, no schedule, and what stays open over the holiday.',
+      'Christmas 2026 in West Philly at Jabari’s, with Jabari’s mom. Eight nights, no schedule, and what stays open over the holiday.',
     places: ['West Philly', 'Center City'],
-    notes: ['7 nights', 'Christmas Day'],
+    notes: ['8 nights', 'Christmas Day'],
     // Credited on the activity that uses it, so it is not repeated here.
     cover: '/philly/img/magicgardens.jpg',
     coverAlt: 'A wall covered in mosaic made from bottles, mirrors, tiles and a bicycle wheel',
@@ -201,17 +201,17 @@ const raw: unknown[] = [
   },
   {
     slug: 'brasil',
-    name: 'Brasil',
-    start: '2027-01-15',
-    end: '2027-01-29',
+    name: 'Brasil, or beyond',
+    start: '2027-01-08',
+    end: '2027-01-22',
     countries: 1,
-    lede: 'Still open: Brasil, or somewhere else in South America. If it is Brasil, two weeks north, most of it in Maranhão. The lagoons that made Lençóis famous are rain-fed and fill between January and June, so in the middle of January there are dunes and not much water. That is the trade for having the place close to empty.',
+    lede: 'Os flies to Brasil on 27 December, already booked, for New Year and a week with friends. Then two weeks for the two of us: somewhere in Brasil, or elsewhere in South or Central America, or the Caribbean. Not decided. Maranhão, below, is the idea furthest along.',
     blurb:
-      'Brasil or elsewhere in South America, still undecided. If it is Brasil: fourteen nights in Maranhão, white dunes and an almost empty park.',
+      'Two weeks together in January, after Os has a week with friends in Brasil. Somewhere south: Brasil, the rest of South or Central America, or the Caribbean.',
     description:
-      'Fourteen nights in Maranhão in January 2027. Lençóis Maranhenses out of season, São Luís and the Rio Preguiças, and what is actually there in January.',
-    places: ['São Luís', 'Barreirinhas', 'Lençóis Maranhenses'],
-    notes: ['14 nights', 'Destination open'],
+      'Two weeks together in January 2027, somewhere south. Brasil, elsewhere in Latin America or the Caribbean, with Maranhão as the leading idea so far.',
+    places: ['Brasil', 'or further'],
+    notes: ['Rough dates', 'Destination open'],
     cover: '/brasil/img/cover.jpg',
     coverAlt:
       'Two people walking a sandbar between a lagoon and white dunes at sunset in Lençóis Maranhenses',

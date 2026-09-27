@@ -92,7 +92,8 @@ const timeline = [
   {
     when: 'Sun 13 Dec',
     what: 'Out by 10:00',
-    detail: 'Car back at KOA on the way to the flight, and on to Miami.',
+    detail:
+      'Car back at KOA on the way to the flight, and on to Miami. Sunday is the likely day; the tickets are not bought yet.',
   },
 ];
 
@@ -216,6 +217,11 @@ const around = [
 ];
 
 const booking = [
+  {
+    label: 'The flights',
+    detail:
+      'Out on Sunday the 13th, most likely, landing in Miami on Monday. Not bought yet, and an overnight connection that lands at 5:00 is worth avoiding.',
+  },
   {
     label: 'The Mauna Kea tour',
     detail:
@@ -363,7 +369,7 @@ const note =
   </section>
 
   <BookingOrder
-    intro="The house is done. Four things left, roughly in the order they stop being easy."
+    intro="The house is done. Five things left, roughly in the order they stop being easy."
     items={booking}
     caveat={caveat}
   />

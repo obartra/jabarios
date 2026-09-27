@@ -14,22 +14,18 @@ const groups = groupedFor('palm-springs');
 const sections = groups.map((g) => ({ href: `#${g.id}`, label: g.short }));
 
 const paragraphs = [
-  'A pile of things that looked good, not a plan. Nothing is booked and nothing is decided. Some of it we might do together, some in pairs, some not at all. No dates yet, and no length either.',
+  'A pile of things that looked good, not a plan. Nothing is booked and nothing is decided. Some of it we might do together, some in pairs, some not at all. Tentatively some time in April, no exact dates or length yet.',
   'Prices are per person unless a card says otherwise, and they are roughly what to expect rather than a quote.',
 ];
 
 const notes = [
   {
-    lead: 'No dates yet.',
-    rest: 'Everything below works from roughly October to May. The summer is the one season to rule out: highs above 40°C, and half of this list shortens its hours.',
+    lead: 'April, probably.',
+    rest: 'Nothing is fixed, but April is the working idea, and Os may be in San Francisco beforehand, which makes flying down the easy way in.',
   },
   {
     lead: 'April means festivals.',
-    rest: 'Coachella and Stagecoach take three April weekends, and rooms that go for $120 to $180 on an ordinary night have been running $400 to $800 on those. Worth knowing before picking a week.',
-  },
-  {
-    lead: 'February means Modernism Week.',
-    rest: 'The architecture below is the self-guided version. Modernism Week opens the houses that are usually closed, and prices rise with it.',
+    rest: 'Coachella and Stagecoach take three April weekends, and rooms that go for $120 to $180 on an ordinary night have been running $400 to $800 on those. The 2027 dates are the first thing to check before picking a week.',
   },
   {
     lead: 'Spring is windy.',
@@ -65,7 +61,7 @@ const caveat =
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
-  'Dates still open.';
+  'Tentatively April, dates still open.';
 ---
 
 <BaseLayout
@@ -75,7 +71,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip}>Some time in the <em>desert</em>.</TripHero>
+  <TripHero trip={trip}>April, probably, in the <em>desert</em>.</TripHero>
 
   <TripNav sections={sections} />
 

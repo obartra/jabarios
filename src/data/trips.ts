@@ -162,11 +162,11 @@ const raw: unknown[] = [
     slug: 'palm-springs',
     name: 'Palm Springs',
     countries: 1,
-    lede: 'Some time in the desert, dates still open. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.',
+    lede: 'Some time in April, tentatively, with Os possibly coming down from San Francisco first. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.',
     blurb:
-      'Some time in the desert, dates still open. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
+      'Some time in April, tentatively. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
     description:
-      'Palm Springs, dates still open. Joshua Tree, the tram up Chino Canyon, the Salton Sea and a lot of pool. Ideas, not a plan.',
+      'Palm Springs, tentatively in April. Joshua Tree, the tram up Chino Canyon, the Salton Sea and a lot of pool. Ideas, not a plan.',
     places: ['Palm Springs', 'Joshua Tree', 'Pioneertown', 'The Salton Sea'],
     notes: ['Nothing booked'],
     cover: '/palm-springs/img/cover.jpg',

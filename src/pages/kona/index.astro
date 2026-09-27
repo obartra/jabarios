@@ -19,7 +19,7 @@ const sections = [
   { href: '#week', label: 'The week' },
   { href: '#mauna-kea', label: 'Mauna Kea' },
   ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
-  { href: '#stay', label: 'Staying' },
+  { href: '#around', label: 'Getting around' },
 ];
 
 const paragraphs = [
@@ -30,19 +30,19 @@ const paragraphs = [
 const notes = [
   {
     lead: 'Diving and altitude do not mix.',
-    rest: 'The mountain and the flight home both want a clear day after the last dive, which is what sets the order: underwater Tuesday and Wednesday, Mauna Kea on Thursday, and dry land from then on.',
+    rest: 'Both Mauna Kea operators refuse anyone who has been on scuba in the previous 24 hours, and the flight home wants a clear day too. That is what sets the order: underwater Tuesday and Wednesday, the mountain on Thursday, dry land after.',
+  },
+  {
+    lead: 'The house is booked.',
+    rest: 'Kailua-Kona, up the hill from the bay, from 15:00 on Sunday the 6th to 10:00 on Sunday the 13th. The dive shops and the town car rental are a short walk away.',
+  },
+  {
+    lead: 'A car for one day, not seven.',
+    rest: 'Everything in town is on foot or on the Kona Trolley, the boats and the mountain are rides, and Saturday is the one day that needs wheels.',
   },
   {
     lead: 'Mornings are for work, for whoever is working.',
     rest: 'Kona is 5 hours behind Miami, so a 9:00 Miami start is 4:00 here and the workday is over by lunch.',
-  },
-  {
-    lead: 'A car for the week, from KOA.',
-    rest: 'Turo works on the island, but the pickups and returns eat the saving. The bus is no use in the evening, and rideshare thins out fast after dark.',
-  },
-  {
-    lead: 'The night things come with a driver.',
-    rest: 'The dive boat returns to a harbour ten minutes from town, and the Mauna Kea tour drives the mountain.',
   },
 ];
 
@@ -51,46 +51,48 @@ const timeline = [
   {
     when: 'Sun 6 Dec',
     what: 'Into Kona',
-    detail: 'Collect the car at KOA, and it is ten minutes to town.',
+    detail:
+      'A ride from KOA, about 20 minutes, and the house from 15:00. Sunset on the seawall if the flight allows.',
   },
   {
     when: 'Mon 7 Dec',
     what: 'Nothing booked',
-    detail: 'A walk, a snorkel at Kahalu‘u with the turtles, and getting over the Pacific.',
+    detail:
+      'Down the hill to Aliʻi Drive, the trolley to Kahalu‘u to snorkel with the turtles, and getting over the Pacific.',
   },
   {
     when: 'Tue 8 · afternoon',
     what: 'The mantas',
     detail:
-      'One boat for both of us. Two tanks for Os, a day dive then the mantas after dark, and Jabari snorkels them from the surface under the same lights.',
+      'One boat for both of us from Honokōhau. Two tanks for Os, a day dive then the mantas after dark, and Jabari snorkels them from the surface under the same lights. Kaloko-Honokōhau is next to the harbour for before.',
   },
   {
     when: 'Wed 9 · morning',
     what: 'Jabari’s first dive',
     detail:
-      'Discover Scuba on a day charter. Os along on the boat, or a morning off. Done by lunch, which leaves a full day before the mountain.',
+      'Discover Scuba, boat out around 8:30 and back by 13:00. Os dives the same boat or takes the morning off. Huliheʻe Palace reopens on Wednesdays, for the afternoon.',
   },
   {
     when: 'Thu 10 Dec',
     what: 'Mauna Kea',
     detail:
-      'Picked up between 13:30 and 15:00, back between 21:00 and 22:00. The whole evening is below.',
+      'Picked up in town early afternoon, back around 22:00. More than 24 hours after the dive, which is the rule. The whole evening is below.',
   },
   {
     when: 'Fri 11 Dec',
     what: 'Free, and dry',
-    detail: 'The coffee farms in Holualoa, a long lunch, or nothing.',
+    detail: 'Town, the palace, the market, Magic Sands if the sand is in, or nothing.',
   },
   {
     when: 'Sat 12 Dec',
-    what: 'A car day',
+    what: 'The car day',
     detail:
-      'Volcanoes National Park at a proper pace, Punalu‘u on the way, and a last dinner in town.',
+      'Picked up in town between 9:00 and 12:00. South to the coffee farms, the place of refuge and Two Step, or the long drive to Volcanoes. Not both.',
   },
   {
     when: 'Sun 13 Dec',
-    what: 'Breakfast, then KOA',
-    detail: 'Car back at the airport, and on to Miami.',
+    what: 'Out by 10:00',
+    detail: 'Car back at KOA on the way to the flight, and on to Miami.',
   },
 ];
 
@@ -104,45 +106,68 @@ const evening = [
   {
     step: '9,000 ft',
     detail:
-      'A hot dinner at the mid-level station, partly for the food and partly to adjust to the height.',
+      'Dinner at the mid-level station, partly for the food and partly to adjust to the height.',
   },
   {
     step: 'Nearly 14,000 ft',
     detail:
-      'Sunset from the summit, above the clouds, among the big research observatories. Parkas and gloves are provided, because it is close to freezing up there.',
+      'Sunset from the summit, around 17:45, above the clouds and among the big research observatories. Parkas and gloves are provided, because it is close to freezing up there.',
   },
   {
     step: 'Back to 9,000 ft',
-    detail:
-      'A private telescope session with hot drinks. They shoot deep-sky photos during it and send them afterwards.',
+    detail: 'A telescope session with hot drinks, on 11-inch scopes.',
   },
 ];
 
 const sky = ['Jupiter', 'Saturn', 'Andromeda', 'The Orion Nebula', 'The Milky Way'];
 
-const stays = [
+/** The two that pick up in Kona. Checked on their own sites in September 2026. */
+const tours = [
   {
-    name: 'Holualoa',
-    where: '10 minutes above town',
+    name: 'Hawaii Forest & Trail',
+    price: 'From $315 each',
+    url: 'https://hawaii-forest.com/tour_category/maunakea-summit-stargazing/',
     detail:
-      'Up in the coffee hills: cooler, quiet, and more standalone homes than anywhere near the water.',
+      'Twelve guests at most, a picnic dinner, and the deep-sky photos emailed afterwards. Pickup at the King Kamehameha, at the bottom of the hill. Free cancellation up to 24 hours before.',
   },
   {
-    name: 'Keauhou',
-    where: 'South of Kailua-Kona',
+    name: 'Mauna Kea Summit Adventures',
+    price: 'From $330 each',
+    url: 'https://maunakea.com/sunset-stargazing-tour/',
     detail:
-      'Closest to Manta Village and the Keauhou boats, still an easy drive into town for dinner.',
+      'The hot dinner, a lasagna at the visitor station. Pickup at Kona Crossroads at 13:55, back at 22:05 on the December schedule. No refunds inside 24 hours.',
+  },
+];
+
+const around = [
+  {
+    name: 'The house',
+    where: 'Up the hill from the bay',
+    detail:
+      'About 20 minutes on foot down to Aliʻi Drive, and the same back up, slower. Kona Brewing, the dive shops and the Enterprise office are all close.',
   },
   {
-    name: 'Captain Cook and Kealakekua',
-    where: '25 to 40 minutes south',
-    detail: 'Greener and further out, and the closest base for Two Step and Kealakekua Bay.',
+    name: 'From the airport',
+    where: 'About 7 mi',
+    detail: 'Uber or Lyft, reportedly $25 to $45. There is no car to collect, which is the point.',
   },
   {
-    name: 'Kailua-Kona',
-    where: 'The town itself',
+    name: 'The Kona Trolley',
+    where: 'Hele-On route 201',
     detail:
-      'Walkable to dinners, dive shops and coffee, but mostly condo complexes rather than a house to ourselves.',
+      'Along Aliʻi Drive between the Target park and ride and Keauhou, hourly from 6:00 to 21:00, every day. Magic Sands and Kahalu‘u are both on it. It was free until the end of 2025, and whether it still is in 2026 was not clear.',
+  },
+  {
+    name: 'The dive boats',
+    where: 'Honokōhau, about 4 mi',
+    detail:
+      'No shop picks up. A ride is roughly $15 to $22, and the manta boat is back around 21:00, when drivers are scarce, so the ride home is worth booking ahead. Kona Taxicab is 808-324-4444.',
+  },
+  {
+    name: 'The car',
+    where: 'Enterprise, in town',
+    detail:
+      'Saturday hours are only 9:00 to 12:00, it is closed on Sunday, and there are no after-hours returns. Returning it at KOA on the way to the flight fits, if a one-way return is allowed. Economy is roughly $60 to $90 a day.',
   },
 ];
 
@@ -150,27 +175,26 @@ const booking = [
   {
     label: 'The Mauna Kea tour',
     detail:
-      'Small vans, and a new-moon week is when everyone wants to go. Thursday the 10th, with pickup in Kailua-Kona.',
+      'Thursday the 10th. Small vans, and the new moon is on the 8th, so the week is in demand. Ages 13 and up.',
   },
   {
     label: 'The manta boat',
     detail:
-      'Tuesday afternoon, one diver on the two-tank trip and one snorkeller, on the same boat. Direct with a Kona shop rather than a booking site.',
+      'Tuesday afternoon, one diver and one snorkeller in a single booking, so both land on the same boat.',
   },
   {
     label: 'Discover Scuba',
     detail:
-      'Wednesday morning on a day charter. The medical questionnaire comes first, so worth reading early.',
+      'Wednesday morning. The PADI medical form comes first, and any yes on it needs a doctor’s sign-off, so it is worth reading well before December.',
   },
   {
-    label: 'A whole home and a car',
-    detail:
-      'Off-street parking, a desk, and a speed test in the listing, and the car at KOA for the week. December is busy on the island.',
+    label: 'The Saturday car',
+    detail: 'The town office has three hours on a Saturday, so it goes early.',
   },
 ];
 
 const caveat =
-  'Prices on the cards came from planning in September 2026 and were not checked with the operators. The tour times are the operator’s; the park fee is the firmest number here. Kīlauea changes week to week.';
+  'Operator prices were checked on their own sites in September 2026 and are before tax. Ride fares, the car rate, the trolley fare and food prices are estimates. Hurricane Nolo closed the park and the Mauna Kea visitor station for a few days in late September; both are worth checking again in November.';
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
@@ -225,6 +249,19 @@ const note =
               ))
             }
           </ol>
+          <ul class="mk-tours">
+            {
+              tours.map((t) => (
+                <li>
+                  <div>
+                    <a href={t.url}>{t.name}</a>
+                    <span>{t.price}</span>
+                  </div>
+                  <p>{t.detail}</p>
+                </li>
+              ))
+            }
+          </ul>
         </div>
         <figure>
           <img
@@ -241,24 +278,22 @@ const note =
         </figure>
       </div>
       <p class="mk-note">
-        No moon means the darkest sky the mountain gets. The visitor station at 9,200 ft is open in
-        the evenings and reachable in a normal car, but its public telescopes stopped in 2019, so
-        the tour is the version with a telescope in it.
+        The new moon is on the 8th, so Thursday is as dark as the mountain gets. The visitor station
+        at 9,200 ft is free and open until 21:00, but its public telescopes stopped in 2019. It now
+        runs one free telescope night a month by reservation: October's and November's fell on the
+        10th, and December's date should appear in mid-November.
       </p>
     </div>
   </section>
 
   <ActivityGroups groups={groups} />
 
-  <section id="stay" class="stay">
+  <section id="around" class="stay">
     <div class="wrap">
-      <SectionHead
-        title="Where to stay"
-        note="A house to ourselves, with parking. All of these are within 40 minutes of the harbour."
-      />
+      <SectionHead title="Getting around" note="No car for six of the seven days." />
       <ul class="places">
         {
-          stays.map((place) => (
+          around.map((place) => (
             <li>
               <div class="who">
                 <b>{place.name}</b>
@@ -273,7 +308,7 @@ const note =
   </section>
 
   <BookingOrder
-    intro="Four things, roughly in the order they stop being easy."
+    intro="The house is done. Four things left, roughly in the order they stop being easy."
     items={booking}
     caveat={caveat}
   />
@@ -479,5 +514,46 @@ const note =
       grid-template-columns: 1fr;
       gap: 4px;
     }
+  }
+
+  .mk-tours {
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+
+  .mk-tours li {
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(214, 231, 227, 0.16);
+    background: rgba(214, 231, 227, 0.05);
+  }
+
+  .mk-tours div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 14px;
+  }
+
+  .mk-tours a {
+    color: var(--foam);
+    font-weight: 600;
+    text-decoration-color: var(--surf);
+    text-underline-offset: 3px;
+  }
+
+  .mk-tours span {
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .mk-tours p {
+    margin: 8px 0 0;
+    font-size: 15px;
+    opacity: 0.78;
   }
 </style>

@@ -1214,30 +1214,6 @@ const raw: Record<string, unknown[]> = {
       },
     },
     {
-      id: 'galapagos',
-      name: 'The Galápagos',
-      category: 'shortlist',
-      price: '$200 park entry each, dives $250–285',
-      duration: 'Could fill both weeks',
-      blurb:
-        'January is the turn into the warm season: water at 23 to 25°C, the best visibility of the year, calmer seas and green islands. Based on land, on Santa Cruz or San Cristóbal, Os dives Gordon Rocks and both of us snorkel with sea lions, turtles and rays.',
-      facts: [
-        'Gordon Rocks asks for 25 logged dives',
-        'The Darwin and Wolf liveaboards need experience, so they are out for Jabari',
-        'The whale sharks come June to November, not now',
-        'The most expensive option here',
-      ],
-      photo: '/january/img/galapagos.jpg',
-      photoAlt: 'A Galápagos sea lion swimming towards a snorkeller over rocks',
-      link: 'https://thinkgalapagos.com/months/january/',
-      credit: {
-        subject: 'Galápagos sea lion',
-        author: 'Paul and Jill',
-        licence: 'CC BY 2.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Gal%C3%A1pagos_Sea_Lion_Zalophus_wollebaeki.jpg',
-      },
-    },
-    {
       id: 'bonaire',
       name: 'Bonaire',
       category: 'shortlist',

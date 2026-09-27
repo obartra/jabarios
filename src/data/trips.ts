@@ -207,10 +207,10 @@ const raw: unknown[] = [
     countries: 1,
     lede: 'Os lands in Salvador on 28 December for New Year with friends. Around the 9th we meet somewhere, and the two weeks after that are ours. Where is not decided: this is the shortlist, picked for what is worth being there for in the middle of January.',
     blurb:
-      'Two weeks of us from around 9 January, somewhere warm. A shortlist picked for what is only good in mid-January: humpbacks, the Galápagos, Bonaire, Baja.',
+      'Two weeks of us from around 9 January, somewhere warm. A shortlist picked for what is only good in mid-January: humpbacks, Bonaire, Baja.',
     description:
-      'Two weeks together in January 2027, destination open. Humpbacks at the Silver Bank, the Galápagos, Bonaire and Baja, and why each is worth mid-January.',
-    places: ['Silver Bank', 'Galápagos', 'Bonaire', 'Baja'],
+      'Two weeks together in January 2027, destination open. Humpbacks at the Silver Bank, Bonaire and Baja, and why each is worth mid-January.',
+    places: ['Silver Bank', 'Santo Domingo', 'Bonaire', 'Baja'],
     notes: ['Rough dates', 'Not decided'],
     // Credited on the activity that uses it, so it is not repeated here.
     cover: '/january/img/humpbackcalf.jpg',

@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppBar from '../../components/AppBar.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { dateNight, DOC_EDIT_URL } from '../../data/date-night.ts';
+import DocRuns from '../../components/DocRuns.astro';
+import { groupBlocks } from '../../lib/gdoc.ts';
+
+const blocks = groupBlocks(dateNight.blocks);
+
+// Doc headings start at h1; the page title already is one.
+const headingTag = (level: number) => `h${Math.min(level + 1, 6)}` as 'h2';
+---
+
+<BaseLayout
+  title={`${dateNight.title} · Jabarios`}
+  description="Os and Jabari's running list of date nights, from the shared Google Doc."
+  path="/date-night/"
+  noindex
+>
+  <AppBar />
+
+  <main class="wrap">
+    {
+      /* Our own words, verbatim from the doc, so scripts/check-dist.mjs skips the house style here. */
+    }
+    <article class="doc" data-verbatim>
+      <p class="eyebrow">Os &amp; Jabari</p>
+      <h1>{dateNight.title}</h1>
+      <div class="top">
+        <p class="lede">
+          Edited in Google Docs by either of us, and copied here within about fifteen minutes.
+        </p>
+        <a class="edit" href={DOC_EDIT_URL} target="_blank" rel="noopener">
+          Open the doc to add something
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      {
+        blocks.map((block) => {
+          if (block.kind === 'heading') {
+            const Tag = headingTag(block.level);
+            return (
+              <Tag>
+                <DocRuns runs={block.runs} />
+              </Tag>
+            );
+          }
+          if (block.kind === 'paragraph') {
+            return (
+              <p>
+                <DocRuns runs={block.runs} />
+              </p>
+            );
+          }
+          const List = block.ordered ? 'ol' : 'ul';
+          return (
+            <List>
+              {block.items.map((item) => (
+                <li style={item.depth ? `margin-left:${item.depth * 22}px` : undefined}>
+                  <DocRuns runs={item.runs} />
+                </li>
+              ))}
+            </List>
+          );
+        })
+      }
+    </article>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .top {
+    padding: 4px 0 18px;
+  }
+
+  .lede {
+    max-width: 46ch;
+    margin: 0;
+    font-size: clamp(16px, 1.9vw, 18px);
+    opacity: 0.8;
+  }
+
+  .edit {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 20px;
+    padding: 11px 18px;
+    border-radius: 999px;
+    background: var(--lacquer);
+    color: var(--limewash);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .edit:hover {
+    background: var(--chili);
+  }
+
+  .doc {
+    max-width: 68ch;
+    padding: 48px 0 20px;
+  }
+
+  .doc h1 {
+    margin-bottom: 8px;
+    font-size: clamp(38px, 7vw, 72px);
+  }
+
+  .doc :is(h2, h3, h4, h5, h6) {
+    margin: 36px 0 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+    font-size: clamp(22px, 3.2vw, 28px);
+  }
+
+  .doc :is(h3, h4, h5, h6) {
+    border-bottom: 0;
+    font-size: clamp(18px, 2.4vw, 21px);
+  }
+
+  .doc p {
+    margin: 12px 0;
+    opacity: 0.88;
+  }
+
+  .doc :is(ul, ol) {
+    margin: 0;
+    padding: 0 0 0 22px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .doc li {
+    font-size: 17px;
+  }
+
+  .doc li::marker {
+    color: var(--chili);
+  }
+
+  .doc a {
+    color: inherit;
+    text-decoration-color: var(--chili);
+    text-underline-offset: 3px;
+  }
+</style>

@@ -1,0 +1,41 @@
+name: sync date night doc
+
+# Pulls the shared Google Doc into src/data/date-night.json and pushes to main
+# when it changed, which is what makes Netlify rebuild /date-night/. Only real
+# edits commit; an unchanged doc is a no-op run.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-doc
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/sync-doc.mjs
+      - id: diff
+        run: git diff --quiet -- src/data/date-night.json || echo "changed=true" >> "$GITHUB_OUTPUT"
+      # Same build Netlify runs, so a doc edit that breaks the page fails here
+      # instead of failing the deploy after it is on main.
+      - if: steps.diff.outputs.changed == 'true'
+        run: npm run build
+      - if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/date-night.json
+          git commit -m "Sync the date night doc"
+          git push

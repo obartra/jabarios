@@ -226,6 +226,24 @@ const raw: unknown[] = [
       },
     ],
   },
+  {
+    slug: 'kona',
+    name: 'Kona',
+    start: '2026-12-06',
+    end: '2026-12-13',
+    countries: 1,
+    lede: 'A week alone on the dry side of the Big Island, in from Manila through Tokyo and Honolulu. Work in the mornings, which is how Miami hours land here, and the water from lunch on. The manta night dive is the reason for the island.',
+    blurb:
+      'Seven nights on the Kona coast, working mornings and diving afternoons. The manta night dive, a second dive, Mauna Kea after dark, and a car for the rest.',
+    description:
+      'A week in Kona in December 2026. The manta night dive, a blackwater dive, Mauna Kea with a telescope, and where to stay with a car.',
+    places: ['Kailua-Kona', 'Keauhou', 'Mauna Kea', 'Volcanoes'],
+    notes: ['7 nights', '2 dives'],
+    // Credited on the activity that uses it, so it is not repeated here.
+    cover: '/kona/img/manta.jpg',
+    coverAlt: 'A manta ray gliding over a sandy reef floor beside a scuba diver',
+    credits: [],
+  },
   // <new-trip> scripts/new-trip.mjs inserts above this line.
 ];
 

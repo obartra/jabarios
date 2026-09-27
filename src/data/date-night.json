@@ -1,0 +1,113 @@
+{
+  "title": "Date Night Ideas",
+  "blocks": [
+    {
+      "kind": "heading",
+      "level": 1,
+      "runs": [
+        {
+          "text": "🔔 Philly Activities"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Magic Gardens"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Tonybee Tiles Route"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Fishtown Bars & Highlights"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "runs": [
+        {
+          "text": "🎄 Christmas Activities"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Magic Berries"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Japanese Diorama assembly"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "level": 1,
+      "runs": [
+        {
+          "text": "🍿 Movies / TV Shows"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Hayao Miyazaki (all! 😂)"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Blue Eye Samurai (Netflix)"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Toynbee Tiles Documentary",
+          "href": "https://www.youtube.com/watch?v=LYTK6QicICo"
+        }
+      ]
+    }
+  ]
+}

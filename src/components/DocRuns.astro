@@ -1,0 +1,12 @@
+---
+import type { Run } from '../lib/gdoc.ts';
+
+/** One line of synced Google Doc text: plain runs and links, in order. */
+interface Props {
+  runs: Run[];
+}
+
+const { runs } = Astro.props;
+---
+
+{runs.map((run) => (run.href ? <a href={run.href}>{run.text}</a> : run.text))}

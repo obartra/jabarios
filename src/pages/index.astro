@@ -4,6 +4,7 @@ import AppBar from '../components/AppBar.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import TripCard from '../components/TripCard.astro';
 import { trips } from '../data/trips.ts';
+import { dateNight } from '../data/date-night.ts';
 import {
   countdown,
   durationDays,
@@ -89,6 +90,12 @@ const stats = [
     </div>
 
     <p class="empty" id="empty">Nothing here yet.</p>
+
+    <a class="aside" href="/date-night/">
+      <span class="lbl">Closer to home</span>
+      <strong>{dateNight.title}</strong>
+      <span class="go">Our shared list <span aria-hidden="true">→</span></span>
+    </a>
   </main>
 
   <SiteFooter />
@@ -308,6 +315,44 @@ const stats = [
     display: block;
   }
 
+  .aside {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 20px;
+    margin-top: 34px;
+    padding: 22px 26px;
+    border-radius: var(--r);
+    border: 1px solid var(--rule);
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .aside:hover {
+    background: var(--wash);
+  }
+
+  .aside .lbl {
+    color: var(--chili);
+  }
+
+  .aside strong {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.8vw, 26px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .aside .go {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
   @media (max-width: 640px) {
     .hero {
       padding: 40px 0 26px;
@@ -337,6 +382,7 @@ const stats = [
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .aside,
     .seg button {
       transition: none;
     }

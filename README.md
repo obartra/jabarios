@@ -7,6 +7,7 @@ runtime. Netlify builds and deploys every push to `main`.
 src/
   data/trips.ts          one entry per trip, Zod-validated at build time
   data/activities.ts     things to do, per trip, with price, duration and credit
+  data/date-night.json   snapshot of the shared Google Doc, written by the sync
   lib/trips.ts           pure date/status logic, shared by build and browser
   layouts/BaseLayout     <head>, fonts, canonical and social tags
   components/            AppBar, TripNav, TripCard, ActivityCard, SiteFooter
@@ -22,6 +23,7 @@ scripts/
   new-trip.mjs           scaffolds a trip
   check-dist.mjs         post-build checks, run as part of `npm run build`
   serve-dist.mjs         Netlify-shaped static server, used by the e2e tests
+  sync-doc.mjs           pulls the date night Google Doc into data/date-night.json
 tests/e2e/               Playwright, desktop and mobile
 ```
 
@@ -86,6 +88,22 @@ A trip page can be an itinerary (Thailand) or a scannable menu of options
 trip's slug. Each one needs a price, a duration, a photo and its credit, and
 renders as a card grouped under its category. `CATEGORIES` sets the section
 order and the short labels the sticky nav uses.
+
+## Date night
+
+`/date-night/` is not a trip. It renders a shared Google Doc that we both edit
+in Google Docs, so the list can grow from a phone without a commit.
+`.github/workflows/sync-doc.yml` runs `scripts/sync-doc.mjs` every 15 minutes,
+and when the doc changed it builds and pushes the new snapshot to `main`, which
+Netlify deploys. The build never touches the network.
+
+The doc has to stay shared as "anyone with the link can view", or the export
+comes back as a sign-in page. The parser refuses that rather than wiping the
+page, so the workflow goes red and the last good copy stays up. Headings, lists,
+paragraphs, links and tables come through; images and formatting do not.
+
+The text is ours, not the site's, so `check-dist.mjs` skips the house style
+inside `data-verbatim`. To sync by hand: `node scripts/sync-doc.mjs`.
 
 ## Photos
 

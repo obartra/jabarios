@@ -202,15 +202,15 @@ const raw: unknown[] = [
   {
     slug: 'brasil',
     name: 'Brasil, or beyond',
-    start: '2027-01-08',
-    end: '2027-01-22',
+    start: '2027-01-04',
+    end: '2027-01-18',
     countries: 1,
-    lede: 'Os flies to Brasil on 27 December, already booked, for New Year and a week with friends. Then two weeks for the two of us: somewhere in Brasil, or elsewhere in South or Central America, or the Caribbean. Not decided. Maranhão, below, is the idea furthest along.',
+    lede: 'Os lands in Salvador on 28 December for New Year with friends. Jabari joins after New Year, and that is where this trip starts: two weeks of us, in Salvador or somewhere else entirely, in Brasil, the rest of South or Central America, or the Caribbean. Not decided.',
     blurb:
-      'Two weeks together in January, after Os has a week with friends in Brasil. Somewhere south: Brasil, the rest of South or Central America, or the Caribbean.',
+      'Two weeks of us after New Year, starting from Salvador or somewhere else. Brasil, the rest of Latin America, or the Caribbean. Not decided.',
     description:
-      'Two weeks together in January 2027, somewhere south. Brasil, elsewhere in Latin America or the Caribbean, with Maranhão as the leading idea so far.',
-    places: ['Brasil', 'or further'],
+      'Two weeks together in January 2027, from Salvador or somewhere else in Latin America or the Caribbean. Where is still open.',
+    places: ['Salvador', 'or somewhere else'],
     notes: ['Rough dates', 'Destination open'],
     cover: '/brasil/img/cover.jpg',
     coverAlt:

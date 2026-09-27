@@ -8,11 +8,9 @@ import SectionHead from '../../components/SectionHead.astro';
 import ActivityGroups from '../../components/ActivityGroups.astro';
 import { tripBySlug } from '../../data/trips.ts';
 import { groupedFor } from '../../data/activities.ts';
-import { durationDays, requireDates } from '../../lib/trips.ts';
 
 const trip = tripBySlug('vietnam');
 const groups = groupedFor('vietnam');
-const nights = durationDays(requireDates(trip, trip.slug)) - 1;
 
 /** The family's own site has the full day-by-day, in English and Catalan. */
 const FULL_PLAN = 'https://viatgevietnam.netlify.app/';
@@ -24,14 +22,14 @@ const sections = [
 ];
 
 const paragraphs = [
-  'Os’s parents’ trip, with Hanoi as home base for two weeks. Three trips out and back, and the big suitcases never leave the hotel.',
+  'Os’s fortnight with family, with Hanoi as home base. Three trips out and back, and the big suitcases never leave the hotel.',
   'Everything with a time on it is booked, cars and all. The days in Hanoi are deliberately empty.',
 ];
 
 const notes = [
   {
-    lead: 'Jabari’s part is short.',
-    rest: 'The 13th to the 15th, in Hanoi. Two easy days with nothing planned, then the airport together.',
+    lead: 'We meet on the 13th.',
+    rest: 'Two easy days in Hanoi with Os’s parents and nothing planned, then the airport together on the 15th.',
   },
   {
     lead: 'Then Thailand.',
@@ -60,13 +58,13 @@ const days = [
     what: 'Ha Giang',
     detail: 'The loop to the border and back, five nights.',
   },
-  { when: '13 to 14 Oct', what: 'Hanoi, with Jabari', detail: 'Nothing scheduled.' },
+  { when: '13 to 14 Oct', what: 'Hanoi, together', detail: 'Nothing scheduled.' },
   { when: '15 Oct', what: 'Everyone flies out', detail: 'Barcelona for two, Bangkok for two.' },
 ];
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
-  `${nights} nights with family out of Hanoi, then Thailand.`;
+  'Os with family out of Hanoi, then two days together before Thailand.';
 ---
 
 <BaseLayout
@@ -76,7 +74,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip} maxWidth="17ch">Three ways to read <em>limestone</em>.</TripHero>
+  <TripHero trip={trip} maxWidth="17ch">Two slow days in <em>Hanoi</em>.</TripHero>
 
   <TripNav sections={sections} />
 

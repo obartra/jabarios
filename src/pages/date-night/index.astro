@@ -28,13 +28,11 @@ const headingTag = (level: number) => `h${Math.min(level + 1, 6)}` as 'h2';
       <p class="eyebrow">Os &amp; Jabari</p>
       <h1>{dateNight.title}</h1>
       <div class="top">
-        <p class="lede">
-          Edited in Google Docs by either of us, and copied here within about fifteen minutes.
-        </p>
         <a class="edit" href={DOC_EDIT_URL} target="_blank" rel="noopener">
           Open the doc to add something
           <span aria-hidden="true">↗</span>
         </a>
+        <p class="sync">Auto-syncs every 15 min</p>
       </div>
       {
         blocks.map((block) => {
@@ -73,21 +71,26 @@ const headingTag = (level: number) => `h${Math.min(level + 1, 6)}` as 'h2';
 
 <style>
   .top {
-    padding: 4px 0 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 18px;
+    padding: 18px 0 18px;
   }
 
-  .lede {
-    max-width: 46ch;
+  .sync {
     margin: 0;
-    font-size: clamp(16px, 1.9vw, 18px);
-    opacity: 0.8;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
   }
 
   .edit {
     display: inline-flex;
     gap: 8px;
     align-items: center;
-    margin-top: 20px;
     padding: 11px 18px;
     border-radius: 999px;
     background: var(--lacquer);
@@ -145,7 +148,8 @@ const headingTag = (level: number) => `h${Math.min(level + 1, 6)}` as 'h2';
     color: var(--chili);
   }
 
-  .doc a {
+  /* Doc links only: the edit button sits inside .doc and keeps its own colours. */
+  .doc a:not(.edit) {
     color: inherit;
     text-decoration-color: var(--chili);
     text-underline-offset: 3px;

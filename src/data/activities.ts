@@ -132,9 +132,9 @@ export const CATEGORIES: Record<string, readonly Category[]> = {
     },
     {
       id: 'land',
-      label: 'Up the mountain and round the island',
+      label: 'Round the island',
       short: 'Land',
-      note: 'The afternoons without a boat, and the one day with the car.',
+      note: 'For the free afternoons, and the day with the car.',
     },
   ],
 };
@@ -1229,12 +1229,12 @@ const raw: Record<string, unknown[]> = {
       price: 'Roughly $200–250 for two tanks',
       duration: 'Afternoon into dark, about 5 hours',
       blurb:
-        'The most reliable manta encounter anywhere, most nights of the year. Divers kneel on sand at about 10 m with lights pointed up, the light pulls in plankton, and the mantas come in to feed on it, barrel-rolling inches from your mask. Nobody feeds them; you are the dinner bell. The two-tank trip does a daytime dive first, so this is both dives in one outing.',
+        'The most reliable manta encounter anywhere, most nights of the year. Divers kneel on sand at about 10 m with lights pointed up, snorkellers float at the surface holding a lit board, and the mantas come in for the plankton the light pulls in, barrel-rolling inches away. Nobody feeds them; we are the dinner bell. The two-tank trip does a daytime dive first, and snorkellers come on the same boat.',
       facts: [
         'Two sites: Manta Village off Keauhou, Manta Heaven near the airport',
-        'Book it for early in the week, so a weather cancellation can be rebooked',
+        'Weather cancels some nights, so Tuesday leaves room to rebook',
         'Hands off: touching strips the mucus that protects their skin',
-        'Book direct with a Kona shop rather than through a booking site',
+        'Snorkellers ride the same boat, so Jabari can see them from the surface',
       ],
       photo: '/kona/img/manta.jpg',
       photoAlt: 'A manta ray gliding over a sandy reef floor beside a scuba diver',
@@ -1246,26 +1246,49 @@ const raw: Record<string, unknown[]> = {
       },
     },
     {
-      id: 'blackwater',
-      name: 'Blackwater dive',
+      id: 'discover-scuba',
+      name: 'Jabari’s first dive',
       category: 'water',
-      price: 'Roughly $200–300',
-      duration: 'Late night, about 4 hours',
+      price: 'Roughly $150–250',
+      duration: 'A morning, on a day charter',
       blurb:
-        'The wilder second dive. The boat runs a few miles out over water thousands of feet deep, hangs lights on a line after dark, and you drift tethered in open ocean while larval fish, squid and deep-sea animals rise to the light. Kona is the best place in the world to do it, and there is nothing underneath you but dark.',
+        'Discover Scuba: no certification, a briefing on the boat, then a shallow reef dive with an instructor an arm’s length away the whole time. Kona’s clear, calm water is about as easy a first dive as there is. Os can come along on the same boat or take the morning off.',
       facts: [
-        'A separate late trip, not part of the manta boat',
-        'Tethered to the line the whole time',
-        'Not for a first night dive',
-        'Leave 18 hours before any flight, as with every dive',
+        'No certification needed, a medical questionnaire first',
+        'Around 12 m at most, instructor alongside',
+        'Wednesday morning leaves 24 hours before Mauna Kea',
+        'Counts towards Open Water, if it sticks',
       ],
-      photo: '/kona/img/blackwater.jpg',
-      photoAlt: 'A pale squid lit against black open water on a night dive off Kona',
+      photo: '/kona/img/scuba.jpg',
+      photoAlt: 'A scuba diver swimming over a wide coral reef in clear blue Hawaiian water',
       credit: {
-        subject: 'Neon flying squid on a Kona blackwater dive',
-        author: 'Celloc85',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Ommastrephes_bartramii_in_Kona.jpg',
+        subject: 'Diver over a Hawaiian reef',
+        author: 'National Marine Sanctuaries',
+        licence: 'Public domain',
+        url: 'https://commons.wikimedia.org/wiki/File:HIHWNMS_-_Shannon_Lyday_Photographing_(27878885162).jpg',
+      },
+    },
+    {
+      id: 'kahaluu',
+      name: 'Kahalu‘u',
+      category: 'water',
+      price: 'Free',
+      duration: 'An hour or two',
+      blurb:
+        'The gentle one, for the first day. A shallow, sheltered bay ten minutes south of town where the turtles graze in water you can stand up in. Nothing to book, and the right speed for getting over the Pacific.',
+      facts: [
+        'Shallow and protected by an old breakwater',
+        'Busiest late morning, calmest early',
+        'Turtles are protected: about 3 m back',
+        'Reef-safe sunscreen only',
+      ],
+      photo: '/kona/img/kahaluu.jpg',
+      photoAlt: 'Two snorkellers swimming above a green sea turtle over coral in Kahalu‘u Bay',
+      credit: {
+        subject: 'Snorkellers with a sea turtle, Kahalu‘u Bay',
+        author: 'Vlad & Marina Butsky',
+        licence: 'CC BY 2.0',
+        url: 'https://commons.wikimedia.org/wiki/File:Snorkelers_with_sea_turtle_(Kahaluu_Bay).jpg',
       },
     },
     {
@@ -1275,10 +1298,10 @@ const raw: Record<string, unknown[]> = {
       price: 'Free to swim, a few dollars to park',
       duration: 'A morning or an afternoon',
       blurb:
-        'The easiest good shore snorkel on the coast. Two natural lava steps drop you straight into clear water over coral at Hōnaunau, and spinner dolphins often rest in the bay. About 40 minutes south of town, next to the old place of refuge.',
+        'The easiest good shore snorkel on the coast. Two natural lava steps go straight into clear water over coral at Hōnaunau, and spinner dolphins often rest in the bay. About 40 minutes south of town, next to the old place of refuge.',
       facts: [
         'No sand entry, just the two steps',
-        'Dolphins rest here by day, so watch rather than chase',
+        'Dolphins rest here by day, so watching rather than chasing',
         'Parking fills by mid-morning',
         'Pu‘uhonua o Hōnaunau next door charges per car',
       ],
@@ -1298,7 +1321,7 @@ const raw: Record<string, unknown[]> = {
       price: 'Roughly $100–150 on a boat',
       duration: 'Half a day',
       blurb:
-        'A marine sanctuary under a cliff, and some of the clearest water on the island. The snorkelling is at the Captain Cook monument on the far side, which is a boat, a guided kayak or a steep hike. The boat is the version that leaves the afternoon free.',
+        'A marine sanctuary under a cliff, and some of the clearest water on the island. The snorkelling is at the Captain Cook monument on the far side, which is a boat, a guided kayak or a steep hike. The boat is the one that leaves the afternoon free.',
       facts: [
         'Kayak landing needs a licensed operator',
         'The Ka‘awaloa trail is about 6 km return, steep, and hot on the way back up',
@@ -1314,36 +1337,13 @@ const raw: Record<string, unknown[]> = {
       },
     },
     {
-      id: 'mauna-kea',
-      name: 'Mauna Kea, with a telescope',
-      category: 'land',
-      price: '$240–315 on a tour',
-      duration: 'Afternoon to about 22:00',
-      blurb:
-        'The way to get time at a telescope. The tours pick up in Kona, drive to the summit for sunset, then come back down for a private session, usually on an 11-inch scope. They also take Saddle Road and the summit road out of your hands after dark, which is most of the point.',
-      facts: [
-        'The visitor station stopped its nightly public telescopes in 2019',
-        'Summit road is 4WD only, and most rental contracts ban it',
-        'Summit closes 30 minutes after sunset',
-        'About 4,200 m at the top: cold, and hard work for the lungs',
-      ],
-      photo: '/kona/img/maunakea.jpg',
-      photoAlt: 'The Milky Way arching over the dark summit ridge of Mauna Kea',
-      credit: {
-        subject: 'The Milky Way over Maunakea',
-        author: 'NOIRLab/AURA/NSF',
-        licence: 'CC BY 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:The_Milky_Way_and_Jupiter_over_Maunakea_(02102014-040-Keck-and-Subaru-Observing-Runs-CC2).jpg',
-      },
-    },
-    {
       id: 'volcanoes',
       name: 'Volcanoes National Park',
       category: 'land',
       price: '$30 per car',
       duration: 'A full day, 2–2.5 hours each way',
       blurb:
-        'The big drive. Steam vents, a lava tube you can walk through, and the rim of Kīlauea’s summit caldera. The volcano has been erupting in episodes, so depending on the week there may be a glow in the crater after dark. Worth checking the park’s updates the day before rather than planning around it.',
+        'The big drive. Steam vents, a lava tube to walk through, and the rim of Kīlauea’s summit caldera. The volcano has been erupting in episodes, so depending on the week there may be a glow in the crater after dark. The park’s updates the day before say more than any plan made now.',
       facts: [
         'Entry covers seven days',
         'Around 1,200 m, so noticeably cooler than the coast',
@@ -1366,9 +1366,9 @@ const raw: Record<string, unknown[]> = {
       price: 'Free',
       duration: 'An hour or two, on the park day',
       blurb:
-        'Black sand with green sea turtles hauled out asleep on it, about 1 hour 45 from Kona on the road to the park. Further south, off the road to South Point, Papakōlea is one of a handful of green sand beaches on earth, and a 4 km walk each way to reach.',
+        'Black sand with green sea turtles hauled out asleep on it, about 1 hour 45 from Kona on the road to the park. Further south, off the road to South Point, Papakōlea is one of a handful of green sand beaches on earth, and a 4 km walk each way.',
       facts: [
-        'Turtles are protected: stay about 3 m back',
+        'Turtles are protected: about 3 m back',
         'Black sand gets very hot by midday',
         'The green sand walk is exposed and shadeless',
         'Taking sand from either beach is illegal',
@@ -1389,10 +1389,10 @@ const raw: Record<string, unknown[]> = {
       price: 'Tastings mostly free',
       duration: 'An hour or two',
       blurb:
-        'This slope is where Kona coffee actually comes from. Holualoa is ten minutes above town, cooler and quieter, and most farms let you walk in for a tasting. An easy afternoon after a morning of calls, and possibly where you are staying anyway.',
+        'This slope is where Kona coffee actually comes from. Holualoa is ten minutes above town, cooler and quieter, and most farms take walk-ins for a tasting. An easy afternoon, and possibly where we are staying anyway.',
       facts: [
         'December is the end of the harvest, so the trees still have red cherries',
-        'Small farms keep short hours, so check before driving up',
+        'Small farms keep short hours',
         'Nothing here needs booking',
       ],
       photo: '/kona/img/coffee.jpg',

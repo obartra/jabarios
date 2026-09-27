@@ -232,17 +232,25 @@ const raw: unknown[] = [
     start: '2026-12-06',
     end: '2026-12-13',
     countries: 1,
-    lede: 'A week alone on the dry side of the Big Island, in from Manila through Tokyo and Honolulu. Work in the mornings, which is how Miami hours land here, and the water from lunch on. The manta night dive is the reason for the island.',
+    lede: 'A week on the dry side of the Big Island. Mantas under the boat lights on Tuesday, Jabari’s first dive on Wednesday, and Mauna Kea on Thursday, in a new-moon week, with dinner at 9,000 ft and a telescope after dark. The rest of the week is ours to fill, or not.',
     blurb:
-      'Seven nights on the Kona coast, working mornings and diving afternoons. The manta night dive, a second dive, Mauna Kea after dark, and a car for the rest.',
+      'Seven nights on the Kona coast. Mantas at night, Jabari’s first dive, and sunset at the summit of Mauna Kea before a telescope under a new moon.',
     description:
-      'A week in Kona in December 2026. The manta night dive, a blackwater dive, Mauna Kea with a telescope, and where to stay with a car.',
+      'A week in Kona in December 2026. The manta night dive, a first scuba dive, and Mauna Kea under a new moon with a telescope. The days and the order.',
     places: ['Kailua-Kona', 'Keauhou', 'Mauna Kea', 'Volcanoes'],
-    notes: ['7 nights', '2 dives'],
-    // Credited on the activity that uses it, so it is not repeated here.
+    notes: ['7 nights', 'New moon'],
     cover: '/kona/img/manta.jpg',
     coverAlt: 'A manta ray gliding over a sandy reef floor beside a scuba diver',
-    credits: [],
+    // The cover is credited on the manta activity. This one is the Mauna Kea
+    // section's photo, which is page copy rather than an activity card.
+    credits: [
+      {
+        subject: 'The Milky Way over Maunakea',
+        author: 'NOIRLab/AURA/NSF',
+        licence: 'CC BY 4.0',
+        url: 'https://commons.wikimedia.org/wiki/File:The_Milky_Way_and_Jupiter_over_Maunakea_(02102014-040-Keck-and-Subaru-Observing-Runs-CC2).jpg',
+      },
+    ],
   },
   // <new-trip> scripts/new-trip.mjs inserts above this line.
 ];

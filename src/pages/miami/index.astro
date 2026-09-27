@@ -17,6 +17,7 @@ const nights = durationDays(requireDates(trip, trip.slug)) - 1;
 
 const sections = [
   { href: '#week', label: 'The week' },
+  { href: '#jabari', label: 'Jabari’s' },
   ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
   { href: '#around', label: 'Getting around' },
 ];
@@ -49,25 +50,83 @@ const week = [
   {
     when: 'Mon 14 Dec',
     what: 'In off the red-eye',
-    detail: 'The place is already ours. Sleep, the beach, Ocean Drive after dark.',
+    detail:
+      'The place is already ours. Sleep, the beach, and Palace’s Monday drag brunch at 12:00 if we are awake for it.',
   },
   {
     when: 'Tue 15 to Thu 17',
     what: 'The water days',
     detail:
-      'Any dive goes in here: Key Biscayne, Biscayne National Park, or Key Largo with a car. The Bass is free from 18:00 on Thursday the 17th.',
+      'Any dive goes in here: Key Biscayne, Biscayne National Park, or Key Largo with a car. Thursday evening has the free Bass and drag bingo at Gaythering.',
   },
   {
     when: 'Fri 18 Dec',
     what: 'Snorkelling or dry land',
     detail:
-      'The Wolfsonian is free from 18:00 to 21:00, a few minutes from the door. Vizcaya is open; Little Havana suits any morning.',
+      'The Wolfsonian is free from 18:00 to 21:00, then dinner and a drag show at R House in Wynwood, or Friday drag at Kill Your Idol on Española Way.',
   },
   {
     when: 'Sat 19 Dec',
     what: 'Out by 11:00',
     detail:
       'Then north to Philadelphia. New World Symphony’s holiday concert is that evening at 19:30, if the flight is on the 20th.',
+  },
+];
+
+/** What Jabari already loves, then new ones to try. Checked September 2026. */
+const known = [
+  {
+    name: 'Azteca',
+    where: 'Collins Avenue · open 24 hours',
+    detail:
+      'Mexican kitchen and a wall of tequila and mezcal, with live Latin music from 20:00 most nights and karaoke with a band on Wednesdays. Happy hour weekdays 16:00 to 19:00.',
+  },
+  {
+    name: 'Palace',
+    where: 'Ocean Drive · drag daily',
+    detail:
+      'The drag brunch that made the street famous. Friday to Sunday at 11:00 and 14:00, Monday at 12:00, and a lunch seating Tuesday to Thursday; drag every evening from 19:00. Monday noon is the easy table; weekends fill.',
+    url: 'https://palacesouthbeach.com/drag-brunch/',
+  },
+  {
+    name: 'Twist',
+    where: 'Washington Avenue · no cover',
+    detail:
+      'Seven bars and three dance floors, but the Garden bar at happy hour, 15:00 to 21:00 with two-for-one drinks, is the unclubby version. The drag shows start at midnight or later.',
+    url: 'https://www.twistsobe.com/events/',
+  },
+];
+
+const discover = [
+  {
+    name: 'Drag bingo at Gaythering',
+    where: 'Lincoln Road · Thursday 20:00',
+    detail:
+      'Bonnie Builder hosts, in the hotel bar at the Lincoln Road end. The best gay weeknight in South Beach that is not a club, and it falls on Thursday the 17th. Karaoke Monday, trivia Wednesday.',
+  },
+  {
+    name: 'R House',
+    where: 'Wynwood · Friday show 21:00',
+    detail:
+      'Owned by a chef and his husband with the drag queen Athena Dion. Dinner and a drag show on Friday the 18th fits; the weekend brunch lands on checkout day. Closed Monday and Tuesday.',
+    url: 'https://www.rhousewynwood.com/',
+  },
+  {
+    name: 'Kill Your Idol',
+    where: 'Española Way · Friday drag',
+    detail:
+      'A gay-friendly dive bar with no cover and a drag night on Fridays, reportedly 21:00 to midnight. Easy before or after dinner on Española Way.',
+  },
+  {
+    name: 'Wanderlust Café',
+    where: 'Washington Avenue · from 9:00',
+    detail: 'Queer-owned café and lounge. A breakfast spot for a work morning.',
+  },
+  {
+    name: 'Wilton Manors',
+    where: 'Fort Lauderdale · about an hour each way',
+    detail:
+      'The biggest gay neighbourhood in South Florida, but it is a whole evening and a long ride back. Only if nothing here has caught.',
   },
 ];
 
@@ -157,6 +216,43 @@ const note =
     </div>
   </section>
 
+  <section id="jabari" class="jabari">
+    <div class="wrap">
+      <SectionHead
+        title="Jabari’s South Beach"
+        note="Bars and brunches, not clubs. What he already loves, then some new ones."
+      />
+      <h3>The ones he knows</h3>
+      <ul class="places">
+        {
+          known.map((place) => (
+            <li>
+              <div class="who">
+                {place.url ? <a href={place.url}>{place.name}</a> : <b>{place.name}</b>}
+                <span>{place.where}</span>
+              </div>
+              <p>{place.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <h3>New ones to try</h3>
+      <ul class="places">
+        {
+          discover.map((place) => (
+            <li>
+              <div class="who">
+                {place.url ? <a href={place.url}>{place.name}</a> : <b>{place.name}</b>}
+                <span>{place.where}</span>
+              </div>
+              <p>{place.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
   <ActivityGroups groups={groups} />
 
   <section id="around" class="around">
@@ -189,7 +285,8 @@ const note =
 
 <style>
   .week,
-  .around {
+  .around,
+  .jabari {
     padding: 54px 0 62px;
   }
 
@@ -238,6 +335,20 @@ const note =
     margin: 6px 0 0;
     max-width: 62ch;
     opacity: 0.84;
+  }
+
+  .jabari h3 {
+    margin: 28px 0 12px;
+    font-size: clamp(18px, 2.2vw, 21px);
+  }
+
+  .places .who a {
+    display: block;
+    color: inherit;
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+    text-decoration-color: var(--chili);
+    text-underline-offset: 3px;
   }
 
   .places .who span {

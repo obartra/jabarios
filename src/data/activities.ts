@@ -165,6 +165,12 @@ export const CATEGORIES: Record<string, readonly Category[]> = {
       note: 'South Beach is flat, and the free trolley runs every 20 minutes.',
     },
     {
+      id: 'us',
+      label: 'Just us two',
+      short: 'Dates',
+      note: 'Date nights and date days, most of them a short ride from the beach.',
+    },
+    {
       id: 'water',
       label: 'In the water',
       short: 'Water',
@@ -735,7 +741,7 @@ const raw: Record<string, unknown[]> = {
       price: '$36.95 pp',
       duration: 'Half a day, longer if we walk at the top',
       blurb:
-        'Ten minutes from 2,643 ft to 8,516 ft, up Chino Canyon. The floor of the car rotates twice on the way, so nobody has to fight for a window. At the top there is pine forest, fifty miles of trail, and often snow in April.',
+        'Ten minutes from 2,643 ft to 8,516 ft, up Chino Canyon. The floor of the car rotates twice on the way, so nobody has to fight for a window. At the top there is pine forest, fifty miles of trail, and often snow from winter into spring.',
       facts: [
         'First car up 10:00 on weekdays, 08:00 at weekends',
         'Last car up 20:00, last down 21:30',
@@ -759,10 +765,10 @@ const raw: Record<string, unknown[]> = {
       price: '$275–325 pp',
       duration: '3–4 hours door to door, 45–60 minutes in the air',
       blurb:
-        'They fly at first light because that is the only part of the day the valley air is still. The season runs November to April or May, so the fortnight sits at the end of it.',
+        'They fly at first light because that is the only part of the day the valley air is still. The season runs November to April or May.',
       facts: [
         'Pickup around 05:00, airborne near sunrise',
-        'Wind cancels flights, and April is the second windiest month',
+        'Wind cancels flights, and spring is the windy season',
         'Champagne on landing is part of the standard package',
         'Several operators fly the valley, and prices are close',
       ],
@@ -813,7 +819,7 @@ const raw: Record<string, unknown[]> = {
         'West entrance is closest, roughly an hour from Palm Springs',
         'One pass covers everyone in the car for a week',
         'No food or fuel inside the park, and patchy phone signal',
-        'April highs are pleasant, but there is no shade anywhere',
+        'Spring and autumn highs are pleasant, but there is no shade anywhere',
       ],
       photo: '/palm-springs/img/joshua.jpg',
       photoAlt: 'Joshua trees and piled granite boulders under a wide blue desert sky',
@@ -928,11 +934,11 @@ const raw: Record<string, unknown[]> = {
       price: 'About $35 pp',
       duration: 'Half a day',
       blurb:
-        'Half zoo and half botanical garden, in Palm Desert, and the animals are the ones that actually live in deserts. April is the end of the good season for it, because the whole place shortens its hours once the heat arrives.',
+        'Half zoo and half botanical garden, in Palm Desert, and the animals are the ones that actually live in deserts. It shortens its hours once the heat arrives, so outside summer is the time for it.',
       facts: [
         'Mornings are when the animals are awake and moving',
         'Roughly 20 minutes from Palm Springs',
-        'Summer hours are shorter, so April still gets the full day',
+        'Summer hours are shorter',
         'Mostly outdoors and mostly flat',
       ],
       photo: '/palm-springs/img/livingdesert.jpg',
@@ -957,7 +963,7 @@ const raw: Record<string, unknown[]> = {
         'House tickets go on sale at 09:00 Pacific on the 15th of the preceding month',
         'They sell out in minutes, so it is a diary entry rather than a decision',
         'Gardens and parking are free and open without a ticket',
-        'Closed through the summer, so April is near the end of the season',
+        'Closed through the summer',
       ],
       photo: '/palm-springs/img/sunnylands.jpg',
       photoAlt: 'The low pink roof and glass walls of the Sunnylands house behind desert planting',
@@ -1095,7 +1101,7 @@ const raw: Record<string, unknown[]> = {
       price: 'Free to drive through, tours about $50 pp',
       duration: '30 minutes on the way past',
       blurb:
-        'Several thousand turbines standing in the gap between two 10,000 ft mountains, which is what makes the pass windy enough to be worth it. In April the ground between them is often yellow with brittlebush.',
+        'Several thousand turbines standing in the gap between two 10,000 ft mountains, which is what makes the pass windy enough to be worth it. In spring the ground between them is often yellow with brittlebush.',
       facts: [
         'Right beside the I-10 on the way in from the airport or Los Angeles',
         'Indian Canyon Drive and 20th Avenue get closest for free',
@@ -1119,7 +1125,7 @@ const raw: Record<string, unknown[]> = {
       price: 'Free',
       duration: 'An evening',
       blurb:
-        'Palm Canyon Drive closes to traffic every Thursday evening and fills with stalls, food and buskers. Two of them fall inside the fortnight, on 15 and 22 April. It is the one reliable evening where the town is out on the street.',
+        'Palm Canyon Drive closes to traffic every Thursday evening and fills with stalls, food and buskers. It is the one reliable evening where the town is out on the street.',
       facts: [
         'Thursday evenings, on the main street downtown',
         'Nothing to book and nothing to pay',
@@ -1702,7 +1708,7 @@ const raw: Record<string, unknown[]> = {
       price: 'About $40',
       duration: 'About 2 hours, from 10:30',
       blurb:
-        'The Miami Design Preservation League runs it daily from the welcome centre on Ocean Drive, on our block. The district is the largest collection of Art Deco buildings in the world, and the tour is how the pastel fronts turn into a story. The Wolfsonian, two minutes away, is design and propaganda from the same decades.',
+        'The Miami Design Preservation League runs it daily from the welcome centre on Ocean Drive. The district is the largest collection of Art Deco buildings in the world, and the tour is how the pastel fronts turn into a story. The Wolfsonian, on Washington Avenue, is design and propaganda from the same decades.',
       facts: [
         'Tickets are limited, so a day ahead',
         'The Wolfsonian is free on Friday from 18:00 to 21:00',
@@ -1749,7 +1755,7 @@ const raw: Record<string, unknown[]> = {
       price: 'Market price, $25 pp no-show fee',
       duration: 'Dinner, or the take-away counter',
       blurb:
-        'Open since 1913 at the south end of the beach, and stone crab season runs through December. It takes reservations now, which it famously did not. Joe’s Take Away next door is the same claws at a counter with no wait. Puerto Sagua, a Cuban diner since 1962, is the everyday version five minutes from the door.',
+        'Open since 1913 at the south end of the beach, and stone crab season runs through December. It takes reservations now, which it famously did not. Joe’s Take Away next door is the same claws at a counter with no wait. Puerto Sagua on Collins, a Cuban diner since 1962, is the everyday version.',
       facts: [
         'Dinner nightly from 17:00',
         'Lunch Wednesday to Sunday, 11:30 to 14:30',
@@ -1763,6 +1769,78 @@ const raw: Record<string, unknown[]> = {
         author: 'FoodOfMiami',
         licence: 'Public domain',
         url: 'https://commons.wikimedia.org/wiki/File:JoesStoneCrabs.JPG',
+      },
+    },
+    {
+      id: 'ice-cream',
+      name: 'The Museum of Ice Cream',
+      category: 'us',
+      price: 'From $24',
+      duration: 'About 90 minutes',
+      blurb:
+        'Pink rooms, a sprinkle pool, and unlimited ice cream on the way round. Silly on purpose, and the right kind of silly for a date. Downtown, a short ride over the MacArthur Causeway.',
+      facts: [
+        'Timed tickets online; the price moves with the date',
+        'Monday to Thursday 10:00 to 20:00, to 20:30 at weekends',
+        'Last entry 90 minutes before closing',
+        'About 15 to 20 minutes by rideshare',
+      ],
+      photo: '/miami/img/icecream.jpg',
+      photoAlt: 'The pink shopfront of the Museum of Ice Cream in downtown Miami',
+      link: 'https://www.museumoficecream.com/miami/',
+      credit: {
+        subject: 'Museum of Ice Cream, Miami',
+        author: 'Phillip Pessar',
+        licence: 'CC BY 2.0',
+        url: 'https://commons.wikimedia.org/wiki/File:Museum_of_Ice_Cream,_Miami,_Florida_Sept_2024.jpg',
+      },
+    },
+    {
+      id: 'havana-night',
+      name: 'Little Havana after dark',
+      category: 'us',
+      price: 'Free entry, most nights',
+      duration: 'An evening',
+      blurb:
+        'Ball & Chain has played live Cuban music on Calle Ocho since 1935, all day and late into the night, and the dance floor is the point. Azucar next door does ice cream in Cuban flavours; the Abuela María is the one to order. Cubaocho, a few doors down, is a free museum of Cuban art with a bar in it.',
+      facts: [
+        'Free salsa lessons, reportedly Thursday at 21:00',
+        'Azucar is open to 23:00 Thursday to Saturday',
+        'Cubaocho is closed Mondays',
+        'About $20 to $25 by rideshare',
+      ],
+      photo: '/miami/img/ballchain.jpg',
+      photoAlt:
+        'The green-striped awning of Ball & Chain on Calle Ocho, with a giant ice cream cone on the building next door',
+      link: 'https://ballandchainmiami.com/',
+      credit: {
+        subject: 'Ball & Chain and Azucar, Calle Ocho',
+        author: 'osseous',
+        licence: 'CC BY 2.0',
+        url: 'https://commons.wikimedia.org/wiki/File:April_7,_2015_-_Little_Havana,_Miami,_Florida_-_Ball_%26_Chain_%26_Ice_Cream.jpg',
+      },
+    },
+    {
+      id: 'bay-sunset',
+      name: 'Sunset on the bay side',
+      category: 'us',
+      price: 'Free, or $35 on the water',
+      duration: 'An evening',
+      blurb:
+        'South Beach faces the wrong way for sunset; the bay side does not. The Mondrian’s terrace on West Avenue looks straight across Biscayne Bay at the skyline as the sun goes down around 17:35. For a boat, the Island Queen leaves Bayside at 19:00, so it is a skyline cruise with the city lit up rather than a sunset one.',
+      facts: [
+        'Island Queen: $35, 90 minutes, from Bayside',
+        'O Cinema, in the 1927 old City Hall on Washington Avenue, for after',
+        'Biscayne Paddle rents kayaks and boards at Sunset Harbour until 19:30',
+      ],
+      photo: '/miami/img/baysunset.jpg',
+      photoAlt: 'The sun going down behind cloud over the flat water of Biscayne Bay',
+      link: 'https://islandqueencruises.com/cruises/sunset-cruise-tours/',
+      credit: {
+        subject: 'Sunset over Biscayne Bay',
+        author: 'Rodolfo L. Hernandez',
+        licence: 'CC BY-SA 3.0',
+        url: 'https://commons.wikimedia.org/wiki/File:SUNSET_AT_BISCAYNE_BAY,_MIAMI,_FLORIDA._-_panoramio.jpg',
       },
     },
     {
@@ -1838,12 +1916,12 @@ const raw: Record<string, unknown[]> = {
     },
     {
       id: 'little-havana',
-      name: 'Little Havana',
+      name: 'Little Havana in the morning',
       category: 'mainland',
       price: 'Free, coffee about $2',
       duration: 'A morning',
       blurb:
-        'Calle Ocho in the morning: the old men at Domino Park, a cafecito from the ventanita window at Versailles, and Ball & Chain for live Cuban music if it turns into an evening.',
+        'Calle Ocho in the morning: the old men at Domino Park and a cafecito from the ventanita window at Versailles. The evening version is its own card.',
       facts: [
         'Domino Park is busiest in the morning',
         'Versailles is open from 8:00 until late',

@@ -91,13 +91,13 @@ will ruin the day if it is missed.
 
 > Covered shoulders and knees, enforced at the gate.
 
-> Start early: it is flat, shadeless and hot by eleven
+> Early is better: it is flat, shadeless and hot by eleven
 
 **Give permission to skip things.** These are options, not a schedule.
 
-> Pick two sections and abandon the rest.
+> Two sections is plenty; the rest can be abandoned.
 
-> Everything below is an option rather than a plan. Pick what appeals and ignore the rest.
+> Everything below is an option rather than a plan. Whatever appeals, and none of it if nothing does.
 
 **Fragments are fine.** They carry the verdict.
 

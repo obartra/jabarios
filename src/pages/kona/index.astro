@@ -17,74 +17,115 @@ const nights = durationDays(requireDates(trip, trip.slug)) - 1;
 
 const sections = [
   { href: '#week', label: 'The week' },
+  { href: '#mauna-kea', label: 'Mauna Kea' },
   ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
   { href: '#stay', label: 'Staying' },
 ];
 
 const paragraphs = [
-  'The Big Island rather than Oahu, because the manta night dive is off Kona and nowhere near Honolulu. No high-rises, about 200,000 people on an island bigger than all the others put together, and an open-air airport ten minutes from town.',
-  'Everything below is an option rather than a plan. The manta dive is the one fixed thing; the rest fits around the mornings of work.',
+  'The Big Island rather than Oahu, because the manta night dive is off Kona and nowhere near Honolulu. About 200,000 people on an island bigger than all the others put together, and an open-air airport where everyone walks down the stairs into the sun.',
+  'Three days have something in them. The others are free, and the cards further down are for those, or for nothing.',
 ];
 
 const notes = [
   {
-    lead: 'Work ends at noon.',
-    rest: 'Kona is 5 hours behind Miami, so a 9:00 start there is 4:00 here and the workday is done by lunch. The afternoons and evenings are free, which is exactly when the dive boats go out.',
+    lead: 'Diving and altitude do not mix.',
+    rest: 'The mountain and the flight home both want a clear day after the last dive, which is what sets the order: underwater Tuesday and Wednesday, Mauna Kea on Thursday, and dry land from then on.',
   },
   {
-    lead: 'Rent the car for the week at KOA.',
-    rest: 'Turo works on the island, but the pickups and returns eat the saving. The bus is no use in the evening, and rideshare thins out fast outside Kailua-Kona and after dark.',
+    lead: 'Mornings are for work, for whoever is working.',
+    rest: 'Kona is 5 hours behind Miami, so a 9:00 Miami start is 4:00 here and the workday is over by lunch.',
   },
   {
-    lead: 'Both night activities come with a driver.',
-    rest: 'The dive boat returns to a harbour ten minutes from town, and the Mauna Kea tour drives the mountain. The unlit rural roads are the only part of the driving worth avoiding.',
+    lead: 'A car for the week, from KOA.',
+    rest: 'Turo works on the island, but the pickups and returns eat the saving. The bus is no use in the evening, and rideshare thins out fast after dark.',
   },
   {
-    lead: 'Nothing after Friday night underwater.',
-    rest: 'Eighteen hours between the last dive and the flight home. Saturday is the car day anyway.',
+    lead: 'The night things come with a driver.',
+    rest: 'The dive boat returns to a harbour ten minutes from town, and the Mauna Kea tour drives the mountain.',
   },
 ];
 
-/** The week around the one fixed thing. Everything else moves. */
+/** Three fixed days, in the order the diving and the altitude allow. */
 const timeline = [
   {
     when: 'Sun 6 Dec',
-    what: 'In from Manila',
-    detail:
-      'JAL through Tokyo into Honolulu, then 50 minutes across to Kona. Walk down the stairs into the sun, collect the car, and it is ten minutes to town.',
+    what: 'Into Kona',
+    detail: 'Collect the car at KOA, and it is ten minutes to town.',
   },
   {
-    when: 'Mon 7 or Tue 8',
-    what: 'The manta night dive',
-    detail:
-      'Early in the week on purpose. Weather does cancel these, and a cancelled Monday can move to Wednesday; a cancelled Friday cannot move anywhere.',
+    when: 'Mon 7 Dec',
+    what: 'Nothing booked',
+    detail: 'A walk, a snorkel at Kahalu‘u with the turtles, and getting over the Pacific.',
   },
   {
-    when: 'Wed 9 to Fri 11',
-    what: 'Mornings working, afternoons in the water',
+    when: 'Tue 8 · afternoon',
+    what: 'The mantas',
     detail:
-      'Two Step, Kealakekua, the coffee farms, and the blackwater dive if a second night out appeals. The Mauna Kea tour goes on whichever evening has the clearest forecast.',
+      'One boat for both of us. Two tanks for Os, a day dive then the mantas after dark, and Jabari snorkels them from the surface under the same lights.',
+  },
+  {
+    when: 'Wed 9 · morning',
+    what: 'Jabari’s first dive',
+    detail:
+      'Discover Scuba on a day charter. Os along on the boat, or a morning off. Done by lunch, which leaves a full day before the mountain.',
+  },
+  {
+    when: 'Thu 10 Dec',
+    what: 'Mauna Kea',
+    detail:
+      'Picked up between 13:30 and 15:00, back between 21:00 and 22:00. The whole evening is below.',
+  },
+  {
+    when: 'Fri 11 Dec',
+    what: 'Free, and dry',
+    detail: 'The coffee farms in Holualoa, a long lunch, or nothing.',
   },
   {
     when: 'Sat 12 Dec',
-    what: 'The car day',
+    what: 'A car day',
     detail:
-      'Volcanoes National Park at a proper pace, Punalu‘u on the way, then back for a last dinner in town. No flight to race.',
+      'Volcanoes National Park at a proper pace, Punalu‘u on the way, and a last dinner in town.',
   },
   {
     when: 'Sun 13 Dec',
     what: 'Breakfast, then KOA',
-    detail:
-      'Out on AA through Dallas, landing in Miami on Monday the 14th, where the South Beach place is already ours. Worth checking the overnight connection does not land at 5:00, and whether Monday has better award seats.',
+    detail: 'Car back at the airport, and on to Miami.',
   },
 ];
+
+/** The Thursday, in order. */
+const evening = [
+  {
+    step: 'Kailua-Kona',
+    detail:
+      'Pickup in town, then a 4WD van up the mountain, which rental cars are not allowed to drive.',
+  },
+  {
+    step: '9,000 ft',
+    detail:
+      'A hot dinner at the mid-level station, partly for the food and partly to adjust to the height.',
+  },
+  {
+    step: 'Nearly 14,000 ft',
+    detail:
+      'Sunset from the summit, above the clouds, among the big research observatories. Parkas and gloves are provided, because it is close to freezing up there.',
+  },
+  {
+    step: 'Back to 9,000 ft',
+    detail:
+      'A private telescope session with hot drinks. They shoot deep-sky photos during it and send them afterwards.',
+  },
+];
+
+const sky = ['Jupiter', 'Saturn', 'Andromeda', 'The Orion Nebula', 'The Milky Way'];
 
 const stays = [
   {
     name: 'Holualoa',
     where: '10 minutes above town',
     detail:
-      'Up in the coffee hills: cooler, quiet, and more standalone homes than anywhere near the water. The first place to look.',
+      'Up in the coffee hills: cooler, quiet, and more standalone homes than anywhere near the water.',
   },
   {
     name: 'Keauhou',
@@ -101,40 +142,35 @@ const stays = [
     name: 'Kailua-Kona',
     where: 'The town itself',
     detail:
-      'Walkable to dinners, dive shops and coffee, but mostly condo complexes rather than a house of your own.',
+      'Walkable to dinners, dive shops and coffee, but mostly condo complexes rather than a house to ourselves.',
   },
 ];
 
 const booking = [
   {
-    label: 'The flights',
-    detail:
-      'Manila to Honolulu on JAL, the hop to Kona, and Kona to Miami on AA. One connection each way, and the AA leg is the one with the awkward overnight to check.',
-  },
-  {
-    label: 'A whole home',
-    detail:
-      'Off-street parking, a desk, and a speed test in the listing. Rural properties can be on slow connections, and a week of 4:00 calls rules that out.',
-  },
-  {
-    label: 'The manta dive',
-    detail:
-      'Direct with a Kona shop, for the Monday or Tuesday, as a two-tank sunset trip so the second dive comes with it.',
-  },
-  {
     label: 'The Mauna Kea tour',
     detail:
-      'The visitor station runs one free telescope night a month, by reservation, and it fills fast. A tour is the version that is guaranteed.',
+      'Small vans, and a new-moon week is when everyone wants to go. Thursday the 10th, with pickup in Kailua-Kona.',
   },
   {
-    label: 'The car',
+    label: 'The manta boat',
     detail:
-      'At KOA, for the whole week. December is busy, so booked with the house rather than on arrival.',
+      'Tuesday afternoon, one diver on the two-tank trip and one snorkeller, on the same boat. Direct with a Kona shop rather than a booking site.',
+  },
+  {
+    label: 'Discover Scuba',
+    detail:
+      'Wednesday morning on a day charter. The medical questionnaire comes first, so worth reading early.',
+  },
+  {
+    label: 'A whole home and a car',
+    detail:
+      'Off-street parking, a desk, and a speed test in the listing, and the car at KOA for the week. December is busy on the island.',
   },
 ];
 
 const caveat =
-  'Prices on this page came from planning in September 2026 and were not checked with the operators. The tour range and the park fee are the firmest; the dive prices want confirming when booking. Kīlauea changes week to week.';
+  'Prices on the cards came from planning in September 2026 and were not checked with the operators. The tour times are the operator’s; the park fee is the firmest number here. Kīlauea changes week to week.';
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
@@ -148,9 +184,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip} maxWidth="17ch"
-    >Mornings at a desk, nights with <em>the mantas</em>.</TripHero
-  >
+  <TripHero trip={trip} maxWidth="17ch">Mantas after dark, dinner at <em>9,000 ft</em>.</TripHero>
 
   <TripNav sections={sections} />
 
@@ -158,7 +192,7 @@ const note =
 
   <section id="week" class="week">
     <div class="wrap">
-      <SectionHead title="The shape of the week" note="One fixed night. The rest moves." />
+      <SectionHead title="The shape of the week" note="Three days with something in them." />
       <ol class="timeline">
         {
           timeline.map((step) => (
@@ -175,13 +209,52 @@ const note =
     </div>
   </section>
 
+  <section id="mauna-kea" class="mk">
+    <div class="wrap">
+      <div class="mk-cols">
+        <div>
+          <p class="mk-when">Thursday · new moon week</p>
+          <h2>Dinner at 9,000 ft, then <em>the sky</em>.</h2>
+          <ol class="mk-steps">
+            {
+              evening.map((e) => (
+                <li>
+                  <b>{e.step}</b>
+                  <p>{e.detail}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+        <figure>
+          <img
+            src="/kona/img/maunakea.jpg"
+            alt="The Milky Way arching over the dark summit ridge of Mauna Kea"
+            loading="lazy"
+            width="1920"
+            height="1200"
+          />
+          <figcaption>
+            <span>What is up that week</span>
+            <ul class="mk-sky">{sky.map((thing) => <li>{thing}</li>)}</ul>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="mk-note">
+        No moon means the darkest sky the mountain gets. The visitor station at 9,200 ft is open in
+        the evenings and reachable in a normal car, but its public telescopes stopped in 2019, so
+        the tour is the version with a telescope in it.
+      </p>
+    </div>
+  </section>
+
   <ActivityGroups groups={groups} />
 
   <section id="stay" class="stay">
     <div class="wrap">
       <SectionHead
         title="Where to stay"
-        note="A whole home with parking. All of these are within 40 minutes of the harbour."
+        note="A house to ourselves, with parking. All of these are within 40 minutes of the harbour."
       />
       <ul class="places">
         {
@@ -200,7 +273,7 @@ const note =
   </section>
 
   <BookingOrder
-    intro="Five things, roughly in the order they stop being easy. December is busy on the island."
+    intro="Four things, roughly in the order they stop being easy."
     items={booking}
     caveat={caveat}
   />
@@ -280,6 +353,131 @@ const note =
     .places li {
       grid-template-columns: 1fr;
       gap: 8px;
+    }
+  }
+
+  .mk {
+    padding: 64px 0;
+    background: var(--abyss);
+    color: var(--foam);
+  }
+
+  .mk-cols {
+    display: grid;
+    gap: 36px;
+  }
+
+  .mk-when {
+    margin: 0 0 12px;
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .mk h2 {
+    max-width: 16ch;
+    font-size: clamp(30px, 5vw, 52px);
+  }
+
+  .mk h2 em {
+    font-style: normal;
+    color: var(--surf);
+  }
+
+  .mk-steps {
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .mk-steps li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+  }
+
+  .mk-steps b {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+    color: var(--surf);
+  }
+
+  .mk-steps p {
+    margin: 0;
+    max-width: 52ch;
+    opacity: 0.86;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--r);
+  }
+
+  figcaption {
+    margin-top: 16px;
+  }
+
+  figcaption span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .mk-sky {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mk-sky li {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(214, 231, 227, 0.26);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .mk-note {
+    max-width: 68ch;
+    margin: 30px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+    font-size: 15px;
+    opacity: 0.72;
+  }
+
+  @media (min-width: 960px) {
+    .mk-cols {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .mk-steps li {
+      grid-template-columns: 1fr;
+      gap: 4px;
     }
   }
 </style>

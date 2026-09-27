@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import TripHero from '../../components/TripHero.astro';
+import TripShape from '../../components/TripShape.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ActivityGroups from '../../components/ActivityGroups.astro';
+import BookingOrder from '../../components/BookingOrder.astro';
+import { tripBySlug } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { durationDays, requireDates } from '../../lib/trips.ts';
+
+const trip = tripBySlug('miami');
+const groups = groupedFor('miami');
+const nights = durationDays(requireDates(trip, trip.slug)) - 1;
+
+const sections = [
+  { href: '#week', label: 'The week' },
+  ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
+  { href: '#around', label: 'Getting around' },
+];
+
+const paragraphs = [
+  'A week in South Beach between the Big Island and Christmas in Philadelphia. The booking starts the day before we land, so the red-eye ends with a shower and a bed rather than a wait for check-in.',
+  'None of the cards below is booked. Some are a walk from the door, some are a ride, and one needs a car for the day.',
+];
+
+const notes = [
+  {
+    lead: 'Monday is a write-off, on purpose.',
+    rest: 'Off an overnight flight from Hawaiʻi, tired and dry. A walk, the beach, an early night, and no diving.',
+  },
+  {
+    lead: 'Diving has a deadline.',
+    rest: 'Eighteen hours between the last dive and the flight north. Tuesday to Thursday are safe either way; a Friday dive only works if the flight to Philadelphia is on the 20th.',
+  },
+  {
+    lead: 'No car needed, mostly.',
+    rest: 'The free trolley loops South Beach every 20 minutes, the mainland is a $15 to $25 ride, and only Key Largo really wants a rental.',
+  },
+  {
+    lead: 'December is the dry season.',
+    rest: 'Around 76°F by day and 63°F at night, the sea about 77°F. Sunset is around 17:35.',
+  },
+];
+
+const week = [
+  {
+    when: 'Mon 14 Dec',
+    what: 'In off the red-eye',
+    detail: 'The place is already ours. Sleep, the beach, Ocean Drive after dark.',
+  },
+  {
+    when: 'Tue 15 to Thu 17',
+    what: 'The water days',
+    detail:
+      'Any dive goes in here: Key Biscayne, Biscayne National Park, or Key Largo with a car. The Bass is free from 18:00 on Thursday the 17th.',
+  },
+  {
+    when: 'Fri 18 Dec',
+    what: 'Snorkelling or dry land',
+    detail:
+      'The Wolfsonian is free from 18:00 to 21:00, a few minutes from the door. Vizcaya is open; Little Havana suits any morning.',
+  },
+  {
+    when: 'Sat 19 Dec',
+    what: 'Out by 11:00',
+    detail:
+      'Then north to Philadelphia. New World Symphony’s holiday concert is that evening at 19:30, if the flight is on the 20th.',
+  },
+];
+
+const around = [
+  {
+    name: 'From the airport',
+    where: 'MIA, about 30 minutes',
+    detail:
+      'Rideshare is roughly $27 to $40. The Route 150 Airport Express is $2.25 and runs down Collins and Washington every 30 minutes, about an hour.',
+  },
+  {
+    name: 'The free trolley',
+    where: 'South Beach loops A and B',
+    detail:
+      'Daily 8:00 to 23:00, every 20 minutes or so, via Washington Avenue, Lincoln Road, South Pointe and the Bass.',
+  },
+  {
+    name: 'Citi Bike',
+    where: 'Docks all over the beach',
+    detail: '$6.95 for 30 minutes, or $24 for a day pass of 30-minute rides.',
+  },
+  {
+    name: 'Rides to the mainland',
+    where: '$15 to $35',
+    detail:
+      'Wynwood, Little Havana, Vizcaya, Coconut Grove and Key Biscayne are all 20 to 30 minutes. The Everglades and Key Largo are the only ones that are really a car.',
+  },
+];
+
+const booking = [
+  {
+    label: 'Any dive',
+    detail:
+      'For Tuesday to Thursday. Prices move by December, so they are worth rechecking on the operator’s site when booking.',
+  },
+  {
+    label: 'Joe’s',
+    detail: 'A reservation on OpenTable, with a $25 each no-show fee, or the take-away counter.',
+  },
+  {
+    label: 'The Art Deco tour',
+    detail: 'Limited tickets, so the day before rather than at the door.',
+  },
+  {
+    label: 'A car, only for Key Largo',
+    detail: 'The one day trip that does not work by rideshare.',
+  },
+];
+
+const caveat =
+  'Checked on operators’ own sites in September 2026 where possible. The Art Deco tour, Vizcaya and Wynwood ticket prices, the ride fares and the weather are from other sources and rough. Nothing on this page is booked except the place to stay.';
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  `${nights} nights in South Beach between Kona and Philadelphia.`;
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <TripHero trip={trip} maxWidth="16ch">Art Deco, a reef, and <em>stone crab</em>.</TripHero>
+
+  <TripNav sections={sections} />
+
+  <TripShape paragraphs={paragraphs} notes={notes} />
+
+  <section id="week" class="week">
+    <div class="wrap">
+      <SectionHead title="The shape of the week" note="Nothing fixed but the bed." />
+      <ol class="timeline">
+        {
+          week.map((step) => (
+            <li>
+              <span class="when">{step.when}</span>
+              <div>
+                <b>{step.what}</b>
+                <p>{step.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <ActivityGroups groups={groups} />
+
+  <section id="around" class="around">
+    <div class="wrap">
+      <SectionHead title="Getting around" note="Without a car, mostly." />
+      <ul class="places">
+        {
+          around.map((place) => (
+            <li>
+              <div class="who">
+                <b>{place.name}</b>
+                <span>{place.where}</span>
+              </div>
+              <p>{place.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <BookingOrder
+    intro="The place is done. The rest can mostly wait until we are there."
+    items={booking}
+    caveat={caveat}
+  />
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style>
+  .week,
+  .around {
+    padding: 54px 0 62px;
+  }
+
+  .timeline,
+  .places {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .timeline li,
+  .places li {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .places li {
+    grid-template-columns: 230px 1fr;
+  }
+
+  .timeline li:last-child,
+  .places li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline .when {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding-top: 3px;
+    opacity: 0.72;
+  }
+
+  .timeline b,
+  .places .who b {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .timeline p {
+    margin: 6px 0 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  .places .who span {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.66;
+  }
+
+  .places p {
+    margin: 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  @media (max-width: 760px) {
+    .timeline li,
+    .places li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

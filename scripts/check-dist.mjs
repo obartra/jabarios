@@ -67,7 +67,13 @@ const BROCHURE = [
 ];
 
 // Real places whose names collide with the list above.
-const PROPER_NOUNS = ['paradise road', 'paradise, nevada'];
+const PROPER_NOUNS = [
+  'paradise road',
+  'paradise, nevada',
+  'diver’s paradise',
+  "diver's paradise",
+  'diversparadise.miami',
+];
 
 function visibleText(html) {
   // Comments first: one containing a '>' would otherwise leak its tail into

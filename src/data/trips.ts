@@ -252,6 +252,43 @@ const raw: unknown[] = [
       },
     ],
   },
+  {
+    slug: 'vietnam',
+    name: 'Vietnam',
+    start: '2026-10-02',
+    end: '2026-10-15',
+    countries: 1,
+    lede: 'Thirteen nights with Os’s parents, Hanoi as the base and three trips out into the limestone: the rice fields of Ninh Binh, a night on a boat in Lan Ha Bay, and the Ha Giang loop to the Chinese border. Jabari joins in Hanoi for the last two days, then the two of us fly on to Bangkok.',
+    blurb:
+      'Thirteen nights with Os’s parents out of Hanoi: Ninh Binh, a night in Lan Ha Bay and the Ha Giang loop. Jabari joins for the last two days in Hanoi, then Bangkok.',
+    description:
+      'Vietnam in October 2026 with family. Hanoi, Ninh Binh, Lan Ha Bay and the Ha Giang loop, and Jabari for the last two days before Thailand.',
+    places: ['Hanoi', 'Ninh Binh', 'Lan Ha Bay', 'Ha Giang'],
+    notes: ['13 nights', 'All booked'],
+    // Credited on the activity that uses it, so it is not repeated here.
+    cover: '/vietnam/img/lanha.jpg',
+    coverAlt: 'Two wooden junks with red sails among the limestone islands of Lan Ha Bay',
+    credits: [],
+  },
+  {
+    slug: 'miami',
+    name: 'Miami Beach',
+    start: '2026-12-14',
+    end: '2026-12-19',
+    countries: 1,
+    lede: 'The week between Kona and Philadelphia, in South Beach, with the place already ours when the red-eye lands. The Art Deco blocks on foot, a reef or two, Little Havana across the causeway, and stone crab season. Ideas rather than a plan.',
+    blurb:
+      'Five nights in South Beach between Kona and Christmas. Art Deco on foot, a reef or two, Little Havana, and stone crab season. Ideas rather than a plan.',
+    description:
+      'Five nights in Miami Beach in December 2026. Art Deco on foot, snorkelling and diving without a car, Little Havana, Wynwood and the Everglades.',
+    places: ['South Beach', 'Key Biscayne', 'Little Havana', 'Wynwood'],
+    notes: ['5 nights', 'Stay booked'],
+    // Credited on the activity that uses it, so it is not repeated here.
+    cover: '/miami/img/oceandrive.jpg',
+    coverAlt:
+      'Art Deco hotels on Ocean Drive lit orange and purple at night, with palms along the street',
+    credits: [],
+  },
   // <new-trip> scripts/new-trip.mjs inserts above this line.
 ];
 

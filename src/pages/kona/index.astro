@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import TripHero from '../../components/TripHero.astro';
+import TripShape from '../../components/TripShape.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ActivityGroups from '../../components/ActivityGroups.astro';
+import BookingOrder from '../../components/BookingOrder.astro';
+import { tripBySlug } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { durationDays, requireDates } from '../../lib/trips.ts';
+
+const trip = tripBySlug('kona');
+const groups = groupedFor('kona');
+const nights = durationDays(requireDates(trip, trip.slug)) - 1;
+
+const sections = [
+  { href: '#week', label: 'The week' },
+  ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
+  { href: '#stay', label: 'Staying' },
+];
+
+const paragraphs = [
+  'The Big Island rather than Oahu, because the manta night dive is off Kona and nowhere near Honolulu. No high-rises, about 200,000 people on an island bigger than all the others put together, and an open-air airport ten minutes from town.',
+  'Everything below is an option rather than a plan. The manta dive is the one fixed thing; the rest fits around the mornings of work.',
+];
+
+const notes = [
+  {
+    lead: 'Work ends at noon.',
+    rest: 'Kona is 5 hours behind Miami, so a 9:00 start there is 4:00 here and the workday is done by lunch. The afternoons and evenings are free, which is exactly when the dive boats go out.',
+  },
+  {
+    lead: 'Rent the car for the week at KOA.',
+    rest: 'Turo works on the island, but the pickups and returns eat the saving. The bus is no use in the evening, and rideshare thins out fast outside Kailua-Kona and after dark.',
+  },
+  {
+    lead: 'Both night activities come with a driver.',
+    rest: 'The dive boat returns to a harbour ten minutes from town, and the Mauna Kea tour drives the mountain. The unlit rural roads are the only part of the driving worth avoiding.',
+  },
+  {
+    lead: 'Nothing after Friday night underwater.',
+    rest: 'Eighteen hours between the last dive and the flight home. Saturday is the car day anyway.',
+  },
+];
+
+/** The week around the one fixed thing. Everything else moves. */
+const timeline = [
+  {
+    when: 'Sun 6 Dec',
+    what: 'In from Manila',
+    detail:
+      'JAL through Tokyo into Honolulu, then 50 minutes across to Kona. Walk down the stairs into the sun, collect the car, and it is ten minutes to town.',
+  },
+  {
+    when: 'Mon 7 or Tue 8',
+    what: 'The manta night dive',
+    detail:
+      'Early in the week on purpose. Weather does cancel these, and a cancelled Monday can move to Wednesday; a cancelled Friday cannot move anywhere.',
+  },
+  {
+    when: 'Wed 9 to Fri 11',
+    what: 'Mornings working, afternoons in the water',
+    detail:
+      'Two Step, Kealakekua, the coffee farms, and the blackwater dive if a second night out appeals. The Mauna Kea tour goes on whichever evening has the clearest forecast.',
+  },
+  {
+    when: 'Sat 12 Dec',
+    what: 'The car day',
+    detail:
+      'Volcanoes National Park at a proper pace, Punalu‘u on the way, then back for a last dinner in town. No flight to race.',
+  },
+  {
+    when: 'Sun 13 Dec',
+    what: 'Breakfast, then KOA',
+    detail:
+      'Out on AA through Dallas, landing in Miami on Monday the 14th, where the South Beach place is already ours. Worth checking the overnight connection does not land at 5:00, and whether Monday has better award seats.',
+  },
+];
+
+const stays = [
+  {
+    name: 'Holualoa',
+    where: '10 minutes above town',
+    detail:
+      'Up in the coffee hills: cooler, quiet, and more standalone homes than anywhere near the water. The first place to look.',
+  },
+  {
+    name: 'Keauhou',
+    where: 'South of Kailua-Kona',
+    detail:
+      'Closest to Manta Village and the Keauhou boats, still an easy drive into town for dinner.',
+  },
+  {
+    name: 'Captain Cook and Kealakekua',
+    where: '25 to 40 minutes south',
+    detail: 'Greener and further out, and the closest base for Two Step and Kealakekua Bay.',
+  },
+  {
+    name: 'Kailua-Kona',
+    where: 'The town itself',
+    detail:
+      'Walkable to dinners, dive shops and coffee, but mostly condo complexes rather than a house of your own.',
+  },
+];
+
+const booking = [
+  {
+    label: 'The flights',
+    detail:
+      'Manila to Honolulu on JAL, the hop to Kona, and Kona to Miami on AA. One connection each way, and the AA leg is the one with the awkward overnight to check.',
+  },
+  {
+    label: 'A whole home',
+    detail:
+      'Off-street parking, a desk, and a speed test in the listing. Rural properties can be on slow connections, and a week of 4:00 calls rules that out.',
+  },
+  {
+    label: 'The manta dive',
+    detail:
+      'Direct with a Kona shop, for the Monday or Tuesday, as a two-tank sunset trip so the second dive comes with it.',
+  },
+  {
+    label: 'The Mauna Kea tour',
+    detail:
+      'The visitor station runs one free telescope night a month, by reservation, and it fills fast. A tour is the version that is guaranteed.',
+  },
+  {
+    label: 'The car',
+    detail:
+      'At KOA, for the whole week. December is busy, so booked with the house rather than on arrival.',
+  },
+];
+
+const caveat =
+  'Prices on this page came from planning in September 2026 and were not checked with the operators. The tour range and the park fee are the firmest; the dive prices want confirming when booking. Kīlauea changes week to week.';
+
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  `${nights} nights on the dry side of the Big Island, then Miami.`;
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={trip.cover}
+  ogType="article"
+>
+  <TripHero trip={trip} maxWidth="17ch"
+    >Mornings at a desk, nights with <em>the mantas</em>.</TripHero
+  >
+
+  <TripNav sections={sections} />
+
+  <TripShape paragraphs={paragraphs} notes={notes} />
+
+  <section id="week" class="week">
+    <div class="wrap">
+      <SectionHead title="The shape of the week" note="One fixed night. The rest moves." />
+      <ol class="timeline">
+        {
+          timeline.map((step) => (
+            <li>
+              <span class="when">{step.when}</span>
+              <div>
+                <b>{step.what}</b>
+                <p>{step.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <ActivityGroups groups={groups} />
+
+  <section id="stay" class="stay">
+    <div class="wrap">
+      <SectionHead
+        title="Where to stay"
+        note="A whole home with parking. All of these are within 40 minutes of the harbour."
+      />
+      <ul class="places">
+        {
+          stays.map((place) => (
+            <li>
+              <div class="who">
+                <b>{place.name}</b>
+                <span>{place.where}</span>
+              </div>
+              <p>{place.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <BookingOrder
+    intro="Five things, roughly in the order they stop being easy. December is busy on the island."
+    items={booking}
+    caveat={caveat}
+  />
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>
+
+<style>
+  .week,
+  .stay {
+    padding: 54px 0 62px;
+  }
+
+  .timeline,
+  .places {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .timeline li,
+  .places li {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline li:last-child,
+  .places li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline .when {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding-top: 3px;
+    opacity: 0.72;
+  }
+
+  .timeline b,
+  .places .who b {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .timeline p {
+    margin: 6px 0 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  .places li {
+    grid-template-columns: 230px 1fr;
+  }
+
+  .places .who span {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.66;
+  }
+
+  .places p {
+    margin: 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  @media (max-width: 760px) {
+    .timeline li,
+    .places li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

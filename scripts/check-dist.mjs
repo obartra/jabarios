@@ -71,9 +71,12 @@ const PROPER_NOUNS = ['paradise road', 'paradise, nevada'];
 
 function visibleText(html) {
   // Comments first: one containing a '>' would otherwise leak its tail into
-  // the text and trip these rules on an ordinary code note.
+  // the text and trip these rules on an ordinary code note. Then anything
+  // marked data-verbatim, which is our own words synced from a shared doc
+  // (see src/pages/date-night/) rather than the site's voice.
   return html
     .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<article\b[^>]*\bdata-verbatim\b[\s\S]*?<\/article>/g, ' ')
     .replace(/<(script|style)\b[\s\S]*?<\/\1>/g, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z]+;/g, ' ');
@@ -176,6 +179,14 @@ for (const trip of trips) {
         fail(`trip "${trip.slug}"`, `credit for "${credit.subject}" never renders on the page`);
       }
     }
+  }
+}
+
+// Every top-level page has to be reachable from the homepage, trip or not.
+for (const name of readdirSync(DIST)) {
+  if (!existsSync(join(DIST, name, 'index.html'))) continue;
+  if (!home.includes(`href="/${name}/"`)) {
+    fail(`/${name}/`, 'is built but the homepage never links to it');
   }
 }
 

@@ -1,8 +1,9 @@
 name: sync date night doc
 
-# Pulls the shared Google Doc into src/data/date-night.json and pushes to main
-# when it changed, which is what makes Netlify rebuild /date-night/. Only real
-# edits commit; an unchanged doc is a no-op run.
+# Pulls the shared Google Doc into src/data/date-night.json. When it changed,
+# the change goes through a PR like any other: CI runs on it, and it merges
+# itself once the required checks pass, which is what makes Netlify rebuild
+# /date-night/. Only real edits open a PR; an unchanged doc is a no-op run.
 on:
   schedule:
     - cron: '*/15 * * * *'
@@ -14,6 +15,11 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
+  actions: write
+
+env:
+  BRANCH: sync/date-night
 
 jobs:
   sync:
@@ -28,14 +34,22 @@ jobs:
       - run: node scripts/sync-doc.mjs
       - id: diff
         run: git diff --quiet -- src/data/date-night.json || echo "changed=true" >> "$GITHUB_OUTPUT"
-      # Same build Netlify runs, so a doc edit that breaks the page fails here
-      # instead of failing the deploy after it is on main.
       - if: steps.diff.outputs.changed == 'true'
-        run: npm run build
-      - if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
           git add src/data/date-night.json
           git commit -m "Sync the date night doc"
-          git push
+          # One rolling branch: a newer edit replaces an unmerged older one.
+          git push --force origin "$BRANCH"
+          if ! gh pr view "$BRANCH" --json state -q .state 2>/dev/null | grep -q OPEN; then
+            gh pr create --base main --head "$BRANCH" \
+              --title "Sync the date night doc" \
+              --body "Automatic copy of the shared Google Doc. Merges itself once CI passes."
+          fi
+          # PRs opened with GITHUB_TOKEN do not trigger CI, so start it here.
+          gh workflow run ci.yml --ref "$BRANCH"
+          gh pr merge "$BRANCH" --auto --squash --delete-branch

@@ -8,39 +8,32 @@ import ActivityGroups from '../../components/ActivityGroups.astro';
 import BookingOrder from '../../components/BookingOrder.astro';
 import { tripBySlug } from '../../data/trips.ts';
 import { groupedFor } from '../../data/activities.ts';
-import { durationDays, requireDates } from '../../lib/trips.ts';
 
 const trip = tripBySlug('palm-springs');
 const groups = groupedFor('palm-springs');
-const nights = durationDays(requireDates(trip, trip.slug)) - 1;
-
 const sections = groups.map((g) => ({ href: `#${g.id}`, label: g.short }));
 
 const paragraphs = [
-  'A pile of things that looked good, not a plan. Nothing is booked and nothing is decided. Some of it we might do together, some in pairs, some not at all. Fourteen nights is long enough that nobody has to be anywhere.',
+  'A pile of things that looked good, not a plan. Nothing is booked and nothing is decided. Some of it we might do together, some in pairs, some not at all. No dates yet, and no length either.',
   'Prices are per person unless a card says otherwise, and they are roughly what to expect rather than a quote.',
 ];
 
 const notes = [
   {
-    lead: 'We have landed in the middle of festival season.',
-    rest: 'Coachella runs 9 to 11 and 16 to 18 April, and Stagecoach 23 to 25. Two of those weekends sit inside our fortnight and the third starts the day we fly home.',
+    lead: 'No dates yet.',
+    rest: 'Everything below works from roughly October to May. The summer is the one season to rule out: highs above 40°C, and half of this list shortens its hours.',
   },
   {
-    lead: 'That is mostly a pricing problem.',
-    rest: 'Rooms that go for $120 to $180 on an ordinary April night have been running $400 to $800 on festival weekends, and the good rentals go before the lineup is announced.',
+    lead: 'April means festivals.',
+    rest: 'Coachella and Stagecoach take three April weekends, and rooms that go for $120 to $180 on an ordinary night have been running $400 to $800 on those. Worth knowing before picking a week.',
   },
   {
-    lead: 'Nothing here is the festival itself.',
-    rest: 'If anyone wants a pass that is a separate conversation. The list below is deliberately the other Palm Springs.',
+    lead: 'February means Modernism Week.',
+    rest: 'The architecture below is the self-guided version. Modernism Week opens the houses that are usually closed, and prices rise with it.',
   },
   {
-    lead: 'April is the good half of the year for this.',
-    rest: 'Highs around 28 to 32°C, mornings near 13°C, and it is the second windiest month, which is the one thing that threatens the balloon.',
-  },
-  {
-    lead: 'Modernism Week misses us.',
-    rest: 'It runs in February, so the architecture below is the self-guided version.',
+    lead: 'Spring is windy.',
+    rest: 'April is the second windiest month, which is the one thing that threatens the balloon.',
   },
 ];
 
@@ -48,32 +41,31 @@ const booking = [
   {
     label: 'Somewhere to stay',
     detail:
-      "The one that actually matters. Festival weekends drive the whole valley's prices, and houses with a pool go months before anything else.",
+      "The one that actually matters, once there are dates. Houses with a pool go months ahead, and festival weekends drive the whole valley's prices.",
   },
   {
     label: 'Sunnylands',
     detail:
-      'House tickets drop at 09:00 Pacific on the 15th of the preceding month and go in minutes. For April that is 15 March.',
+      'House tickets drop at 09:00 Pacific on the 15th of the preceding month and go in minutes.',
   },
   { label: 'The Integratron', detail: 'Sound baths sell out weeks to months ahead.' },
   {
     label: 'A balloon',
-    detail: 'Small daily capacity, and April wind cancels more flights than other months.',
+    detail: 'Small daily capacity, and spring wind cancels more flights than other months.',
   },
   {
     label: 'A car',
-    detail:
-      'Not optional. Everything outside downtown assumes one, and hire prices move with the festivals too.',
+    detail: 'Not optional. Everything outside downtown assumes one.',
   },
   { label: 'The Frey House', detail: '48 hours notice minimum, if the architecture appeals.' },
 ];
 
 const caveat =
-  'Prices and opening hours here were checked in September 2026 and none of it is booked. Worth confirming before anyone plans a day around it, particularly on the festival weekends, when roads on the east side of the valley close and journey times stop meaning anything.';
+  'Prices and opening hours here were checked in September 2026 and none of it is booked. Worth confirming once there are dates.';
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
-  `${nights} nights in the desert, arriving on the 10th and flying home on the 24th.`;
+  'Dates still open.';
 ---
 
 <BaseLayout
@@ -83,7 +75,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip}>Two weeks in the <em>desert</em>.</TripHero>
+  <TripHero trip={trip}>Some time in the <em>desert</em>.</TripHero>
 
   <TripNav sections={sections} />
 

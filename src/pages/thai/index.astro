@@ -1139,7 +1139,7 @@ const note =
     flex-wrap: wrap;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11.5px;
-    opacity: 0.6;
+    opacity: 0.72;
     padding: 10px 0 0;
     border-top: 1px solid rgba(26, 18, 13, 0.16);
     margin-top: 6px;
@@ -1153,14 +1153,14 @@ const note =
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     fill: #1a120d;
-    opacity: 0.55;
+    opacity: 0.72;
   }
   .node-label.sea {
     fill: #d6e7e3;
   }
   .node-val.sea {
     fill: #d6e7e3;
-    opacity: 0.6;
+    opacity: 0.72;
   }
   .trace {
     fill: none;
@@ -1207,7 +1207,7 @@ const note =
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
     letter-spacing: 0.14em;
-    opacity: 0.5;
+    opacity: 0.72;
   }
   .sechead h2 {
     font-size: clamp(32px, 5.2vw, 58px);
@@ -1215,7 +1215,7 @@ const note =
   .secmeta {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12.5px;
-    opacity: 0.62;
+    opacity: 0.72;
     margin-bottom: 34px;
   }
   .intro {
@@ -1247,7 +1247,7 @@ const note =
   .card .sub {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11.5px;
-    opacity: 0.6;
+    opacity: 0.72;
     margin-bottom: 10px;
   }
   .card p {
@@ -1294,6 +1294,10 @@ const note =
   .clock .seg .l {
     opacity: 0.75;
   }
+  /* Dark text on marigold only clears AA at full strength. */
+  .clock .seg.out .l {
+    opacity: 1;
+  }
   .seg.calls {
     background: var(--lacquer);
     color: #e9dcc3;
@@ -1317,7 +1321,7 @@ const note =
     justify-content: space-between;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    opacity: 0.6;
+    opacity: 0.72;
     padding: 8px 12px;
     border-top: 1px solid rgba(26, 18, 13, 0.14);
   }
@@ -1344,7 +1348,7 @@ const note =
     font-size: 11.5px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    opacity: 0.55;
+    opacity: 0.72;
     margin-top: 4px;
   }
   .day h3 {
@@ -1366,7 +1370,7 @@ const note =
     font-size: 10.5px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    opacity: 0.5;
+    opacity: 0.72;
     padding-top: 4px;
   }
   .row .v {
@@ -1388,7 +1392,7 @@ const note =
   .figure figcaption {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    opacity: 0.5;
+    opacity: 0.72;
     margin-top: 6px;
   }
 
@@ -1508,7 +1512,7 @@ const note =
     font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    opacity: 0.5;
+    opacity: 0.72;
   }
 
   /* ---------- checklist ---------- */
@@ -1535,7 +1539,7 @@ const note =
     content: counter(c, decimal-leading-zero);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
-    opacity: 0.45;
+    opacity: 0.72;
   }
   .check .what {
     font-size: 16px;
@@ -1584,7 +1588,7 @@ const note =
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     line-height: 1.9;
-    opacity: 0.62;
+    opacity: 0.72;
     margin-top: 14px;
   }
 
@@ -1618,7 +1622,7 @@ const note =
     font-size: 10.5px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    opacity: 0.55;
+    opacity: 0.72;
     margin: 3px 0 8px;
   }
   .win .a {
@@ -1654,7 +1658,7 @@ const note =
   .opt .meta {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    opacity: 0.6;
+    opacity: 0.72;
     margin-bottom: 9px;
   }
   .opt p {
@@ -1699,7 +1703,7 @@ const note =
   .groupsub {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11.5px;
-    opacity: 0.6;
+    opacity: 0.72;
   }
 
   /* ---------- vertical profile (small screens) ---------- */
@@ -1713,7 +1717,7 @@ const note =
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10.5px;
     letter-spacing: 0.06em;
-    opacity: 0.55;
+    opacity: 0.72;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(26, 18, 13, 0.16);
   }
@@ -1786,7 +1790,7 @@ const note =
   .vp-val {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    opacity: 0.6;
+    opacity: 0.72;
     white-space: nowrap;
   }
   .vp-val.deep {

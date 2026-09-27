@@ -162,11 +162,11 @@ const raw: unknown[] = [
     slug: 'palm-springs',
     name: 'Palm Springs',
     countries: 1,
-    lede: 'Some time in the desert, dates still open. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.',
+    lede: 'Some time in April, tentatively, with Os possibly coming down from San Francisco first. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.',
     blurb:
-      'Some time in the desert, dates still open. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
+      'Some time in April, tentatively. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
     description:
-      'Palm Springs, dates still open. Joshua Tree, the tram up Chino Canyon, the Salton Sea and a lot of pool. Ideas, not a plan.',
+      'Palm Springs, tentatively in April. Joshua Tree, the tram up Chino Canyon, the Salton Sea and a lot of pool. Ideas, not a plan.',
     places: ['Palm Springs', 'Joshua Tree', 'Pioneertown', 'The Salton Sea'],
     notes: ['Nothing booked'],
     cover: '/palm-springs/img/cover.jpg',
@@ -200,29 +200,22 @@ const raw: unknown[] = [
     credits: [],
   },
   {
-    slug: 'brasil',
-    name: 'Brasil, or beyond',
-    start: '2027-01-04',
-    end: '2027-01-18',
+    slug: 'january',
+    name: 'January, together',
+    start: '2027-01-09',
+    end: '2027-01-23',
     countries: 1,
-    lede: 'Os lands in Salvador on 28 December for New Year with friends. Jabari joins after New Year, and that is where this trip starts: two weeks of us, in Salvador or somewhere else entirely, in Brasil, the rest of South or Central America, or the Caribbean. Not decided.',
+    lede: 'Os lands in Salvador on 28 December for New Year with friends. Around the 9th we meet somewhere, and the two weeks after that are ours. Where is not decided: this is the shortlist, picked for what is worth being there for in the middle of January.',
     blurb:
-      'Two weeks of us after New Year, starting from Salvador or somewhere else. Brasil, the rest of Latin America, or the Caribbean. Not decided.',
+      'Two weeks of us from around 9 January, somewhere warm. A shortlist picked for what is only good in mid-January: humpbacks, Bonaire, Baja.',
     description:
-      'Two weeks together in January 2027, from Salvador or somewhere else in Latin America or the Caribbean. Where is still open.',
-    places: ['Salvador', 'or somewhere else'],
-    notes: ['Rough dates', 'Destination open'],
-    cover: '/brasil/img/cover.jpg',
-    coverAlt:
-      'Two people walking a sandbar between a lagoon and white dunes at sunset in Lençóis Maranhenses',
-    credits: [
-      {
-        subject: 'Lençóis Maranhenses at sunset',
-        author: 'Julio Cesar Goncalves Corrêa, edited by Aristeas',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Casal_de_turistas_caminha_em_uma_duna,_enquanto_o_dia_morre_nos_Len%C3%A7%C3%B3is_Maranhenses_(edited).jpg',
-      },
-    ],
+      'Two weeks together in January 2027, destination open. Humpbacks at the Silver Bank, Bonaire and Baja, and why each is worth mid-January.',
+    places: ['Silver Bank', 'Santo Domingo', 'Bonaire', 'Baja'],
+    notes: ['Rough dates', 'Not decided'],
+    // Credited on the activity that uses it, so it is not repeated here.
+    cover: '/january/img/humpbackcalf.jpg',
+    coverAlt: 'A humpback whale calf swimming beside its mother just under the surface',
+    credits: [],
   },
   {
     slug: 'kona',

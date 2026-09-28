@@ -18,6 +18,7 @@ const nights = durationDays(requireDates(trip, trip.slug)) - 1;
 const sections = [
   { href: '#week', label: 'The week' },
   { href: '#jabari', label: 'Jabari’s' },
+  { href: '#ours', label: 'Our list' },
   ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
   { href: '#around', label: 'Getting around' },
 ];
@@ -126,6 +127,24 @@ const discover = [
     where: 'Fort Lauderdale · about an hour each way',
     detail:
       'The biggest gay neighbourhood in South Florida, but it is a whole evening and a long ride back. Only if nothing here has caught.',
+  },
+];
+
+/** Places we asked to add by name. Checked on their own sites, September 2026. */
+const ours = [
+  {
+    name: 'Rosa Sky',
+    where: 'Brickell rooftop · 22nd floor',
+    url: 'https://rosaskyrooftop.com',
+    detail:
+      'The rooftop on the AC Hotel in Brickell, open from 16:30, which is about an hour before sunset. Happy hour runs to 19:00 with cocktails at $10. Closed Mondays, so Tuesday or Thursday; Wednesday is its busiest night. An 18% service charge is added to every bill, the dress code is smart, and tables take a $50 deposit through Tock, though the bar is walk-in. About 25 minutes by rideshare.',
+  },
+  {
+    name: 'Sable',
+    where: 'Wynwood · café by day, vinyl lounge by night',
+    url: 'https://www.sablemiami.com',
+    detail:
+      'A 1950s diner look, bagels and matcha in the day, records and cocktails at night. The café is open daily 9:00 to 16:00, so it pairs with an afternoon in Wynwood. The lounge only opens Thursday to Saturday from 21:00, which leaves Thursday the 17th or Friday the 18th. About 20 minutes by rideshare.',
   },
 ];
 
@@ -242,6 +261,25 @@ const note =
             <li>
               <div class="who">
                 {place.url ? <a href={place.url}>{place.name}</a> : <b>{place.name}</b>}
+                <span>{place.where}</span>
+              </div>
+              <p>{place.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="ours" class="jabari">
+    <div class="wrap">
+      <SectionHead title="On our list" note="Two we want to get to, across the causeway." />
+      <ul class="places">
+        {
+          ours.map((place) => (
+            <li>
+              <div class="who">
+                <a href={place.url}>{place.name}</a>
                 <span>{place.where}</span>
               </div>
               <p>{place.detail}</p>

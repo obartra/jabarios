@@ -6,8 +6,14 @@
   "lede": "Five nights in Bangkok together, in from Hanoi, working nights and out from midday. Then Os heads north to Chiang Mai, and two days on the water out of Khao Lak before Manila.",
   "blurb": "Five nights in Bangkok together, then Os north to Chiang Mai and two days on the water out of Khao Lak before Manila.",
   "description": "Bangkok together, then Os on to Chiang Mai and the Similans. The days, the dives, and what to book first.",
-  "places": ["Bangkok", "Chiang Mai", "Khao Lak"],
-  "notes": ["4 dives"],
+  "places": [
+    "Bangkok",
+    "Chiang Mai",
+    "Khao Lak"
+  ],
+  "notes": [
+    "4 dives"
+  ],
   "cover": "similan.jpg",
   "photos": {
     "similan.jpg": {
@@ -44,7 +50,7 @@
         "licence": "CC BY-SA 4.0",
         "url": "https://commons.wikimedia.org/wiki/File:Amphawa_Floating_Market_16a.jpg"
       },
-      "alt": "Wooden shophouses and food boats along the canal at Amphawa floating market"
+      "alt": "A wok of stir-fried crab and prawns at a food stall in Amphawa floating market"
     },
     "ayutthaya.jpg": {
       "credit": {
@@ -71,7 +77,7 @@
         "licence": "CC BY-SA 4.0",
         "url": "https://commons.wikimedia.org/wiki/File:Richelieu_Rock.jpg"
       },
-      "alt": "Divers among schooling fish on the pinnacle at Richelieu Rock"
+      "alt": "The tip of Richelieu Rock breaking the surface of the open sea"
     },
     "khaolak.jpg": {
       "credit": {

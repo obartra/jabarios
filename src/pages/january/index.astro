@@ -21,84 +21,71 @@ const sections = [
 
 const paragraphs = [
   'Os flies down from Philadelphia on 27 December, already booked, and lands in Salvador on the 28th for New Year with friends. Around the 9th we meet, and the two weeks from there are ours.',
-  'Where is open. Northern Brasil was the first idea, but the Lençóis lagoons are dry in January, and without them the reason to go went too. So this is a shortlist, picked for what is actually at its best in the middle of January.',
+  'Where is open. The shortlist is three places that are new to both of us, dry in January, and split between a city and something outdoors. Os books the rentals, at up to about $1,000 a week, and the rest stays cheap.',
 ];
 
 const notes = [
   {
-    lead: 'Animals, water, and a city somewhere.',
-    rest: 'Jabari is happy with nature and animals and just as happy exploring a new city, so the best two weeks probably have some of both rather than fourteen days on boats.',
+    lead: 'Chile is the first choice.',
+    rest: 'The best mix of city, nature and animals, the driest weather, and a new nonstop from Salvador to Santiago in January. The cost is Jabari’s longer flight.',
   },
   {
-    lead: 'The moon matters.',
-    rest: 'New moon on 7 January, full on the 22nd. Anything that wants a dark sky, stars or bioluminescence, belongs in the first week.',
-  },
-  {
-    lead: 'One thing has a deadline.',
-    rest: 'The Silver Bank week of 16 to 23 January is the only January departure still listed. If it is in, it wants deciding soon.',
+    lead: 'The moon helps early.',
+    rest: 'New moon on 7 January, full on the 22nd. For stargazing in Elqui, the first week is the one.',
   },
   {
     lead: 'Two directions of travel.',
-    rest: 'Os comes from Salvador, where Copa flies to Panama four times a week and connects onward. Jabari comes from Philadelphia. A place that is easy for both is worth something.',
+    rest: 'Os comes from Salvador, Jabari from Philadelphia. Chile and Buenos Aires are nonstop for Os; Colombia is one stop for each of us.',
   },
 ];
 
 const pairs = [
   {
-    name: 'Bonaire, then the Silver Bank',
-    when: '9 to 16, then 16 to 23 January',
+    name: 'Chile',
+    when: '6 nights, then 8',
     detail:
-      'Jabari certifies in the first week and we dive together; the whale week needs no certification anyway. The most animals, and the most expensive, but almost no city in it. The hop from Curaçao to the Dominican Republic probably goes through Panama or Miami.',
+      'Valparaíso and Santiago first, then a one-hour flight or a cheap bus north to La Serena and up into the Elqui Valley. Penguins one day, observatories at night.',
   },
   {
-    name: 'Santo Domingo, then the Silver Bank',
-    when: '9 to 15, then 16 to 23 January',
+    name: 'Colombia',
+    when: '7 nights, then 7',
     detail:
-      'The option with a city in it, and one country for both weeks. The Colonial Zone is the oldest European-built city in the Americas, walkable, with the food and nights to go with it, and the boats leave from Puerto Plata on the north coast. Samaná’s own whale season opens around 15 January too.',
+      'Medellín first, then a 6–7 hour bus or a short flight to the coffee region. The cheapest of the three to live on.',
+  },
+  {
+    name: 'Buenos Aires and Uruguay',
+    when: '9 nights, then 5',
+    detail:
+      'Buenos Aires, then the ferry to Colonia and on to Montevideo. The most city and the least nature, and the hottest.',
   },
 ];
 
 const also = [
   {
+    name: 'Mexico',
+    where: 'Been',
+    detail: 'Mexico City, Oaxaca and Mérida all fit January well, but we have both been.',
+  },
+  {
+    name: 'Rio, Paraty, Florianópolis',
+    where: 'Weather',
+    detail:
+      'Peak summer on the Brazilian coast: storms most afternoons, and the highest prices of the year.',
+  },
+  {
+    name: 'Iguazú, the Andes, the Atacama',
+    where: 'Weather',
+    detail: 'Rainy or stormy season in January. Iguazú would only work as a two-night side trip.',
+  },
+  {
+    name: 'Costa Rica, Puerto Vallarta',
+    where: 'Budget',
+    detail: 'Dry and good for animals, but January is peak season and rentals go over the cap.',
+  },
+  {
     name: 'The Galápagos',
     where: 'At 50 logged dives',
-    detail:
-      'January is the start of its best water, but the diving that makes it worth the price is the Darwin and Wolf liveaboards, which ask for 50 logged dives. Neither of us is there yet. One to come back for once we are.',
-  },
-  {
-    name: 'Dominica',
-    where: 'Sperm whales',
-    detail:
-      'January to March is the peak, and boat trips find them most days. Swimming with them needs a limited special permit. Flights go through Barbados or Antigua, and the island is still socially conservative.',
-  },
-  {
-    name: 'Fernando de Noronha',
-    where: 'Not this month',
-    detail:
-      'The best diving in Brasil, but January is the heart of its swell season and the boats are rough. August to October is the time.',
-  },
-  {
-    name: 'Chapada Diamantina',
-    where: 'Before the 9th, maybe',
-    detail:
-      'Rainy season, muddy trails and full waterfalls. Better as a side trip from Salvador for Os than as our two weeks.',
-  },
-  {
-    name: 'The Atacama',
-    where: 'Not this month',
-    detail:
-      'January is the altiplanic winter, with evening cloud that cancels stargazing tours, and the full moon on the 22nd.',
-  },
-  {
-    name: 'Patagonia',
-    where: 'Peak season',
-    detail: 'Windy, booked a year ahead, expensive, and no diving.',
-  },
-  {
-    name: 'Cozumel, Belize, Roatán, Providencia',
-    where: 'Fine, not standout',
-    detail:
-      'Good diving, but January brings northers that close ports and cancel boats. Nothing here is special to the month.',
+    detail: 'Its best diving asks for 50 logged dives, and neither of us is there yet.',
   },
 ];
 
@@ -108,17 +95,17 @@ const booking = [
     detail: 'Everything else waits on it.',
   },
   {
-    label: 'The Silver Bank, if it is in',
-    detail: 'One January departure left, 16 to 23 January.',
-  },
-  {
     label: 'Two sets of flights',
     detail: 'Os from Salvador, Jabari from Philadelphia, meeting around the 9th.',
+  },
+  {
+    label: 'The rentals',
+    detail: 'Two, one for each half. Os is handling them.',
   },
 ];
 
 const caveat =
-  'Researched in September 2026 from operators’ and tourism sites. The Silver Bank prices and dates are from the operator; the Bonaire nature fee, some routings and the Dominica permit are not confirmed. Nothing here is booked.';
+  'Researched in September 2026. Weather is from climate averages, rental prices from rental-market data, and flights and ferry fares are not checked on a booking site yet. Nothing here is booked.';
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
@@ -132,7 +119,7 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip} maxWidth="17ch">Two weeks, <em>somewhere good</em>.</TripHero>
+  <TripHero trip={trip} maxWidth="17ch">Two weeks, <em>somewhere new</em>.</TripHero>
 
   <TripNav sections={sections} />
 
@@ -142,7 +129,7 @@ const note =
 
   <section id="pairs" class="list">
     <div class="wrap">
-      <SectionHead title="Making it two weeks" note="Two ways the shortlist fits together." />
+      <SectionHead title="Making it two weeks" note="How each option splits the fortnight." />
       <ul class="places">
         {
           pairs.map((p) => (
@@ -179,7 +166,7 @@ const note =
   </section>
 
   <BookingOrder
-    intro="Only three things, and the first decides the rest."
+    intro="Three things, and the first decides the rest."
     items={booking}
     caveat={caveat}
   />

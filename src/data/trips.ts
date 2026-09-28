@@ -205,16 +205,16 @@ const raw: unknown[] = [
     start: '2027-01-09',
     end: '2027-01-23',
     countries: 1,
-    lede: 'Os lands in Salvador on 28 December for New Year with friends. Around the 9th we meet somewhere, and the two weeks after that are ours. Where is not decided: this is the shortlist, picked for what is worth being there for in the middle of January.',
+    lede: 'Os lands in Salvador on 28 December for New Year with friends. Around the 9th we meet somewhere new to both of us, and the two weeks after that are ours: a city to walk, some nature and animals, and dry weather. Three options, none decided.',
     blurb:
-      'Two weeks of us from around 9 January, somewhere warm. A shortlist picked for what is only good in mid-January: humpbacks, Bonaire, Baja.',
+      'Two weeks of us from around 9 January, somewhere new and dry. Chile, Colombia, or Buenos Aires and Uruguay: a city and some nature, on a modest budget.',
     description:
-      'Two weeks together in January 2027, destination open. Humpbacks at the Silver Bank, Bonaire and Baja, and why each is worth mid-January.',
-    places: ['Silver Bank', 'Santo Domingo', 'Bonaire', 'Baja'],
+      'Two weeks together in January 2027, still undecided: Valparaíso and the Elqui Valley, Medellín and the coffee region, or Buenos Aires and Uruguay.',
+    places: ['Chile', 'Colombia', 'Buenos Aires'],
     notes: ['Rough dates', 'Not decided'],
     // Credited on the activity that uses it, so it is not repeated here.
-    cover: '/january/img/humpbackcalf.jpg',
-    coverAlt: 'A humpback whale calf swimming beside its mother just under the surface',
+    cover: '/january/img/valparaiso.jpg',
+    coverAlt: 'Painted wooden houses stacked up a hillside in Valparaíso',
     credits: [],
   },
   {

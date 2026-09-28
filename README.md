@@ -8,9 +8,11 @@ src/
   content/trips/<slug>/  one folder per trip:
     trip.json            metadata, the cover, and every photo's alt text and credit
     activities.json      optional: the cards, grouped into categories
+    page.json            the page: headline, footer line and a list of sections
     img/                 the photos, resized and re-encoded at build
   data/trips.ts          loads and validates the trip folders
   data/activities.ts     loads and validates the cards
+  data/pages.ts          loads and validates page.json, and the section types
   data/date-night.json   snapshot of the shared Google Doc, written by the sync
   lib/trips.ts           pure date/status logic, shared by build and browser
   layouts/BaseLayout     <head>, fonts, canonical and social tags
@@ -18,8 +20,8 @@ src/
   pages/
     index.astro          homepage, generated from the trip data
     404.astro
-    _template/           starter trip page, not routed
-    <slug>/index.astro   one per trip; the slugs come from content/trips
+    [slug]/index.astro   every trip page, rendered from its page.json
+  components/sections/   the section types a page.json can use
   scripts/               browser code (reveal, homepage filter and countdown)
   styles/global.css      design tokens and the base layer
 public/                  the favicon
@@ -37,9 +39,9 @@ tests/e2e/               Playwright, desktop and mobile
 node scripts/new-trip.mjs vegas "Las Vegas" 2026-12-18 2026-12-27
 ```
 
-That writes `src/content/trips/vegas/trip.json`, an empty `img/` folder, and the
-page at `src/pages/vegas/index.astro`. Add `img/cover.jpg`, fill in its alt text
-and credit and the other TODOs in `trip.json`, and write the page.
+That writes `src/content/trips/vegas/` with `trip.json`, `page.json` and an empty
+`img/`. Add `img/cover.jpg`, fill in its alt text and credit and the other TODOs,
+and write the page by adding sections to `page.json`.
 
 Everything else follows from the data entry and needs no edit: the homepage
 card, the status pill, the day count, the country and days-away totals, the
@@ -96,6 +98,24 @@ real 404 status on an unknown path.
 page. Accessibility has to be 100, best practices 95 and SEO 95 (except the two
 pages that are `noindex` on purpose). Performance has a floor of 80, a margin
 below today's 85–100, because a single run is noisy.
+
+## Page sections
+
+`page.json` is a headline (with the key phrase in `*asterisks*`), a footer line
+(`{nights}` is filled in from the dates), and an ordered list of sections. Each
+has a `type`:
+
+- `shape`: the opening paragraphs and the constraint notes beside them
+- `timeline`: dated days, `when` / `what` / `detail`
+- `places`: named places with a where line and an optional link, in one or more lists
+- `activities`: the cards from `activities.json`, all categories or a chosen few
+- `detail`: labelled rows and a rough shape of the days, for comparing options
+- `feature`: a dark block for the one evening a trip is built around
+- `booking`: what needs booking first, and a caveat about the prices
+
+Sections with an `id` and a `nav` label appear in the sticky nav, in page order.
+`src/data/pages.ts` validates all of it at build and fails loudly on an unknown
+type, a missing photo or an unknown category.
 
 ## Activities
 

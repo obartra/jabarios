@@ -13,8 +13,9 @@ you find yourself typing a date into a page, stop: derive it instead, or the
 two will disagree eventually.
 
 **Scaffold a new trip, do not copy an old one.** `node scripts/new-trip.mjs
-<slug> "<Name>" <start> <end>` gets the chrome, meta tags and nav right.
-Copying a page carries over the previous trip's canonical and og tags.
+<slug> "<Name>" <start> <end>` creates the trip folder with `trip.json`,
+`page.json` and `img/`. Every page renders through `src/pages/[slug]/`, so the
+chrome, meta tags and nav come for free.
 
 **Every trip folder appears on the homepage.**
 A trip page nobody can navigate to is a trip page nobody reads. The homepage
@@ -23,10 +24,11 @@ folder; the scaffolder creates it for you, and `scripts/check-dist.mjs` fails th
 both ways, for a trip with no card and for a card with no trip. Never link a
 trip only from another trip page.
 
-**Shared chrome is a component.** `AppBar`, `TripNav`, `TripCard` and
-`SiteFooter` exist so trips look alike. Page-specific styling belongs in the
-page; anything a second trip would want belongs in `src/styles/global.css` or
-a component.
+**Pages are data.** A trip page is its `page.json`: a list of typed sections
+(see README). Something a page needs that no section type covers becomes a new
+section type in `src/components/sections/` and `src/data/pages.ts`, so the next
+trip can use it too. No trip gets a hand-written page; Thailand is the last
+one, and is moving over.
 
 **Date logic goes in `src/lib/trips.ts` with a test.** It is imported by both
 the build and the browser, so there is one implementation and it is covered.

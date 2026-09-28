@@ -1,0 +1,292 @@
+---
+import { Picture } from 'astro:assets';
+import { emphasis, type Section } from '../../data/pages.ts';
+import { photoOf, type Trip } from '../../data/trips.ts';
+import { photo, WIDTHS } from '../../lib/photos.ts';
+
+/**
+ * A dark, self-contained section for the one evening a trip is built around:
+ * the steps of it, a photo with chips underneath, and optionally the operators
+ * compared side by side. Kona's Mauna Kea night is the original.
+ */
+interface Props {
+  trip: Trip;
+  section: Extract<Section, { type: 'feature' }>;
+}
+
+const { trip, section } = Astro.props;
+const alt = section.photo.alt ?? photoOf(trip, section.photo.file).alt;
+---
+
+<section id={section.id} class="feature">
+  <div class="wrap">
+    <div class="f-cols">
+      <div>
+        <p class="f-when">{section.eyebrow}</p>
+        <h2 set:html={emphasis(section.headline)} />
+        <ol class="f-steps">
+          {
+            section.steps.map((e) => (
+              <li>
+                <b>{e.step}</b>
+                <p>{e.detail}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <figure>
+        <Picture
+          src={photo(trip.slug, section.photo.file)}
+          alt={alt}
+          formats={['webp']}
+          widths={WIDTHS}
+          sizes="(max-width: 960px) calc(100vw - 32px), 540px"
+          loading="lazy"
+          decoding="async"
+        />
+        {
+          section.chips && (
+            <figcaption>
+              <span>{section.chips.title}</span>
+              <ul class="f-sky">
+                {section.chips.items.map((thing) => (
+                  <li>{thing}</li>
+                ))}
+              </ul>
+            </figcaption>
+          )
+        }
+      </figure>
+    </div>
+    {section.compareTitle && <h3 class="f-h3">{section.compareTitle}</h3>}
+    {
+      section.compare.length > 0 && (
+        <ul class="f-tours">
+          {section.compare.map((t) => (
+            <li class:list={{ pick: t.pick }}>
+              <div class="f-tour-head">
+                <a href={t.url}>{t.name}</a>
+                <span>{t.price}</span>
+              </div>
+              {t.pick && <p class="f-pick">The pick</p>}
+              <dl>
+                {t.rows.map(([k, v]) => (
+                  <>
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </>
+                ))}
+              </dl>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    {section.note && <p class="f-note">{section.note}</p>}
+  </div>
+</section>
+
+<style>
+  .feature {
+    padding: 64px 0;
+    background: var(--abyss);
+    color: var(--foam);
+  }
+
+  .f-cols {
+    display: grid;
+    gap: 36px;
+  }
+
+  .f-when {
+    margin: 0 0 12px;
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .feature h2 {
+    max-width: 16ch;
+    font-size: clamp(30px, 5vw, 52px);
+  }
+
+  /* Injected with set:html, so the scoped style has to reach through. */
+  .feature h2 :global(em) {
+    font-style: normal;
+    color: var(--surf);
+  }
+
+  .f-steps {
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .f-steps li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+  }
+
+  .f-steps b {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+    color: var(--surf);
+  }
+
+  .f-steps p {
+    margin: 0;
+    max-width: 52ch;
+    opacity: 0.86;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--r);
+  }
+
+  figcaption {
+    margin-top: 16px;
+  }
+
+  figcaption span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+
+  .f-sky {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .f-sky li {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(214, 231, 227, 0.26);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .f-note {
+    max-width: 68ch;
+    margin: 30px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(214, 231, 227, 0.16);
+    font-size: 15px;
+    opacity: 0.72;
+  }
+
+  @media (min-width: 960px) {
+    .f-cols {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .f-steps li {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+
+  .f-h3 {
+    margin: 44px 0 0;
+    font-size: clamp(20px, 2.6vw, 26px);
+  }
+
+  .f-tours {
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .f-tours li {
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(214, 231, 227, 0.16);
+    background: rgba(214, 231, 227, 0.05);
+  }
+
+  .f-tour-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 14px;
+  }
+
+  .f-tours a {
+    color: var(--foam);
+    font-weight: 600;
+    text-decoration-color: var(--surf);
+    text-underline-offset: 3px;
+  }
+
+  .f-tours span {
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .f-tours li.pick {
+    border-color: var(--surf);
+  }
+
+  .f-pick {
+    margin: 6px 0 0;
+    color: var(--surf);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .f-tours dl {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 6px 12px;
+    margin: 12px 0 0;
+    font-size: 14.5px;
+  }
+
+  .f-tours dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-top: 3px;
+    opacity: 0.72;
+  }
+
+  .f-tours dd {
+    margin: 0;
+    opacity: 0.86;
+  }
+</style>

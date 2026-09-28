@@ -1,0 +1,240 @@
+{
+  "headline": "Mantas after dark, dinner at *9,000 ft*.",
+  "headlineWidth": "17ch",
+  "footer": "{nights} nights on the dry side of the Big Island, then Miami.",
+  "sections": [
+    {
+      "type": "shape",
+      "paragraphs": [
+        "The Big Island rather than Oahu, because the manta night dive is off Kona and nowhere near Honolulu. About 200,000 people on an island bigger than all the others put together, and an open-air airport where everyone walks down the stairs into the sun.",
+        "Three days have something in them. The others are free, and the cards further down are for those, or for nothing."
+      ],
+      "notes": [
+        {
+          "lead": "Diving and altitude do not mix.",
+          "rest": "Both Mauna Kea operators refuse anyone who has been on scuba in the previous 24 hours, and the flight home wants a clear day too. That is what sets the order: underwater Tuesday and Wednesday, the mountain on Thursday, dry land after."
+        },
+        {
+          "lead": "The house is booked.",
+          "rest": "Kailua-Kona, up the hill from the bay, from 15:00 on Sunday the 6th to 10:00 on Sunday the 13th. The dive shops and the town car rental are a short walk away."
+        },
+        {
+          "lead": "A car for one day, not seven.",
+          "rest": "Everything in town is on foot or on the Kona Trolley, the boats and the mountain are rides, and Saturday is the one day that needs wheels."
+        },
+        {
+          "lead": "Mornings are for work, for whoever is working.",
+          "rest": "Kona is 5 hours behind Miami, so a 9:00 Miami start is 4:00 here and the workday is over by lunch."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "id": "week",
+      "nav": "The week",
+      "title": "The shape of the week",
+      "note": "Three days with something in them.",
+      "items": [
+        {
+          "when": "Sun 6 Dec",
+          "what": "Into Kona",
+          "detail": "A ride from KOA, about 20 minutes, and the house from 15:00. Sunset on the seawall if the flight allows."
+        },
+        {
+          "when": "Mon 7 Dec",
+          "what": "Nothing booked",
+          "detail": "Down the hill to Aliʻi Drive, the trolley to Kahalu‘u to snorkel with the turtles, and getting over the Pacific."
+        },
+        {
+          "when": "Tue 8 · afternoon",
+          "what": "The mantas",
+          "detail": "One boat for both of us from Honokōhau. Two tanks for Os, a day dive then the mantas after dark, and Jabari snorkels them from the surface under the same lights. Kaloko-Honokōhau is next to the harbour for before."
+        },
+        {
+          "when": "Wed 9 · morning",
+          "what": "Jabari’s first dive",
+          "detail": "Discover Scuba, boat out around 8:30 and back by 13:00. Os dives the same boat or takes the morning off. Huliheʻe Palace reopens on Wednesdays, for the afternoon."
+        },
+        {
+          "when": "Thu 10 Dec",
+          "what": "Mauna Kea",
+          "detail": "Picked up in town early afternoon, back around 22:00. More than 24 hours after the dive, which is the rule. The whole evening is below."
+        },
+        {
+          "when": "Fri 11 Dec",
+          "what": "Free, and dry",
+          "detail": "Town, the palace, the market, Magic Sands if the sand is in, or nothing."
+        },
+        {
+          "when": "Sat 12 Dec",
+          "what": "The car day",
+          "detail": "Picked up in town between 9:00 and 12:00. South to the coffee farms, the place of refuge and Two Step, or the long drive to Volcanoes. Not both."
+        },
+        {
+          "when": "Sun 13 Dec",
+          "what": "Out by 10:00",
+          "detail": "Car back at KOA on the way to the flight, and on to Miami. Sunday is the likely day; the tickets are not bought yet."
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "id": "mauna-kea",
+      "nav": "Mauna Kea",
+      "eyebrow": "Thursday · new moon week",
+      "headline": "Dinner at 9,000 ft, then *the sky*.",
+      "steps": [
+        {
+          "step": "Kailua-Kona",
+          "detail": "Pickup in town, then a 4WD van up the mountain, which rental cars are not allowed to drive."
+        },
+        {
+          "step": "9,000 ft",
+          "detail": "Dinner at the mid-level station, partly for the food and partly to adjust to the height."
+        },
+        {
+          "step": "Nearly 14,000 ft",
+          "detail": "Sunset from the summit, around 17:45, above the clouds and among the big research observatories. Parkas and gloves are provided, because it is close to freezing up there."
+        },
+        {
+          "step": "Back to 9,000 ft",
+          "detail": "A telescope session with hot drinks, on 11-inch scopes."
+        }
+      ],
+      "photo": {
+        "file": "maunakea.jpg"
+      },
+      "chips": {
+        "title": "What is up that week",
+        "items": ["Jupiter", "Saturn", "Andromeda", "The Orion Nebula", "The Milky Way"]
+      },
+      "compareTitle": "The tours, side by side",
+      "compare": [
+        {
+          "name": "Hawaiʻi Forest & Trail",
+          "pick": true,
+          "price": "From $315",
+          "url": "https://hawaii-forest.com/tours/maunakea-summit-stars-adventure/",
+          "rows": [
+            ["Pickup", "King Kamehameha, walkable from town, early afternoon"],
+            ["Dinner", "Warm picnic dinner at about 9,200 ft"],
+            ["Hot drinks", "Hot chocolate and dessert"],
+            ["Telescope", "11-inch Celestron, plus a digital scope"],
+            ["Photos", "Deep-sky images emailed afterwards"],
+            ["Group", "12 at most"],
+            ["Cancel", "Free until 24 hours before"]
+          ]
+        },
+        {
+          "name": "Mauna Kea Summit Adventures",
+          "price": "From $330",
+          "url": "https://maunakea.com/sunset-stargazing-tour/",
+          "rows": [
+            ["Pickup", "Kona Crossroads at 13:55, a short ride up the hill"],
+            ["Back", "22:05, on the published December schedule"],
+            ["Dinner", "Hot lasagna and a brownie at the visitor station"],
+            ["Hot drinks", "Yes"],
+            ["Telescope", "11-inch Celestron CPC 1100"],
+            ["Group", "Up to 14"],
+            ["Cancel", "24 hours’ notice, no refund inside that"]
+          ]
+        },
+        {
+          "name": "Taikobo Signature Tour",
+          "price": "$270, plus a $20 mountain fee",
+          "url": "https://maunakeasunset.com/",
+          "rows": [
+            ["Pickup", "Their office up the hill, early afternoon"],
+            ["Dinner", "None, snacks only, so eat first"],
+            ["Hot drinks", "Hot chocolate"],
+            ["Telescope", "Yes, size not stated"],
+            ["Weather", "$50 each back if cloud spoils the stars"],
+            ["Group", "3 to 13"]
+          ]
+        },
+        {
+          "name": "Hawaiian Eyes Tours",
+          "price": "$270",
+          "url": "https://minshuku.us/products/136adeeb-d0f1-56be-b95f-965e24b15f8f?lng=en-US",
+          "rows": [
+            ["Pickup", "The Target lot, about 14:15"],
+            ["Back", "Late, 22:45 to 23:15"],
+            ["Dinner", "A sandwich"],
+            ["Hot drinks", "Yes"],
+            ["Telescope", "A reflector, size not stated"],
+            ["Cancel", "Free until 48 hours before"]
+          ]
+        }
+      ],
+      "note": "All four include summit sunset, parkas, transport and a telescope session, and all refuse anyone who has been on scuba in the previous 24 hours. Hawaiʻi Forest & Trail is the pick: the only pickup we can walk to, the smallest group, and the photos to keep. For two people it comes to roughly $720 to $760 with tax and a tip. Nobody near Kona runs a telescope-only night without the summit that works without a car. The new moon is on the 8th, so Thursday is about as dark as the mountain gets."
+    },
+    {
+      "type": "activities"
+    },
+    {
+      "type": "places",
+      "id": "around",
+      "nav": "Getting around",
+      "title": "Getting around",
+      "note": "No car for six of the seven days.",
+      "lists": [
+        {
+          "items": [
+            {
+              "name": "The house",
+              "where": "Up the hill from the bay",
+              "detail": "About 20 minutes on foot down to Aliʻi Drive, and the same back up, slower. Kona Brewing, the dive shops and the Enterprise office are all close."
+            },
+            {
+              "name": "From the airport",
+              "where": "About 7 mi",
+              "detail": "Uber or Lyft, reportedly $25 to $45. There is no car to collect, which is the point."
+            },
+            {
+              "name": "The Kona Trolley",
+              "where": "Hele-On route 201",
+              "detail": "Along Aliʻi Drive between the Target park and ride and Keauhou, hourly from 6:00 to 21:00, every day. Magic Sands and Kahalu‘u are both on it. It was free until the end of 2025, and whether it still is in 2026 was not clear."
+            },
+            {
+              "name": "The dive boats",
+              "where": "Honokōhau, about 4 mi",
+              "detail": "No shop picks up. A ride is roughly $15 to $22, and the manta boat is back around 21:00, when drivers are scarce, so the ride home is worth booking ahead. Kona Taxicab is 808-324-4444."
+            },
+            {
+              "name": "The car",
+              "where": "Enterprise, in town",
+              "detail": "Saturday hours are only 9:00 to 12:00, it is closed on Sunday, and there are no after-hours returns. Returning it at KOA on the way to the flight fits, if a one-way return is allowed. Economy is roughly $60 to $90 a day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "booking",
+      "intro": "The house is done. Five things left, roughly in the order they stop being easy.",
+      "items": [
+        {
+          "label": "The flights",
+          "detail": "Out on Sunday the 13th, most likely, landing in Miami on Monday. Not bought yet, and an overnight connection that lands at 5:00 is worth avoiding."
+        },
+        {
+          "label": "The Mauna Kea tour",
+          "detail": "Hawaiʻi Forest & Trail for Thursday the 10th, about $720 to $760 for two with tax and a tip. Twelve seats, and the new moon is on the 8th, so the week is in demand. Worth checking the pickup time at checkout."
+        },
+        {
+          "label": "The manta boat",
+          "detail": "Tuesday afternoon, one diver and one snorkeller in a single booking, so both land on the same boat."
+        },
+        {
+          "label": "Discover Scuba",
+          "detail": "Wednesday morning. The PADI medical form comes first, and any yes on it needs a doctor’s sign-off, so it is worth reading well before December."
+        },
+        {
+          "label": "The Saturday car",
+          "detail": "The town office has three hours on a Saturday, so it goes early."
+        }
+      ],
+      "caveat": "Operator prices were checked on their own sites in September 2026 and are before tax. Ride fares, the car rate, the trolley fare and food prices are estimates. Hurricane Nolo closed the park and the Mauna Kea visitor station for a few days in late September; both are worth checking again in November."
+    }
+  ]
+}

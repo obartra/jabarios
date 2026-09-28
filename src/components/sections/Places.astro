@@ -1,0 +1,114 @@
+---
+import SectionHead from '../SectionHead.astro';
+import type { Section } from '../../data/pages.ts';
+
+/**
+ * Named places, each with a where line and a sentence or two: somewhere to eat,
+ * a neighbourhood, a bar, an option ruled out. One list, or several under their
+ * own sub-headings.
+ */
+interface Props {
+  section: Extract<Section, { type: 'places' }>;
+}
+
+const { section } = Astro.props;
+---
+
+<section id={section.id} class="places-section">
+  <div class="wrap">
+    <SectionHead title={section.title} note={section.note} />
+    {
+      section.lists.map((list) => (
+        <>
+          {list.title && <h3>{list.title}</h3>}
+          <ul class="places">
+            {list.items.map((place) => (
+              <li>
+                <div class="who">
+                  {place.url ? <a href={place.url}>{place.name}</a> : <b>{place.name}</b>}
+                  <span>{place.where}</span>
+                </div>
+                <p>{place.detail}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      ))
+    }
+    {section.caveat && <p class="caveat">{section.caveat}</p>}
+  </div>
+</section>
+
+<style>
+  .places-section {
+    padding: 54px 0 62px;
+  }
+
+  h3 {
+    margin: 28px 0 12px;
+    font-size: clamp(18px, 2.2vw, 21px);
+  }
+
+  .places {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .places li {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .places li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .who b,
+  .who a {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+    font-weight: 700;
+  }
+
+  .who a {
+    color: inherit;
+    text-decoration-color: var(--chili);
+    text-underline-offset: 3px;
+  }
+
+  .who span {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.72;
+  }
+
+  .places p {
+    margin: 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  .caveat {
+    margin: 22px 0 0;
+    max-width: 62ch;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.7;
+    opacity: 0.72;
+  }
+
+  @media (max-width: 760px) {
+    .places li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

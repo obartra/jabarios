@@ -1,0 +1,869 @@
+{
+  "headline": "Above the waterline, then *well below it*.",
+  "headlineWidth": "14ch",
+  "tags": [
+    {
+      "text": "18 days",
+      "hot": true
+    },
+    {
+      "text": "Bangkok · 5 nights"
+    },
+    {
+      "text": "Chiang Mai · 6 nights"
+    },
+    {
+      "text": "Khao Lak · 5 nights"
+    },
+    {
+      "text": "4 flights"
+    },
+    {
+      "text": "4 dives, day trips"
+    }
+  ],
+  "footer": "Bangkok together · then Os north to Chiang Mai and Khao Lak · onward to Manila on 1 November.",
+  "sections": [
+    {
+      "type": "profile",
+      "label": "Vertical profile of the trip, from Bangkok at sea level up to Doi Inthanon at 2,565 metres and down to Richelieu Rock at 35 metres below the surface.",
+      "stops": [
+        {
+          "name": "Bangkok",
+          "metres": 2,
+          "date": "15 Oct",
+          "x": 70,
+          "y": 129
+        },
+        {
+          "name": "Ayutthaya",
+          "metres": 4,
+          "date": "19 Oct",
+          "x": 335,
+          "y": 127
+        },
+        {
+          "name": "Chiang Mai",
+          "metres": 310,
+          "date": "20 Oct",
+          "x": 401,
+          "y": 90
+        },
+        {
+          "name": "Doi Suthep",
+          "metres": 1073,
+          "date": "22 Oct",
+          "x": 534,
+          "y": 53
+        },
+        {
+          "name": "Doi Inthanon",
+          "metres": 2565,
+          "date": "24 Oct",
+          "x": 666,
+          "y": 11,
+          "mode": "inline",
+          "anchor": "start"
+        },
+        {
+          "name": "Khao Lak",
+          "metres": 5,
+          "date": "26 Oct",
+          "x": 799,
+          "y": 127
+        },
+        {
+          "name": "Richelieu Rock",
+          "metres": -35,
+          "date": "27 Oct",
+          "x": 866,
+          "y": 230
+        },
+        {
+          "name": "Back on land",
+          "metres": 0,
+          "date": "28 Oct",
+          "x": 932,
+          "y": 127,
+          "mode": "name"
+        },
+        {
+          "name": "Koh Bon",
+          "metres": -28,
+          "date": "29 Oct",
+          "x": 998,
+          "y": 210
+        },
+        {
+          "name": "Bangkok",
+          "metres": 2,
+          "date": "31 Oct",
+          "x": 1130,
+          "y": 129,
+          "anchor": "end",
+          "chartValue": "31 Oct → Manila"
+        }
+      ],
+      "caption": [
+        "Height and depth are drawn on separate scales · back on land every night",
+        "Drag sideways to follow the whole trip"
+      ]
+    },
+    {
+      "type": "leg",
+      "id": "bangkok",
+      "nav": "Bangkok",
+      "navDates": "15–20",
+      "number": "LEG 01",
+      "title": "Bangkok",
+      "meta": "15–20 Oct · 5 nights · together · arriving from Hanoi",
+      "intro": "A working week with sightseeing bolted onto the afternoons, not a holiday. The base does more work than the itinerary here: everything below assumes a short walk to Asok and a room Os can take calls in at three in the morning without waking Jabari.",
+      "blocks": [
+        {
+          "kind": "clock",
+          "segments": [
+            {
+              "time": "02:00–07:00",
+              "label": "SF calls",
+              "tone": "calls"
+            },
+            {
+              "time": "07:00–12:30",
+              "label": "sleep",
+              "tone": "sleep"
+            },
+            {
+              "time": "13:00–21:00",
+              "label": "out",
+              "tone": "out"
+            },
+            {
+              "time": "21:00–02:00",
+              "label": "dinner, desk",
+              "tone": "night"
+            }
+          ],
+          "legend": ["Bangkok is SF +14", "Sun and Mon here are the SF weekend, so both are free"]
+        },
+        {
+          "kind": "figure",
+          "file": "watarun.jpg",
+          "alt": "Wat Arun lit gold above the Chao Phraya river at dusk",
+          "caption": "Wat Arun from the Chao Phraya · photo miketnorton, CC BY 2.0"
+        },
+        {
+          "kind": "prose",
+          "eyebrow": "Where we are staying",
+          "paragraphs": [
+            "The hotel is booked, a short walk from Asok, where the BTS and the MRT cross. That puts the day trips, the river and the evenings all one change of train away."
+          ]
+        },
+        {
+          "kind": "prose",
+          "eyebrow": "What the week allows",
+          "paragraphs": [
+            "The US weekend lands here as Sunday and Monday, so those two days are wide open and Saturday and Sunday nights have no 02:00 alarm behind them. Everything below is an option rather than a plan. Whatever appeals, and none of it if nothing does."
+          ]
+        },
+        {
+          "kind": "windows",
+          "items": [
+            {
+              "day": "15",
+              "weekday": "Thu",
+              "head": "Evening only",
+              "text": "Landing from Hanoi, so nothing planned.",
+              "free": false
+            },
+            {
+              "day": "16",
+              "weekday": "Fri",
+              "head": "13:00 → 21:30",
+              "text": "Work night after. Home at a reasonable hour.",
+              "free": false
+            },
+            {
+              "day": "17",
+              "weekday": "Sat",
+              "head": "13:00 → late",
+              "text": "No calls that night, so the late one.",
+              "free": true
+            },
+            {
+              "day": "18",
+              "weekday": "Sun",
+              "head": "Full day → late",
+              "text": "The best day of the week.",
+              "free": true
+            },
+            {
+              "day": "19",
+              "weekday": "Mon",
+              "head": "Full day → 21:30",
+              "text": "Calls resume at 02:00 Tuesday.",
+              "free": true
+            },
+            {
+              "day": "20",
+              "weekday": "Tue",
+              "head": "Morning only",
+              "text": "Jabari flies out, Os flies north.",
+              "free": false
+            }
+          ]
+        },
+        {
+          "kind": "fine",
+          "paragraphs": [
+            "**Arriving:** Hanoi to Suvarnabhumi is about 1h50. Grab to Sukhumvit runs 45–60 minutes and roughly 450 THB, or the Airport Rail Link if traffic is bad, changing at Phaya Thai. A SIM or an eSIM is easiest sorted at the airport.",
+            "Mid-October is the tail of the rainy season. Storms are heavy, usually mid-afternoon, and usually over within the hour. One indoor option in our pocket every day beats planning around the rain."
+          ]
+        },
+        {
+          "kind": "options",
+          "title": "Afternoons",
+          "sub": "Fits a 13:00 start on any day",
+          "items": [
+            {
+              "title": "Grand Palace & Wat Pho",
+              "meta": "3–4 hours · MRT Sanam Chai · 500 + 300 THB",
+              "text": "The one thing a first-time visitor should not skip. Gold, mirrored glass, and the Emerald Buddha, then the enormous reclining Buddha next door. Hard deadline: the palace stops selling tickets at 15:30, so this only works if we leave on time. Covered shoulders and knees, enforced at the gate.",
+              "chips": [
+                {
+                  "text": "first visit",
+                  "kind": "key"
+                },
+                {
+                  "text": "closes 15:30"
+                },
+                {
+                  "text": "crowded"
+                }
+              ]
+            },
+            {
+              "title": "Wat Arun and the river",
+              "meta": "2 hours · 5 THB ferry from Tha Tien · best 17:00–19:00",
+              "text": "Across the Chao Phraya, a climb up the porcelain-studded prang, then the view of it lit up from the Thonburi bank. Pairs naturally onto the end of a palace afternoon. The express boats home beat a taxi.",
+              "chips": [
+                {
+                  "text": "first visit",
+                  "kind": "key"
+                },
+                {
+                  "text": "sunset"
+                }
+              ]
+            },
+            {
+              "title": "Chatuchak weekend market",
+              "meta": "3–4 hours · MRT Kamphaeng Phet · Sat & Sun to about 18:00",
+              "text": "Fifteen thousand stalls, roughly a square kilometre of them. Two sections is plenty; the rest can be abandoned. Kamphaeng Phet puts us in the middle rather than at the edge, which matters more than it sounds.",
+              "chips": [
+                {
+                  "text": "Sat or Sun only",
+                  "kind": "key"
+                },
+                {
+                  "text": "hot"
+                }
+              ]
+            },
+            {
+              "title": "Thonburi canals by longtail",
+              "meta": "2 hours · from Tha Chang or Tha Tien · about 1,500 THB per boat",
+              "text": "The old city on the water side: stilt houses, temple landings, monitor lizards, and the Artist's House at Khlong Bang Luang. A whole boat to ourselves beats a tour, and late afternoon is when the light drops.",
+              "chips": [
+                {
+                  "text": "quiet"
+                },
+                {
+                  "text": "good in drizzle"
+                }
+              ]
+            },
+            {
+              "title": "Chinatown by daylight",
+              "meta": "2–3 hours · MRT Wat Mangkon",
+              "text": "Different city from the night version. Wat Traimit holds five and a half tonnes of solid gold Buddha, and Talat Noi behind it is old shophouses, car-part workshops and street art. Ends where the food stalls set up.",
+              "chips": [
+                {
+                  "text": "walkable"
+                }
+              ]
+            },
+            {
+              "title": "Thai cooking class",
+              "meta": "4 hours · afternoon sessions widely available",
+              "text": "Market trip first, then four or five dishes we actually cook. The good ones cap the group at eight. Entirely indoors, which makes it the strongest rain plan on this list.",
+              "chips": [
+                {
+                  "text": "indoor",
+                  "kind": "dry"
+                },
+                {
+                  "text": "book ahead"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "options",
+          "title": "Full days",
+          "sub": "Needs Sunday the 18th or Monday the 19th",
+          "items": [
+            {
+              "title": "Ayutthaya",
+              "meta": "8–10 hours · car 1h15, or train from Krung Thep Aphiwat",
+              "text": "The capital the Burmese burned in 1767, left as brick towers and headless Buddhas across a river island. Wat Mahathat has the famous Buddha head grown into fig roots. Bicycles are for hire at the site. Early is better: it is flat, shadeless and hot by eleven, and the towers stay floodlit until about 21:00 if we would rather go late instead.",
+              "chips": [
+                {
+                  "text": "first visit",
+                  "kind": "key"
+                },
+                {
+                  "text": "hot, no shade"
+                }
+              ]
+            },
+            {
+              "title": "Amphawa and the fireflies",
+              "meta": "Afternoon and evening · Fri–Sun only · 1h30 each way",
+              "text": "Out at 14:00, a stop at the Maeklong railway market where the awnings fold away as the train passes through, the canal market by 16:00, grilled river prawns off the boats, then a longtail out at dusk to trees full of synchronised fireflies. Back around 22:30, so it needs a free night.",
+              "chips": [
+                {
+                  "text": "Sat or Sun",
+                  "kind": "key"
+                },
+                {
+                  "text": "late finish"
+                }
+              ]
+            },
+            {
+              "title": "Kanchanaburi",
+              "meta": "11–12 hours · 2h30 each way",
+              "text": "The bridge on the River Kwai, the Death Railway cut through cliffs above the water, the Allied war cemetery, and Erawan Falls with seven turquoise pools to swim in. Heavy history and a genuinely long day, but the most substantial thing within reach of Bangkok.",
+              "chips": [
+                {
+                  "text": "long day"
+                },
+                {
+                  "text": "swimming"
+                }
+              ]
+            },
+            {
+              "title": "Bang Krachao by bike",
+              "meta": "4–5 hours · longtail across from Klong Toey pier",
+              "text": "A jungle-covered oxbow in the river, six minutes from the city, laced with raised concrete paths through mangrove and palm. Bikes are for hire at the pier. The Bang Nam Pheung floating market runs weekends. Best in the morning before the heat.",
+              "chips": [
+                {
+                  "text": "morning"
+                },
+                {
+                  "text": "green"
+                }
+              ]
+            },
+            {
+              "title": "Ancient City, Muang Boran",
+              "meta": "5–6 hours · BTS to Kheha then a short taxi",
+              "text": "Two hundred hectares laid out in the shape of Thailand, holding full-scale reproductions of temples from every region. We cycle between them and there is almost nobody there. Strange, ambitious, and the opposite of a crowd.",
+              "chips": [
+                {
+                  "text": "quiet"
+                },
+                {
+                  "text": "cycling"
+                }
+              ]
+            },
+            {
+              "title": "Ko Kret",
+              "meta": "5 hours · taxi to Pak Kret, then a 5 THB ferry",
+              "text": "A car-free island in the river north of the city, settled by Mon potters. The ring path is an hour on foot, with lunch and terracotta on the way. Liveliest on weekends, half-asleep midweek, which may be the point.",
+              "chips": [
+                {
+                  "text": "weekends busier"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "options",
+          "title": "Evenings",
+          "sub": "Any night, though Saturday and Sunday have no 02:00 alarm",
+          "items": [
+            {
+              "title": "Yaowarat street food",
+              "meta": "From 18:00 · MRT Wat Mangkon",
+              "text": "Bangkok's best eating happens on two blocks of Chinatown after dark. The queues worth joining are the ones the Thai families are in. The nine-day vegetarian festival may overlap our dates, since sources put it around 10–18 October: if it does, the street closes to traffic and turns into an enormous vegan food market instead.",
+              "chips": [
+                {
+                  "text": "first visit",
+                  "kind": "key"
+                },
+                {
+                  "text": "check festival"
+                }
+              ]
+            },
+            {
+              "title": "Muay Thai at Rajadamnern",
+              "meta": "From about 18:30 · MRT to Sam Yot then a short ride",
+              "text": "The older of the two national stadiums, running since 1945. Live band, wild betting section, eight or nine bouts working up from teenagers to the main event. Ringside is worth it over the tourist tier.",
+              "chips": [
+                {
+                  "text": "indoor",
+                  "kind": "dry"
+                },
+                {
+                  "text": "book ahead"
+                }
+              ]
+            },
+            {
+              "title": "Jodd Fairs night market",
+              "meta": "From 16:00 · MRT Phra Ram 9",
+              "text": "The current one, not the tourist-bus one. Food-first, packed with Thais, and ten minutes from the base by metro. Good default for a night when nothing is planned.",
+              "chips": [
+                {
+                  "text": "easy"
+                },
+                {
+                  "text": "near base"
+                }
+              ]
+            },
+            {
+              "title": "A rooftop",
+              "meta": "2 hours · dress code at most",
+              "text": "Octave at the Marriott Thonglor is three stops from the base and does not need a reservation. Vertigo at the Banyan Tree is higher and more formal. The riverside ones are the famous ones and priced accordingly.",
+              "chips": [
+                {
+                  "text": "closed in storms"
+                }
+              ]
+            },
+            {
+              "title": "Wat Pho massage school",
+              "meta": "1–2 hours · daily until about 18:00",
+              "text": "The place the whole Thai massage tradition is taught from, attached to the temple. Proper deep work, not a spa. Cheap, and the correct response to a day that got rained out.",
+              "chips": [
+                {
+                  "text": "indoor",
+                  "kind": "dry"
+                },
+                {
+                  "text": "rain plan"
+                }
+              ]
+            },
+            {
+              "title": "Jim Thompson House",
+              "meta": "90 minutes · BTS National Stadium · last tour late afternoon",
+              "text": "Six teak houses assembled into one home by the American who rebuilt the Thai silk trade and then vanished in Malaysia in 1967. Short, shaded, air-conditioned in parts, and near the malls if the sky opens.",
+              "chips": [
+                {
+                  "text": "mostly covered",
+                  "kind": "dry"
+                },
+                {
+                  "text": "rain plan"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "rows",
+          "title": "One way to arrange it",
+          "sub": "If we would rather not decide",
+          "items": [
+            {
+              "k": "Fri 16",
+              "v": "Jim Thompson House, then Wat Arun at sunset, then dinner on Yaowarat. Home by 22:00."
+            },
+            {
+              "k": "Sat 17",
+              "v": "Chatuchak from 13:00, dinner in Thonglor, one rooftop. No alarm."
+            },
+            {
+              "k": "Sun 18",
+              "v": "Grand Palace and Wat Pho at opening, car at 14:00 to Maeklong and Amphawa, fireflies after dark, back late."
+            },
+            {
+              "k": "Mon 19",
+              "v": "Ayutthaya from 07:00, bicycles at the ruins, back by 18:30 for an early dinner before the calls."
+            },
+            {
+              "k": "Tue 20",
+              "v": "Packing. Jabari flies out, Os flies to Chiang Mai."
+            }
+          ]
+        },
+        {
+          "kind": "fine",
+          "paragraphs": [
+            "The one real collision is Saturday. Chatuchak and Amphawa both want that afternoon and Amphawa only runs Friday to Sunday, so if we want both, Amphawa moves to Sunday and the palace moves to Sunday morning."
+          ]
+        },
+        {
+          "kind": "figure",
+          "file": "palace.jpg",
+          "alt": "Chofa finials on a Grand Palace roof against a hazy Bangkok sunrise",
+          "caption": "Grand Palace roofline · photo Bjørn Erik Pedersen, CC BY-SA 4.0"
+        },
+        {
+          "kind": "figure",
+          "file": "amphawa.jpg",
+          "alt": "Wooden shophouses and food boats along the canal at Amphawa floating market",
+          "caption": "Amphawa · photo Rangan Datta, CC BY-SA 4.0"
+        },
+        {
+          "kind": "figure",
+          "file": "ayutthaya.jpg",
+          "alt": "Aerial view of the prangs and galleries of Wat Chaiwatthanaram in Ayutthaya",
+          "caption": "Wat Chaiwatthanaram, Ayutthaya · photo Average trinmo, CC BY-SA 4.0"
+        }
+      ]
+    },
+    {
+      "type": "crossing",
+      "text": "20 Oct · Don Mueang → Chiang Mai · Os heads north"
+    },
+    {
+      "type": "leg",
+      "id": "north",
+      "nav": "Chiang Mai",
+      "navDates": "20–26",
+      "theme": "sea",
+      "number": "LEG 02",
+      "title": "Chiang Mai",
+      "meta": "20–26 Oct · 6 nights · solo",
+      "intro": "Late October is the good seam in the north: the rain has stopped, the burning season is months away, and the nights drop to something a person can sleep in. It is also the only week of this trip where the calls and the sightseeing do not fight each other, because most of what Os would do here happens in the morning or after dark.",
+      "blocks": [
+        {
+          "kind": "cards",
+          "columns": 3,
+          "items": [
+            {
+              "title": "Tamarind Village",
+              "sub": "Old city · bamboo courtyard",
+              "text": "Inside the walls, walking distance to Wat Chedi Luang and the Sunday market, quiet enough to work in. The obvious pick for five nights.",
+              "link": {
+                "href": "https://www.tamarindvillage.com/",
+                "label": "tamarindvillage.com"
+              }
+            },
+            {
+              "title": "Rachamankha",
+              "sub": "Old city · monastic courtyards",
+              "text": "Quieter and more austere, built like a Lanna temple compound. Fewer rooms, so it goes first.",
+              "link": {
+                "href": "https://www.rachamankha.com/",
+                "label": "rachamankha.com"
+              }
+            },
+            {
+              "title": "137 Pillars House",
+              "sub": "Wat Ket · across the river",
+              "text": "The comfortable option, teak colonial buildings and a long pool. Ten minutes from the old city by car, which is the trade.",
+              "link": {
+                "href": "https://www.137pillarshotels.com/chiang-mai/",
+                "label": "137pillarshotels.com"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "eyebrow": "Worth the days",
+          "columns": 2,
+          "items": [
+            {
+              "title": "Doi Suthep at first light",
+              "sub": "1,073 m · 40 min up the hill",
+              "text": "06:00 is the time, before the coaches and while the monks are still chanting. The city sits under haze below the terrace. Straight back down for the calls if they shift, or make this a post-call trip on a day without sleep."
+            },
+            {
+              "title": "Doi Inthanon",
+              "sub": "2,565 m · full day, 2h each way",
+              "text": "The highest point in Thailand and the top of this trip's profile. Twin pagodas, the Ang Ka boardwalk through cloud forest, Wachirathan falls. A car and driver beats a minibus tour."
+            },
+            {
+              "title": "Elephant Nature Park",
+              "sub": "Mae Taeng · book weeks ahead",
+              "text": "No riding, no bathing, no performances. It is the sanctuary the others copy the language of, and it sells out well in advance."
+            },
+            {
+              "title": "Both walking streets",
+              "sub": "24 and 25 Oct · Wualai, then Ratchadamnoen",
+              "text": "Saturday is the silversmiths' road and the better of the two. Sunday runs through the old city and now falls inside the stay rather than on the day of the flight south. Both start around 16:00."
+            }
+          ]
+        },
+        {
+          "kind": "fine",
+          "paragraphs": [
+            "Two dates to know: 23 October is Chulalongkorn Day, a public holiday, so expect domestic crowds at Doi Suthep and Inthanon. 26 October is Ok Phansa, the end of Buddhist Lent, with dawn merit-making at the temples on the morning of the flight south."
+          ]
+        },
+        {
+          "kind": "figure",
+          "file": "suthep.jpg",
+          "alt": "Golden chedi and a gilded umbrella at Wat Phra That Doi Suthep against a blue sky",
+          "caption": "Wat Phra That Doi Suthep · photo Philip Nalangan, CC BY 4.0"
+        }
+      ]
+    },
+    {
+      "type": "leg",
+      "id": "andaman",
+      "nav": "Khao Lak",
+      "navDates": "26–31",
+      "theme": "sea",
+      "rule": true,
+      "number": "LEG 03",
+      "title": "Khao Lak, by day trip",
+      "meta": "26–31 Oct · two days on the water · solo",
+      "intro": "No liveaboard. The Similans sit 70 km offshore with no cell coverage, and a boat that keeps Os at sea for four nights during a working week is the one part of this trip that cannot bend. Day trips out of Khao Lak reach the same water, put Os back on a wifi connection every evening, and cost two days instead of five.",
+      "blocks": [
+        {
+          "kind": "figure",
+          "file": "similan.jpg",
+          "alt": "The bay at Similan island number eight seen from the Sail Rock viewpoint",
+          "caption": "Similan island 8 from Sail Rock · photo Mathias Krumbholz, CC BY-SA 3.0"
+        },
+        {
+          "kind": "cards",
+          "columns": 2,
+          "items": [
+            {
+              "title": "Getting there, 26 Oct",
+              "sub": "Chiang Mai → Khao Lak in one day",
+              "text": "Flight CNX → Phuket, about 2h05 direct. Taxi north to Khao Lak, 1h15. Every day-trip operator wants divers in the shop the afternoon before to sign paperwork and try kit on, so land early enough to do that on the 26th."
+            },
+            {
+              "title": "The certification question",
+              "sub": "AOW + Nitrox, 30 logged after Ishigaki",
+              "text": "Thirty is the number the stricter operators ask for on Koh Tachai and Richelieu, so nothing is closed off. The logbook is worth bringing, since the dives that got there are recent enough that shops will want to see them."
+            }
+          ]
+        },
+        {
+          "kind": "callout",
+          "title": "Why not the boat",
+          "text": "Four nights at sea means no connection, four dives a day, and calls landing at 02:00 with three hours of sleep either side. A handful of newer boats advertise wifi, which in practice is a satellite link nobody should plan a work week around. A Similan liveaboard done properly wants February to April and a week where diving is the point."
+        },
+        {
+          "kind": "dives",
+          "eyebrow": "One day is enough, two if it goes well",
+          "items": [
+            {
+              "day": "27 Oct · trip 1",
+              "site": "Richelieu Rock",
+              "depth": "−35 m",
+              "note": "The one that justifies the flight south. A single horseshoe pinnacle in open water, purple soft coral over every surface, macro on the walls and schooling fish above. Two dives on the same rock, and it does not get old. Long day: pickup around 06:30, back near 18:00."
+            },
+            {
+              "day": "29 Oct · trip 2",
+              "site": "Koh Bon & Koh Tachai",
+              "depth": "−28 m",
+              "note": "The manta option. Limestone ridge at Koh Bon, then a current-swept pinnacle at Tachai with big schools. The better pick over the Similan boulder sites if there is only one more day."
+            },
+            {
+              "day": "spare",
+              "site": "Boonsung wreck, local",
+              "depth": "−18 m",
+              "note": "Half day from Khao Lak, an old tin dredger broken into sections and covered in life. The only trip short enough to fit a normal working day, so hold it in reserve for a morning that goes wrong."
+            }
+          ]
+        },
+        {
+          "kind": "fine",
+          "paragraphs": [
+            "Depths are typical maximums, not a plan. Day trips are two dives each and leave at the posted time whether anyone is on it or not. Richelieu is the one to book first, and the second day can wait until after seeing how the 02:00 calls and a 06:30 pickup feel stacked together."
+          ]
+        },
+        {
+          "kind": "cards",
+          "columns": 2,
+          "items": [
+            {
+              "title": "If the second day is too much",
+              "text": "The 29th becomes a working day and the flight out is a rested one. Nothing else in the plan moves, and the no-fly buffer only gets longer."
+            },
+            {
+              "title": "If Richelieu gets cancelled",
+              "text": "Weather cancels the far northern trips first, since it is the longest crossing. Ask the shop to roll the booking to the next running day, and keep the local wrecks as the version that sails when the outer trips do not."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "file": "richelieu.jpg",
+          "alt": "Divers among schooling fish on the pinnacle at Richelieu Rock",
+          "caption": "Richelieu Rock · photo Mr.CMBurns, CC BY-SA 4.0"
+        },
+        {
+          "kind": "cards",
+          "eyebrow": "Shops to ask",
+          "columns": 3,
+          "items": [
+            {
+              "title": "Khao Lak Explorer",
+              "sub": "Opens 25 Oct · guide ratio 1:4",
+              "text": "One of the few shops already running in late October, and they do Richelieu as a day trip. Speedboat out to a larger dive platform, so the crossing is fast and the day is not.",
+              "link": {
+                "href": "https://www.khaolakexplorer.com/",
+                "label": "khaolakexplorer.com"
+              }
+            },
+            {
+              "title": "Sea Dragon",
+              "sub": "Day trips plus local half-days",
+              "text": "The other Khao Lak shop worth an email, and the one with wrecks and house reefs on the menu for a short morning. Free dive computer on Similan trips.",
+              "link": {
+                "href": "https://www.seadragondivecenter.com/diving-day-trips/",
+                "label": "seadragondivecenter.com"
+              }
+            },
+            {
+              "title": "Big Blue Diving",
+              "sub": "Richelieu four days a week",
+              "text": "Their site says day trips restart in November, so confirm the exact restart date before building the week around them. Worth asking because they run Richelieu more often than anyone.",
+              "link": {
+                "href": "https://www.bigbluedivingkhaolak.com/",
+                "label": "bigbluedivingkhaolak.com"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "eyebrow": "Getting out",
+          "columns": 3,
+          "items": [
+            {
+              "title": "28 Oct · the working day",
+              "sub": "Between the two trips",
+              "text": "Deliberately empty. Calls at 02:00, sleep, then a desk and a pool. Two diving days in a row on this sleep schedule is how the second one gets done badly."
+            },
+            {
+              "title": "30 Oct · no-fly day",
+              "sub": "Surface interval",
+              "text": "Twenty-four hours between the last dive and the first flight. Last dive is the morning of the 29th, so this is covered twice over. Beach, massage, the Police Boat 813 memorial inland."
+            },
+            {
+              "title": "31 Oct → 1 Nov",
+              "sub": "Khao Lak → Bangkok → Manila",
+              "text": "Taxi to Phuket 1h15, HKT → BKK 1h25, one night near Suvarnabhumi. Bangkok to Manila is 3h20 direct the next day."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "file": "khaolak.jpg",
+          "alt": "Empty sand and casuarina trees on the beach at Khao Lak",
+          "caption": "Khao Lak · photo Vyacheslav Argenberg, CC BY 4.0"
+        }
+      ]
+    },
+    {
+      "type": "crossing",
+      "text": "1 Nov · Suvarnabhumi → Manila · 3h20",
+      "up": true
+    },
+    {
+      "type": "leg",
+      "id": "book",
+      "nav": "Book",
+      "number": "NEXT",
+      "title": "The order to book in",
+      "meta": "The first two set every other date",
+      "blocks": [
+        {
+          "kind": "checklist",
+          "items": [
+            {
+              "lead": "Two day trips out of Khao Lak.",
+              "text": "Richelieu on the 27th, Koh Bon and Tachai on the 29th. Worth confirming the shop is running that week before booking flights south, since several restart in November.",
+              "by": "now"
+            },
+            {
+              "lead": "Bangkok, five nights.",
+              "text": "The hotel near Asok is booked.",
+              "by": "done"
+            },
+            {
+              "lead": "Four flights.",
+              "text": "DMK → CNX on the 20th, CNX → HKT on the 26th, HKT → BKK on the 31st, BKK → MNL on the 1st.",
+              "by": "early Sept"
+            },
+            {
+              "lead": "Chiang Mai, six nights, and Elephant Nature Park.",
+              "text": "The sanctuary books out further ahead than the hotels do.",
+              "by": "early Sept"
+            },
+            {
+              "lead": "Dive insurance.",
+              "text": "DAN or equivalent with hyperbaric cover. Shops ask for proof at check-in and will sell a daily policy to anyone who turns up without one.",
+              "by": "before Oct"
+            },
+            {
+              "lead": "Cars for Amphawa and Ayutthaya.",
+              "text": "Full afternoon and evening, booked through the hotel or a private driver.",
+              "by": "a week out"
+            },
+            {
+              "lead": "TDAC.",
+              "text": "Free, mandatory, and only accepted within 72 hours of arrival, so it cannot be done early.",
+              "by": "12–15 Oct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "leg",
+      "id": "notes",
+      "nav": "Practical",
+      "blocks": [
+        {
+          "kind": "notes",
+          "eyebrow": "Practical",
+          "items": [
+            {
+              "title": "Entry",
+              "text": "Both our passports enter without a visa. The permitted stay has been 60 days and is in the middle of being cut back toward 30; either covers 17 days. Six months of passport validity and the onward Manila ticket as proof of exit."
+            },
+            {
+              "title": "TDAC",
+              "text": "The digital arrival card replaced the paper form and is now required of every foreign national. It is free and the only real portal is tdac.immigration.go.th. Everything charging for it is a scam."
+            },
+            {
+              "title": "Getting around",
+              "text": "Grab for cars, Bolt as the cheaper backup, never a flagged street taxi in Bangkok. The MRT takes contactless cards directly; the BTS is smoother with a Rabbit card from any station booth."
+            },
+            {
+              "title": "Money",
+              "text": "Cards work in malls and restaurants, cash everywhere else. ATMs charge a flat 220 THB per withdrawal regardless of amount, so pull large sums rarely."
+            },
+            {
+              "title": "Weather",
+              "text": "Mid-October Bangkok is the tail of the wet season: hot, humid, with hard afternoon storms that pass in an hour. Chiang Mai is drier and cool at night. The Andaman is still settling, so expect swell on the 70 km crossing and visibility below the February peak."
+            },
+            {
+              "title": "Diving and flying",
+              "text": "Twenty-four hours between the last dive and the first flight is the floor. Last dive is the morning of the 29th and the first flight is the 31st, which leaves two clear days and absorbs a boat that comes back late."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

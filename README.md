@@ -112,6 +112,14 @@ has a `type`:
 - `detail`: labelled rows and a rough shape of the days, for comparing options
 - `feature`: a dark block for the one evening a trip is built around
 - `booking`: what needs booking first, and a caveat about the prices
+- `leg`: a numbered stretch of a trip, light or dark, holding blocks: a daily
+  clock, photos, prose and small print, day windows, option groups, rows, card
+  grids, a callout, a dive list, a booking checklist, practical notes
+- `crossing`: the band between two legs, with the journey across it
+- `profile`: a height-and-depth chart through the trip, with its phone version
+  derived from the same stops
+
+Every key is checked: a misspelt one fails the build rather than vanishing.
 
 Sections with an `id` and a `nav` label appear in the sticky nav, in page order.
 `src/data/pages.ts` validates all of it at build and fails loudly on an unknown

@@ -1,0 +1,61 @@
+---
+import type { Section } from '../../data/pages.ts';
+
+/** The band between a light leg and a dark one, with the journey across it. */
+interface Props {
+  section: Extract<Section, { type: 'crossing' }>;
+}
+
+const { section } = Astro.props;
+---
+
+<div class:list={['crossing', { up: section.up }]}>
+  <div class="inner">
+    <span class="txt">{section.text}</span>
+  </div>
+</div>
+
+<style>
+  .crossing {
+    background: linear-gradient(
+      180deg,
+      var(--limewash) 0%,
+      var(--limewash) 34%,
+      var(--abyss) 34%,
+      var(--abyss) 100%
+    );
+    padding: 0;
+  }
+
+  .crossing .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 34px 22px;
+    text-align: center;
+  }
+
+  .crossing .txt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foam);
+  }
+
+  .crossing.up {
+    background: linear-gradient(
+      180deg,
+      var(--abyss) 0%,
+      var(--abyss) 62%,
+      var(--limewash) 62%,
+      var(--limewash) 100%
+    );
+  }
+
+  .crossing.up .txt {
+    color: var(--foam);
+  }
+</style>

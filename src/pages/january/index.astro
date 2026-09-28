@@ -15,8 +15,7 @@ const groups = groupedFor('january');
 
 const sections = [
   ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
-  { href: '#pairs', label: 'Two weeks' },
-  { href: '#also', label: 'Also' },
+  { href: '#also', label: 'Ruled out' },
 ];
 
 const paragraphs = [
@@ -35,30 +34,129 @@ const notes = [
   },
   {
     lead: 'Two directions of travel.',
-    rest: 'Os comes from Salvador, Jabari from Philadelphia. Chile and Buenos Aires are nonstop for Os; Colombia is one stop for each of us.',
+    rest: 'Os comes from Salvador, Jabari from Philadelphia. Chile and Buenos Aires are nonstop for Os; Colombia is one stop for each of us, and the easiest overall for Jabari.',
   },
 ];
 
-const pairs = [
-  {
-    name: 'Chile',
-    when: '6 nights, then 8',
-    detail:
-      'Valparaíso and Santiago first, then a one-hour flight or a cheap bus north to La Serena and up into the Elqui Valley. Penguins one day, observatories at night.',
+/**
+ * The practical half of each option, shown under its cards. Keyed by the
+ * category id in activities.ts, so an option with no entry here simply shows
+ * its cards.
+ */
+const details: Record<string, { rows: { label: string; text: string }[]; days: string[] }> = {
+  chile: {
+    rows: [
+      {
+        label: 'Getting there',
+        text: 'Os: SKY flies Salvador to Santiago nonstop on Mondays and Fridays, 16:10 to 22:20, so the Friday 8th lands the night before. LATAM starts Wednesday, Friday and Sunday flights on 3 January. Jabari: one stop from Philadelphia, about 12 hours.',
+      },
+      {
+        label: 'Where to stay',
+        text: 'Cerro Alegre or Cerro Concepción in Valparaíso, about $50–90 a night; Lastarria in Santiago for a night or two, about $45–90. Then about 5 nights in Pisco Elqui or Vicuña, cabins around CLP 50,000–60,000, and 3 in La Serena for the penguins and the flight out.',
+      },
+      {
+        label: 'Getting around',
+        text: 'Buses do most of it: Santiago to Valparaíso about 2 hours for CLP 4,500–5,800; La Serena up the valley every 30 minutes for CLP 2,000–3,000. Santiago to La Serena is worth flying, 1h10 from about CLP 22,000 if booked early. A car for 3 or 4 days in Elqui is optional.',
+      },
+      {
+        label: 'Eating',
+        text: 'Chorrillana to share at J. Cruz in Valparaíso, fried fish at the Caleta Portales stalls, a lomito at Fuente Alemana and a market lunch at La Vega Central in Santiago, and Peumayén in Bellavista for one proper dinner of Mapuche and Rapa Nui food.',
+      },
+      {
+        label: 'Bars',
+        text: 'Bellavista in Santiago has the drag: Farinelli from about 23:00, Tuesday to Sunday, and Contramano for cabaret with dinner. In Valparaíso, El Internado on Cerro Alegre is a relaxed mixed bar. No drag brunch turned up.',
+      },
+      {
+        label: 'The catch',
+        text: 'Chilean summer holidays, so January is peak season in Elqui and on the coast, and the daily costs are the highest of the three, about $80–110 for two. Mondays close Neruda’s house, the zoo, and landings on the penguin island.',
+      },
+    ],
+    days: [
+      'Sat 9 · meet in Santiago, bus to Valparaíso, Cerro Alegre in the evening',
+      'Sun 10 to Tue 12 · the hills, the lifts, the walking tour, La Sebastiana, the sea lions at Portales',
+      'Wed 13 to Thu 14 · Santiago: San Cristóbal, the zoo, Bellavista at night, maybe Teatro a Mil',
+      'Fri 15 · fly to La Serena, bus up to Vicuña',
+      'Sat 16 to Tue 19 · Mamalluca at night, Pisco Elqui, the river, a distillery',
+      'Wed 20 to Fri 22 · La Serena and the penguin boat, with a spare day for weather',
+      'Sat 23 · out',
+    ],
   },
-  {
-    name: 'Colombia',
-    when: '7 nights, then 7',
-    detail:
-      'Medellín first, then a 6–7 hour bus or a short flight to the coffee region. The cheapest of the three to live on.',
+  colombia: {
+    rows: [
+      {
+        label: 'Getting there',
+        text: 'Both into Medellín’s airport at Rionegro, 45–60 minutes from the city: Os on Copa through Panama, Jabari with one stop from Philadelphia. Out from Pereira or Armenia, or back through Medellín.',
+      },
+      {
+        label: 'Where to stay',
+        text: 'Laureles in Medellín, flat, walkable and residential, about $45–80 a night; El Poblado is busier and pricier. In the coffee region, a finca a few kilometres outside Salento, about $60–140 a night, for birds at breakfast and stars at night, or Salento itself to walk to everything.',
+      },
+      {
+        label: 'Getting around',
+        text: 'Medellín’s metro and cable cars, about COP 4,400 a ride. Medellín to Salento is a 6–8 hour bus, about COP 104,000, or a 45-minute flight to Pereira for about $70–100 and an hour’s bus. Willys jeeps run from Salento’s plaza to Cocora and the other towns.',
+      },
+      {
+        label: 'Eating',
+        text: 'A bandeja paisa to share at Mondongo’s, about COP 59,000; a menú del día in Laureles for COP 18,000–25,000; arepas from the stalls; coffee at Pergamino. In Salento, trout with patacón, and Helena Adentro in Filandia for a proper dinner.',
+      },
+      {
+        label: 'Bars',
+        text: 'Bar Chiquita in El Poblado has a Sunday drag brunch from 11:30, and karaoke and comedy in the week. Donde Aquellos, open since 2000, is the relaxed one. The rest of the scene is clubs.',
+      },
+      {
+        label: 'The catch',
+        text: 'The US warns that people meeting strangers through dating apps in Medellín have been drugged and robbed, including gay men. Not using the apps there removes most of it; beyond that, no new acquaintances back to the apartment, drinks never left alone, one low-limit card, and app taxis at night. Also, 9 to 11 January is the Reyes long weekend, when Guatapé and Salento are packed.',
+      },
+    ],
+    days: [
+      'Sat 9 · arrive, settle in Laureles, walk Carrera 70',
+      'Sun 10 · the botanical garden, then drag brunch at Chiquita',
+      'Mon 11 · holiday, a slow day',
+      'Tue 12 to Fri 15 · Comuna 13, Guatapé, the Metrocable to Arví, the Botero plaza',
+      'Sat 16 · to Salento',
+      'Sun 17 to Fri 22 · Cocora and the hummingbirds, a coffee farm, Filandia at sunset, the hot springs midweek, nothing at all one day',
+      'Sat 23 · out',
+    ],
   },
-  {
-    name: 'Buenos Aires and Uruguay',
-    when: '9 nights, then 5',
-    detail:
-      'Buenos Aires, then the ferry to Colonia and on to Montevideo. The most city and the least nature, and the hottest.',
+  plata: {
+    rows: [
+      {
+        label: 'Getting there',
+        text: 'Os: Aerolíneas Argentinas and GOL fly Salvador to Buenos Aires nonstop a few times a week, about 4h50, often into Aeroparque in the city. Jabari: no nonstop; American via Miami is the most direct, 13–15 hours, and the most expensive flight of the three options.',
+      },
+      {
+        label: 'Where to stay',
+        text: 'Palermo for most of the Buenos Aires nights, about $55–110; San Telmo if cheaper matters, about $40–80. In Uruguay, the old town in Colonia, about $65–125, and Ciudad Vieja or Pocitos in Montevideo.',
+      },
+      {
+        label: 'Getting around',
+        text: 'A SUBE card for the Subte, buses and the Tigre train, about ARS 1,750 a ride. The ferry to Colonia takes about an hour; Colonia to Montevideo is a 2h45 bus. Flying home from Montevideo avoids doubling back.',
+      },
+      {
+        label: 'Eating',
+        text: 'Standing slices at Güerrín for ARS 3,000–4,000, the old bodegones like El Preferido de Palermo, brunch at Pride Café, and chivito and the Mercado del Puerto grills in Uruguay. Don Julio is the famous parrilla at about $85 each, booked weeks ahead.',
+      },
+      {
+        label: 'Bars',
+        text: 'Pride Café in San Telmo does drag brunches; Maricafe in Palermo is a café-bar with a queer bookshop; Peuteo is a relaxed video bar, closed Monday and Tuesday. La Marshall for queer tango on Wednesdays. In Montevideo, Chains Pub.',
+      },
+      {
+        label: 'The catch',
+        text: 'The least nature of the three, humid heat in the afternoons, and January is when locals leave the city for the coast. Jabari’s flight is long and expensive, and prices in Argentina change month to month.',
+      },
+    ],
+    days: [
+      'Sat 9 · meet in Buenos Aires, settle in Palermo',
+      'Sun 10 · the San Telmo fair, brunch at Pride Café',
+      'Mon 11 to Tue 12 · Recoleta and El Ateneo in the heat, the parks in the evening',
+      'Wed 13 · the Costanera Sur reserve in the morning, queer tango at La Marshall at night',
+      'Thu 14 to Sun 17 · Tigre one day, the rest slow',
+      'Mon 18 · ferry to Colonia',
+      'Tue 19 to Fri 22 · Colonia overnight, then Montevideo and the rambla',
+      'Sat 23 · out from Montevideo',
+    ],
   },
-];
+};
 
 const also = [
   {
@@ -125,26 +223,33 @@ const note =
 
   <TripShape paragraphs={paragraphs} notes={notes} />
 
-  <ActivityGroups groups={groups} />
-
-  <section id="pairs" class="list">
-    <div class="wrap">
-      <SectionHead title="Making it two weeks" note="How each option splits the fortnight." />
-      <ul class="places">
-        {
-          pairs.map((p) => (
-            <li>
-              <div class="who">
-                <b>{p.name}</b>
-                <span>{p.when}</span>
-              </div>
-              <p>{p.detail}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
+  {
+    groups.map((group) => (
+      <>
+        <ActivityGroups groups={[group]} alternate={false} />
+        {details[group.id] && (
+          <section class="detail">
+            <div class="wrap">
+              <dl class="rows">
+                {details[group.id]!.rows.map((row) => (
+                  <>
+                    <dt>{row.label}</dt>
+                    <dd>{row.text}</dd>
+                  </>
+                ))}
+              </dl>
+              <h3>The fortnight, roughly</h3>
+              <ul class="days">
+                {details[group.id]!.days.map((day) => (
+                  <li>{day}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+      </>
+    ))
+  }
 
   <section id="also" class="list">
     <div class="wrap">
@@ -222,6 +327,66 @@ const note =
     .places li {
       grid-template-columns: 1fr;
       gap: 8px;
+    }
+  }
+
+  .detail {
+    padding: 8px 0 56px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .rows {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 14px 22px;
+    margin: 0;
+    max-width: 900px;
+  }
+
+  .rows dt {
+    padding-top: 3px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+
+  .rows dd {
+    margin: 0;
+    max-width: 68ch;
+    opacity: 0.88;
+  }
+
+  .detail h3 {
+    margin: 30px 0 10px;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .days {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 6px;
+    max-width: 72ch;
+    font-size: 15px;
+  }
+
+  .days li {
+    padding-left: 16px;
+    border-left: 2px solid var(--marigold);
+    opacity: 0.88;
+  }
+
+  @media (max-width: 760px) {
+    .rows {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .rows dd {
+      margin-bottom: 12px;
     }
   }
 </style>

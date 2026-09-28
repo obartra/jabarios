@@ -1,0 +1,203 @@
+{
+  "name": "January, together",
+  "start": "2027-01-09",
+  "end": "2027-01-23",
+  "countries": 1,
+  "lede": "Os lands in Salvador on 28 December for New Year with friends. Around the 9th we meet somewhere new to both of us, and the two weeks after that are ours: a city to walk, some nature and animals, and dry weather. Three options, none decided.",
+  "blurb": "Two weeks of us from around 9 January, somewhere new and dry. Chile, Colombia, or Buenos Aires and Uruguay: a city and some nature, on a modest budget.",
+  "description": "Two weeks together in January 2027, still undecided: Valparaíso and the Elqui Valley, Medellín and the coffee region, or Buenos Aires and Uruguay.",
+  "places": ["Chile", "Colombia", "Buenos Aires"],
+  "notes": ["Rough dates", "Not decided"],
+  "cover": "valparaiso.jpg",
+  "photos": {
+    "valparaiso.jpg": {
+      "alt": "Painted wooden houses stacked up a hillside in Valparaíso",
+      "credit": {
+        "subject": "On the hill, Valparaíso",
+        "author": "Alex Proimos",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:On_the_Hill,_Valpara%C3%ADso_(Valparaiso),_Chile_(3927311373).jpg"
+      }
+    },
+    "ascensor.jpg": {
+      "alt": "The graffiti-covered top station of the Reina Victoria lift above Valparaíso",
+      "credit": {
+        "subject": "Ascensor Reina Victoria, Cerro Alegre",
+        "author": "Carlos Figueroa Rojas",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Ascensor_Reina_Victoria,_Cerro_Alegre,_Valpara%C3%ADso_20201102_130.jpg"
+      }
+    },
+    "sebastiana.jpg": {
+      "alt": "The tall, narrow house of La Sebastiana against a blue sky",
+      "credit": {
+        "subject": "Casa Museo La Sebastiana",
+        "author": "Mikel Santamaria",
+        "licence": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Casa_Museo_La_Sebastiana_-_Pablo_Neruda,_Valparaiso.jpg"
+      }
+    },
+    "sancristobal.jpg": {
+      "alt": "The funicular track running down Cerro San Cristóbal towards the Santiago skyline",
+      "credit": {
+        "subject": "Cerro San Cristóbal funicular",
+        "author": "David Berkowitz",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Cerro_San_Cristobal_Funicular.jpg"
+      }
+    },
+    "elqui.jpg": {
+      "alt": "A bare mountain rising behind green fields in the Elqui Valley",
+      "credit": {
+        "subject": "Elqui Valley",
+        "author": "S. Rae",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Elqui_valley_(48338545916).jpg"
+      }
+    },
+    "observatory.jpg": {
+      "alt": "The Mamalluca observatory lit orange under a starry night sky",
+      "credit": {
+        "subject": "Mamalluca observatory at night",
+        "author": "Miguel Carvajal",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Nocturna_mamalluca_obs.jpg"
+      }
+    },
+    "piscoelqui.jpg": {
+      "alt": "Oak barrels stacked under the Pisco Mistral emblem",
+      "credit": {
+        "subject": "Barrels at Pisco Mistral",
+        "author": "Rjcastillo",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Barricas_de_Pisco_Mistral_Gran_Nobel.jpg"
+      }
+    },
+    "penguin.jpg": {
+      "alt": "A group of Humboldt penguins standing on grey rocks",
+      "credit": {
+        "subject": "Humboldt penguins, Reserva Nacional Pingüino de Humboldt",
+        "author": "Natalia Reyes Escobar",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Pinguino_de_Humboldt_Reserva_Nacional_Pinguino_de_Humboldt_07.jpg"
+      }
+    },
+    "medellin.jpg": {
+      "alt": "Cable car cabins over the hillside neighbourhoods of Medellín",
+      "credit": {
+        "subject": "Metrocable, Medellín",
+        "author": "JoranL",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Metrocable_and_Comuna_1_in_Medell%C3%ADn_02.jpg"
+      }
+    },
+    "comuna13.jpg": {
+      "alt": "A bright mural of mushrooms, birds and flowers in Comuna 13",
+      "credit": {
+        "subject": "Graffiti in Comuna 13",
+        "author": "Bernard Gagnon",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Graffiti_in_Comuna_13,_Medell%C3%ADn_08.jpg"
+      }
+    },
+    "guatape.jpg": {
+      "alt": "The granite rock of El Peñol rising above a lake-filled valley",
+      "credit": {
+        "subject": "Piedra del Peñol from the air",
+        "author": "Juan Gómez",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Piedra_y_Embalse_del_Pe%C3%B1ol_desde_dron_05.jpg"
+      }
+    },
+    "cocora.jpg": {
+      "alt": "Tall wax palms standing on green hills in the mist in the Cocora valley",
+      "credit": {
+        "subject": "Valle de Cocora",
+        "author": "Bernard Gagnon",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Valle_de_Cocora,_Colombia_02.jpg"
+      }
+    },
+    "hummingbirds.jpg": {
+      "alt": "Several hummingbirds hovering around a feeder in the forest",
+      "credit": {
+        "subject": "Hummingbirds in the Cocora valley",
+        "author": "Miro Denck",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Colibr%C3%ADes_en_Valle_de_Cocora,_Colombia.jpg"
+      }
+    },
+    "salento.jpg": {
+      "alt": "A street of houses with bright painted balconies in Salento",
+      "credit": {
+        "subject": "Calle 5, Salento",
+        "author": "Bernard Gagnon",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Calle_5,_Salento_03.jpg"
+      }
+    },
+    "filandia.jpg": {
+      "alt": "Houses with green and blue balconies hung with paper flowers in Filandia",
+      "credit": {
+        "subject": "Calle 7, Filandia",
+        "author": "Bernard Gagnon",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Calle_7,_Filandia_02.jpg"
+      }
+    },
+    "santelmo.jpg": {
+      "alt": "Market stalls and crowds in front of old buildings on Plaza Dorrego in San Telmo",
+      "credit": {
+        "subject": "Plaza Dorrego, San Telmo",
+        "author": "Jorge Láscar",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Dorrego_Square_(4728829963).jpg"
+      }
+    },
+    "ateneo.jpg": {
+      "alt": "Balconies full of bookshelves inside the old theatre of El Ateneo Grand Splendid",
+      "credit": {
+        "subject": "El Ateneo Grand Splendid",
+        "author": "Sombra Inquieta",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Librer%C3%ADa_El_Ateneo_Grand_Splendid_-_1.jpg"
+      }
+    },
+    "costanera.jpg": {
+      "alt": "Wetland and reed beds in front of the Puerto Madero towers",
+      "credit": {
+        "subject": "Reserva Ecológica Costanera Sur",
+        "author": "Roberto Fiadone",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Reserva_Ecol%C3%B3gica_Costanera_Sur,_02.jpg"
+      }
+    },
+    "tigre.jpg": {
+      "alt": "Wooden jetties and a thatched pavilion on a brown river in the Tigre delta",
+      "credit": {
+        "subject": "Delta del Tigre",
+        "author": "Javier Vidal",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Delta_del_Tigre_1.jpg"
+      }
+    },
+    "colonia.jpg": {
+      "alt": "A cobbled lane between old painted houses in Colonia del Sacramento",
+      "credit": {
+        "subject": "Calle de los Suspiros, Colonia del Sacramento",
+        "author": "Banfield",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Calle_De_Los_Suspiros,_Colonia_del_Sacramento.jpg"
+      }
+    },
+    "mercado.jpg": {
+      "alt": "The long arcaded front of the Mercado del Puerto in Montevideo",
+      "credit": {
+        "subject": "Mercado del Puerto, Montevideo",
+        "author": "Felipe Restrepo Acosta",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:2016_Mercado_del_Puerto_de_Montevideo.jpg"
+      }
+    }
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "categories": [
+    {
+      "id": "big",
+      "label": "The big ones",
+      "short": "Big ones",
+      "note": "The ones that cost real money and need booking ahead."
+    },
+    {
+      "id": "cirque",
+      "label": "Cirque du Soleil",
+      "short": "Cirque",
+      "note": "Five resident shows, and they are not much like each other."
+    },
+    {
+      "id": "night",
+      "label": "Shows and nights out",
+      "short": "Nights out",
+      "note": "A theatre show, a club, and a screen the size of a building."
+    },
+    {
+      "id": "museum",
+      "label": "Museums and oddities",
+      "short": "Museums",
+      "note": "Indoor options for the cold half of the day."
+    },
+    {
+      "id": "out",
+      "label": "Out of town",
+      "short": "Out of town",
+      "note": "A car and a morning gets a long way from the Strip."
+    },
+    {
+      "id": "free",
+      "label": "Free, and worth it",
+      "short": "Free",
+      "note": "No ticket, no booking."
+    }
+  ],
+  "items": [
+    {
+      "id": "skydive",
+      "name": "Tandem skydive",
+      "category": "big",
+      "price": "$220–350 pp",
+      "duration": "3–4 hours, door to door",
+      "blurb": "The Boulder City drop zones jump over Lake Mead and the Hoover Dam rather than flat desert, which is the whole difference. Morning slots are the calm ones; the wind gets up by afternoon.",
+      "facts": [
+        "18+, photo ID at the door",
+        "Under 240 lb, height and weight proportionate",
+        "Most operators run a free Strip pickup",
+        "Properly cold at 12,500 ft in winter"
+      ],
+      "photo": "skydive.jpg",
+      "link": "https://skydivelasvegas.com/"
+    },
+    {
+      "id": "tank",
+      "name": "Drive an armoured vehicle, and shoot",
+      "category": "big",
+      "price": "$2,495 for two",
+      "duration": "Half a day",
+      "blurb": "Battlefield Vegas. Twenty minutes at the controls of an M113A2, which is an armoured personnel carrier rather than a turreted tank, plus a run through a Glock, an MP5, an M16, a Barrett .50 and a flamethrower.",
+      "facts": [
+        "Drivers 16+, over 5 ft, under 275 lb",
+        "No driving licence needed",
+        "Free Humvee pickup from Strip hotels",
+        "Only the two-person package is published; a call would clarify four"
+      ],
+      "photo": "tank.jpg",
+      "link": "https://www.battlefieldvegas.com/"
+    },
+    {
+      "id": "helicopter",
+      "name": "Helicopter to the Grand Canyon",
+      "category": "big",
+      "price": "$450–750 pp",
+      "duration": "4–5 hours",
+      "blurb": "Only the West Rim allows a landing below the rim, on Hualapai land. South Rim flights stay above it the whole way. Afternoon departures come back over the Strip after dark, so the skyline flight arrives in the same booking.",
+      "facts": [
+        "Fuel surcharge of $15–35 is usually extra",
+        "West Rim entry fee often extra, $99+",
+        "Winter weather cancels flights, so a spare day helps",
+        "Front seat upgrade runs $50–60"
+      ],
+      "photo": "helicopter.jpg",
+      "link": "https://www.papillon.com/"
+    },
+    {
+      "id": "o",
+      "name": "\"O\"",
+      "category": "cirque",
+      "price": "$110–250 pp",
+      "duration": "90 minutes",
+      "blurb": "The water one. A pool holding a million and a half gallons, twenty-five feet deep, with sixteen hydraulic platforms that lift the stage out of it and drop it away again mid-scene. Synchronised swimmers, sixty-foot dives, and scuba divers working under the surface for the whole show.",
+      "facts": [
+        "Bellagio, middle Strip",
+        "Eight Olympians in the cast",
+        "No performances two nights a week",
+        "The first few rows get wet"
+      ],
+      "photo": "o.avif",
+      "aspect": "portrait",
+      "link": "https://www.bellagio.com/en/entertainment/o-cirque-du-soleil.html"
+    },
+    {
+      "id": "mystere",
+      "name": "Mystère",
+      "category": "cirque",
+      "price": "$70–160 pp",
+      "duration": "90 minutes",
+      "blurb": "The oldest of the five, running since 1993, and the most straightforwardly circus of them: acrobatics, clowning and a very large taiko drum. Usually the cheapest ticket of the lot.",
+      "facts": [
+        "Treasure Island, north Strip",
+        "No age restriction",
+        "The least expensive of the five"
+      ],
+      "photo": "mystere.avif",
+      "aspect": "portrait",
+      "link": "https://www.cirquedusoleil.com/mystere"
+    },
+    {
+      "id": "ka",
+      "name": "KÀ",
+      "category": "cirque",
+      "price": "$85–220 pp",
+      "duration": "90 minutes",
+      "blurb": "A martial-arts story told on a stage that tilts to vertical and moves through the room, which is more of the spectacle than the acrobatics are. The most plot-driven of the five.",
+      "facts": [
+        "MGM Grand, south Strip",
+        "Under 18s need an adult",
+        "Loud, dark, and heavy on pyrotechnics"
+      ],
+      "photo": "ka.avif",
+      "aspect": "portrait",
+      "link": "https://www.cirquedusoleil.com/ka"
+    },
+    {
+      "id": "one",
+      "name": "Michael Jackson ONE",
+      "category": "cirque",
+      "price": "$80–200 pp",
+      "duration": "90 minutes",
+      "blurb": "Built around the catalogue rather than a story, so it lands as a gig with acrobatics in it as much as a Cirque show. The easiest of the five to enjoy without concentrating.",
+      "facts": [
+        "Mandalay Bay, far south Strip",
+        "Under 16s need an adult",
+        "Familiar music the whole way through"
+      ],
+      "photo": "one.avif",
+      "aspect": "portrait",
+      "link": "https://www.cirquedusoleil.com/michael-jackson-one"
+    },
+    {
+      "id": "mad-apple",
+      "name": "Mad Apple",
+      "category": "cirque",
+      "price": "$70–180 pp",
+      "duration": "75 minutes",
+      "blurb": "A New York themed variety night: stand-up, magic, a live band, and acrobatics in between. Later, looser and more adult than the rest, and the shortest of the five.",
+      "facts": [
+        "New York-New York, middle Strip",
+        "18+, for adult language in the comedy",
+        "Bar on the stage before it starts"
+      ],
+      "photo": "mad-apple.avif",
+      "aspect": "portrait",
+      "link": "https://www.cirquedusoleil.com/mad-apple"
+    },
+    {
+      "id": "flamingo",
+      "name": "RuPaul's Drag Race Live",
+      "category": "night",
+      "price": "$60–150 pp",
+      "duration": "75 minutes",
+      "blurb": "At the Flamingo, with a rotating cast of Drag Race alumni. A seated theatre show with a running time and an interval, rather than a club night.",
+      "facts": [
+        "Seated theatre show, not a club",
+        "Hamburger Mary's does a drag brunch, for a daytime version",
+        "Holiday week slots go early"
+      ],
+      "photo": "flamingo.jpg",
+      "link": "https://www.caesars.com/flamingo-las-vegas/shows/rupauls-drag-race-live"
+    },
+    {
+      "id": "club",
+      "name": "Piranha",
+      "category": "night",
+      "price": "Free to $20 cover",
+      "duration": "As long as we last",
+      "blurb": "The Fruit Loop on Paradise Road, a mile off the Strip. Resident queens, guest Drag Race alumni, and it runs until dawn.",
+      "facts": [
+        "Busiest after midnight",
+        "Free entry most weeknights",
+        "Ten minutes by car from the middle Strip"
+      ],
+      "photo": "club.jpg",
+      "link": "https://piranhavegas.com/"
+    },
+    {
+      "id": "sphere",
+      "name": "Sphere",
+      "category": "night",
+      "price": "$99–199 pp",
+      "duration": "75 minutes",
+      "blurb": "Residencies and the immersive screening alternate, so what is on depends entirely on the week we pick. The screening earns the ticket for the room more than for the film.",
+      "facts": [
+        "Programme changes, so the calendar is worth a look",
+        "Upper bowl is fine and much cheaper",
+        "Not great for anyone prone to motion sickness"
+      ],
+      "photo": "sphere.jpg",
+      "link": "https://www.thesphere.com/"
+    },
+    {
+      "id": "neon",
+      "name": "The Neon Museum",
+      "category": "museum",
+      "price": "$28–38 pp",
+      "duration": "1 to 1.5 hours",
+      "blurb": "Two hundred-odd dead casino signs laid out in a yard. The dusk slot is the good one, with the daylight going and the restored signs coming on; the daytime ticket is a different and lesser thing.",
+      "facts": [
+        "Dusk slots sell out first",
+        "Outdoors, and cold after dark in winter",
+        "Twenty minutes from the middle Strip"
+      ],
+      "photo": "neon.jpg",
+      "link": "https://www.neonmuseum.org/"
+    },
+    {
+      "id": "atomic",
+      "name": "Atomic Museum",
+      "category": "museum",
+      "price": "$29 pp",
+      "duration": "1.5 to 2 hours",
+      "blurb": "Nevada tested over 900 nuclear devices an hour north of here, and for a while the mushroom clouds were a tourist draw that hotels advertised. Straighter and stranger than that makes it sound.",
+      "facts": [
+        "Smithsonian affiliate, on Flamingo Road",
+        "Quiet on weekday mornings",
+        "Ninety minutes covers it comfortably"
+      ],
+      "photo": "atomic.jpg",
+      "link": "https://www.atomicmuseum.vegas/"
+    },
+    {
+      "id": "pinball",
+      "name": "Pinball Hall of Fame",
+      "category": "museum",
+      "price": "Free in, coins per game",
+      "duration": "45 minutes to 3 hours",
+      "blurb": "A warehouse of several hundred playable machines from the fifties onward. Free to walk into, a quarter or two a game, which makes it both the cheapest hour in the city and the hardest to leave.",
+      "facts": [
+        "Change machines queue, so singles help",
+        "On Las Vegas Boulevard south, near the welcome sign",
+        "Nonprofit, proceeds go to charity"
+      ],
+      "photo": "pinball.jpg",
+      "link": "https://pinballmuseum.org/"
+    },
+    {
+      "id": "mob",
+      "name": "The Mob Museum",
+      "category": "museum",
+      "price": "$34–60 pp",
+      "duration": "2 to 3 hours",
+      "blurb": "Set in the old federal courthouse where the Kefauver hearings actually sat, which does more work than any exhibit in it. There is a working speakeasy in the basement.",
+      "facts": [
+        "Downtown, walkable from Fremont Street",
+        "Speakeasy is a separate add-on ticket",
+        "Most people spend longer here than they planned"
+      ],
+      "photo": "mob.jpg",
+      "link": "https://themobmuseum.org/"
+    },
+    {
+      "id": "omega",
+      "name": "Omega Mart at Area15",
+      "category": "museum",
+      "price": "$59 pp",
+      "duration": "2 to 3 hours",
+      "blurb": "Meow Wolf's fake supermarket, where the shelves open into something much larger behind them. The oddest thing in the city by a distance, and the one people tend to keep talking about.",
+      "facts": ["Area15 itself is free to enter", "Timed entry", "Two miles west of the Strip"],
+      "photo": "omega.jpg",
+      "link": "https://meowwolf.com/visit/las-vegas"
+    },
+    {
+      "id": "valleyfire",
+      "name": "Valley of Fire",
+      "category": "out",
+      "price": "$15 per car",
+      "duration": "Half a day",
+      "blurb": "An hour northeast. Red Aztec sandstone, petroglyphs, and short marked walks rather than hikes, most of them under a mile.",
+      "facts": [
+        "White Domes and Fire Wave are the two most people do",
+        "No food inside the park",
+        "December highs around 15°C, which is the right month for it"
+      ],
+      "photo": "valleyfire.jpg",
+      "link": "https://parks.nv.gov/parks/valley-of-fire"
+    },
+    {
+      "id": "redrock",
+      "name": "Red Rock Canyon",
+      "category": "out",
+      "price": "$20 per car",
+      "duration": "2 to 3 hours",
+      "blurb": "Twenty minutes west, and a thirteen-mile scenic loop that works almost entirely from the car with a few short stops. The half-day version of a desert day.",
+      "facts": [
+        "Timed entry reservation required October to May",
+        "Cliffs face west, so the afternoon light is better",
+        "The loop is one-way"
+      ],
+      "photo": "redrock.jpg",
+      "link": "https://www.redrockcanyonlv.org/"
+    },
+    {
+      "id": "hoover",
+      "name": "Hoover Dam",
+      "category": "out",
+      "price": "$10–30 pp",
+      "duration": "Half a day",
+      "blurb": "Forty minutes out, and on the road back from the Boulder City drop zone, so it bolts onto a skydive morning for almost nothing. The dam tour goes inside; the powerplant tour is the shorter one.",
+      "facts": [
+        "Parking garage $10",
+        "Dam tour is walk-up only, no advance booking",
+        "The bridge walkway has the view, and it is free"
+      ],
+      "photo": "hoover.jpg",
+      "link": "https://www.usbr.gov/lc/hooverdam/"
+    },
+    {
+      "id": "deathvalley",
+      "name": "Death Valley",
+      "category": "out",
+      "price": "$30 per car",
+      "duration": "Full day",
+      "blurb": "Two hours each way, so it takes a whole day rather than part of one. December is the right month for it and July is emphatically not.",
+      "facts": [
+        "Badwater, Zabriskie Point and Dante's View make one loop",
+        "Last cheap fuel is in Nevada",
+        "December daylight is short"
+      ],
+      "photo": "deathvalley.jpg",
+      "link": "https://www.nps.gov/deva/"
+    },
+    {
+      "id": "conservatory",
+      "name": "Bellagio Conservatory",
+      "category": "free",
+      "price": "Free",
+      "duration": "30 minutes",
+      "blurb": "Rebuilt five times a year by a team of about a hundred, so which display is up depends on when we go. Quietest before ten in the morning or after eleven at night.",
+      "facts": [
+        "Open 24 hours",
+        "Winter display runs to early January",
+        "The fountains are outside the door, also free"
+      ],
+      "photo": "conservatory.jpg",
+      "link": "https://www.bellagio.com/en/entertainment/conservatory-botanical-garden.html"
+    },
+    {
+      "id": "fremont",
+      "name": "Fremont Street",
+      "category": "free",
+      "price": "Free",
+      "duration": "2 hours",
+      "blurb": "Downtown, under a screen five blocks long. Older, cheaper and stranger than the Strip, and the part of town that still looks like the postcards.",
+      "facts": [
+        "Zip line and bands nightly",
+        "Ten minutes by car from the middle Strip",
+        "Two blocks from the Mob Museum"
+      ],
+      "photo": "fremont.jpg",
+      "link": "https://vegasexperience.com/"
+    }
+  ]
+}

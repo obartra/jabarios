@@ -1,17 +1,39 @@
 import { z } from 'zod';
-import { activitiesFor } from './activities.ts';
+import { tripFolders } from './content.ts';
 import { formatRange, parseDay, UNDATED_LABEL, type DateRange } from '../lib/trips.ts';
 
 /**
- * One entry per trip, validated at build time. This is the single source of
- * truth: the homepage cards, the stats, the countdown, and each trip page's
- * title, dates and social tags are all derived from here, so they cannot drift
- * apart. Adding a trip means adding an entry and a page at src/pages/<slug>/.
+ * One folder per trip under src/content/trips, validated at build time. This
+ * is the single source of truth: the homepage cards, the stats, the countdown,
+ * and each trip page's title, dates and social tags are all derived from each
+ * folder's trip.json, so they cannot drift apart.
  */
+
+export const CreditSchema = z.object({
+  subject: z.string().min(1),
+  author: z.string().min(1),
+  /**
+   * How the photo may be used, e.g. "CC BY-SA 4.0" or "Public domain". Free
+   * text because not every usable photo is Creative Commons, but never blank.
+   */
+  licence: z.string().min(2),
+  url: z.url(),
+});
+
+export type Credit = z.infer<typeof CreditSchema>;
+
+/**
+ * Every photo in the trip's img/ folder, described once: its alt text and its
+ * credit. Cards, covers and page sections refer to photos by file name, and
+ * scripts/check-dist.mjs fails the build if a file has no entry here.
+ */
+const PhotoSchema = z.object({
+  alt: z.string().min(1),
+  credit: CreditSchema,
+});
+
 const TripSchema = z
   .object({
-    /** URL segment. The trip is served at /<slug>/. */
-    slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug must be lowercase kebab-case'),
     name: z.string().min(1),
     /**
      * Calendar days, inclusive of both ends. Both are optional together: a trip
@@ -31,24 +53,9 @@ const TripSchema = z
     places: z.array(z.string().min(1)).min(1),
     /** Extra chips after the places, e.g. "4 dives". */
     notes: z.array(z.string().min(1)).default([]),
-    /** Card and social image, resolved from public/. */
-    cover: z.string().startsWith('/'),
-    coverAlt: z.string().min(1),
-    /**
-     * Per-photo attribution. Creative Commons requires it, so it is required
-     * here too, and scripts/check-dist.mjs fails the build if a bundled photo
-     * has no credit.
-     */
-    credits: z
-      .array(
-        z.object({
-          subject: z.string().min(1),
-          author: z.string().min(1),
-          licence: z.string().min(2),
-          url: z.url(),
-        }),
-      )
-      .default([]),
+    /** Card and social image: a file name in img/, described in photos. */
+    cover: z.string().min(1),
+    photos: z.record(z.string(), PhotoSchema),
   })
   .refine((t) => (t.start === undefined) === (t.end === undefined), {
     message: 'a trip needs both start and end, or neither',
@@ -57,9 +64,23 @@ const TripSchema = z
   .refine((t) => !t.start || !t.end || parseDay(t.end) >= parseDay(t.start), {
     message: 'end must not be before start',
     path: ['end'],
+  })
+  .refine((t) => t.cover in t.photos, {
+    message: 'cover must be one of the photos',
+    path: ['cover'],
   });
 
-export type Trip = z.infer<typeof TripSchema> & {
+export type Photo = z.infer<typeof PhotoSchema>;
+
+export type Trip = Omit<z.infer<typeof TripSchema>, 'photos'> & {
+  /** URL segment, from the folder name. The trip is served at /<slug>/. */
+  slug: string;
+  photos: Record<string, Photo>;
+  coverAlt: string;
+  /** Every photo's credit, in registry order, for the footer. */
+  credits: Credit[];
+  /** File names actually present in img/, for the checks. */
+  images: string[];
   /** Both days or neither, resolved once so consumers test one thing. */
   dates: DateRange | null;
   /** Derived, never authored, so the label can never disagree with the dates. */
@@ -68,256 +89,35 @@ export type Trip = z.infer<typeof TripSchema> & {
   href: string;
 };
 
-const raw: unknown[] = [
-  {
-    slug: 'thai',
-    name: 'Thailand',
-    start: '2026-10-15',
-    end: '2026-11-01',
-    countries: 1,
-    lede: 'Five nights in Bangkok together, in from Hanoi, working nights and out from midday. Then Os heads north to Chiang Mai, and two days on the water out of Khao Lak before Manila.',
-    blurb:
-      'Five nights in Bangkok together, then Os north to Chiang Mai and two days on the water out of Khao Lak before Manila.',
-    description:
-      'Bangkok together, then Os on to Chiang Mai and the Similans. The days, the dives, and what to book first.',
-    places: ['Bangkok', 'Chiang Mai', 'Khao Lak'],
-    notes: ['4 dives'],
-    cover: '/thai/img/similan.jpg',
-    coverAlt:
-      'Granite boulders and turquoise shallows on Similan Island 8, seen from the ridge above the bay',
-    credits: [
-      {
-        subject: 'Wat Arun',
-        author: 'miketnorton',
-        licence: 'CC BY 2.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Wat_Arun_Sunset.jpg',
-      },
-      {
-        subject: 'Grand Palace roofline',
-        author: 'Bjørn Erik Pedersen',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:A_roof_of_a_building_at_the_Grand_Palace,_Bangkok,_sunrise,_2017.jpg',
-      },
-      {
-        subject: 'Amphawa Floating Market',
-        author: 'Rangan Datta',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Amphawa_Floating_Market_16a.jpg',
-      },
-      {
-        subject: 'Wat Chaiwatthanaram',
-        author: 'Average trinmo',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Wat_Chaiwatthanaram_by_drone.jpg',
-      },
-      {
-        subject: 'Wat Phra That Doi Suthep',
-        author: 'Arts of Chet',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Wat_Phra_That_Doi_Suthep_in_Chiang_Mai_02.jpg',
-      },
-      {
-        subject: 'Similan Island 8',
-        author: 'Mathias Krumbholz',
-        licence: 'CC BY-SA 3.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Similan_Island_01_(MK).jpg',
-      },
-      {
-        subject: 'Richelieu Rock',
-        author: 'Mr.CMBurns',
-        licence: 'CC BY-SA 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Richelieu_Rock.jpg',
-      },
-      {
-        subject: 'Khao Lak Beach',
-        author: 'Vyacheslav Argenberg',
-        licence: 'CC BY 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Khao_Lak_Beach,_Thailand.jpg',
-      },
-    ],
-  },
-  {
-    slug: 'vegas',
-    name: 'Las Vegas',
-    countries: 1,
-    lede: 'Four of us, whenever we get to it, and a long list of things we could do: skydiving, a tank, the Grand Canyon from the air, and the desert on the days the Strip wears thin. No dates yet, and none of it is booked.',
-    blurb:
-      'Four of us, dates still open. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
-    description:
-      'Four of us in Vegas, dates still open. Skydiving, tanks, the Grand Canyon by helicopter, odd museums and the desert. Ideas, not a plan.',
-    places: ['The Strip', 'Boulder City', 'Grand Canyon West'],
-    notes: ['Nothing booked'],
-    cover: '/vegas/img/strip.jpg',
-    coverAlt: 'The Las Vegas Strip at night from the air, lit along its whole length',
-    credits: [
-      {
-        subject: 'Las Vegas Strip at night',
-        author: 'Carol M. Highsmith',
-        licence: 'Public domain',
-        url: 'https://commons.wikimedia.org/wiki/File:Night_aerial_view,_Las_Vegas,_Nevada,_04649u.jpg',
-      },
-    ],
-  },
-  {
-    slug: 'palm-springs',
-    name: 'Palm Springs',
-    countries: 1,
-    lede: 'Some time in April, tentatively, with Os possibly coming down from San Francisco first. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.',
-    blurb:
-      'Some time in April, tentatively. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.',
-    description:
-      'Palm Springs, tentatively in April. Joshua Tree, the tram up Chino Canyon, the Salton Sea and a lot of pool. Ideas, not a plan.',
-    places: ['Palm Springs', 'Joshua Tree', 'Pioneertown', 'The Salton Sea'],
-    notes: ['Nothing booked'],
-    cover: '/palm-springs/img/cover.jpg',
-    coverAlt:
-      'A Palm Springs aerial tram car on its cables high above the rock walls of Chino Canyon',
-    credits: [
-      {
-        subject: 'Palm Springs Aerial Tramway over Chino Canyon',
-        author: 'Matthew Field',
-        licence: 'CC BY-SA 3.0',
-        url: 'https://commons.wikimedia.org/wiki/File:Palm_springs_aerial_tramway.jpg',
-      },
-    ],
-  },
-  {
-    slug: 'philly',
-    name: 'Philadelphia',
-    start: '2026-12-19',
-    end: '2026-12-27',
-    countries: 1,
-    lede: 'Christmas in West Philly at Jabari’s place, with Jabari’s mom. Eight nights, nothing scheduled in them, and a flight south on the 27th. The cards below are for the days that are not Christmas.',
-    blurb:
-      'Christmas week in West Philly at Jabari’s place, with Jabari’s mom. Eight nights with nothing in them, then a flight south on the 27th.',
-    description:
-      'Christmas 2026 in West Philly at Jabari’s, with Jabari’s mom. Eight nights, no schedule, and what stays open over the holiday.',
-    places: ['West Philly', 'Center City'],
-    notes: ['8 nights', 'Christmas Day'],
-    // Credited on the activity that uses it, so it is not repeated here.
-    cover: '/philly/img/magicgardens.jpg',
-    coverAlt: 'A wall covered in mosaic made from bottles, mirrors, tiles and a bicycle wheel',
-    credits: [],
-  },
-  {
-    slug: 'january',
-    name: 'January, together',
-    start: '2027-01-09',
-    end: '2027-01-23',
-    countries: 1,
-    lede: 'Os lands in Salvador on 28 December for New Year with friends. Around the 9th we meet somewhere new to both of us, and the two weeks after that are ours: a city to walk, some nature and animals, and dry weather. Three options, none decided.',
-    blurb:
-      'Two weeks of us from around 9 January, somewhere new and dry. Chile, Colombia, or Buenos Aires and Uruguay: a city and some nature, on a modest budget.',
-    description:
-      'Two weeks together in January 2027, still undecided: Valparaíso and the Elqui Valley, Medellín and the coffee region, or Buenos Aires and Uruguay.',
-    places: ['Chile', 'Colombia', 'Buenos Aires'],
-    notes: ['Rough dates', 'Not decided'],
-    // Credited on the activity that uses it, so it is not repeated here.
-    cover: '/january/img/valparaiso.jpg',
-    coverAlt: 'Painted wooden houses stacked up a hillside in Valparaíso',
-    credits: [],
-  },
-  {
-    slug: 'kona',
-    name: 'Kona',
-    start: '2026-12-06',
-    end: '2026-12-13',
-    countries: 1,
-    lede: 'A week on the dry side of the Big Island. Mantas under the boat lights on Tuesday, Jabari’s first dive on Wednesday, and Mauna Kea on Thursday, in a new-moon week, with dinner at 9,000 ft and a telescope after dark. The rest of the week is ours to fill, or not.',
-    blurb:
-      'Seven nights on the Kona coast. Mantas at night, Jabari’s first dive, and sunset at the summit of Mauna Kea before a telescope under a new moon.',
-    description:
-      'A week in Kona in December 2026. The manta night dive, a first scuba dive, and Mauna Kea under a new moon with a telescope. The days and the order.',
-    places: ['Kailua-Kona', 'Keauhou', 'Mauna Kea', 'Volcanoes'],
-    notes: ['7 nights', 'New moon'],
-    cover: '/kona/img/manta.jpg',
-    coverAlt: 'A manta ray gliding over a sandy reef floor beside a scuba diver',
-    // The cover is credited on the manta activity. This one is the Mauna Kea
-    // section's photo, which is page copy rather than an activity card.
-    credits: [
-      {
-        subject: 'The Milky Way over Maunakea',
-        author: 'NOIRLab/AURA/NSF',
-        licence: 'CC BY 4.0',
-        url: 'https://commons.wikimedia.org/wiki/File:The_Milky_Way_and_Jupiter_over_Maunakea_(02102014-040-Keck-and-Subaru-Observing-Runs-CC2).jpg',
-      },
-    ],
-  },
-  {
-    slug: 'vietnam',
-    name: 'Hanoi',
-    start: '2026-10-13',
-    end: '2026-10-15',
-    countries: 1,
-    lede: 'Two and a half days in Hanoi with Os’s parents, at the end of their fortnight in Vietnam, before the two of us fly on to Bangkok. Old Quarter on foot, the lake, egg coffee, water puppets, and nothing that needs a day trip.',
-    blurb:
-      'Two and a half days in the Old Quarter with Os’s parents, then Bangkok together. The lake, egg coffee, water puppets and a street food walk.',
-    description:
-      'Hanoi, 13 to 15 October 2026, with Os’s parents before Thailand. The Old Quarter on foot, the Temple of Literature, water puppets and street food.',
-    places: ['Old Quarter', 'Hoan Kiem', 'West Lake'],
-    notes: ['2 nights', 'With Os’s parents'],
-    // Credited on the activity that uses it, so it is not repeated here.
-    cover: '/vietnam/img/tranquoc.jpg',
-    coverAlt: 'The red tower of Trấn Quốc Pagoda beside a pond on the edge of West Lake',
-    credits: [],
-  },
-  {
-    slug: 'miami',
-    name: 'Miami Beach',
-    start: '2026-12-14',
-    end: '2026-12-19',
-    countries: 1,
-    lede: 'The week between Kona and Philadelphia, in South Beach, with the place already ours when the red-eye lands. The Art Deco blocks on foot, a reef or two, Little Havana across the causeway, and stone crab season. Ideas rather than a plan.',
-    blurb:
-      'Five nights in South Beach between Kona and Christmas. Art Deco on foot, a reef or two, Little Havana, and stone crab season. Ideas rather than a plan.',
-    description:
-      'Five nights in Miami Beach in December 2026. Art Deco on foot, snorkelling and diving without a car, Little Havana, Wynwood and the Everglades.',
-    places: ['South Beach', 'Key Biscayne', 'Little Havana', 'Wynwood'],
-    notes: ['5 nights', 'Stay booked'],
-    // Credited on the activity that uses it, so it is not repeated here.
-    cover: '/miami/img/oceandrive.jpg',
-    coverAlt:
-      'Art Deco hotels on Ocean Drive lit orange and purple at night, with palms along the street',
-    credits: [],
-  },
-  // <new-trip> scripts/new-trip.mjs inserts above this line.
-];
+const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function load(): Trip[] {
-  const parsed = raw.map((entry, i) => {
+  return tripFolders().map(({ slug, trip: entry, images }) => {
+    if (!SLUG.test(slug)) throw new Error(`trip folder "${slug}" must be lowercase kebab-case`);
     const result = TripSchema.safeParse(entry);
     if (!result.success) {
-      const where = (entry as { slug?: string })?.slug ?? `trips[${i}]`;
       throw new Error(
-        `invalid trip "${where}":\n` +
+        `invalid trip "${slug}":\n` +
           result.error.issues
             .map((issue) => `  ${issue.path.join('.') || '(root)'}: ${issue.message}`)
             .join('\n'),
       );
     }
-    return result.data;
-  });
-
-  const seen = new Set<string>();
-  for (const trip of parsed) {
-    if (seen.has(trip.slug)) throw new Error(`duplicate trip slug "${trip.slug}"`);
-    seen.add(trip.slug);
-  }
-
-  return parsed.map((trip) => {
+    const trip = result.data;
     // The schema guarantees both or neither, so one check settles both.
     const dates = trip.start && trip.end ? { start: trip.start, end: trip.end } : null;
     return {
       ...trip,
-      // Activity photos carry their own credit; merge them in so the footer and
-      // scripts/check-dist.mjs both see one complete list per trip.
-      credits: [...trip.credits, ...activitiesFor(trip.slug).map((a) => a.credit)],
+      slug,
+      images,
+      coverAlt: trip.photos[trip.cover]!.alt,
+      credits: Object.values(trip.photos).map((p) => p.credit),
       dates,
       dateLabel: dates ? formatRange(dates.start, dates.end) : UNDATED_LABEL,
       // An undated trip's title is just its name: "Las Vegas · Dates not set"
       // reads as broken in a browser tab and a social card.
       title: dates ? `${trip.name} · ${formatRange(dates.start, dates.end)}` : trip.name,
-      href: `/${trip.slug}/`,
+      href: `/${slug}/`,
     };
   });
 }
@@ -328,4 +128,11 @@ export function tripBySlug(slug: string): Trip {
   const trip = trips.find((t) => t.slug === slug);
   if (!trip) throw new Error(`no trip with slug "${slug}"`);
   return trip;
+}
+
+/** A trip photo's registry entry, loud about a file name that is not in it. */
+export function photoOf(trip: Trip, file: string): Photo {
+  const photo = trip.photos[file];
+  if (!photo) throw new Error(`trip "${trip.slug}" has no photo "${file}" in trip.json`);
+  return photo;
 }

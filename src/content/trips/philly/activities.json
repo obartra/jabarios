@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "id": "out",
+      "label": "If we leave the house",
+      "short": "Out",
+      "note": "Home turf for Jabari, so this is not a list to work through."
+    }
+  ],
+  "items": [
+    {
+      "id": "bartrams",
+      "name": "Bartram's Garden",
+      "category": "out",
+      "price": "Free",
+      "duration": "A couple of hours",
+      "blurb": "Fifty acres on the Schuylkill at the bottom of West Philly, laid out by John Bartram from 1728, which makes it the oldest surviving botanic garden in the country. Free, almost empty in December, and a twenty minute walk or a short ride from the house.",
+      "facts": [
+        "Grounds are free and open daily, dawn to dusk",
+        "House tours are seasonal and limited, so worth checking before going",
+        "On the river, so it is colder and windier than the street",
+        "Bare in December, which makes the river and the skyline easier to see"
+      ],
+      "photo": "bartrams.jpg",
+      "link": "https://bartramsgarden.org/"
+    },
+    {
+      "id": "magic-gardens",
+      "name": "Philadelphia's Magic Gardens",
+      "category": "out",
+      "price": "$15 adults, $12 students",
+      "duration": "An hour",
+      "blurb": "Isaiah Zagar spent fourteen years covering half a block of South Street in mosaic made of bottles, bicycle wheels, mirror and broken tile. Half of it is outdoors, so December is cold, but winter light on all that glass is the better version.",
+      "facts": [
+        "Closed Tuesdays, otherwise 11:00 to 18:00",
+        "Tickets regularly sell out, so book online rather than turning up",
+        "Largely outdoors and unheated",
+        "Zagar murals carry on for several blocks around, for free"
+      ],
+      "photo": "magicgardens.jpg",
+      "link": "https://www.phillymagicgardens.org/"
+    }
+  ]
+}

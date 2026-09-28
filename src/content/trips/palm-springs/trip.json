@@ -1,0 +1,174 @@
+{
+  "name": "Palm Springs",
+  "countries": 1,
+  "lede": "Some time in April, tentatively, with Os possibly coming down from San Francisco first. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.",
+  "blurb": "Some time in April, tentatively. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.",
+  "description": "Palm Springs, tentatively in April. Joshua Tree, the tram up Chino Canyon, the Salton Sea and a lot of pool. Ideas, not a plan.",
+  "places": ["Palm Springs", "Joshua Tree", "Pioneertown", "The Salton Sea"],
+  "notes": ["Nothing booked"],
+  "cover": "cover.jpg",
+  "photos": {
+    "tram.jpg": {
+      "alt": "Two aerial tram cars passing each other on the cables above a rocky desert canyon",
+      "credit": {
+        "subject": "Palm Springs Aerial Tramway",
+        "author": "Don Graham",
+        "licence": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:We%27ve_got_to_stop_meeting_like_this,_Palm_Springs_Aerial_Tramway,_CA_2015_(26151516883).jpg"
+      }
+    },
+    "balloon.jpg": {
+      "alt": "A striped hot air balloon low over desert scrub and a Joshua tree",
+      "credit": {
+        "subject": "Balloon over the desert",
+        "author": "Rennett Stowe",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Balloon_and_Joshua_Tree_(2407296947).jpg"
+      }
+    },
+    "airmuseum.jpg": {
+      "alt": "The polished aluminium nose and gun turret of a Second World War bomber inside a hangar",
+      "credit": {
+        "subject": "Palm Springs Air Museum",
+        "author": "David Ensor",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Palm_Springs_Air_Museum_(50087464021).jpg"
+      }
+    },
+    "joshua.jpg": {
+      "alt": "Joshua trees and piled granite boulders under a wide blue desert sky",
+      "credit": {
+        "subject": "Joshua Tree National Park",
+        "author": "Tuxyso",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Joshua_Tree_National_Park_2013.jpg"
+      }
+    },
+    "palmcanyon.jpg": {
+      "alt": "A dense grove of fan palms filling the floor of a rocky desert canyon",
+      "credit": {
+        "subject": "Palm Canyon",
+        "author": "Jerrye and Roy Klotz MD",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:PALM_CANYON_NEAR_PALM_SPRINGS_IN_RIVERSIDE_COUNTY,_CALIFORNIA.jpg"
+      }
+    },
+    "preserve.jpg": {
+      "alt": "Eroded sandstone ridges in the Coachella Valley Preserve with a snow-capped peak behind",
+      "credit": {
+        "subject": "Coachella Valley Preserve",
+        "author": "blmcalifornia",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Coachella_Valley_Preserve_System_(26389614434).jpg"
+      }
+    },
+    "bombay.jpg": {
+      "alt": "The Salton Sea at sunset, still water under an orange and grey sky",
+      "credit": {
+        "subject": "Bombay Beach at sunset",
+        "author": "Matthew Dillon",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Bombay_Beach_at_Sunset_-_Flickr_-_RuggyBearLA.jpg"
+      }
+    },
+    "salvation.jpg": {
+      "alt": "A painted adobe hillside covered in bright stripes, flowers and lettering under a blue sky",
+      "credit": {
+        "subject": "Salvation Mountain",
+        "author": "Aculp",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Salvation_Mountain,_Niland,_CA.jpg"
+      }
+    },
+    "livingdesert.jpg": {
+      "alt": "Cholla cactus and yellow brittlebush flowering in a desert garden",
+      "credit": {
+        "subject": "The Living Desert",
+        "author": "inkknife_2000",
+        "licence": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Cactus_Garden,_Living_Desert_3-15h_(16137041433).jpg"
+      }
+    },
+    "sunnylands.jpg": {
+      "alt": "The low pink roof and glass walls of the Sunnylands house behind desert planting",
+      "credit": {
+        "subject": "Sunnylands",
+        "author": "Emily Gadek",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sunnylands_historic_house.jpg"
+      }
+    },
+    "kaufmann.jpg": {
+      "alt": "A low flat-roofed desert house behind a gate, with boulders and cactus in the front garden",
+      "credit": {
+        "subject": "A Palm Springs desert house",
+        "author": "Carol M. Highsmith",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Kaufmann_House,_Palm_Springs,_California_LCCN2013631255.tif"
+      }
+    },
+    "moorten.jpg": {
+      "alt": "Tall columnar cacti and desert shrubs crowded along a narrow sandy garden path",
+      "credit": {
+        "subject": "Moorten Botanical Garden",
+        "author": "YuriVict",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Moorten_Botanical_Garden_and_Cactarium.jpg"
+      }
+    },
+    "integratron.jpg": {
+      "alt": "A white domed wooden building standing alone on flat open desert",
+      "credit": {
+        "subject": "The Integratron",
+        "author": "Jessie Eastland",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Integratron-2.jpg"
+      }
+    },
+    "pioneertown.jpg": {
+      "alt": "A wooden false-fronted saloon and bath house on a dirt street in Pioneertown",
+      "credit": {
+        "subject": "Pioneertown",
+        "author": "Matthew Field",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Pioneertown_california_saloon_and_bath_house.jpg"
+      }
+    },
+    "cabazon.jpg": {
+      "alt": "A huge green concrete brontosaurus standing beside a desert road",
+      "credit": {
+        "subject": "Cabazon Dinosaurs",
+        "author": "Jllm06",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Cabazon-Dinosaurs-2.jpg"
+      }
+    },
+    "windmills.jpg": {
+      "alt": "Rows of white wind turbines across desert scrub with a snow-capped mountain behind",
+      "credit": {
+        "subject": "San Gorgonio Pass wind farm",
+        "author": "Spiglanin",
+        "licence": "CC BY 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:San_Gorgonio_Pass_wind_farm_March_2023.jpg"
+      }
+    },
+    "downtown.jpg": {
+      "alt": "Palm Canyon Drive in downtown Palm Springs, lined with palms and low shopfronts",
+      "credit": {
+        "subject": "Palm Canyon Drive",
+        "author": "R. Haupt",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Palm_Springs_Palm_Canyon_Dr.jpeg"
+      }
+    },
+    "cover.jpg": {
+      "alt": "A Palm Springs aerial tram car on its cables high above the rock walls of Chino Canyon",
+      "credit": {
+        "subject": "Palm Springs Aerial Tramway over Chino Canyon",
+        "author": "Matthew Field",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Palm_springs_aerial_tramway.jpg"
+      }
+    }
+  }
+}

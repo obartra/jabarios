@@ -1,0 +1,131 @@
+{
+  "name": "Miami Beach",
+  "start": "2026-12-14",
+  "end": "2026-12-19",
+  "countries": 1,
+  "lede": "The week between Kona and Philadelphia, in South Beach, with the place already ours when the red-eye lands. The Art Deco blocks on foot, a reef or two, Little Havana across the causeway, and stone crab season. Ideas rather than a plan.",
+  "blurb": "Five nights in South Beach between Kona and Christmas. Art Deco on foot, a reef or two, Little Havana, and stone crab season. Ideas rather than a plan.",
+  "description": "Five nights in Miami Beach in December 2026. Art Deco on foot, snorkelling and diving without a car, Little Havana, Wynwood and the Everglades.",
+  "places": ["South Beach", "Key Biscayne", "Little Havana", "Wynwood"],
+  "notes": ["5 nights", "Stay booked"],
+  "cover": "oceandrive.jpg",
+  "photos": {
+    "oceandrive.jpg": {
+      "alt": "Art Deco hotels on Ocean Drive lit orange and purple at night, with palms along the street",
+      "credit": {
+        "subject": "Ocean Drive by night",
+        "author": "Gzzz",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Ocean_Drive_by_night_1.jpg"
+      }
+    },
+    "southpointe.jpg": {
+      "alt": "Waves breaking on the rocks beside the concrete pilings of South Pointe pier",
+      "credit": {
+        "subject": "South Pointe Park Pier",
+        "author": "Visitor7",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:South_Pointe_Park_Pier.jpg"
+      }
+    },
+    "stonecrab.jpg": {
+      "alt": "A plate of cracked stone crab claws with mustard sauce and lemon",
+      "credit": {
+        "subject": "Stone crab claws at Joe’s",
+        "author": "FoodOfMiami",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:JoesStoneCrabs.JPG"
+      }
+    },
+    "icecream.jpg": {
+      "alt": "The pink shopfront of the Museum of Ice Cream in downtown Miami",
+      "credit": {
+        "subject": "Museum of Ice Cream, Miami",
+        "author": "Phillip Pessar",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Museum_of_Ice_Cream,_Miami,_Florida_Sept_2024.jpg"
+      }
+    },
+    "ballchain.jpg": {
+      "alt": "The green-striped awning of Ball & Chain on Calle Ocho, with a giant ice cream cone on the building next door",
+      "credit": {
+        "subject": "Ball & Chain and Azucar, Calle Ocho",
+        "author": "osseous",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:April_7,_2015_-_Little_Havana,_Miami,_Florida_-_Ball_%26_Chain_%26_Ice_Cream.jpg"
+      }
+    },
+    "baysunset.jpg": {
+      "alt": "The sun going down behind cloud over the flat water of Biscayne Bay",
+      "credit": {
+        "subject": "Sunset over Biscayne Bay",
+        "author": "Rodolfo L. Hernandez",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:SUNSET_AT_BISCAYNE_BAY,_MIAMI,_FLORIDA._-_panoramio.jpg"
+      }
+    },
+    "biscayne.jpg": {
+      "alt": "Two grey angelfish swimming past soft corals on a Biscayne reef",
+      "credit": {
+        "subject": "Grey angelfish on a Biscayne reef",
+        "author": "National Park Service",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Biscayne_National_Park_H-two_gray_angels_on_reef.jpg"
+      }
+    },
+    "lighthouse.jpg": {
+      "alt": "Looking up the spiral iron staircase inside the Cape Florida lighthouse",
+      "credit": {
+        "subject": "Inside the Cape Florida Lighthouse",
+        "author": "Tamanoeconomico",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Cape_Florida_Lighthouse_(7).jpg"
+      }
+    },
+    "abyss.jpg": {
+      "alt": "A diver swimming above the bronze Christ of the Abyss statue in blue water",
+      "credit": {
+        "subject": "Christ of the Abyss, Key Largo",
+        "author": "Sebastian Carlosena",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Christ_of_the_Abyss,_Key_Largo,_FL_-_panoramio.jpg"
+      }
+    },
+    "domino.jpg": {
+      "alt": "Men playing dominoes under a tiled pavilion at Domino Park on Calle Ocho",
+      "credit": {
+        "subject": "Domino Park, Little Havana",
+        "author": "Phillip Pessar",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Domino_Park_Little_Havana,_Miami_FL,_Feb_2024.jpg"
+      }
+    },
+    "wynwood.jpg": {
+      "alt": "A warehouse painted in bold black and white stripes under a blue sky in Wynwood",
+      "credit": {
+        "subject": "Wynwood mural",
+        "author": "Phillip Pessar",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Wynwood_Mural_(16811746490).jpg"
+      }
+    },
+    "vizcaya.jpg": {
+      "alt": "The curved seawall and stone barge in front of Vizcaya on Biscayne Bay",
+      "credit": {
+        "subject": "Vizcaya Museum and Gardens",
+        "author": "Leslie Platt",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Vizcaya_Museum_and_Gardens_,_Miami_060524_DSC6655.jpg"
+      }
+    },
+    "everglades.jpg": {
+      "alt": "A paved path beside a waterway lined with sawgrass at Shark Valley",
+      "credit": {
+        "subject": "Shark Valley Loop Road",
+        "author": "Daderot",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Shark_Valley_Loop_Road_-_Shark_Valley_-_Everglades_National_Park_-_DSC09507.jpg"
+      }
+    }
+  }
+}

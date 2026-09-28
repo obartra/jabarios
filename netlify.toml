@@ -20,11 +20,6 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Trip photos are content-stable.
-[[headers]]
-  for = "/*/img/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
 
 # The old single-trip site lived at the root. Keep those links alive.
 [[redirects]]

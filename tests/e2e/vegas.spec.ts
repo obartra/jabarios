@@ -10,7 +10,9 @@ test.describe('Vegas page', () => {
     await expect(cards).toHaveCount(22);
 
     for (const card of await cards.all()) {
-      await expect(card.locator('img')).toHaveAttribute('src', /^\/vegas\/img\//);
+      // Optimised at build: a WebP source with a phone-sized option, not the original.
+      await expect(card.locator('img')).toHaveAttribute('src', /^\/_astro\//);
+      await expect(card.locator('source[type="image/webp"]')).toHaveAttribute('srcset', / 480w/);
       await expect(card.locator('h3')).not.toBeEmpty();
       await expect(card.locator('.price')).not.toBeEmpty();
       await expect(card.locator('.dur')).not.toBeEmpty();

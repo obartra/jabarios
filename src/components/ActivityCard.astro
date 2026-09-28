@@ -1,5 +1,7 @@
 ---
+import { Picture } from 'astro:assets';
 import type { Activity } from '../data/activities.ts';
+import { photo, WIDTHS } from '../lib/photos.ts';
 
 interface Props {
   activity: Activity;
@@ -13,13 +15,14 @@ const free = /^free/i.test(activity.price);
 
 <article class="card rev">
   <div class:list={['shot', activity.aspect]}>
-    <img
-      src={activity.photo}
+    <Picture
+      src={photo(activity.trip, activity.photo)}
       alt={activity.photoAlt}
+      formats={['webp']}
+      widths={WIDTHS}
+      sizes="(max-width: 760px) calc(100vw - 32px), 420px"
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
-      width={activity.aspect === 'portrait' ? 1480 : 1600}
-      height={activity.aspect === 'portrait' ? 1850 : 1067}
     />
   </div>
 

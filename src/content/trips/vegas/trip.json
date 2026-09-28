@@ -1,0 +1,219 @@
+{
+  "name": "Las Vegas",
+  "countries": 1,
+  "lede": "Four of us, whenever we get to it, and a long list of things we could do: skydiving, a tank, the Grand Canyon from the air, and the desert on the days the Strip wears thin. No dates yet, and none of it is booked.",
+  "blurb": "Four of us, dates still open. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.",
+  "description": "Four of us in Vegas, dates still open. Skydiving, tanks, the Grand Canyon by helicopter, odd museums and the desert. Ideas, not a plan.",
+  "places": ["The Strip", "Boulder City", "Grand Canyon West"],
+  "notes": ["Nothing booked"],
+  "cover": "strip.jpg",
+  "photos": {
+    "skydive.jpg": {
+      "alt": "A skydiver in freefall against a blue sky, arms spread",
+      "credit": {
+        "subject": "Tandem skydive",
+        "author": "Rstpch",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Skydiver_Balancing_in_Freestyle_Freefall_Pose.jpg"
+      }
+    },
+    "tank.jpg": {
+      "alt": "M113 armoured personnel carriers lined up in desert scrub",
+      "credit": {
+        "subject": "M113 armoured personnel carriers",
+        "author": "Tech. Sgt. H. H. Deffner",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Egyptian_M113_APCs_during_Operation_Desert_Shield.JPEG"
+      }
+    },
+    "helicopter.jpg": {
+      "alt": "The Grand Canyon seen from the air, buttes and side canyons in low sun",
+      "credit": {
+        "subject": "Grand Canyon from the air",
+        "author": "Unknown",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_Aerial_Kwagunt_Butte,_Malgosa_Crest,_Nankoweap_Mesa.jpg"
+      }
+    },
+    "o.avif": {
+      "alt": "Two performers in mirrored black and white face paint, reflected in the water in “O”",
+      "credit": {
+        "subject": "\"O\"",
+        "author": "Cirque du Soleil",
+        "licence": "© Cirque du Soleil",
+        "url": "https://www.cirquedusoleil.com/o"
+      }
+    },
+    "mystere.avif": {
+      "alt": "Two aerialists intertwined in mid-air against a black stage in Mystère",
+      "credit": {
+        "subject": "Mystère",
+        "author": "Cirque du Soleil",
+        "licence": "© Cirque du Soleil",
+        "url": "https://www.cirquedusoleil.com/mystere"
+      }
+    },
+    "ka.avif": {
+      "alt": "Costumed performers carrying banners across the stage in KÀ",
+      "credit": {
+        "subject": "KÀ",
+        "author": "Cirque du Soleil",
+        "licence": "© Cirque du Soleil",
+        "url": "https://www.cirquedusoleil.com/ka"
+      }
+    },
+    "one.avif": {
+      "alt": "Dancers in bright costumes under purple stage light in Michael Jackson ONE",
+      "credit": {
+        "subject": "Michael Jackson ONE",
+        "author": "Cirque du Soleil",
+        "licence": "© Cirque du Soleil",
+        "url": "https://www.cirquedusoleil.com/michael-jackson-one"
+      }
+    },
+    "mad-apple.avif": {
+      "alt": "A performer holding a handstand on a pedestal in front of a neon New York set in Mad Apple",
+      "credit": {
+        "subject": "Mad Apple",
+        "author": "Cirque du Soleil",
+        "licence": "© Cirque du Soleil",
+        "url": "https://www.cirquedusoleil.com/mad-apple"
+      }
+    },
+    "flamingo.jpg": {
+      "alt": "The Flamingo Las Vegas hotel and its sign reflected in water",
+      "credit": {
+        "subject": "Flamingo Las Vegas",
+        "author": "Julian Lupyan",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Reflection_of_the_Flamingo_Hotel_in_front_of_the_Bellagio.jpg"
+      }
+    },
+    "club.jpg": {
+      "alt": "A performer in an elaborate costume and moustache at a pride parade",
+      "credit": {
+        "subject": "Drag performer, Brighton Pride",
+        "author": "vic_burton",
+        "licence": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:A_Freddie_Mercury,_Brighton_Pride_2013_(9431918112).jpg"
+      }
+    },
+    "sphere.jpg": {
+      "alt": "The Sphere in daylight, its curved LED exterior above the Strip",
+      "credit": {
+        "subject": "Sphere",
+        "author": "Y2kcrazyjoker4",
+        "licence": "CC BY 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sphere-exosphere-in-daytime-on-Jan-27-2024.jpg"
+      }
+    },
+    "neon.jpg": {
+      "alt": "Old neon casino signs standing in the Neon Museum boneyard at dusk",
+      "credit": {
+        "subject": "The Neon Museum",
+        "author": "Jeremy Thompson from Los Angeles, California",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Neon_Museum_(35729213455).jpg"
+      }
+    },
+    "atomic.jpg": {
+      "alt": "A nuclear test mushroom cloud rising over the desert",
+      "credit": {
+        "subject": "Nuclear test, Nevada",
+        "author": "National Museum of the U.S. Navy",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:330-PS-3256_(A_6320AC)_(17185012927).jpg"
+      }
+    },
+    "pinball.jpg": {
+      "alt": "The illuminated backglass artwork of a vintage pinball machine",
+      "credit": {
+        "subject": "Pinball backglass",
+        "author": "Polylerus",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Striker_pinball_backglass_-Glen_Burnie_MD.jpg"
+      }
+    },
+    "mob.jpg": {
+      "alt": "A display of confiscated weapons in a case at the Mob Museum",
+      "credit": {
+        "subject": "The Mob Museum",
+        "author": "Alberto-g-rovi",
+        "licence": "CC BY 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Mob_Museum_-2022_(14).jpg"
+      }
+    },
+    "omega.jpg": {
+      "alt": "The brightly lit surreal interior of the Omega Mart installation",
+      "credit": {
+        "subject": "Omega Mart",
+        "author": "Yelderberry",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Omega_Mart_2026-05-14_1.jpg"
+      }
+    },
+    "valleyfire.jpg": {
+      "alt": "Red sandstone formations in Valley of Fire State Park",
+      "credit": {
+        "subject": "Valley of Fire",
+        "author": "Clément Bardot",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Valley_of_fire_State_Park.jpg"
+      }
+    },
+    "redrock.jpg": {
+      "alt": "Layered red and cream cliffs at Red Rock Canyon",
+      "credit": {
+        "subject": "Red Rock Canyon",
+        "author": "Hermann Luyken",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:2012.09.09.102454_Scenic_drive_Red_Rock_Canyon_Nevada.jpg"
+      }
+    },
+    "hoover.jpg": {
+      "alt": "Hoover Dam and Black Canyon seen from above",
+      "credit": {
+        "subject": "Hoover Dam",
+        "author": "Christian David",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Hoover_Dam_and_Black_Canyon_seen_from_the_Mike_O%27Callaghan%E2%80%93Pat_Tillman_Memorial_Bridge,_panorama,_Arizona%E2%80%93Nevada.jpg"
+      }
+    },
+    "deathvalley.jpg": {
+      "alt": "Salt flats at Badwater Basin in Death Valley",
+      "credit": {
+        "subject": "Badwater Basin, Death Valley",
+        "author": "Christian David",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Salt_pool_at_Badwater_Basin,_Death_Valley_National_Park,_California.jpg"
+      }
+    },
+    "conservatory.jpg": {
+      "alt": "A decorated Christmas tree in the Bellagio Conservatory",
+      "credit": {
+        "subject": "Bellagio Conservatory",
+        "author": "Jim G from Silicon Valley, CA, USA",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Botanical_Gardens,_Bellagio_Hotel_and_Casino,_Las_Vegas,_Nevada,_USA_(27169648603).jpg"
+      }
+    },
+    "fremont.jpg": {
+      "alt": "The Fremont Street Experience canopy lit up over the crowd",
+      "credit": {
+        "subject": "Fremont Street",
+        "author": "Jean-Christophe BENOIST",
+        "licence": "CC BY 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:LasVegas-FremontStreet.jpg"
+      }
+    },
+    "strip.jpg": {
+      "alt": "The Las Vegas Strip at night from the air, lit along its whole length",
+      "credit": {
+        "subject": "Las Vegas Strip at night",
+        "author": "Carol M. Highsmith",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Night_aerial_view,_Las_Vegas,_Nevada,_04649u.jpg"
+      }
+    }
+  }
+}

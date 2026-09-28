@@ -5,8 +5,12 @@ runtime. Netlify builds and deploys every push to `main`.
 
 ```
 src/
-  data/trips.ts          one entry per trip, Zod-validated at build time
-  data/activities.ts     things to do, per trip, with price, duration and credit
+  content/trips/<slug>/  one folder per trip:
+    trip.json            metadata, the cover, and every photo's alt text and credit
+    activities.json      optional: the cards, grouped into categories
+    img/                 the photos, resized and re-encoded at build
+  data/trips.ts          loads and validates the trip folders
+  data/activities.ts     loads and validates the cards
   data/date-night.json   snapshot of the shared Google Doc, written by the sync
   lib/trips.ts           pure date/status logic, shared by build and browser
   layouts/BaseLayout     <head>, fonts, canonical and social tags
@@ -15,10 +19,10 @@ src/
     index.astro          homepage, generated from the trip data
     404.astro
     _template/           starter trip page, not routed
-    <slug>/index.astro   one per trip; the slugs come from data/trips.ts
+    <slug>/index.astro   one per trip; the slugs come from content/trips
   scripts/               browser code (reveal, homepage filter and countdown)
   styles/global.css      design tokens and the base layer
-public/                  favicon and per-trip photos, served as-is
+public/                  the favicon
 scripts/
   new-trip.mjs           scaffolds a trip
   check-dist.mjs         post-build checks, run as part of `npm run build`
@@ -33,9 +37,9 @@ tests/e2e/               Playwright, desktop and mobile
 node scripts/new-trip.mjs vegas "Las Vegas" 2026-12-18 2026-12-27
 ```
 
-That writes the entry in `src/data/trips.ts`, the page at
-`src/pages/vegas/index.astro`, and `public/vegas/img/`. Fill in the TODOs in
-the data entry, drop a cover photo in with its credit, and write the page.
+That writes `src/content/trips/vegas/trip.json`, an empty `img/` folder, and the
+page at `src/pages/vegas/index.astro`. Add `img/cover.jpg`, fill in its alt text
+and credit and the other TODOs in `trip.json`, and write the page.
 
 Everything else follows from the data entry and needs no edit: the homepage
 card, the status pill, the day count, the country and days-away totals, the
@@ -90,8 +94,8 @@ real 404 status on an unknown path.
 
 **Lighthouse** (`lighthouserc.cjs`) runs mobile Lighthouse once on every built
 page. Accessibility has to be 100, best practices 95 and SEO 95 (except the two
-pages that are `noindex` on purpose). Performance has a floor of 60 because a
-single run is noisy; raise it as the photos get lighter.
+pages that are `noindex` on purpose). Performance has a floor of 80, a margin
+below today's 85–100, because a single run is noisy.
 
 ## Activities
 
@@ -123,10 +127,12 @@ inside `data-verbatim`. To sync by hand: `node scripts/sync-doc.mjs`.
 ## Photos
 
 Mostly Wikimedia Commons, under Creative Commons or public domain terms, in
-`public/<slug>/img/`. The `licence` field is free text rather than CC-only,
-because not every usable photo is Creative Commons, but it is never blank:
-swapping in a photo means updating its credit to say where it came from and on
-what terms. The cover credit sits on the trip; activity photo credits
-sit on the activity and are folded into the trip's list automatically, so a
-photo cannot arrive without attribution. The build fails if a trip bundles more
-photos than it credits, or if a declared credit never renders.
+`src/content/trips/<slug>/img/`. Each one is described once, in `trip.json`'s
+`photos`, with its alt text and credit; cards, covers and page sections refer to
+it by file name. The `licence` field is free text rather than CC-only, but never
+blank.
+
+Originals can be any size. At build, Astro resizes each one to 480, 800, 1200
+and 1600px WebP, and pages ask for the size the screen needs, so a phone never
+downloads the original. `scripts/check-dist.mjs` fails the build if a photo has
+no registry entry, an entry has no photo, or a credit never renders.

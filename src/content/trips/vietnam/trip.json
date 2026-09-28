@@ -1,0 +1,86 @@
+{
+  "name": "Hanoi",
+  "start": "2026-10-13",
+  "end": "2026-10-15",
+  "countries": 1,
+  "lede": "Two and a half days in Hanoi with Os’s parents, at the end of their fortnight in Vietnam, before the two of us fly on to Bangkok. Old Quarter on foot, the lake, egg coffee, water puppets, and nothing that needs a day trip.",
+  "blurb": "Two and a half days in the Old Quarter with Os’s parents, then Bangkok together. The lake, egg coffee, water puppets and a street food walk.",
+  "description": "Hanoi, 13 to 15 October 2026, with Os’s parents before Thailand. The Old Quarter on foot, the Temple of Literature, water puppets and street food.",
+  "places": ["Old Quarter", "Hoan Kiem", "West Lake"],
+  "notes": ["2 nights", "With Os’s parents"],
+  "cover": "tranquoc.jpg",
+  "photos": {
+    "huc.jpg": {
+      "alt": "The red Huc bridge to Ngoc Son Temple lit up at night among trees",
+      "credit": {
+        "subject": "The Huc bridge, Hoan Kiem Lake",
+        "author": "Jorge Láscar",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Lascar_The_Huc_Bridge_-_Hoan_Kiem_Lake_(4550416275).jpg"
+      }
+    },
+    "eggcoffee.jpg": {
+      "alt": "Two cups of foamy egg coffee in bowls of hot water on a marble table",
+      "credit": {
+        "subject": "Egg coffee",
+        "author": "David McKelvey",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Egg_Coffee_(6923068614).jpg"
+      }
+    },
+    "puppets.jpg": {
+      "alt": "The Thang Long Water Puppet Theatre on a busy corner with scooters passing",
+      "credit": {
+        "subject": "Thang Long Water Puppet Theatre",
+        "author": "CEphoto, Uwe Aranas",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Hanoi_Vietnam_Thang-Long-Water-Puppet-Theatre-01.jpg"
+      }
+    },
+    "chaca.jpg": {
+      "alt": "A clay pot of chả cá, fish with dill and spring onion, over a flame with noodles and herbs",
+      "credit": {
+        "subject": "Chả cá, Hanoi",
+        "author": "avlxyz",
+        "licence": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:ChaCaLaVongHanoi-vnd120000pp_-_k850i.jpg"
+      }
+    },
+    "longbien.jpg": {
+      "alt": "The rusty iron trusses of Long Biên bridge with a train crossing",
+      "credit": {
+        "subject": "Long Biên bridge",
+        "author": "Quangpraha",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Long-bien-bridge-3371615.jpg"
+      }
+    },
+    "literature.jpg": {
+      "alt": "The triple-arched main gate of the Temple of Literature behind a courtyard",
+      "credit": {
+        "subject": "Temple of Literature, main gate",
+        "author": "Daderot",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Main_gate_-_Temple_of_Literature,_Hanoi_-_DSC04519.JPG"
+      }
+    },
+    "trainstreet.jpg": {
+      "alt": "Railway tracks running between narrow houses and café fronts on Train Street",
+      "credit": {
+        "subject": "Hanoi Train Street",
+        "author": "Radek Kucharski",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Hanoi_Train_Street_(51955804948).jpg"
+      }
+    },
+    "tranquoc.jpg": {
+      "alt": "The red tower of Trấn Quốc Pagoda beside a pond on the edge of West Lake",
+      "credit": {
+        "subject": "Trấn Quốc Pagoda",
+        "author": "Jakub Hałun",
+        "licence": "CC BY 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Tran_Quoc_Pagoda,_Hanoi,_Vietnam,_20240123_1212_3307.jpg"
+      }
+    }
+  }
+}

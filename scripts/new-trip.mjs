@@ -33,48 +33,40 @@ for (const [label, value] of [
 }
 
 const pageDir = join(ROOT, 'src', 'pages', slug);
-const imgDir = join(ROOT, 'public', slug, 'img');
-const dataFile = join(ROOT, 'src', 'data', 'trips.ts');
+const tripDir = join(ROOT, 'src', 'content', 'trips', slug);
 
-if (existsSync(pageDir)) {
-  console.error(`✗ src/pages/${slug}/ already exists. Pick another slug or edit that page.`);
+if (existsSync(pageDir) || existsSync(tripDir)) {
+  console.error(`✗ a trip called "${slug}" already exists. Pick another slug or edit that one.`);
   process.exit(1);
 }
 
-const data = readFileSync(dataFile, 'utf8');
-if (data.includes(`slug: '${slug}'`)) {
-  console.error(`✗ a trip with slug "${slug}" is already in src/data/trips.ts.`);
-  process.exit(1);
-}
-
-const MARKER = '  // <new-trip> scripts/new-trip.mjs inserts above this line.';
-if (!data.includes(MARKER)) {
-  console.error(`✗ could not find the insertion marker in src/data/trips.ts.`);
-  process.exit(1);
-}
-
-const entry = `  {
-    slug: '${slug}',
-    name: ${JSON.stringify(name)},
-    start: '${start}',
-    end: '${end}',
-    countries: 1,
-    lede: 'TODO: the hero line on the trip page.',
-    blurb: 'TODO: two sentences for the homepage card.',
-    description: 'TODO: meta description, at most 160 characters.',
-    places: ['TODO'],
-    notes: [],
-    cover: '/${slug}/img/TODO.jpg',
-    coverAlt: 'TODO: describe the cover photo.',
-    credits: [],
+mkdirSync(join(tripDir, 'img'), { recursive: true });
+const trip = {
+  name,
+  start,
+  end,
+  countries: 1,
+  lede: 'TODO: the hero line on the trip page.',
+  blurb: 'TODO: two sentences for the homepage card.',
+  description: 'TODO: meta description, at most 160 characters.',
+  places: ['TODO'],
+  notes: [],
+  cover: 'cover.jpg',
+  photos: {
+    'cover.jpg': {
+      alt: 'TODO: describe the cover photo.',
+      credit: {
+        subject: 'TODO',
+        author: 'TODO',
+        licence: 'TODO',
+        url: 'https://commons.wikimedia.org/wiki/File:TODO',
+      },
+    },
   },
-`;
-
-writeFileSync(dataFile, data.replace(MARKER, entry + MARKER));
+};
+writeFileSync(join(tripDir, 'trip.json'), JSON.stringify(trip, null, 2) + '\n');
 
 mkdirSync(pageDir, { recursive: true });
-mkdirSync(imgDir, { recursive: true });
-
 const template = readFileSync(join(ROOT, 'src', 'pages', '_template', 'index.astro'), 'utf8')
   .replaceAll('__SLUG__', slug)
   .replaceAll('__NAME__', name);
@@ -82,9 +74,9 @@ writeFileSync(join(pageDir, 'index.astro'), template);
 
 console.log(`✓ scaffolded "${name}"
 
-  src/pages/${slug}/index.astro   the page
-  public/${slug}/img/             put photos here
-  src/data/trips.ts               entry added, fill in the TODOs
+  src/content/trips/${slug}/trip.json   metadata and the photo registry, fill in the TODOs
+  src/content/trips/${slug}/img/        photos go here, starting with cover.jpg
+  src/pages/${slug}/index.astro         the page
 
-Next: replace the TODOs, add a cover photo with its credit, then run
+Next: add img/cover.jpg with its credit, replace the TODOs, then run
   npm run verify`);

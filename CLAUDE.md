@@ -5,8 +5,9 @@ structure, the commands, and what CI checks.
 
 ## Working here
 
-**Trip metadata lives in `src/data/trips.ts` and nowhere else.** Dates, names,
-blurbs, places and photo credits all come from there. The homepage card, the
+**Trip metadata lives in `src/content/trips/<slug>/trip.json` and nowhere
+else.** Dates, names, blurbs, places, and every photo's alt text and credit
+come from there. The homepage card, the
 day counts, the countdown, the page title and the social tags are derived. If
 you find yourself typing a date into a page, stop: derive it instead, or the
 two will disagree eventually.
@@ -15,10 +16,10 @@ two will disagree eventually.
 <slug> "<Name>" <start> <end>` gets the chrome, meta tags and nav right.
 Copying a page carries over the previous trip's canonical and og tags.
 
-**Always add the trip to `src/data/trips.ts` so it appears on the homepage.**
+**Every trip folder appears on the homepage.**
 A trip page nobody can navigate to is a trip page nobody reads. The homepage
-card, and therefore the only route to the page, is generated from that entry;
-the scaffolder adds it for you, and `scripts/check-dist.mjs` fails the build
+card, and therefore the only route to the page, is generated from the trip
+folder; the scaffolder creates it for you, and `scripts/check-dist.mjs` fails the build
 both ways, for a trip with no card and for a card with no trip. Never link a
 trip only from another trip page.
 

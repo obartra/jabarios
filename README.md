@@ -101,7 +101,8 @@ order and the short labels the sticky nav uses.
 in Google Docs, so the list can grow from a phone without a commit.
 `.github/workflows/sync-doc.yml` runs `scripts/sync-doc.mjs` every 15 minutes.
 When the doc changed, it commits the new snapshot to the `sync/date-night`
-branch, opens a PR, starts CI on it, and turns on auto-merge, so the edit lands
+branch, opens a PR, approves the CI run GitHub holds on bot-opened PRs, and
+turns on auto-merge, so the edit lands
 on `main` (and Netlify deploys it) once the required checks pass. Every sync
 leaves a PR behind as a record. The build never touches the network.
 

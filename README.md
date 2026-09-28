@@ -62,6 +62,7 @@ npm run verify     # everything CI runs, in the same order
 npm run build      # astro build, then the post-build checks
 npm test           # unit tests
 npm run test:e2e   # Playwright, against the real build
+npm run lighthouse # Lighthouse on every built page, with score floors
 ```
 
 ## What is checked
@@ -86,6 +87,11 @@ from `CLAUDE.md`.
 on scroll, the filter and its empty state, the live countdown, the back link,
 no horizontal scroll, no failing requests including lazy-loaded photos, and a
 real 404 status on an unknown path.
+
+**Lighthouse** (`lighthouserc.cjs`) runs mobile Lighthouse once on every built
+page. Accessibility has to be 100, best practices 95 and SEO 95 (except the two
+pages that are `noindex` on purpose). Performance has a floor of 60 because a
+single run is noisy; raise it as the photos get lighter.
 
 ## Activities
 

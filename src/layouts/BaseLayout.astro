@@ -1,4 +1,14 @@
 ---
+// Fonts are served from our own origin rather than Google: the extra DNS
+// lookup and the render-blocking stylesheet cost about 2.5 s on a phone.
+import '@fontsource-variable/bricolage-grotesque/opsz.css';
+import '@fontsource-variable/instrument-sans/wght.css';
+import '@fontsource-variable/instrument-sans/wght-italic.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/ibm-plex-mono/600.css';
+import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2?url';
+import bodyFont from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 
 interface Props {
@@ -49,12 +59,8 @@ const imageUrl = new URL(image, site).href;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content={themeColor} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
 
     {/* Set before paint so .rev never flashes; see global.css. */}
     <script is:inline>

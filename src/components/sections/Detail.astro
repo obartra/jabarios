@@ -1,0 +1,102 @@
+---
+import type { Section } from '../../data/pages.ts';
+
+/**
+ * The practical half of an option: labelled rows (getting there, where to
+ * stay, the catch) and a rough shape of the days. Follows the option's cards.
+ */
+interface Props {
+  section: Extract<Section, { type: 'detail' }>;
+}
+
+const { section } = Astro.props;
+---
+
+<section class="detail">
+  <div class="wrap">
+    <dl class="rows">
+      {
+        section.rows.map((row) => (
+          <>
+            <dt>{row.label}</dt>
+            <dd>{row.text}</dd>
+          </>
+        ))
+      }
+    </dl>
+    {
+      section.days.length > 0 && (
+        <>
+          <h3>{section.daysTitle}</h3>
+          <ul class="days">
+            {section.days.map((day) => (
+              <li>{day}</li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .detail {
+    padding: 8px 0 56px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .rows {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 14px 22px;
+    margin: 0;
+    max-width: 900px;
+  }
+
+  .rows dt {
+    padding-top: 3px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+
+  .rows dd {
+    margin: 0;
+    max-width: 68ch;
+    opacity: 0.88;
+  }
+
+  .detail h3 {
+    margin: 30px 0 10px;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  .days {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 6px;
+    max-width: 72ch;
+    font-size: 15px;
+  }
+
+  .days li {
+    padding-left: 16px;
+    border-left: 2px solid var(--marigold);
+    opacity: 0.88;
+  }
+
+  @media (max-width: 760px) {
+    .rows {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .rows dd {
+      margin-bottom: 12px;
+    }
+  }
+</style>

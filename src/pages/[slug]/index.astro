@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import TripNav from '../../components/TripNav.astro';
+import TripHero from '../../components/TripHero.astro';
+import TripShape from '../../components/TripShape.astro';
+import ActivityGroups from '../../components/ActivityGroups.astro';
+import BookingOrder from '../../components/BookingOrder.astro';
+import Timeline from '../../components/sections/Timeline.astro';
+import Places from '../../components/sections/Places.astro';
+import Detail from '../../components/sections/Detail.astro';
+import Feature from '../../components/sections/Feature.astro';
+import { trips, type Trip } from '../../data/trips.ts';
+import { groupedFor } from '../../data/activities.ts';
+import { emphasis, pageFor, type Page } from '../../data/pages.ts';
+import { durationDays } from '../../lib/trips.ts';
+import { photo } from '../../lib/photos.ts';
+
+/**
+ * Every trip page that has a page.json. A trip folder with no page.json still
+ * needs its own src/pages/<slug>/index.astro; a static page of the same name
+ * takes precedence over this one.
+ */
+export function getStaticPaths() {
+  return trips
+    .filter((trip) => pageFor(trip.slug))
+    .map((trip) => ({ params: { slug: trip.slug }, props: { trip, page: pageFor(trip.slug)! } }));
+}
+
+interface Props {
+  trip: Trip;
+  page: Page;
+}
+
+const { trip, page } = Astro.props;
+const groups = groupedFor(trip.slug);
+const groupsFor = (ids?: string[]) =>
+  ids ? ids.map((id) => groups.find((g) => g.id === id)!).filter(Boolean) : groups;
+
+// The sticky nav follows the sections in page order.
+const nav = page.sections.flatMap((section) => {
+  if (section.type === 'activities') {
+    return groupsFor(section.categories).map((g) => ({ href: `#${g.id}`, label: g.short }));
+  }
+  if ('nav' in section && section.nav) return [{ href: `#${section.id}`, label: section.nav }];
+  return [];
+});
+
+const nights = trip.dates ? String(durationDays(trip.dates) - 1) : '';
+const note =
+  `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
+  emphasis(page.footer.replaceAll('{nights}', nights));
+---
+
+<BaseLayout
+  title={trip.title}
+  description={trip.description}
+  path={trip.href}
+  image={photo(trip.slug, trip.cover)}
+  ogType="article"
+>
+  <TripHero trip={trip} maxWidth={page.headlineWidth}>
+    <Fragment set:html={emphasis(page.headline)} />
+  </TripHero>
+
+  <TripNav sections={nav} />
+
+  {
+    page.sections.map((section) => {
+      switch (section.type) {
+        case 'shape':
+          return (
+            <TripShape
+              title={section.title}
+              paragraphs={section.paragraphs}
+              notes={section.notes}
+            />
+          );
+        case 'timeline':
+          return <Timeline section={section} />;
+        case 'places':
+          return <Places section={section} />;
+        case 'activities':
+          return (
+            <ActivityGroups groups={groupsFor(section.categories)} alternate={section.alternate} />
+          );
+        case 'detail':
+          return <Detail section={section} />;
+        case 'feature':
+          return <Feature trip={trip} section={section} />;
+        case 'booking':
+          return (
+            <BookingOrder
+              title={section.title}
+              intro={section.intro}
+              items={section.items}
+              caveat={section.caveat}
+            />
+          );
+      }
+    })
+  }
+
+  <SiteFooter credits={trip.credits} note={note} />
+</BaseLayout>

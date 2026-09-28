@@ -6,7 +6,7 @@
  *   node scripts/new-trip.mjs vegas "Las Vegas" 2026-12-18 2026-12-27
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -32,10 +32,9 @@ for (const [label, value] of [
   }
 }
 
-const pageDir = join(ROOT, 'src', 'pages', slug);
 const tripDir = join(ROOT, 'src', 'content', 'trips', slug);
 
-if (existsSync(pageDir) || existsSync(tripDir)) {
+if (existsSync(tripDir) || existsSync(join(ROOT, 'src', 'pages', slug))) {
   console.error(`✗ a trip called "${slug}" already exists. Pick another slug or edit that one.`);
   process.exit(1);
 }
@@ -66,17 +65,24 @@ const trip = {
 };
 writeFileSync(join(tripDir, 'trip.json'), JSON.stringify(trip, null, 2) + '\n');
 
-mkdirSync(pageDir, { recursive: true });
-const template = readFileSync(join(ROOT, 'src', 'pages', '_template', 'index.astro'), 'utf8')
-  .replaceAll('__SLUG__', slug)
-  .replaceAll('__NAME__', name);
-writeFileSync(join(pageDir, 'index.astro'), template);
+const page = {
+  headline: 'TODO: one line, with the key phrase in *asterisks*.',
+  footer: 'TODO: a line under the trip name. {nights} is filled in from the dates.',
+  sections: [
+    {
+      type: 'shape',
+      paragraphs: ['TODO: what the trip is, in two or three sentences.'],
+      notes: [{ lead: 'TODO: the constraint that shapes it.', rest: 'TODO: why.' }],
+    },
+  ],
+};
+writeFileSync(join(tripDir, 'page.json'), JSON.stringify(page, null, 2) + '\n');
 
 console.log(`✓ scaffolded "${name}"
 
   src/content/trips/${slug}/trip.json   metadata and the photo registry, fill in the TODOs
+  src/content/trips/${slug}/page.json   the page: headline, footer and sections
   src/content/trips/${slug}/img/        photos go here, starting with cover.jpg
-  src/pages/${slug}/index.astro         the page
 
 Next: add img/cover.jpg with its credit, replace the TODOs, then run
   npm run verify`);

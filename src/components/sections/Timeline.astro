@@ -1,0 +1,82 @@
+---
+import SectionHead from '../SectionHead.astro';
+import type { Section } from '../../data/pages.ts';
+
+/** A dated run of days: when on the left, what and why on the right. */
+interface Props {
+  section: Extract<Section, { type: 'timeline' }>;
+}
+
+const { section } = Astro.props;
+---
+
+<section id={section.id} class="timeline-section">
+  <div class="wrap">
+    <SectionHead title={section.title} note={section.note} />
+    <ol class="timeline">
+      {
+        section.items.map((step) => (
+          <li>
+            <span class="when">{step.when}</span>
+            <div>
+              <b>{step.what}</b>
+              <p>{step.detail}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .timeline-section {
+    padding: 54px 0 62px;
+  }
+
+  .timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2px;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .timeline li:last-child {
+    border-bottom: 1px solid rgba(26, 18, 13, 0.14);
+  }
+
+  .when {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding-top: 3px;
+    opacity: 0.72;
+  }
+
+  b {
+    display: block;
+    font-size: clamp(17px, 2vw, 20px);
+  }
+
+  p {
+    margin: 6px 0 0;
+    max-width: 62ch;
+    opacity: 0.84;
+  }
+
+  @media (max-width: 760px) {
+    .timeline li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

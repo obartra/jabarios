@@ -1,0 +1,97 @@
+{
+  "headline": "Two and a half days in *Hanoi*.",
+  "headlineWidth": "17ch",
+  "footer": "With Os’s parents, then Bangkok together.",
+  "sections": [
+    {
+      "type": "shape",
+      "paragraphs": [
+        "The end of Os’s fortnight in Vietnam with family, and the start of ours. Jabari arrives on the 13th, and for two and a half days it is the four of us in the Old Quarter.",
+        "No day trips, because there is no time for them. Everything below is walkable or a short ride, and nothing on this page is booked."
+      ],
+      "notes": [
+        {
+          "lead": "Four of us, so a gentle pace.",
+          "rest": "Mornings for the sights, afternoons slow, and the evenings for eating."
+        },
+        {
+          "lead": "Thursday ends at 15:30.",
+          "rest": "One car to Noi Bai for all four of us. The morning still has room for the Temple of Literature or a last coffee."
+        },
+        {
+          "lead": "Weekday Hanoi.",
+          "rest": "The walking street round the lake and the weekend night market both run Friday to Sunday, so they miss us."
+        },
+        {
+          "lead": "Warm, with showers.",
+          "rest": "Around 29°C by day and 22°C at night, short showers on some days, and sunset at about 17:30."
+        }
+      ]
+    },
+    {
+      "type": "places",
+      "id": "days",
+      "nav": "The days",
+      "title": "The days",
+      "note": "One rough shape, easy to ignore.",
+      "lists": [
+        {
+          "items": [
+            {
+              "name": "Jabari arrives",
+              "where": "Tue 13 Oct",
+              "detail": "The lake at dusk, egg coffee, and the 17:20 water puppets if everyone has the energy."
+            },
+            {
+              "name": "The full day",
+              "where": "Wed 14 Oct",
+              "detail": "West Lake or the Temple of Literature in the morning, a slow afternoon, Long Biên at sunset, and the street food walk at 17:00 or 18:30."
+            },
+            {
+              "name": "Out at 15:30",
+              "where": "Thu 15 Oct",
+              "detail": "A last morning in the Old Quarter, then the car to the airport. Os’s parents fly home to Barcelona, and the two of us fly to Bangkok."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activities"
+    },
+    {
+      "type": "places",
+      "id": "more",
+      "nav": "More",
+      "title": "If there is time",
+      "note": "Good, just not first.",
+      "lists": [
+        {
+          "items": [
+            {
+              "name": "Hoa Lo Prison",
+              "where": "50,000 VND · 15 minutes on foot",
+              "detail": "The colonial prison later known as the Hanoi Hilton. Sobering, and an hour or so is enough. The night tours only run on weekends."
+            },
+            {
+              "name": "Museum of Ethnology",
+              "where": "40,000 VND · 25 minutes by Grab",
+              "detail": "The best museum in the city, with full-size village houses outside that suit all ages. Half a day, closed Mondays."
+            },
+            {
+              "name": "A cooking class",
+              "where": "About $45 each",
+              "detail": "Rose Kitchen starts with a market visit and picks up in the Old Quarter. A good half-day for four."
+            },
+            {
+              "name": "GC Bar",
+              "where": "Old Quarter · weeknights from 17:00",
+              "detail": "Hanoi’s longest-running gay bar, relaxed on a weeknight, with a pool table."
+            }
+          ]
+        }
+      ],
+      "caveat": "Prices and hours were researched in September 2026, mostly from travel guides rather than official pages, so worth a check before relying on them."
+    }
+  ]
+}

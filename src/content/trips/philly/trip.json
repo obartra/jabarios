@@ -1,0 +1,32 @@
+{
+  "name": "Philadelphia",
+  "start": "2026-12-19",
+  "end": "2026-12-27",
+  "countries": 1,
+  "lede": "Christmas in West Philly at Jabari’s place, with Jabari’s mom. Eight nights, nothing scheduled in them, and a flight south on the 27th. The cards below are for the days that are not Christmas.",
+  "blurb": "Christmas week in West Philly at Jabari’s place, with Jabari’s mom. Eight nights with nothing in them, then a flight south on the 27th.",
+  "description": "Christmas 2026 in West Philly at Jabari’s, with Jabari’s mom. Eight nights, no schedule, and what stays open over the holiday.",
+  "places": ["West Philly", "Center City"],
+  "notes": ["8 nights", "Christmas Day"],
+  "cover": "magicgardens.jpg",
+  "photos": {
+    "bartrams.jpg": {
+      "alt": "The stone front of John Bartram’s 18th century house behind a path lined with flower beds",
+      "credit": {
+        "subject": "Bartram's Garden",
+        "author": "Muran.Fox",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Front_of_John_Bartram%27s_historic_stone_house_and_garden_in_Philadelphia,_PA.jpg"
+      }
+    },
+    "magicgardens.jpg": {
+      "alt": "A wall covered in mosaic made from bottles, mirrors, tiles and a bicycle wheel",
+      "credit": {
+        "subject": "Philadelphia's Magic Gardens",
+        "author": "Cassiopeia321",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Magic_Garden_in_Philadelphia.jpg"
+      }
+    }
+  }
+}

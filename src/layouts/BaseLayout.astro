@@ -10,14 +10,17 @@ import '@fontsource/ibm-plex-mono/600.css';
 import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2?url';
 import bodyFont from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import '../styles/global.css';
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
+import { photo } from '../lib/photos.ts';
 
 interface Props {
   title: string;
   description: string;
   /** Path of this page, e.g. "/thai/". Drives canonical and og:url. */
   path: string;
-  /** Absolute path under public/, e.g. "/thai/img/similan.jpg". */
-  image?: string;
+  /** Social card image, usually the trip's cover via photo(). */
+  image?: ImageMetadata;
   ogType?: 'website' | 'article';
   noindex?: boolean;
   themeColor?: string;
@@ -27,7 +30,7 @@ const {
   title,
   description,
   path,
-  image = '/thai/img/similan.jpg',
+  image = photo('thai', 'similan.jpg'),
   ogType = 'website',
   noindex = false,
   themeColor = '#E9DCC3',
@@ -35,7 +38,9 @@ const {
 
 const site = Astro.site ?? new URL('https://jabarios.com');
 const canonical = new URL(path, site).href;
-const imageUrl = new URL(image, site).href;
+// A 1200px JPEG: the size and format every social network accepts.
+const social = await getImage({ src: image, width: 1200, format: 'jpg' });
+const imageUrl = new URL(social.src, site).href;
 ---
 
 <!doctype html>

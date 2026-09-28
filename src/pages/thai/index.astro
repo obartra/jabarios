@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import { photo, WIDTHS } from '../../lib/photos.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import TripNav from '../../components/TripNav.astro';
@@ -23,7 +25,7 @@ const note =
   title={trip.title}
   description={trip.description}
   path={trip.href}
-  image={trip.cover}
+  image={photo(trip.slug, trip.cover)}
   ogType="article"
 >
   <!-- ============ HERO ============ -->
@@ -222,12 +224,14 @@ const note =
 
     <div class="wrap">
       <figure class="figure" style="margin-top:38px">
-        <img
-          width="1600"
-          height="1000"
-          src="img/watarun.jpg"
+        <Picture
+          src={photo('thai', 'watarun.jpg')}
           alt="Wat Arun lit gold above the Chao Phraya river at dusk"
+          formats={['webp']}
+          widths={WIDTHS}
+          sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
           loading="lazy"
+          decoding="async"
         />
         <figcaption>Wat Arun from the Chao Phraya · photo miketnorton, CC BY 2.0</figcaption>
       </figure>
@@ -553,32 +557,38 @@ const note =
       </p>
 
       <figure class="figure" style="margin-top:30px">
-        <img
-          width="1600"
-          height="1000"
-          src="img/palace.jpg"
+        <Picture
+          src={photo('thai', 'palace.jpg')}
           alt="Chofa finials on a Grand Palace roof against a hazy Bangkok sunrise"
+          formats={['webp']}
+          widths={WIDTHS}
+          sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
           loading="lazy"
+          decoding="async"
         />
         <figcaption>Grand Palace roofline · photo Bjørn Erik Pedersen, CC BY-SA 4.0</figcaption>
       </figure>
       <figure class="figure" style="margin-top:16px">
-        <img
-          width="1600"
-          height="1060"
-          src="img/amphawa.jpg"
+        <Picture
+          src={photo('thai', 'amphawa.jpg')}
           alt="Wooden shophouses and food boats along the canal at Amphawa floating market"
+          formats={['webp']}
+          widths={WIDTHS}
+          sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
           loading="lazy"
+          decoding="async"
         />
         <figcaption>Amphawa · photo Rangan Datta, CC BY-SA 4.0</figcaption>
       </figure>
       <figure class="figure" style="margin-top:16px">
-        <img
-          width="1600"
-          height="900"
-          src="img/ayutthaya.jpg"
+        <Picture
+          src={photo('thai', 'ayutthaya.jpg')}
           alt="Aerial view of the prangs and galleries of Wat Chaiwatthanaram in Ayutthaya"
+          formats={['webp']}
+          widths={WIDTHS}
+          sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
           loading="lazy"
+          decoding="async"
         />
         <figcaption>Wat Chaiwatthanaram, Ayutthaya · photo Average trinmo, CC BY-SA 4.0</figcaption>
       </figure>
@@ -684,12 +694,14 @@ const note =
           dawn merit-making at the temples on the morning of the flight south.
         </p>
         <figure class="figure" style="margin-top:22px">
-          <img
-            width="1600"
-            height="1060"
-            src="img/suthep.jpg"
+          <Picture
+            src={photo('thai', 'suthep.jpg')}
             alt="Golden chedi and umbrellas at Wat Phra That Doi Suthep above Chiang Mai"
+            formats={['webp']}
+            widths={WIDTHS}
+            sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
             loading="lazy"
+            decoding="async"
           />
           <figcaption>Wat Phra That Doi Suthep · photo Arts of Chet, CC BY-SA 4.0</figcaption>
         </figure>
@@ -714,12 +726,14 @@ const note =
       </p>
 
       <figure class="figure" style="margin-top:30px">
-        <img
-          width="2000"
-          height="840"
-          src="img/similan.jpg"
+        <Picture
+          src={photo('thai', 'similan.jpg')}
           alt="The bay at Similan island number eight seen from the Sail Rock viewpoint"
+          formats={['webp']}
+          widths={WIDTHS}
+          sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
           loading="lazy"
+          decoding="async"
         />
         <figcaption>
           Similan island 8 from Sail Rock · photo Mathias Krumbholz, CC BY-SA 3.0
@@ -815,12 +829,14 @@ const note =
       </div>
 
       <figure class="figure" style="margin-top:30px">
-        <img
-          width="1600"
-          height="1060"
-          src="img/richelieu.jpg"
+        <Picture
+          src={photo('thai', 'richelieu.jpg')}
           alt="Divers among schooling fish on the pinnacle at Richelieu Rock"
+          formats={['webp']}
+          widths={WIDTHS}
+          sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
           loading="lazy"
+          decoding="async"
         />
         <figcaption>Richelieu Rock · photo Mr.CMBurns, CC BY-SA 4.0</figcaption>
       </figure>
@@ -894,12 +910,14 @@ const note =
           </div>
         </div>
         <figure class="figure" style="margin-top:22px">
-          <img
-            width="1600"
-            height="1060"
-            src="img/khaolak.jpg"
+          <Picture
+            src={photo('thai', 'khaolak.jpg')}
             alt="Empty sand and casuarina trees on the beach at Khao Lak"
+            formats={['webp']}
+            widths={WIDTHS}
+            sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
             loading="lazy"
+            decoding="async"
           />
           <figcaption>Khao Lak · photo Vyacheslav Argenberg, CC BY 4.0</figcaption>
         </figure>

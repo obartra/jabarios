@@ -1,0 +1,158 @@
+{
+  "name": "Kona",
+  "start": "2026-12-06",
+  "end": "2026-12-13",
+  "countries": 1,
+  "lede": "A week on the dry side of the Big Island. Mantas under the boat lights on Tuesday, Jabari’s first dive on Wednesday, and Mauna Kea on Thursday, in a new-moon week, with dinner at 9,000 ft and a telescope after dark. The rest of the week is ours to fill, or not.",
+  "blurb": "Seven nights on the Kona coast. Mantas at night, Jabari’s first dive, and sunset at the summit of Mauna Kea before a telescope under a new moon.",
+  "description": "A week in Kona in December 2026. The manta night dive, a first scuba dive, and Mauna Kea under a new moon with a telescope. The days and the order.",
+  "places": ["Kailua-Kona", "Keauhou", "Mauna Kea", "Volcanoes"],
+  "notes": ["7 nights", "New moon"],
+  "cover": "manta.jpg",
+  "photos": {
+    "manta.jpg": {
+      "alt": "A manta ray gliding over a sandy reef floor beside a scuba diver",
+      "credit": {
+        "subject": "Manta ray off Kona",
+        "author": "Steve Dunleavy",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Female_scuba_diver_swims_with_a_young_male_Manta_ray_-_Kona_district,_Hawaii.jpg"
+      }
+    },
+    "scuba.jpg": {
+      "alt": "A scuba diver swimming over a wide coral reef in clear blue Hawaiian water",
+      "credit": {
+        "subject": "Diver over a Hawaiian reef",
+        "author": "National Marine Sanctuaries",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:HIHWNMS_-_Shannon_Lyday_Photographing_(27878885162).jpg"
+      }
+    },
+    "kahaluu.jpg": {
+      "alt": "Two snorkellers swimming above a green sea turtle over coral in Kahalu‘u Bay",
+      "credit": {
+        "subject": "Snorkellers with a sea turtle, Kahalu‘u Bay",
+        "author": "Vlad & Marina Butsky",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Snorkelers_with_sea_turtle_(Kahaluu_Bay).jpg"
+      }
+    },
+    "mokuaikaua.jpg": {
+      "alt": "Kailua-Kona from the air at sunset, the white church steeple beside the curve of the bay",
+      "credit": {
+        "subject": "Kailua-Kona and Mokuʻaikaua Church",
+        "author": "Johnkolander",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Mokuaikaua_Church_under_Pele%27s_sky.jpg"
+      }
+    },
+    "hulihee.jpg": {
+      "alt": "The two-storey veranda of Huliheʻe Palace behind a lawn and palms",
+      "credit": {
+        "subject": "Huliheʻe Palace",
+        "author": "Calbear22",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Backside_of_the_Hulihee_Palace.JPG"
+      }
+    },
+    "pier.jpg": {
+      "alt": "The thatched Ahuʻena Heiau on a stone platform in the water beside Kailua Pier",
+      "credit": {
+        "subject": "Kamakahonu and Ahuʻena Heiau",
+        "author": "Eric Marshall",
+        "licence": "CC BY 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Kamakahonu_Kailua_Pier_-_panoramio.jpg"
+      }
+    },
+    "sunset.jpg": {
+      "alt": "The sun setting into a flat sea off Kailua-Kona under a band of cloud",
+      "credit": {
+        "subject": "Sunset off Kailua-Kona",
+        "author": "Maplemoths",
+        "licence": "CC BY 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Kailua_Kona_Sunset.jpg"
+      }
+    },
+    "shaveice.jpg": {
+      "alt": "A shave ice stand with a row of bright syrup bottles on the counter",
+      "credit": {
+        "subject": "Shave ice stand",
+        "author": "Kim",
+        "licence": "CC BY-SA 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Fumi%27s_Shave_Ice_(3848642715).jpg"
+      }
+    },
+    "magicsands.jpg": {
+      "alt": "Waves washing onto a small sand beach framed by black lava rock and palms",
+      "credit": {
+        "subject": "Laʻaloa Bay Beach Park",
+        "author": "W Nowicki",
+        "licence": "CC BY 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:La%27aloa_Bay_Beach_Park.jpg"
+      }
+    },
+    "kaloko.jpg": {
+      "alt": "Lava shoreline at Kaloko-Honokōhau under a low evening sky",
+      "credit": {
+        "subject": "Kaloko-Honokōhau National Historical Park",
+        "author": "Thomas Tunsch",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Kaloko-Honok%C5%8Dhau_National_Historical_Park_-_panoramio.jpg"
+      }
+    },
+    "honaunau.jpg": {
+      "alt": "Carved wooden kiʻi and a thatched temple on the lava point at Puʻuhonua o Hōnaunau",
+      "credit": {
+        "subject": "Puʻuhonua o Hōnaunau",
+        "author": "Carol M. Highsmith",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Pu%CA%BBuhonua_o_H%C5%8Dnaunau.jpg"
+      }
+    },
+    "twostep.jpg": {
+      "alt": "Clear blue water over dark lava rock at Hōnaunau Bay under a bright sky",
+      "credit": {
+        "subject": "Hōnaunau Bay",
+        "author": "Robert Linsdell",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Honaunau_Bay,_Captain_Cook_(504601)_(23770997900).jpg"
+      }
+    },
+    "coffee.jpg": {
+      "alt": "Red and green coffee cherries along the branches of a Kona coffee tree",
+      "credit": {
+        "subject": "Kona coffee cherries",
+        "author": "Ekrem Canli",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Kona_Coffee_fruits(2).jpg"
+      }
+    },
+    "volcano.jpg": {
+      "alt": "Orange lava glow rising from a crater at night",
+      "credit": {
+        "subject": "Glow from lava within Halemaʻumaʻu",
+        "author": "National Park Service",
+        "licence": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Glow_from_lava_within_Halema%CA%BBuma%CA%BBu_(9b2a2aaf-08a6-4b78-9486-38936ffb3432).JPG"
+      }
+    },
+    "punaluu.jpg": {
+      "alt": "Green sea turtles resting in a row on the black sand at Punalu‘u",
+      "credit": {
+        "subject": "Green sea turtles at Punalu‘u",
+        "author": "Wmpearl",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Green_sea_turtles_on_Punaluu_Black_Sand_Beach.JPG"
+      }
+    },
+    "maunakea.jpg": {
+      "credit": {
+        "subject": "The Milky Way over Maunakea",
+        "author": "NOIRLab/AURA/NSF",
+        "licence": "CC BY 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Milky_Way_and_Jupiter_over_Maunakea_(02102014-040-Keck-and-Subaru-Observing-Runs-CC2).jpg"
+      },
+      "alt": "The Milky Way arching over the dark summit ridge of Mauna Kea"
+    }
+  }
+}

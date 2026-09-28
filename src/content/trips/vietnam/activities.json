@@ -1,0 +1,137 @@
+{
+  "categories": [
+    {
+      "id": "lake",
+      "label": "Round the lake, on foot",
+      "short": "On foot",
+      "note": "Everything here is within 20 minutes’ walk of Hoan Kiem Lake."
+    },
+    {
+      "id": "further",
+      "label": "A Grab ride away",
+      "short": "Further",
+      "note": "Ten to fifteen minutes by car, or a long walk."
+    }
+  ],
+  "items": [
+    {
+      "id": "hoan-kiem",
+      "name": "Hoan Kiem Lake and Ngoc Son",
+      "category": "lake",
+      "price": "50,000 VND for the temple",
+      "duration": "Half an hour, or any evening",
+      "blurb": "The lake the Old Quarter wraps around. The red Huc bridge crosses to Ngoc Son, a small temple on an island, and the whole thing is lit up after dark. A loop of the lake is the easy walk at either end of the day.",
+      "facts": [
+        "Temple open 7:00 to 19:00 on weekdays, cash only",
+        "The lake streets only close to traffic Friday to Sunday, so not for us",
+        "Fits in anywhere"
+      ],
+      "photo": "huc.jpg"
+    },
+    {
+      "id": "egg-coffee",
+      "name": "Egg coffee at Café Giảng",
+      "category": "lake",
+      "price": "About 35,000 VND",
+      "duration": "Twenty minutes",
+      "blurb": "Egg yolk whipped with condensed milk over strong coffee, served warm. It was invented here in 1946, down a narrow alley five minutes from the lake, and it tastes more like dessert than it sounds.",
+      "facts": [
+        "Open about 7:00 to 22:00",
+        "Upstairs seating is small and tight",
+        "Queues in the afternoon, calmer in the morning"
+      ],
+      "photo": "eggcoffee.jpg",
+      "link": "https://cafegiang.vn/about-us/"
+    },
+    {
+      "id": "puppets",
+      "name": "Water puppets",
+      "category": "lake",
+      "price": "100,000–200,000 VND",
+      "duration": "50 minutes",
+      "blurb": "A thousand-year-old form staged in a waist-deep pool, with a live band and no language needed. The Thang Long theatre is two minutes from the lake. The 17:20 show fits before dinner on the Tuesday or the Wednesday.",
+      "facts": [
+        "Shows at 15:00, 16:10, 17:20, 18:30 and 20:00",
+        "Front rows cost the most",
+        "Worth booking a day or two ahead",
+        "Not on Thursday: the airport car leaves at 15:30"
+      ],
+      "photo": "puppets.jpg",
+      "link": "https://nhahatmuaroithanglong.vn/en/ticket-book/"
+    },
+    {
+      "id": "street-food",
+      "name": "A street food walk",
+      "category": "lake",
+      "price": "$20 each",
+      "duration": "3 hours",
+      "blurb": "The easy way for four people to eat properly without guessing: a guide, a dozen small stops round the Old Quarter, and dishes like chả cá, fish turmeric-fried at the table with dill. Hanoi Street Food Tour runs it daily at 11:00, 17:00 and 18:30.",
+      "facts": [
+        "Pay on arrival",
+        "Book direct; the site warns about copycats using its name",
+        "Bia hoi on Tạ Hiện afterwards, early rather than late"
+      ],
+      "photo": "chaca.jpg",
+      "link": "https://www.hanoistreetfoodtour.com/"
+    },
+    {
+      "id": "long-bien",
+      "name": "Long Biên bridge at sunset",
+      "category": "lake",
+      "price": "Free",
+      "duration": "Half an hour",
+      "blurb": "The old iron bridge over the Red River, with a footpath along the side and trains rattling past on the middle track. Sunset is around 17:30 in mid-October, so 17:00 to 17:45 is the time.",
+      "facts": [
+        "About 20 minutes on foot from the lake",
+        "Narrow path beside scooters, with gaps in the deck",
+        "Short showers are common in October"
+      ],
+      "photo": "longbien.jpg"
+    },
+    {
+      "id": "literature",
+      "name": "The Temple of Literature",
+      "category": "further",
+      "price": "70,000 VND",
+      "duration": "An hour or two",
+      "blurb": "Vietnam’s first university, founded in 1070. Five walled courtyards, stone stelae on the backs of tortoises, and the quietest place in the city. The best single sight to share with Os’s parents, and it suits the Thursday morning before the airport.",
+      "facts": [
+        "Open daily 8:00 to 17:00, cash only",
+        "Covered shoulders and knees",
+        "A night programme may run on Wednesdays, not confirmed",
+        "About 10 minutes by Grab"
+      ],
+      "photo": "literature.jpg",
+      "link": "http://vanmieu.gov.vn/vi/tham-quan/"
+    },
+    {
+      "id": "train-street",
+      "name": "Train Street",
+      "category": "further",
+      "price": "Free, with a drink",
+      "duration": "An hour",
+      "blurb": "A lane so narrow the train passes within arm’s reach of front doors. Since 2025 nobody stands on the tracks: the way to see it is from one of the licensed cafés along them, with a drink, when a train is due.",
+      "facts": [
+        "Sections sometimes close without notice",
+        "The café knows the train times",
+        "The Lê Duẩn end is the easiest to get into",
+        "Optional: a letdown if it is shut that day"
+      ],
+      "photo": "trainstreet.jpg"
+    },
+    {
+      "id": "west-lake",
+      "name": "West Lake and Trấn Quốc",
+      "category": "further",
+      "price": "Free",
+      "duration": "An afternoon",
+      "blurb": "The oldest pagoda in the city on a spit of land in West Lake, with a red tower and lakeside cafés all round it. A slow afternoon rather than a sight.",
+      "facts": [
+        "No shorts or tank tops in the pagoda",
+        "Hours are roughly 8:00 to 16:00, not confirmed",
+        "About 15 minutes by Grab"
+      ],
+      "photo": "tranquoc.jpg"
+    }
+  ]
+}

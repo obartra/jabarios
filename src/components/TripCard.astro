@@ -1,5 +1,7 @@
 ---
+import { Picture } from 'astro:assets';
 import type { Trip } from '../data/trips.ts';
+import { photo, WIDTHS } from '../lib/photos.ts';
 import { durationDays, STATUS_LABEL, statusOf, type TripStatus } from '../lib/trips.ts';
 
 interface Props {
@@ -29,13 +31,15 @@ const chips = [...trip.places, ...trip.notes];
   data-status={status}
 >
   <div class="shot">
-    <img
-      src={trip.cover}
+    <Picture
+      src={photo(trip.slug, trip.cover)}
       alt={trip.coverAlt}
+      formats={['webp']}
+      widths={WIDTHS}
+      sizes="(max-width: 820px) calc(100vw - 32px), 600px"
       loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : 'auto'}
       decoding="async"
-      width="1600"
-      height="1067"
     />
   </div>
 

@@ -1,0 +1,241 @@
+{
+  "categories": [
+    {
+      "id": "water",
+      "label": "In the water",
+      "short": "Water",
+      "note": "The boats leave from Honokōhau, about 4 mi north of the house. None of them pick up."
+    },
+    {
+      "id": "town",
+      "label": "On foot from the house",
+      "short": "Town",
+      "note": "Downhill to the bay in about 20 minutes, and the Kona Trolley runs the length of Aliʻi Drive."
+    },
+    {
+      "id": "car",
+      "label": "The car day",
+      "short": "Car day",
+      "note": "Saturday only. Everything here is south of town, and Volcanoes is the far end of it."
+    }
+  ],
+  "items": [
+    {
+      "id": "manta",
+      "name": "The manta night dive",
+      "category": "water",
+      "price": "$220 diving · $165 snorkelling",
+      "duration": "About 5 hours, from late afternoon",
+      "blurb": "The most reliable manta encounter anywhere. Divers kneel on sand at about 10 m with lights pointed up, snorkellers float above holding a lit board, and the mantas come in for the plankton the light pulls in, barrel-rolling inches away. Manta Ray Dives of Hawaii puts a diver and a snorkeller on the same boat in one booking. Kona Diving Company does the same for $230 and $160, with 10% off if a morning trip is booked too.",
+      "facts": [
+        "Honokōhau Harbor, about 4 mi away, no pickup",
+        "Start time follows sunset and arrives by email",
+        "Full refund up to 48 hours before",
+        "Back around 21:00, so the ride home is worth booking ahead"
+      ],
+      "photo": "manta.jpg",
+      "link": "https://www.mantaraydiveshawaii.com/manta-ray-snorkel-and-dive"
+    },
+    {
+      "id": "discover-scuba",
+      "name": "Jabari’s first dive",
+      "category": "water",
+      "price": "$329–350",
+      "duration": "A morning, about 8:00 to 13:00",
+      "blurb": "Discover Scuba: no certification, a briefing on the boat, then two reef dives with an instructor alongside. Kona Diving Company publishes its limit, 40 ft, and is the same shop as its manta trip. Big Island Divers runs it for $329 on its regular morning boat. Either way Os can dive the same boat as an ordinary diver.",
+      "facts": [
+        "PADI medical form first; any yes needs a doctor’s sign-off",
+        "Ages 10 and up",
+        "Back by about 13:00, a full day before Mauna Kea",
+        "Does not qualify for the manta dive, which needs certification"
+      ],
+      "photo": "scuba.jpg",
+      "link": "https://konadivingcompany.com/courses/discover-scuba-introductory-dive/"
+    },
+    {
+      "id": "kahaluu",
+      "name": "Kahalu‘u",
+      "category": "water",
+      "price": "Free",
+      "duration": "An hour or two",
+      "blurb": "The gentle one. A shallow bay behind an old breakwater, about 5 mi south on the trolley, where turtles graze in water shallow enough to stand in. The easiest shore snorkel on the coast.",
+      "facts": [
+        "Gates 7:00 to 19:00, lifeguards 9:30 to 16:30",
+        "Calmest early, busiest late morning",
+        "Turtles are protected: about 3 m back",
+        "Reef-safe sunscreen only"
+      ],
+      "photo": "kahaluu.jpg"
+    },
+    {
+      "id": "downtown",
+      "name": "Aliʻi Drive and the old town",
+      "category": "town",
+      "price": "Free",
+      "duration": "A morning, or an evening",
+      "blurb": "About a mile of seawall from the pier to the Royal Kona, with the old town along it. Mokuʻaikaua, from 1837 and the first Christian church in Hawaiʻi, sits opposite the palace. The farmers market is at the Hualālai Road end, and the Kaʻū Coffee Mill café does free tastings for anyone without a car to reach the farms.",
+      "facts": [
+        "Farmers market reportedly Wednesday to Sunday, 7:00 to 16:00",
+        "The church is free to walk into",
+        "The trolley runs hourly along the drive, 6:00 to 21:00"
+      ],
+      "photo": "mokuaikaua.jpg"
+    },
+    {
+      "id": "hulihee",
+      "name": "Huliheʻe Palace",
+      "category": "town",
+      "price": "$16, or $20 guided",
+      "duration": "An hour",
+      "blurb": "The royal summer house on the bay, built in 1838 and kept by the Daughters of Hawaiʻi. Small, and the lawn on the water side is the best seat on Aliʻi Drive.",
+      "facts": [
+        "Wednesday to Saturday, 10:00 to 15:00",
+        "Closed Sunday to Tuesday, so Wednesday, Friday or Saturday",
+        "Guided tour at 11:30"
+      ],
+      "photo": "hulihee.jpg",
+      "link": "https://daughtersofhawaii.org/hulihee-palace/"
+    },
+    {
+      "id": "kamakahonu",
+      "name": "Kamakahonu and the pier",
+      "category": "town",
+      "price": "Free",
+      "duration": "Half an hour, or a swim",
+      "blurb": "Where Kamehameha I spent his last years. The thatched Ahuʻena Heiau is rebuilt on the point, and beside it is the only calm little beach in town, sheltered by the pier.",
+      "facts": [
+        "The heiau is seen from outside, not entered",
+        "The beach is small and fills at weekends",
+        "Right at the bottom of the hill"
+      ],
+      "photo": "pier.jpg"
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset from the seawall",
+      "category": "town",
+      "price": "Free, beer extra",
+      "duration": "Around 17:40 in December",
+      "blurb": "The whole town faces west, so every evening ends the same way. Kona Brewing is at the bottom of the hill for after, and does a tour with four tasters.",
+      "facts": [
+        "Kona Brewing: Sunday to Thursday 11:00 to 20:00, to 21:00 on Friday and Saturday",
+        "Brewery tour $25, by appointment, 12:00 to 17:00",
+        "A lūʻau at the King Kamehameha runs about $190 each, and the seawall is free"
+      ],
+      "photo": "sunset.jpg",
+      "link": "https://konabrewinghawaii.com/locations/kona-pub"
+    },
+    {
+      "id": "shave-ice",
+      "name": "Shave ice and poke",
+      "category": "town",
+      "price": "Roughly $6–20",
+      "duration": "Whenever",
+      "blurb": "The two cheap things to eat here. Shave ice is snow-fine and soaked in syrup, nothing like a snow cone. Poke is raw fish from that morning, sold by the pound in supermarkets as much as in restaurants, which is where the good value is.",
+      "facts": [
+        "Supermarket poke counters are the cheap version",
+        "Shave ice with ice cream underneath is the local order",
+        "Prices here are rough, not checked"
+      ],
+      "photo": "shaveice.jpg"
+    },
+    {
+      "id": "magic-sands",
+      "name": "Magic Sands",
+      "category": "town",
+      "price": "Free",
+      "duration": "An afternoon",
+      "blurb": "Laʻaloa, about 4 mi south on the trolley. Named because the sand comes and goes: winter surf often strips it to rock, then it comes back. Worth a look before a swim.",
+      "facts": [
+        "Open 7:00 to 20:00",
+        "December surf can take the sand and bring a strong shore break",
+        "Bodyboarding when the sand is in"
+      ],
+      "photo": "magicsands.jpg"
+    },
+    {
+      "id": "kaloko",
+      "name": "Kaloko-Honokōhau",
+      "category": "town",
+      "price": "Free",
+      "duration": "An hour or two",
+      "blurb": "Old Hawaiian fishponds, petroglyphs and a quiet beach where turtles haul out, right next to the dive harbour. It fits into the afternoon before the manta boat.",
+      "facts": [
+        "Open daily, visitor centre 8:30 to 16:00",
+        "Shadeless lava paths, so early or late",
+        "Next to Honokōhau Harbor"
+      ],
+      "photo": "kaloko.jpg",
+      "link": "https://www.nps.gov/kaho/planyourvisit/hours.htm"
+    },
+    {
+      "id": "honaunau",
+      "name": "Puʻuhonua o Hōnaunau",
+      "category": "car",
+      "price": "$20 per car",
+      "duration": "An hour or two",
+      "blurb": "The place of refuge: a walled lava point where anyone who broke a kapu could be absolved if they reached it. Carved kiʻi, a rebuilt temple, and turtles on the rocks. About 22 mi south, and Two Step is next door.",
+      "facts": [
+        "Cards only at the gate",
+        "Easy to pair with Two Step and the coffee farms",
+        "On the road south towards Volcanoes"
+      ],
+      "photo": "honaunau.jpg",
+      "link": "https://www.nps.gov/puho/planyourvisit/fees.htm"
+    },
+    {
+      "id": "two-step",
+      "name": "Two Step",
+      "category": "car",
+      "price": "Free to swim",
+      "duration": "A morning or an afternoon",
+      "blurb": "The best shore snorkel on the coast. Two natural lava steps drop straight into clear water over coral, and spinner dolphins often rest in the bay. Next to the place of refuge.",
+      "facts": [
+        "No sand, just the two steps",
+        "Dolphins rest here by day, so watching rather than chasing",
+        "Parking fills by mid-morning"
+      ],
+      "photo": "twostep.jpg"
+    },
+    {
+      "id": "coffee",
+      "name": "Greenwell Farms",
+      "category": "car",
+      "price": "Free tour",
+      "duration": "Under an hour",
+      "blurb": "Kona coffee comes from this slope, and Greenwell in Kealakekua has been farming it since the 1850s. The walking tour is free and ends with a tasting. December is the end of the harvest, so the trees still have red cherries on them.",
+      "facts": ["Tours daily, 8:30 to 15:00", "On the way south to Hōnaunau", "Nothing to book"],
+      "photo": "coffee.jpg"
+    },
+    {
+      "id": "volcanoes",
+      "name": "Volcanoes National Park",
+      "category": "car",
+      "price": "$30 per car",
+      "duration": "About 2.5 hours each way",
+      "blurb": "The long option. Steam vents, a lava tube, and the rim of Kīlauea’s summit caldera. The summit has been erupting in short episodes since December 2024, a few hours of fountaining every couple of weeks, so lava on the day we go is luck.",
+      "facts": [
+        "Entry covers seven days, cards only",
+        "Around 1,200 m, noticeably cooler than the coast",
+        "Five hours of driving, so it is this or the south coast stops, not both",
+        "Hurricane Nolo closed the park briefly in September, worth checking in November"
+      ],
+      "photo": "volcano.jpg",
+      "link": "https://www.nps.gov/havo/planyourvisit/fees.htm"
+    },
+    {
+      "id": "punaluu",
+      "name": "Punalu‘u, and the green sand",
+      "category": "car",
+      "price": "Free",
+      "duration": "On the way to Volcanoes",
+      "blurb": "Black sand with green sea turtles asleep on it, about 1 hour 45 from Kona on the road to the park. Further south, Papakōlea is one of a handful of green sand beaches on earth, and a 4 km walk each way.",
+      "facts": [
+        "Turtles are protected: about 3 m back",
+        "Black sand gets very hot by midday",
+        "Taking sand from either beach is illegal"
+      ],
+      "photo": "punaluu.jpg"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 ---
+import { photo } from '../../lib/photos.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import TripNav from '../../components/TripNav.astro';
@@ -68,7 +69,7 @@ const note =
   title={trip.title}
   description={trip.description}
   path={trip.href}
-  image={trip.cover}
+  image={photo(trip.slug, trip.cover)}
   ogType="article"
 >
   <TripHero trip={trip}>April, probably, in the <em>desert</em>.</TripHero>

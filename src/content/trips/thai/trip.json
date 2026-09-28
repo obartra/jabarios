@@ -1,0 +1,86 @@
+{
+  "name": "Thailand",
+  "start": "2026-10-15",
+  "end": "2026-11-01",
+  "countries": 1,
+  "lede": "Five nights in Bangkok together, in from Hanoi, working nights and out from midday. Then Os heads north to Chiang Mai, and two days on the water out of Khao Lak before Manila.",
+  "blurb": "Five nights in Bangkok together, then Os north to Chiang Mai and two days on the water out of Khao Lak before Manila.",
+  "description": "Bangkok together, then Os on to Chiang Mai and the Similans. The days, the dives, and what to book first.",
+  "places": ["Bangkok", "Chiang Mai", "Khao Lak"],
+  "notes": ["4 dives"],
+  "cover": "similan.jpg",
+  "photos": {
+    "similan.jpg": {
+      "alt": "Granite boulders and turquoise shallows on Similan Island 8, seen from the ridge above the bay",
+      "credit": {
+        "subject": "Similan Island 8",
+        "author": "Mathias Krumbholz",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Similan_Island_01_(MK).jpg"
+      }
+    },
+    "watarun.jpg": {
+      "credit": {
+        "subject": "Wat Arun",
+        "author": "miketnorton",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Wat_Arun_Sunset.jpg"
+      },
+      "alt": "Wat Arun lit gold above the Chao Phraya river at dusk"
+    },
+    "palace.jpg": {
+      "credit": {
+        "subject": "Grand Palace roofline",
+        "author": "Bjørn Erik Pedersen",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:A_roof_of_a_building_at_the_Grand_Palace,_Bangkok,_sunrise,_2017.jpg"
+      },
+      "alt": "Chofa finials on a Grand Palace roof against a hazy Bangkok sunrise"
+    },
+    "amphawa.jpg": {
+      "credit": {
+        "subject": "Amphawa Floating Market",
+        "author": "Rangan Datta",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Amphawa_Floating_Market_16a.jpg"
+      },
+      "alt": "Wooden shophouses and food boats along the canal at Amphawa floating market"
+    },
+    "ayutthaya.jpg": {
+      "credit": {
+        "subject": "Wat Chaiwatthanaram",
+        "author": "Average trinmo",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Wat_Chaiwatthanaram_by_drone.jpg"
+      },
+      "alt": "Aerial view of the prangs and galleries of Wat Chaiwatthanaram in Ayutthaya"
+    },
+    "suthep.jpg": {
+      "credit": {
+        "subject": "Wat Phra That Doi Suthep",
+        "author": "Arts of Chet",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Wat_Phra_That_Doi_Suthep_in_Chiang_Mai_02.jpg"
+      },
+      "alt": "Golden chedi and umbrellas at Wat Phra That Doi Suthep above Chiang Mai"
+    },
+    "richelieu.jpg": {
+      "credit": {
+        "subject": "Richelieu Rock",
+        "author": "Mr.CMBurns",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Richelieu_Rock.jpg"
+      },
+      "alt": "Divers among schooling fish on the pinnacle at Richelieu Rock"
+    },
+    "khaolak.jpg": {
+      "credit": {
+        "subject": "Khao Lak Beach",
+        "author": "Vyacheslav Argenberg",
+        "licence": "CC BY 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Khao_Lak_Beach,_Thailand.jpg"
+      },
+      "alt": "Empty sand and casuarina trees on the beach at Khao Lak"
+    }
+  }
+}

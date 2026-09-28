@@ -1,0 +1,330 @@
+{
+  "categories": [
+    {
+      "id": "chile",
+      "label": "Chile: Valparaíso, then the Elqui Valley",
+      "short": "Chile",
+      "note": "The first choice. Dry and mild, and Os can fly there nonstop from Salvador."
+    },
+    {
+      "id": "colombia",
+      "label": "Colombia: Medellín, then the coffee region",
+      "short": "Colombia",
+      "note": "The cheapest of the three, one stop for each of us."
+    },
+    {
+      "id": "plata",
+      "label": "Buenos Aires, and across to Uruguay",
+      "short": "Buenos Aires",
+      "note": "The strongest city of the three, and the lightest on nature."
+    }
+  ],
+  "items": [
+    {
+      "id": "valparaiso",
+      "name": "Valparaíso’s hills",
+      "category": "chile",
+      "price": "Free to walk, lifts CLP 1,000",
+      "duration": "Two or three days",
+      "blurb": "A port stacked up forty-odd hills, painted end to end with murals, with Cerro Alegre and Cerro Concepción as the walkable middle of it. The free walking tour leaves Plaza Sotomayor at 10:00 and 15:00 and runs on tips, which is the easy way into the place on the first day.",
+      "facts": [
+        "Around 13–21°C and dry, with cool evenings",
+        "Cerro Alegre and Concepción are where to stay, about $50–90 a night",
+        "El Internado on Cerro Alegre is a relaxed mixed bar"
+      ],
+      "photo": "valparaiso.jpg",
+      "link": "https://tours4tips.com/"
+    },
+    {
+      "id": "ascensores",
+      "name": "The ascensores",
+      "category": "chile",
+      "price": "CLP 1,000 a ride",
+      "duration": "A few minutes each",
+      "blurb": "The old funicular lifts that haul people up the hills, some running since the 1880s. Seven were working in 2026, Reina Victoria and Concepción among them, 7:00 to 21:30. Riding a few of them is most of a morning well spent.",
+      "facts": [
+        "Locals pay CLP 200–300; visitors CLP 1,000",
+        "Lifts close for repairs without notice, so it is worth checking on the day"
+      ],
+      "photo": "ascensor.jpg"
+    },
+    {
+      "id": "sebastiana",
+      "name": "La Sebastiana, and the sea lions",
+      "category": "chile",
+      "price": "CLP 11,000",
+      "duration": "Half a day",
+      "blurb": "Neruda’s tall, odd house on Cerro Bellavista, built like a ship’s bridge over the bay, with an English audioguide. Down the coast at Caleta Portales, sea lions lie about next to the fish stalls, and a train or a bus along the shore to Viña del Mar costs under CLP 1,000.",
+      "facts": [
+        "Closed Mondays; Tuesday to Sunday 10:00–19:00 in summer",
+        "No booking, first come first served",
+        "Fried fish and seafood empanadas from the Portales stalls"
+      ],
+      "photo": "sebastiana.jpg",
+      "link": "https://fundacionneruda.org/informaciones/"
+    },
+    {
+      "id": "santiago",
+      "name": "Santiago",
+      "category": "chile",
+      "price": "Rentals about $45–90 a night",
+      "duration": "Two or three days",
+      "blurb": "Two hours inland by bus. The funicular up Cerro San Cristóbal for the whole city with the Andes behind it, the zoo on the way, La Vega Central for a market lunch, and Bellavista in the evening for dinner and a drag show. Teatro a Mil, a big theatre festival, runs 3 to 24 January.",
+      "facts": [
+        "Around 30°C and very dry",
+        "Funicular about CLP 2,250 return; the zoo CLP 4,000 and closed Mondays",
+        "Farinelli in Bellavista has drag from about 23:00, Tuesday to Sunday",
+        "Lastarria is the walkable place to stay"
+      ],
+      "photo": "sancristobal.jpg"
+    },
+    {
+      "id": "elqui",
+      "name": "The Elqui Valley",
+      "category": "chile",
+      "price": "Cabins about CLP 50,000–60,000 a night",
+      "duration": "About a week",
+      "blurb": "A dry green valley of vineyards and pisco villages under bare mountains, clear 92% of the time. Pisco Elqui is the prettiest place to stay, by the river; Vicuña is the working town where the observatory tours start. River walks, swimming spots, long lunches, and then the nights.",
+      "facts": [
+        "Around 25–30°C by day and 16°C at night",
+        "A one-hour flight from Santiago to La Serena, then about an hour’s bus up the valley",
+        "A car for 3 or 4 days opens up the upper valley, from about $30 a day"
+      ],
+      "photo": "elqui.jpg"
+    },
+    {
+      "id": "observatory",
+      "name": "Stargazing at Mamalluca",
+      "category": "chile",
+      "price": "CLP 15,000–18,000, about $16–19",
+      "duration": "1.5 to 2.5 hours",
+      "blurb": "Some of the clearest skies anywhere, which is why the big observatories are up here. Mamalluca, above Vicuña, runs public night tours with telescopes, including one in English. Sunset is around 20:50, so the stars start about 22:00.",
+      "facts": [
+        "Sells out in January, so booking online early matters",
+        "The new moon is 7 January and the full moon the 22nd, so the first week is darkest",
+        "Transport from Vicuña is extra; the observatory is about 9 km out"
+      ],
+      "photo": "observatory.jpg",
+      "link": "https://reservas.observatoriomamalluca.cl/"
+    },
+    {
+      "id": "pisco",
+      "name": "Pisco distilleries",
+      "category": "chile",
+      "price": "CLP 3,000–6,500",
+      "duration": "Half an hour to an hour",
+      "blurb": "Pisco comes from this valley. Los Nichos, from 1868, is the oldest distillery in Chile and still small; Pisco Mistral, in the middle of Pisco Elqui, is the polished version with tastings.",
+      "facts": [
+        "Los Nichos is about 3.5 km out, daily 10:00–18:00",
+        "Pisco Mistral tours at 12:00, 14:00 and 16:00"
+      ],
+      "photo": "piscoelqui.jpg",
+      "link": "https://fundolosnichos.cl/visitanos/"
+    },
+    {
+      "id": "penguins",
+      "name": "Humboldt penguins at Isla Damas",
+      "category": "chile",
+      "price": "About CLP 46,000, $48, all in",
+      "duration": "A full day from La Serena",
+      "blurb": "A boat out to the Humboldt Penguin reserve: penguins on the rocks, sea lions, otters, and often bottlenose dolphins alongside. About 3 hours on the water with an hour ashore.",
+      "facts": [
+        "Boat CLP 30,000, park fee CLP 7,400, bus CLP 4,500 each way",
+        "The reserve lands visitors Wednesday to Sunday only",
+        "Swell can cancel boats, so a spare day helps",
+        "No fuel on the Punta de Choros road, for anyone driving"
+      ],
+      "photo": "penguin.jpg",
+      "link": "https://turismopuntadechoros.cl/"
+    },
+    {
+      "id": "medellin",
+      "name": "Medellín and the Metrocable",
+      "category": "colombia",
+      "price": "Metro about COP 4,400, Arví line about COP 26,700",
+      "duration": "A day, or the week",
+      "blurb": "Spring weather all year in a valley city that climbs its hillsides by cable car. Laureles is the flat, walkable, residential part to stay in, with Carrera 70 for food. The Metrocable’s Line L runs on up to Parque Arví, pine and cloud forest at the top.",
+      "facts": [
+        "Around 25°C by day, 17°C at night, short afternoon showers on about half the days",
+        "Laureles apartments about $45–80 a night",
+        "Line L to Arví is closed every Tuesday",
+        "App taxis at night rather than street taxis"
+      ],
+      "photo": "medellin.jpg"
+    },
+    {
+      "id": "comuna13",
+      "name": "Comuna 13 with Casa Kolacho",
+      "category": "colombia",
+      "price": "About COP 30,000",
+      "duration": "3–4 hours",
+      "blurb": "The hillside neighbourhood that remade itself with murals and outdoor escalators. Casa Kolacho, the hip-hop collective that started the tours, has the artists guide it themselves, which is the respectful way to go.",
+      "facts": [
+        "Starts at San Javier metro",
+        "Buying food and drinks from the stalls is part of it",
+        "Asking before photographing people"
+      ],
+      "photo": "comuna13.jpg"
+    },
+    {
+      "id": "guatape",
+      "name": "Guatapé and El Peñol",
+      "category": "colombia",
+      "price": "About COP 60,000 each, bus and climb",
+      "duration": "A full day",
+      "blurb": "A granite dome rising out of a lake district two hours east of the city, with 702 steps to the top and the whole flooded valley below. Guatapé, the town beside it, is painted in bright friezes.",
+      "facts": [
+        "Buses every 30 minutes from Terminal Norte, about 2 hours",
+        "The climb is COP 35,000",
+        "Worth avoiding 9 to 11 January, the Reyes long weekend"
+      ],
+      "photo": "guatape.jpg"
+    },
+    {
+      "id": "cocora",
+      "name": "The Cocora valley",
+      "category": "colombia",
+      "price": "Farm entries about COP 30,000–50,000",
+      "duration": "5–6 hours",
+      "blurb": "Wax palms, the tallest palms on earth, standing in green hills above Salento. The loop is 12–15 km through forest and pasture, and it is best started early, when the mornings are clearest.",
+      "facts": [
+        "Willys jeeps from Salento’s plaza from about 6:30, COP 5,000 each way",
+        "Several private farms charge along the way, in cash",
+        "The last jeep back is around 18:30"
+      ],
+      "photo": "cocora.jpg",
+      "link": "https://www.cocoravalleycolombia.com/en"
+    },
+    {
+      "id": "acaime",
+      "name": "Hummingbirds at Acaime",
+      "category": "colombia",
+      "price": "About COP 20,000, with hot chocolate",
+      "duration": "An hour, on the Cocora loop",
+      "blurb": "A small reserve about an hour up the forest side of the Cocora loop, with feeders that draw dozens of hummingbirds at once. The entry includes a hot chocolate with cheese in it, the way it is served here.",
+      "facts": [
+        "On the loop, so it goes with the Cocora day",
+        "A dawn birding walk near Salento is the other way to see them"
+      ],
+      "photo": "hummingbirds.jpg",
+      "link": "https://www.valledelcocora.com.co/w/experiencia-reserva-natural-acaime/"
+    },
+    {
+      "id": "salento",
+      "name": "Salento and a coffee farm",
+      "category": "colombia",
+      "price": "Farm tours about COP 60,000",
+      "duration": "A morning",
+      "blurb": "The small town the coffee region runs through, painted in bright balconies. Finca El Ocaso, about an hour’s walk downhill, shows coffee from bush to cup with English tours at 9:00, 11:00, 13:00 and 16:00; Don Elías next door is the smaller family version.",
+      "facts": [
+        "Around 21°C by day and 13°C at night, with some showers",
+        "A finca a few kilometres out is quieter, with birds and stars, about $60–140 a night",
+        "Café Jesús Martín in town for the coffee itself"
+      ],
+      "photo": "salento.jpg",
+      "link": "https://web.fincaelocasosalento.com/coffee-tour-tradicional/"
+    },
+    {
+      "id": "filandia",
+      "name": "Filandia, and the hot springs",
+      "category": "colombia",
+      "price": "Lookout about COP 12,000, springs about COP 86,000",
+      "duration": "A day each",
+      "blurb": "Filandia is the quieter, prettier town nearby, with a lookout tower that is at its best at sunset. The Santa Rosa de Cabal hot springs, a waterfall-fed pool about 1.5–2 hours away, are a slow weekday.",
+      "facts": [
+        "Local jeeps run between the towns",
+        "The springs run booked 4-hour shifts at weekends, so a weekday is easier"
+      ],
+      "photo": "filandia.jpg",
+      "link": "https://termales.com.co/tarifas/"
+    },
+    {
+      "id": "buenos-aires",
+      "name": "Palermo and San Telmo",
+      "category": "plata",
+      "price": "Rentals about $40–110 a night",
+      "duration": "The base for 9 nights",
+      "blurb": "Palermo is the default: leafy, walkable, most of the food and the bars, and the parks of the Bosques close by. San Telmo is older, cobbled and cheaper, with the Sunday fair along Defensa from 10:00 and Pride Café, the city’s first openly gay café, on the corner.",
+      "facts": [
+        "About 28°C by day, often over 30, and about 7 rain days in January",
+        "The hottest hours, 14:00–17:00, are for being indoors",
+        "Paying by foreign card now gets close to the best rate; cash no longer pays"
+      ],
+      "photo": "santelmo.jpg"
+    },
+    {
+      "id": "recoleta",
+      "name": "Recoleta and El Ateneo",
+      "category": "plata",
+      "price": "Cemetery about $16, bookshop free",
+      "duration": "Half a day",
+      "blurb": "The Recoleta cemetery is a city of marble family tombs, Evita’s among them. El Ateneo Grand Splendid, a short walk away, is a 1919 theatre turned bookshop, with a café where the stage was.",
+      "facts": [
+        "Cemetery daily 9:00–17:00, about ARS 25,000 for visitors",
+        "El Ateneo open late, to midnight on Fridays and Saturdays",
+        "A good pair for the hot afternoon hours"
+      ],
+      "photo": "ateneo.jpg",
+      "link": "https://turismo.buenosaires.gob.ar/en/otros-establecimientos/el-ateneo-grand-splendid-bookstore"
+    },
+    {
+      "id": "costanera",
+      "name": "Reserva Ecológica Costanera Sur",
+      "category": "plata",
+      "price": "Free",
+      "duration": "A morning",
+      "blurb": "Wetland reclaimed from rubble on the river’s edge, right behind Puerto Madero’s towers: reed beds, herons, swans, coots and nutria, and paths out to the water. The nature half of a city week, a walk from the centre.",
+      "facts": [
+        "Tuesday to Sunday 8:00–19:00 in summer, closed Mondays",
+        "Closes on rainy or very windy days",
+        "No shade, so early is better"
+      ],
+      "photo": "costanera.jpg"
+    },
+    {
+      "id": "tigre",
+      "name": "The Tigre delta",
+      "category": "plata",
+      "price": "About $4 each, train and boat",
+      "duration": "A day",
+      "blurb": "A maze of brown rivers and islands north of the city, with houses on stilts, rowing clubs and a boat for every errand. The train from Retiro takes 50 minutes; the shared Interisleña boat does the rest.",
+      "facts": [
+        "Train about ARS 450, the boat ARS 5,000 return",
+        "Boat times shift with the tides and the day",
+        "The Puerto de Frutos market is busiest at weekends"
+      ],
+      "photo": "tigre.jpg",
+      "link": "https://www.buenosaires123.com.ar/paseos/tigre.html"
+    },
+    {
+      "id": "colonia",
+      "name": "Colonia del Sacramento",
+      "category": "plata",
+      "price": "Ferry about $35–65 each way",
+      "duration": "Two nights",
+      "blurb": "Across the river in about an hour: a small cobbled Portuguese town on a point, quiet once the day-trippers leave at five. Staying overnight is the version worth having.",
+      "facts": [
+        "Colonia Express is usually cheaper than Buquebus, which can pass $100 in January",
+        "Booking the ferry a month or two ahead",
+        "Old-town apartments about $65–125 a night"
+      ],
+      "photo": "colonia.jpg",
+      "link": "https://www.guruguay.com/ferry-buenos-aires-colonia/"
+    },
+    {
+      "id": "montevideo",
+      "name": "Montevideo",
+      "category": "plata",
+      "price": "Grill lunch about $40–60 for two",
+      "duration": "Three nights",
+      "blurb": "The calmer capital, a 2h45 bus from Colonia. A 22 km rambla along the water, best at sunset from the old town to Pocitos, and lunch at the grills of the Mercado del Puerto. Uruguay ranks among the easiest countries for LGBTQ travel.",
+      "facts": [
+        "Bus from Colonia about $14–16",
+        "Chains Pub is the friendly bar; the scene runs Wednesday to Sunday",
+        "A good place to fly home from"
+      ],
+      "photo": "mercado.jpg",
+      "link": "https://www.guruguay.com/gay-montevideo/"
+    }
+  ]
+}

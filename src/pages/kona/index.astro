@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import { photo, WIDTHS } from '../../lib/photos.ts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import TripNav from '../../components/TripNav.astro';
@@ -255,7 +257,7 @@ const note =
   title={trip.title}
   description={trip.description}
   path={trip.href}
-  image={trip.cover}
+  image={photo(trip.slug, trip.cover)}
   ogType="article"
 >
   <TripHero trip={trip} maxWidth="17ch">Mantas after dark, dinner at <em>9,000 ft</em>.</TripHero>
@@ -301,12 +303,14 @@ const note =
           </ol>
         </div>
         <figure>
-          <img
-            src="/kona/img/maunakea.jpg"
+          <Picture
+            src={photo('kona', 'maunakea.jpg')}
             alt="The Milky Way arching over the dark summit ridge of Mauna Kea"
+            formats={['webp']}
+            widths={WIDTHS}
+            sizes="(max-width: 1180px) calc(100vw - 32px), 1180px"
             loading="lazy"
-            width="1920"
-            height="1200"
+            decoding="async"
           />
           <figcaption>
             <span>What is up that week</span>

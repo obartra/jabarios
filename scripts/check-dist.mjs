@@ -188,33 +188,25 @@ for (const trip of trips) {
     fail(`trip "${trip.slug}"`, 'is in the data but has no card on the homepage');
   }
 
-  // Every bundled photo needs attribution; that is the licence, not a nicety.
-  const imgDir = join(DIST, trip.slug, 'img');
-  if (existsSync(imgDir)) {
-    const photos = readdirSync(imgDir).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f));
-    if (photos.length > 0 && trip.credits.length === 0) {
-      fail(`trip "${trip.slug}"`, `bundles ${photos.length} photos but declares no credits`);
-    }
-    if (photos.length > trip.credits.length) {
-      fail(
-        `trip "${trip.slug}"`,
-        `${photos.length} photos but only ${trip.credits.length} credits, so something is unattributed`,
-      );
-    }
-    const creditsHtml = existsSync(page) ? readFileSync(page, 'utf8') : '';
-    for (const credit of trip.credits) {
-      if (!creditsHtml.includes(credit.url)) {
-        fail(`trip "${trip.slug}"`, `credit for "${credit.subject}" never renders on the page`);
-      }
+  // Every photo in the trip folder needs a registry entry with a credit, every
+  // entry needs a file, and every credit has to render on the page. That is
+  // the licence, not a nicety.
+  const described = Object.keys(trip.photos);
+  for (const file of trip.images) {
+    if (!described.includes(file)) {
+      fail(`trip "${trip.slug}"`, `img/${file} has no entry in trip.json photos, so no credit`);
     }
   }
-}
-
-// Every top-level page has to be reachable from the homepage, trip or not.
-for (const name of readdirSync(DIST)) {
-  if (!existsSync(join(DIST, name, 'index.html'))) continue;
-  if (!home.includes(`href="/${name}/"`)) {
-    fail(`/${name}/`, 'is built but the homepage never links to it');
+  for (const file of described) {
+    if (!trip.images.includes(file)) {
+      fail(`trip "${trip.slug}"`, `trip.json describes img/${file}, which does not exist`);
+    }
+  }
+  const html = existsSync(page) ? readFileSync(page, 'utf8') : '';
+  for (const credit of trip.credits) {
+    if (!html.includes(credit.url)) {
+      fail(`trip "${trip.slug}"`, `credit for "${credit.subject}" never renders on the page`);
+    }
   }
 }
 

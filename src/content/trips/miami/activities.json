@@ -1,0 +1,224 @@
+{
+  "categories": [
+    {
+      "id": "walk",
+      "label": "On foot",
+      "short": "On foot",
+      "note": "South Beach is flat, and the free trolley runs every 20 minutes."
+    },
+    {
+      "id": "us",
+      "label": "Just us two",
+      "short": "Dates",
+      "note": "Date nights and date days, most of them a short ride from the beach."
+    },
+    {
+      "id": "water",
+      "label": "In the water",
+      "short": "Water",
+      "note": "Tuesday to Thursday are the dive days. Snorkelling has no flying limit."
+    },
+    {
+      "id": "mainland",
+      "label": "Across the causeway",
+      "short": "Mainland",
+      "note": "Each of these is a $15 to $25 ride from the beach."
+    }
+  ],
+  "items": [
+    {
+      "id": "art-deco",
+      "name": "The Art Deco walking tour",
+      "category": "walk",
+      "price": "About $40",
+      "duration": "About 2 hours, from 10:30",
+      "blurb": "The Miami Design Preservation League runs it daily from the welcome centre on Ocean Drive. The district is the largest collection of Art Deco buildings in the world, and the tour is how the pastel fronts turn into a story. The Wolfsonian, on Washington Avenue, is design and propaganda from the same decades.",
+      "facts": [
+        "Tickets are limited, so a day ahead",
+        "The Wolfsonian is free on Friday from 18:00 to 21:00",
+        "The Wolfsonian and the Bass are both closed Monday and Tuesday",
+        "Ocean Drive after dark is the neon version, for free"
+      ],
+      "photo": "oceandrive.jpg",
+      "link": "https://mdpl.org/tours/"
+    },
+    {
+      "id": "south-pointe",
+      "name": "South Pointe and the pier",
+      "category": "walk",
+      "price": "Free",
+      "duration": "An evening",
+      "blurb": "Fifteen minutes south along the beach. The pier runs out beside Government Cut, where the cruise ships leave at dusk close enough to wave at. Sunset is around 17:35 that week, and Smith & Wollensky’s outdoor bar is next door for a drink.",
+      "facts": [
+        "Lummus Park and the beach the whole way there",
+        "Lincoln Road and Española Way for the other direction",
+        "Sunrise just before 7:00, for anyone up for calls"
+      ],
+      "photo": "southpointe.jpg"
+    },
+    {
+      "id": "stone-crab",
+      "name": "Joe’s Stone Crab",
+      "category": "walk",
+      "price": "Market price, $25 pp no-show fee",
+      "duration": "Dinner, or the take-away counter",
+      "blurb": "Open since 1913 at the south end of the beach, and stone crab season runs through December. It takes reservations now, which it famously did not. Joe’s Take Away next door is the same claws at a counter with no wait. Puerto Sagua on Collins, a Cuban diner since 1962, is the everyday version.",
+      "facts": [
+        "Dinner nightly from 17:00",
+        "Lunch Wednesday to Sunday, 11:30 to 14:30",
+        "Walk-ins still wait, reservations on OpenTable"
+      ],
+      "photo": "stonecrab.jpg",
+      "link": "https://www.joesstonecrab.com/location/joes-stone-crab/"
+    },
+    {
+      "id": "ice-cream",
+      "name": "The Museum of Ice Cream",
+      "category": "us",
+      "price": "From $24",
+      "duration": "About 90 minutes",
+      "blurb": "Pink rooms, a sprinkle pool, and unlimited ice cream on the way round. Silly on purpose, and the right kind of silly for a date. Downtown, a short ride over the MacArthur Causeway.",
+      "facts": [
+        "Timed tickets online; the price moves with the date",
+        "Monday to Thursday 10:00 to 20:00, to 20:30 at weekends",
+        "Last entry 90 minutes before closing",
+        "About 15 to 20 minutes by rideshare"
+      ],
+      "photo": "icecream.jpg",
+      "link": "https://www.museumoficecream.com/miami/"
+    },
+    {
+      "id": "havana-night",
+      "name": "Little Havana after dark",
+      "category": "us",
+      "price": "Free entry, most nights",
+      "duration": "An evening",
+      "blurb": "Ball & Chain has played live Cuban music on Calle Ocho since 1935, all day and late into the night, and the dance floor is the point. Azucar next door does ice cream in Cuban flavours; the Abuela María is the one to order. Cubaocho, a few doors down, is a free museum of Cuban art with a bar in it.",
+      "facts": [
+        "Free salsa lessons, reportedly Thursday at 21:00",
+        "Azucar is open to 23:00 Thursday to Saturday",
+        "Cubaocho is closed Mondays",
+        "About $20 to $25 by rideshare"
+      ],
+      "photo": "ballchain.jpg",
+      "link": "https://ballandchainmiami.com/"
+    },
+    {
+      "id": "bay-sunset",
+      "name": "Sunset on the bay side",
+      "category": "us",
+      "price": "Free, or $35 on the water",
+      "duration": "An evening",
+      "blurb": "South Beach faces the wrong way for sunset; the bay side does not. The Mondrian’s terrace on West Avenue looks straight across Biscayne Bay at the skyline as the sun goes down around 17:35. For a boat, the Island Queen leaves Bayside at 19:00, so it is a skyline cruise with the city lit up rather than a sunset one.",
+      "facts": [
+        "Island Queen: $35, 90 minutes, from Bayside",
+        "O Cinema, in the 1927 old City Hall on Washington Avenue, for after",
+        "Biscayne Paddle rents kayaks and boards at Sunset Harbour until 19:30"
+      ],
+      "photo": "baysunset.jpg",
+      "link": "https://islandqueencruises.com/cruises/sunset-cruise-tours/"
+    },
+    {
+      "id": "biscayne",
+      "name": "Biscayne National Park",
+      "category": "water",
+      "price": "$115 snorkel",
+      "duration": "3.5 hours",
+      "blurb": "Ninety-five percent of the national park is water, and the Institute’s boats leave from Coconut Grove to wrecks, patch reefs or mangroves depending on the day. The national park day that needs no car.",
+      "facts": [
+        "Dinner Key Marina, about $25 to $30 by rideshare",
+        "A 6-hour version with an island stop is $209",
+        "Sea around 77°F in December, so a thin wetsuit"
+      ],
+      "photo": "biscayne.jpg",
+      "link": "https://www.biscaynenationalparkinstitute.org/snorkeling/"
+    },
+    {
+      "id": "key-biscayne",
+      "name": "Key Biscayne: a dive, and the lighthouse",
+      "category": "water",
+      "price": "$105 two tanks · $119 snorkel",
+      "duration": "Half a day, or all of one",
+      "blurb": "The easiest real dive without a car. Diver’s Paradise runs two-tank reef trips and snorkel trips from Crandon Marina, half an hour away, and Bill Baggs park at the tip of the key has the 1825 Cape Florida lighthouse and a quiet beach for after.",
+      "facts": [
+        "Gear extra on the dive, included on the snorkel",
+        "Check in an hour before, 24-hour cancellation",
+        "Lighthouse tours Thursday to Monday, 10:00 and 13:00",
+        "About $25 to $35 each way by rideshare"
+      ],
+      "photo": "lighthouse.jpg",
+      "link": "https://diversparadise.miami/dive-snorkel-general-info/"
+    },
+    {
+      "id": "key-largo",
+      "name": "Key Largo and Christ of the Abyss",
+      "category": "water",
+      "price": "$99 two tanks · $60 snorkel",
+      "duration": "A full day, 75 to 90 minutes each way",
+      "blurb": "The best reef of the lot. A bronze Christ stands in 24 ft of water at Key Largo Dry Rocks, arms up towards the boats, and John Pennekamp was the first undersea park in the country. It only works with a car for the day.",
+      "facts": [
+        "Rainbow Reef prices; full dive gear $35 extra",
+        "The park’s own snorkel boat is $49.95, five departures a day",
+        "Better seen as a diver; snorkellers see it from the surface",
+        "No realistic bus, and a rideshare is $90 or more each way"
+      ],
+      "photo": "abyss.jpg",
+      "link": "https://www.rainbowreef.com/dive-prices-in-key-largo/"
+    },
+    {
+      "id": "little-havana",
+      "name": "Little Havana in the morning",
+      "category": "mainland",
+      "price": "Free, coffee about $2",
+      "duration": "A morning",
+      "blurb": "Calle Ocho in the morning: the old men at Domino Park and a cafecito from the ventanita window at Versailles. The evening version is its own card.",
+      "facts": [
+        "Domino Park is busiest in the morning",
+        "Versailles is open from 8:00 until late",
+        "About $20 to $25 by rideshare, 25 minutes"
+      ],
+      "photo": "domino.jpg"
+    },
+    {
+      "id": "wynwood",
+      "name": "Wynwood",
+      "category": "mainland",
+      "price": "About $12 for the Walls",
+      "duration": "An afternoon",
+      "blurb": "Warehouses painted end to end. The Wynwood Walls is the ticketed courtyard of big-name murals; the streets around it are the rest of the collection, free. The Design District is next door for public art and expensive shops.",
+      "facts": [
+        "Walls open 10:30 to 18:30, last entry 18:00",
+        "Sometimes closed for private events",
+        "About $15 to $20 by rideshare"
+      ],
+      "photo": "wynwood.jpg",
+      "link": "https://thewynwoodwalls.com/faqs/"
+    },
+    {
+      "id": "vizcaya",
+      "name": "Vizcaya",
+      "category": "mainland",
+      "price": "About $25",
+      "duration": "Two or three hours",
+      "blurb": "A 1916 Italian-style villa and gardens on Biscayne Bay, with a stone barge moored in front of it as a breakwater. Last year’s evening holiday event was on 17 December and sold out, so worth watching for this year’s date.",
+      "facts": ["Open 9:30 to 16:30", "Closed Tuesdays", "About $20 by rideshare"],
+      "photo": "vizcaya.jpg",
+      "link": "https://vizcaya.org/visit-2/planning-your-visit/"
+    },
+    {
+      "id": "everglades",
+      "name": "The Everglades at Shark Valley",
+      "category": "mainland",
+      "price": "$34 tram · $20 park entry",
+      "duration": "Half a day, an hour each way",
+      "blurb": "A two-hour open-air tram along a 15-mile loop, with alligators on the verge and an observation tower at the far end. Dry season, which is when the animals gather near the water and the path.",
+      "facts": [
+        "Park entry is $20 each on foot, cards only",
+        "The December timetable may be thinner before the 20th",
+        "No transit, and weak signal for a ride back, so a return pickup is worth booking"
+      ],
+      "photo": "everglades.jpg",
+      "link": "https://www.sharkvalleytramtours.com/tram-tours/hours-and-rates-for-shark-valley-everglades-tram-tours/"
+    }
+  ]
+}

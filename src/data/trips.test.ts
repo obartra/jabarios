@@ -49,10 +49,20 @@ describe('trip data', () => {
     for (const trip of trips) expect(trip.description.length).toBeLessThanOrEqual(160);
   });
 
-  it('points cover images at an absolute path and describes them', () => {
+  it('uses a real, described photo as the cover', () => {
     for (const trip of trips) {
-      expect(trip.cover.startsWith('/')).toBe(true);
+      expect(trip.images, `${trip.slug} cover ${trip.cover}`).toContain(trip.cover);
       expect(trip.coverAlt.trim().length).toBeGreaterThan(0);
+    }
+  });
+
+  it('describes and credits every photo in each trip folder, and nothing else', () => {
+    for (const trip of trips) {
+      expect(Object.keys(trip.photos).sort(), trip.slug).toEqual([...trip.images].sort());
+      for (const [file, p] of Object.entries(trip.photos)) {
+        expect(p.alt.trim().length, `${trip.slug}/${file} alt`).toBeGreaterThan(10);
+        expect(p.credit.url, `${trip.slug}/${file} credit`).toMatch(/^https?:\/\//);
+      }
     }
   });
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { activitiesFor, categoriesFor, CATEGORIES, groupedFor } from './activities.ts';
-import { trips } from './trips.ts';
+import { tripBySlug, trips } from './trips.ts';
 
 /**
  * Every trip that has activities, so adding a trip extends the coverage rather
@@ -43,7 +43,7 @@ describe('activities', () => {
     '$slug: puts every photo under its own trip directory, with alt text',
     ({ slug, items }) => {
       for (const a of items) {
-        expect(a.photo.startsWith(`/${slug}/img/`), `"${a.id}" photo: ${a.photo}`).toBe(true);
+        expect(tripBySlug(slug).images, `"${a.id}" photo: ${a.photo}`).toContain(a.photo);
         expect(a.photoAlt.trim().length).toBeGreaterThan(10);
       }
     },

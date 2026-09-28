@@ -4,14 +4,8 @@
   "lede": "Four of us, whenever we get to it, and a long list of things we could do: skydiving, a tank, the Grand Canyon from the air, and the desert on the days the Strip wears thin. No dates yet, and none of it is booked.",
   "blurb": "Four of us, dates still open. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.",
   "description": "Four of us in Vegas, dates still open. Skydiving, tanks, the Grand Canyon by helicopter, odd museums and the desert. Ideas, not a plan.",
-  "places": [
-    "The Strip",
-    "Boulder City",
-    "Grand Canyon West"
-  ],
-  "notes": [
-    "Nothing booked"
-  ],
+  "places": ["The Strip", "Boulder City", "Grand Canyon West"],
+  "notes": ["Nothing booked"],
   "cover": "strip.jpg",
   "photos": {
     "skydive.jpg": {

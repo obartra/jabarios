@@ -4,15 +4,8 @@
   "lede": "Some time in April, tentatively, with Os possibly coming down from San Francisco first. Everything here is within two hours of Palm Springs: a cable car to 8,516 ft, a national park, a painted mountain, and a lot of time doing nothing by a pool. None of it is booked.",
   "blurb": "Some time in April, tentatively. Ideas rather than a plan: what things cost, how long they take, and no obligation to do any of them.",
   "description": "Palm Springs, tentatively in April. Joshua Tree, the tram up Chino Canyon, the Salton Sea and a lot of pool. Ideas, not a plan.",
-  "places": [
-    "Palm Springs",
-    "Joshua Tree",
-    "Pioneertown",
-    "The Salton Sea"
-  ],
-  "notes": [
-    "Nothing booked"
-  ],
+  "places": ["Palm Springs", "Joshua Tree", "Pioneertown", "The Salton Sea"],
+  "notes": ["Nothing booked"],
   "cover": "cover.jpg",
   "photos": {
     "tram.jpg": {

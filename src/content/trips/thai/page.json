@@ -143,10 +143,7 @@
               "tone": "night"
             }
           ],
-          "legend": [
-            "Bangkok is SF +14",
-            "Sun and Mon here are the SF weekend, so both are free"
-          ]
+          "legend": ["Bangkok is SF +14", "Sun and Mon here are the SF weekend, so both are free"]
         },
         {
           "kind": "figure",

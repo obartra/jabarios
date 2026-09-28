@@ -1,8 +1,9 @@
 name: sync date night doc
 
 # Pulls the shared Google Doc into src/data/date-night.json. When it changed,
-# the change goes through a PR like any other: CI runs on it, and it merges
-# itself once the required checks pass, which is what makes Netlify rebuild
+# the change goes through a PR like any other: CI runs on it (approved by this
+# job, since GitHub holds CI on bot-opened PRs), and it merges itself once the
+# required checks pass, which is what makes Netlify rebuild
 # /date-night/. Only real edits open a PR; an unchanged doc is a no-op run.
 on:
   schedule:
@@ -50,6 +51,28 @@ jobs:
               --title "Sync the date night doc" \
               --body "Automatic copy of the shared Google Doc. Merges itself once CI passes."
           fi
-          # PRs opened with GITHUB_TOKEN do not trigger CI, so start it here.
-          gh workflow run ci.yml --ref "$BRANCH"
-          gh pr merge "$BRANCH" --auto --squash --delete-branch
+          # A PR opened by the Actions bot gets its CI run held for a
+          # maintainer's approval, and only that run counts towards the
+          # required checks. Wait for it to appear, then approve it: the only
+          # change in this PR is the doc snapshot this job just wrote.
+          sha=$(git rev-parse HEAD)
+          run=""
+          for _ in $(seq 1 30); do
+            run=$(gh run list --workflow ci.yml --branch "$BRANCH" --event pull_request \
+              --json databaseId,headSha -q "[.[] | select(.headSha == \"$sha\")][0].databaseId")
+            [ -n "$run" ] && break
+            sleep 10
+          done
+          if [ -z "$run" ]; then
+            echo "::error::no CI run appeared for $sha"
+            exit 1
+          fi
+          # Approving a run that was not held fails harmlessly; a run still
+          # held afterwards is a real failure, so say so instead of hanging.
+          if ! gh api -X POST "repos/${{ github.repository }}/actions/runs/$run/approve"; then
+            if [ "$(gh run view "$run" --json conclusion -q .conclusion)" = action_required ]; then
+              echo "::error::could not approve CI run $run; the PR will not merge on its own"
+              exit 1
+            fi
+          fi
+          gh pr merge "$BRANCH" --auto --squash

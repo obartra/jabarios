@@ -245,20 +245,20 @@ const raw: unknown[] = [
   },
   {
     slug: 'vietnam',
-    name: 'Vietnam',
-    start: '2026-10-02',
+    name: 'Hanoi',
+    start: '2026-10-13',
     end: '2026-10-15',
     countries: 1,
-    lede: 'Os’s fortnight with family in Vietnam, Hanoi as the base and three trips out into the limestone. We meet in Hanoi on the 13th for two slow days with Os’s parents, then fly on to Bangkok together.',
+    lede: 'Two and a half days in Hanoi with Os’s parents, at the end of their fortnight in Vietnam, before the two of us fly on to Bangkok. Old Quarter on foot, the lake, egg coffee, water puppets, and nothing that needs a day trip.',
     blurb:
-      'Os’s fortnight with family out of Hanoi, then two slow days there together from the 13th before we fly on to Bangkok.',
+      'Two and a half days in the Old Quarter with Os’s parents, then Bangkok together. The lake, egg coffee, water puppets and a street food walk.',
     description:
-      'Vietnam in October 2026: Os with family out of Hanoi, then two days together in Hanoi before Thailand.',
-    places: ['Hanoi', 'Ninh Binh', 'Lan Ha Bay', 'Ha Giang'],
-    notes: ['13 nights', 'All booked'],
+      'Hanoi, 13 to 15 October 2026, with Os’s parents before Thailand. The Old Quarter on foot, the Temple of Literature, water puppets and street food.',
+    places: ['Old Quarter', 'Hoan Kiem', 'West Lake'],
+    notes: ['2 nights', 'With Os’s parents'],
     // Credited on the activity that uses it, so it is not repeated here.
-    cover: '/vietnam/img/lanha.jpg',
-    coverAlt: 'Two wooden junks with red sails among the limestone islands of Lan Ha Bay',
+    cover: '/vietnam/img/tranquoc.jpg',
+    coverAlt: 'The red tower of Trấn Quốc Pagoda beside a pond on the edge of West Lake',
     credits: [],
   },
   {

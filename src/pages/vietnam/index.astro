@@ -12,59 +12,85 @@ import { groupedFor } from '../../data/activities.ts';
 const trip = tripBySlug('vietnam');
 const groups = groupedFor('vietnam');
 
-/** The family's own site has the full day-by-day, in English and Catalan. */
-const FULL_PLAN = 'https://viatgevietnam.netlify.app/';
-
 const sections = [
   { href: '#days', label: 'The days' },
   ...groups.map((g) => ({ href: `#${g.id}`, label: g.short })),
-  { href: '#plan', label: 'Full plan' },
+  { href: '#more', label: 'More' },
 ];
 
 const paragraphs = [
-  'Os’s fortnight with family, with Hanoi as home base. Three trips out and back, and the big suitcases never leave the hotel.',
-  'Everything with a time on it is booked, cars and all. The days in Hanoi are deliberately empty.',
+  'The end of Os’s fortnight in Vietnam with family, and the start of ours. Jabari arrives on the 13th, and for two and a half days it is the four of us in the Old Quarter.',
+  'No day trips, because there is no time for them. Everything below is walkable or a short ride, and nothing on this page is booked.',
 ];
 
 const notes = [
   {
-    lead: 'We meet on the 13th.',
-    rest: 'Two easy days in Hanoi with Os’s parents and nothing planned, then the airport together on the 15th.',
+    lead: 'Four of us, so a gentle pace.',
+    rest: 'Mornings for the sights, afternoons slow, and the evenings for eating.',
   },
   {
-    lead: 'Then Thailand.',
-    rest: 'One car to Noi Bai for all four on the 15th. Os’s parents fly home to Barcelona, and the two of us fly to Bangkok.',
+    lead: 'Thursday ends at 15:30.',
+    rest: 'One car to Noi Bai for all four of us. The morning still has room for the Temple of Literature or a last coffee.',
   },
   {
-    lead: 'Ha Giang is the long bit.',
-    rest: 'Six hours each way by car, and the two drives are half of the trip’s travel time. The loop climbs a kilometre on the first day and stays up there.',
+    lead: 'Weekday Hanoi.',
+    rest: 'The walking street round the lake and the weekend night market both run Friday to Sunday, so they miss us.',
+  },
+  {
+    lead: 'Warm, with showers.',
+    rest: 'Around 29°C by day and 22°C at night, short showers on some days, and sunset at about 17:30.',
   },
 ];
 
 const days = [
   {
-    when: '2 to 3 Oct',
-    what: 'Hanoi',
-    detail: 'Land at 20:05 from Tokyo, and a free day to recover.',
+    when: 'Tue 13 Oct',
+    what: 'Jabari arrives',
+    detail: 'The lake at dusk, egg coffee, and the 17:20 water puppets if everyone has the energy.',
   },
   {
-    when: '4 to 5 Oct',
-    what: 'Ninh Binh',
-    detail: 'Trang An by boat, Hoa Lu, a night under the cliffs.',
+    when: 'Wed 14 Oct',
+    what: 'The full day',
+    detail:
+      'West Lake or the Temple of Literature in the morning, a slow afternoon, Long Biên at sunset, and the street food walk at 17:00 or 18:30.',
   },
-  { when: '5 to 6 Oct', what: 'Lan Ha Bay', detail: 'A night at anchor among the islands.' },
   {
-    when: '7 to 12 Oct',
-    what: 'Ha Giang',
-    detail: 'The loop to the border and back, five nights.',
+    when: 'Thu 15 Oct',
+    what: 'Out at 15:30',
+    detail:
+      'A last morning in the Old Quarter, then the car to the airport. Os’s parents fly home to Barcelona, and the two of us fly to Bangkok.',
   },
-  { when: '13 to 14 Oct', what: 'Hanoi, together', detail: 'Nothing scheduled.' },
-  { when: '15 Oct', what: 'Everyone flies out', detail: 'Barcelona for two, Bangkok for two.' },
+];
+
+const more = [
+  {
+    name: 'Hoa Lo Prison',
+    where: '50,000 VND · 15 minutes on foot',
+    detail:
+      'The colonial prison later known as the Hanoi Hilton. Sobering, and an hour or so is enough. The night tours only run on weekends.',
+  },
+  {
+    name: 'Museum of Ethnology',
+    where: '40,000 VND · 25 minutes by Grab',
+    detail:
+      'The best museum in the city, with full-size village houses outside that suit all ages. Half a day, closed Mondays.',
+  },
+  {
+    name: 'A cooking class',
+    where: 'About $45 each',
+    detail:
+      'Rose Kitchen starts with a market visit and picks up in the Old Quarter. A good half-day for four.',
+  },
+  {
+    name: 'GC Bar',
+    where: 'Old Quarter · weeknights from 17:00',
+    detail: 'Hanoi’s longest-running gay bar, relaxed on a weeknight, with a pool table.',
+  },
 ];
 
 const note =
   `<strong style="color:#E9DCC3">${trip.name} · ${trip.dateLabel}</strong><br>` +
-  'Os with family out of Hanoi, then two days together before Thailand.';
+  'With Os’s parents, then Bangkok together.';
 ---
 
 <BaseLayout
@@ -74,40 +100,53 @@ const note =
   image={trip.cover}
   ogType="article"
 >
-  <TripHero trip={trip} maxWidth="17ch">Two slow days in <em>Hanoi</em>.</TripHero>
+  <TripHero trip={trip} maxWidth="17ch">Two and a half days in <em>Hanoi</em>.</TripHero>
 
   <TripNav sections={sections} />
 
   <TripShape paragraphs={paragraphs} notes={notes} />
 
-  <section id="days" class="days">
+  <section id="days" class="list">
     <div class="wrap">
-      <SectionHead title="The fortnight" note="Thirteen nights, more than half of them in Hanoi." />
-      <ol class="timeline">
+      <SectionHead title="The days" note="One rough shape, easy to ignore." />
+      <ul class="places">
         {
           days.map((d) => (
             <li>
-              <span class="when">{d.when}</span>
-              <div>
+              <div class="who">
                 <b>{d.what}</b>
-                <p>{d.detail}</p>
+                <span>{d.when}</span>
               </div>
+              <p>{d.detail}</p>
             </li>
           ))
         }
-      </ol>
+      </ul>
     </div>
   </section>
 
   <ActivityGroups groups={groups} />
 
-  <section id="plan" class="plan">
+  <section id="more" class="list">
     <div class="wrap">
-      <a class="out" href={FULL_PLAN}>
-        <span class="lbl">The full plan</span>
-        <strong>Every day, every car and every bed</strong>
-        <span class="go">In English and Catalan <span aria-hidden="true">↗</span></span>
-      </a>
+      <SectionHead title="If there is time" note="Good, just not first." />
+      <ul class="places">
+        {
+          more.map((m) => (
+            <li>
+              <div class="who">
+                <b>{m.name}</b>
+                <span>{m.where}</span>
+              </div>
+              <p>{m.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="caveat">
+        Prices and hours were researched in September 2026, mostly from travel guides rather than
+        official pages, so worth a check before relying on them.
+      </p>
     </div>
   </section>
 
@@ -115,11 +154,11 @@ const note =
 </BaseLayout>
 
 <style>
-  .days {
-    padding: 54px 0 62px;
+  .list {
+    padding: 54px 0 30px;
   }
 
-  .timeline {
+  .places {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -127,84 +166,50 @@ const note =
     gap: 2px;
   }
 
-  .timeline li {
+  .places li {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 250px 1fr;
     gap: 18px;
-    padding: 14px 0;
+    padding: 18px 0;
     border-top: 1px solid rgba(26, 18, 13, 0.14);
   }
 
-  .timeline li:last-child {
+  .places li:last-child {
     border-bottom: 1px solid rgba(26, 18, 13, 0.14);
   }
 
-  .timeline .when {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    padding-top: 3px;
-    opacity: 0.72;
-  }
-
-  .timeline b {
+  .places .who b {
     display: block;
     font-size: clamp(17px, 2vw, 20px);
   }
 
-  .timeline p {
-    margin: 4px 0 0;
+  .places .who span {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    opacity: 0.72;
+  }
+
+  .places p {
+    margin: 0;
+    max-width: 62ch;
     opacity: 0.84;
   }
 
-  .plan {
-    padding: 30px 0 10px;
-  }
-
-  .out {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 8px 20px;
-    padding: 26px 28px;
-    border-radius: var(--r);
-    background: var(--abyss);
-    color: var(--foam);
-    text-decoration: none;
-  }
-
-  .out:hover {
-    background: var(--abyss-2);
-  }
-
-  .out .lbl {
-    color: var(--surf);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .out strong {
-    font-family: var(--font-display);
-    font-size: clamp(20px, 2.8vw, 28px);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  .out .go {
-    margin-left: auto;
+  .caveat {
+    margin: 22px 0 0;
+    max-width: 62ch;
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.75;
+    line-height: 1.7;
+    opacity: 0.72;
   }
 
   @media (max-width: 760px) {
-    .timeline li {
+    .places li {
       grid-template-columns: 1fr;
-      gap: 4px;
+      gap: 8px;
     }
   }
 </style>

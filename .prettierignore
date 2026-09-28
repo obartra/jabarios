@@ -7,3 +7,5 @@ test-results
 .claude
 src/lib/fixtures
 src/data/date-night.json
+lighthouse-report
+.lighthouseci

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emphasis, PAGES } from './pages.ts';
+import { emphasis, PageSchema, PAGES } from './pages.ts';
 import { trips } from './trips.ts';
 
 describe('page.json', () => {
@@ -24,7 +24,23 @@ describe('page.json', () => {
   });
 });
 
+describe('PageSchema', () => {
+  it('rejects a key it does not know, rather than silently dropping it', () => {
+    const page = { headline: 'x', footer: 'y', sections: [{ type: 'crossing', text: 'z' }] };
+    expect(PageSchema.safeParse(page).success).toBe(true);
+    expect(PageSchema.safeParse({ ...page, tgas: [] }).success).toBe(false);
+    expect(
+      PageSchema.safeParse({ ...page, sections: [{ type: 'crossing', text: 'z', upp: true }] })
+        .success,
+    ).toBe(false);
+  });
+});
+
 describe('emphasis', () => {
+  it('turns **double** asterisks into <b>', () => {
+    expect(emphasis('**Arriving:** by train')).toBe('<b>Arriving:</b> by train');
+  });
+
   it('turns *asterisks* into <em> and nothing else', () => {
     expect(emphasis('Mantas after dark, dinner at *9,000 ft*.')).toBe(
       'Mantas after dark, dinner at <em>9,000 ft</em>.',

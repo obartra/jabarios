@@ -11,9 +11,11 @@ interface Props {
   trip: Trip;
   /** Tighter measure for a long headline. Defaults to the Vegas setting. */
   maxWidth?: string;
+  /** Chips under the lede; a hot one is filled. */
+  tags?: { text: string; hot?: boolean }[];
 }
 
-const { trip, maxWidth = '15ch' } = Astro.props;
+const { trip, maxWidth = '15ch', tags = [] } = Astro.props;
 ---
 
 <header class="hero">
@@ -21,6 +23,15 @@ const { trip, maxWidth = '15ch' } = Astro.props;
     <p class="eyebrow">{trip.name} · {trip.dateLabel}</p>
     <h1 style={`max-width:${maxWidth}`}><slot /></h1>
     <p class="lede">{trip.lede}</p>
+    {
+      tags.length > 0 && (
+        <div class="tagrow">
+          {tags.map((tag) => (
+            <span class:list={['tag', { hot: tag.hot }]}>{tag.text}</span>
+          ))}
+        </div>
+      )
+    }
     <slot name="tags" />
   </div>
 </header>
@@ -45,6 +56,28 @@ const { trip, maxWidth = '15ch' } = Astro.props;
     margin-top: 22px;
     font-size: clamp(17px, 2.1vw, 20px);
     opacity: 0.86;
+  }
+
+  .tagrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .tag {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 18, 13, 0.24);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .tag.hot {
+    background: var(--chili);
+    border-color: var(--chili);
+    color: #f7ecd9;
   }
 
   @media (max-width: 640px) {

@@ -10,6 +10,9 @@ import Timeline from '../../components/sections/Timeline.astro';
 import Places from '../../components/sections/Places.astro';
 import Detail from '../../components/sections/Detail.astro';
 import Feature from '../../components/sections/Feature.astro';
+import Leg from '../../components/sections/Leg.astro';
+import Crossing from '../../components/sections/Crossing.astro';
+import Profile from '../../components/sections/Profile.astro';
 import { trips, type Trip } from '../../data/trips.ts';
 import { groupedFor } from '../../data/activities.ts';
 import { emphasis, pageFor, type Page } from '../../data/pages.ts';
@@ -42,9 +45,17 @@ const nav = page.sections.flatMap((section) => {
   if (section.type === 'activities') {
     return groupsFor(section.categories).map((g) => ({ href: `#${g.id}`, label: g.short }));
   }
-  if ('nav' in section && section.nav) return [{ href: `#${section.id}`, label: section.nav }];
+  if ('nav' in section && section.nav && section.id) {
+    const dates = section.type === 'leg' ? section.navDates : undefined;
+    return [{ href: `#${section.id}`, label: section.nav, dates }];
+  }
   return [];
 });
+
+// A profile chart that opens the page belongs to the header, above the nav.
+const lead = page.sections.findIndex((section) => section.type !== 'profile');
+const opening = page.sections.slice(0, lead);
+const body = page.sections.slice(lead);
 
 const nights = trip.dates ? String(durationDays(trip.dates) - 1) : '';
 const note =
@@ -59,14 +70,16 @@ const note =
   image={photo(trip.slug, trip.cover)}
   ogType="article"
 >
-  <TripHero trip={trip} maxWidth={page.headlineWidth}>
+  <TripHero trip={trip} maxWidth={page.headlineWidth} tags={page.tags}>
     <Fragment set:html={emphasis(page.headline)} />
   </TripHero>
+
+  {opening.map((section) => section.type === 'profile' && <Profile section={section} />)}
 
   <TripNav sections={nav} />
 
   {
-    page.sections.map((section) => {
+    body.map((section) => {
       switch (section.type) {
         case 'shape':
           return (
@@ -88,6 +101,12 @@ const note =
           return <Detail section={section} />;
         case 'feature':
           return <Feature trip={trip} section={section} />;
+        case 'leg':
+          return <Leg trip={trip} section={section} />;
+        case 'crossing':
+          return <Crossing section={section} />;
+        case 'profile':
+          return <Profile section={section} />;
         case 'booking':
           return (
             <BookingOrder

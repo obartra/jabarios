@@ -27,8 +27,7 @@ trip only from another trip page.
 **Pages are data.** A trip page is its `page.json`: a list of typed sections
 (see README). Something a page needs that no section type covers becomes a new
 section type in `src/components/sections/` and `src/data/pages.ts`, so the next
-trip can use it too. No trip gets a hand-written page; Thailand is the last
-one, and is moving over.
+trip can use it too. No trip gets a hand-written page.
 
 **Date logic goes in `src/lib/trips.ts` with a test.** It is imported by both
 the build and the browser, so there is one implementation and it is covered.

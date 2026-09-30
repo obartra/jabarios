@@ -7,26 +7,30 @@
       "type": "shape",
       "paragraphs": [
         "Os flies down from Philadelphia on 27 December, already booked, and lands in Salvador on the 28th for New Year with friends. Around the 9th we meet, and the two weeks from there are ours.",
-        "Where is open. The shortlist is three places that are new to both of us, dry in January, and split between a city and something outdoors. Os books the rentals, at up to about $1,000 a week, and the rest stays cheap."
+        "Where is open. The options are places new to both of us, dry or mostly dry in January, each a city and something outdoors, with rentals under about $1,000 a week. They are in order of how welcoming each is likely to be for Jabari, from Black travellers’ own accounts, since that matters more than anything else on the list."
       ],
       "notes": [
         {
-          "lead": "Chile is the first choice.",
-          "rest": "The best mix of city, nature and animals, the driest weather, and a new nonstop from Salvador to Santiago in January. The cost is Jabari’s longer flight."
+          "lead": "Bahia is the first choice.",
+          "rest": "Salvador is majority-Black, the one place on the list where Jabari is likely to blend in rather than stand out. It is dry and cheap in January, and Os is already there."
+        },
+        {
+          "lead": "Colombia is the close second.",
+          "rest": "Strong reviews from Black travellers in Medellín, the cheapest option, and one stop for each of us."
+        },
+        {
+          "lead": "Chile and Buenos Aires moved to the bottom.",
+          "rest": "Both are lovely, but Black travellers report the most staring in Buenos Aires, and Chile’s racism against Haitian migrants is at a peak."
         },
         {
           "lead": "The moon helps early.",
-          "rest": "New moon on 7 January, full on the 22nd. For stargazing in Elqui, the first week is the one."
-        },
-        {
-          "lead": "Two directions of travel.",
-          "rest": "Os comes from Salvador, Jabari from Philadelphia. Chile and Buenos Aires are nonstop for Os; Colombia is one stop for each of us, and the easiest overall for Jabari."
+          "rest": "New moon on 7 January, full on the 22nd. For stars, the first week is the one."
         }
       ]
     },
     {
       "type": "activities",
-      "categories": ["chile"],
+      "categories": ["bahia"],
       "alternate": false
     },
     {
@@ -34,37 +38,42 @@
       "rows": [
         {
           "label": "Getting there",
-          "text": "Os: SKY flies Salvador to Santiago nonstop on Mondays and Fridays, 16:10 to 22:20, so the Friday 8th lands the night before. LATAM starts Wednesday, Friday and Sunday flights on 3 January. Jabari: one stop from Philadelphia, about 12 hours."
+          "text": "Os is already there. Jabari has no nonstop from Philadelphia: one stop via Miami, Panama or São Paulo, about 14 to 18 hours, and roughly US$450–700 one way. Praia do Forte is 50 minutes from the airport for the flight out."
         },
         {
           "label": "Where to stay",
-          "text": "Cerro Alegre or Cerro Concepción in Valparaíso, about $50–90 a night; Lastarria in Santiago for a night or two, about $45–90. Then about 5 nights in Pisco Elqui or Vicuña, cabins around CLP 50,000–60,000, and 3 in La Serena for the penguins and the flight out."
+          "text": "Rio Vermelho or Barra in Salvador, whole flats about US$50–110 a night. Chalets near Boca da Barra or Moreré on Boipeba, about $70–140. Flats in Praia do Forte village, about $80–150."
         },
         {
           "label": "Getting around",
-          "text": "Buses do most of it: Santiago to Valparaíso about 2 hours for CLP 4,500–5,800; La Serena up the valley every 30 minutes for CLP 2,000–3,000. Santiago to La Serena is worth flying, 1h10 from about CLP 22,000 if booked early. A car for 3 or 4 days in Elqui is optional."
+          "text": "Uber or 99 across Salvador for R$15–35, and after dark rather than walking. The Elevador Lacerda for pennies. Boipeba has no cars: walking, tractor rides for R$10–20, and boats. The Linha Verde bus to Praia do Forte stops at the airport."
         },
         {
           "label": "Eating",
-          "text": "Chorrillana to share at J. Cruz in Valparaíso, fried fish at the Caleta Portales stalls, a lomito at Fuente Alemana and a market lunch at La Vega Central in Santiago, and Peumayén in Bellavista for one proper dinner of Mapuche and Rapa Nui food."
+          "text": "Acarajé from Dinha in Rio Vermelho, cheap lunches at the Ceasinha market, moqueca at Casa de Tereza for about R$200–280 for two, and lobster at the Boipeba beach shacks."
         },
         {
           "label": "Bars",
-          "text": "Bellavista in Santiago has the drag: Farinelli from about 23:00, Tuesday to Sunday, and Contramano for cabaret with dinner. In Valparaíso, El Internado on Cerro Alegre is a relaxed mixed bar. No drag brunch turned up."
+          "text": "Âncora do Marujo and Caras & Boca on Avenida Carlos Gomes for drag, from about 23:00, and the small bars of Beco dos Artistas. Porto da Barra and Buracão are the gay-friendly beaches. No drag brunch turned up, and nothing on the coast."
+        },
+        {
+          "label": "Black travellers",
+          "text": "Salvador is more than 80% Black, and Black travellers describe it as the place they felt most at home. Jabari is likely to be taken for a local until Jabari speaks. The flip side is local treatment: security following people in upmarket malls, and police stops aimed at young, darker-skinned men. Speaking English usually changes it."
         },
         {
           "label": "The catch",
-          "text": "Chilean summer holidays, so January is peak season in Elqui and on the coast, and the daily costs are the highest of the three, about $80–110 for two. Mondays close Neruda’s house, the zoo, and landings on the penguin island."
+          "text": "Peak summer, so the coast is crowded and prices go up. Street crime is real in Salvador, with phone snatching and an empty centre at night. Two men together draw more notice in the small coastal towns. The Boipeba transfer is a long day each way."
         }
       ],
       "days": [
-        "Sat 9 · meet in Santiago, bus to Valparaíso, Cerro Alegre in the evening",
-        "Sun 10 to Tue 12 · the hills, the lifts, the walking tour, La Sebastiana, the sea lions at Portales",
-        "Wed 13 to Thu 14 · Santiago: San Cristóbal, the zoo, Bellavista at night, maybe Teatro a Mil",
-        "Fri 15 · fly to La Serena, bus up to Vicuña",
-        "Sat 16 to Tue 19 · Mamalluca at night, Pisco Elqui, the river, a distillery",
-        "Wed 20 to Fri 22 · La Serena and the penguin boat, with a spare day for weather",
-        "Sat 23 · out"
+        "Sat 9 · Jabari lands, Rio Vermelho, acarajé at Dinha",
+        "Sun 10 · Pelourinho, MUNCAB (free), the free Olodum rehearsal",
+        "Mon 11 to Wed 13 · Barra swims and sunsets, Casa de Tereza",
+        "Thu 14 · the Lavagem do Bonfim",
+        "Fri 15 · ferry, van and speedboat to Boipeba",
+        "Sat 16 to Mon 18 · the walk to Moreré, the boat round the island, stars",
+        "Tue 19 · across to Praia do Forte",
+        "Wed 20 to Sat 23 · TAMAR, Sapiranga, tide pools, then the airport"
       ]
     },
     {
@@ -96,6 +105,10 @@
           "text": "Bar Chiquita in El Poblado has a Sunday drag brunch from 11:30, and karaoke and comedy in the week. Donde Aquellos, open since 2000, is the relaxed one. The rest of the scene is clubs."
         },
         {
+          "label": "Black travellers",
+          "text": "Medellín gets strong reviews from Black travellers: in about 40 on Green Book Global, none report racist treatment, and people are often taken for coastal Colombians. A minority describe stares, being followed in shops and comments about hair. Cartagena, if it came into it, is loved by Black visitors but has a documented history of clubs turning away Afro-Colombians."
+        },
+        {
           "label": "The catch",
           "text": "The US warns that people meeting strangers through dating apps in Medellín have been drugged and robbed, including gay men. Not using the apps there removes most of it; beyond that, no new acquaintances back to the apartment, drinks never left alone, one low-limit card, and app taxis at night. Also, 9 to 11 January is the Reyes long weekend, when Guatapé and Salento are packed."
         }
@@ -107,6 +120,150 @@
         "Tue 12 to Fri 15 · Comuna 13, Guatapé, the Metrocable to Arví, the Botero plaza",
         "Sat 16 · to Salento",
         "Sun 17 to Fri 22 · Cocora and the hummingbirds, a coffee farm, Filandia at sunset, the hot springs midweek, nothing at all one day",
+        "Sat 23 · out"
+      ]
+    },
+    {
+      "type": "activities",
+      "categories": ["costa-rica"],
+      "alternate": false
+    },
+    {
+      "type": "detail",
+      "rows": [
+        {
+          "label": "Getting there",
+          "text": "Jabari: American flies Philadelphia to San José nonstop, about 5.5 hours, roughly US$200–300 one way. Os: Copa from Salvador through Panama, about 9 to 12 hours, roughly $450–650."
+        },
+        {
+          "label": "Where to stay",
+          "text": "Barrio Escalante or Los Yoses in San José, whole apartments about US$55–110 a night. In Manuel Antonio, January averages about $248 a night, so the budget only stretches to a one-bedroom in Quepos or up the hill, booked early."
+        },
+        {
+          "label": "Getting around",
+          "text": "Uber in San José, about US$4–8 across town and $20–30 from the airport. The Tracopa bus to Quepos, about 3.5 hours for $9–12, or a $65 shuttle. A local bus runs from Quepos to the park every 30 minutes."
+        },
+        {
+          "label": "Eating",
+          "text": "A casado at a soda for about US$7–10, the best value in the country: Soda Tala in Escalante, Soda Sánchez in Quepos. Breakfast with a view at Emilio’s Café. Sunset drinks at El Avión, a bar built in a cargo plane."
+        },
+        {
+          "label": "Bars",
+          "text": "La Avispa in San José, running since 1979, is more club than bar. The Drunken Monkey Lounge is Manuel Antonio’s one gay bar, and Barba Roja has a gay night on Thursdays. Playa Playitas is the gay beach. Marriage equality since 2020."
+        },
+        {
+          "label": "Black travellers",
+          "text": "Most accounts describe staring and being treated as a novelty rather than hostility, and white tourists sometimes assuming a Black visitor works there. More staring in San José than in Manuel Antonio. Local prejudice falls mainly on Nicaraguans and on Afro-Costa Ricans on the Caribbean coast."
+        },
+        {
+          "label": "The catch",
+          "text": "The rental budget is the tightest of all the options, and park tickets sell out. Car break-ins and beach theft are common, and central San José is rough at night. The Afro-Caribbean coast, Puerto Viejo and Cahuita, is the rainy side in January, so it would only be a short detour."
+        }
+      ],
+      "days": [
+        "Sat 9 · into San José, a casado in Escalante",
+        "Sun 10 · Mercado Central, the gold museum, the Teatro Nacional",
+        "Mon 11 · Toucan Rescue Ranch",
+        "Tue 12 · a slow day of cafés",
+        "Wed 13 · the bus to Quepos, sunset at El Avión",
+        "Thu 14 · the park at 7:00 with a guide, Barba Roja at night",
+        "Fri 15 to Fri 22 · the rainforest sanctuary, the mangroves by kayak, beach days (the park is shut on Tuesday the 19th)",
+        "Sat 23 · the shuttle to the airport, 3.5 hours"
+      ]
+    },
+    {
+      "type": "activities",
+      "categories": ["uruguay"],
+      "alternate": false
+    },
+    {
+      "type": "detail",
+      "rows": [
+        {
+          "label": "Getting there",
+          "text": "Os: LATAM or GOL through São Paulo, about 7 to 9 hours, roughly US$220–400 one way. Jabari: no nonstop, about 15 to 20 hours via Miami or Panama, from about $760 one way."
+        },
+        {
+          "label": "Where to stay",
+          "text": "In Montevideo, Cordón or Parque Rodó near Barrio Sur, whole apartments about US$50–90 in its quiet month. On the coast January is peak: a house in Punta del Diablo is about $880 a week, some with 10-night minimums, and Cabo Polonio is rustic."
+        },
+        {
+          "label": "Getting around",
+          "text": "City buses about UYU 50–55 a ride, and Uber works. Long-distance buses from Tres Cruces to the coast for US$20–35. Local buses between the coastal towns are infrequent, so taxis fill the gaps, and the Cabo Polonio trucks run six times a day."
+        },
+        {
+          "label": "Eating",
+          "text": "A chivito at Bar Arocena, Bar Facal on 18 de Julio since 1882, the grills of the Mercado del Puerto at US$20–40 a main, cheap lunches at the Mercado Agrícola, and seaweed fritters at the Punta del Diablo harbour."
+        },
+        {
+          "label": "Bars",
+          "text": "Chains Pub in Centro, a low-key bar with drag at weekends, Thursday to Sunday, and Bar Rodó, mixed and gay-friendly. Nothing on the coast. Marriage equality since 2013, and holding hands draws no attention."
+        },
+        {
+          "label": "Black travellers",
+          "text": "About 11% of Uruguayans report African ancestry, and candombe is at the centre of the culture, yet Afro-Uruguayans face documented discrimination. The few first-hand accounts from Black visitors describe stares and being followed in shops rather than hostility. In 2014 a Montevideo restaurant turned away a Black US diplomat."
+        },
+        {
+          "label": "The catch",
+          "text": "One of the most expensive countries in South America, and the coast is at peak, full of Argentine families. The Atlantic is about 20°C and windy. Few Black travellers write about it, so there is less to go on."
+        }
+      ],
+      "days": [
+        "Sat 9 · into Montevideo, Ciudad Vieja, dinner at the Mercado Agrícola",
+        "Sun 10 · the Tristán Narvaja market, candombe in Barrio Sur at 16:00",
+        "Mon 11 to Wed 13 · the rambla to Pocitos, the carnival museum, Teatro Solís",
+        "Thu 14 · the bus to Cabo Polonio, two nights of sea lions and stars",
+        "Sat 16 · on to Punta del Diablo",
+        "Sun 17 to Thu 21 · Santa Teresa, Laguna de Rocha, beach days",
+        "Fri 22 · back to Montevideo, a chivito at Arocena",
+        "Sat 23 · out"
+      ]
+    },
+    {
+      "type": "activities",
+      "categories": ["panama"],
+      "alternate": false
+    },
+    {
+      "type": "detail",
+      "rows": [
+        {
+          "label": "Getting there",
+          "text": "Os: Copa flies Salvador to Panama nonstop, about 7 hours, three or four times a week. Jabari: one stop via Miami or Charlotte, 6 to 8 hours, roughly US$250–350 one way."
+        },
+        {
+          "label": "Where to stay",
+          "text": "Casco Viejo for walking to everything, or El Cangrejo for cheaper. In Bocas, Bocas Town on Isla Colón, or Bastimentos and Carenero for quiet and darker skies. Whole apartments about US$80–150 a night in either, a rough estimate."
+        },
+        {
+          "label": "Getting around",
+          "text": "Metro B/.0.35 a ride and cheap Uber in the city, $15–25 from the airport. Air Panama to Bocas, $170–215 each way, or an overnight bus for about $30. In Bocas, water taxis at $1–5 and bikes at $5–8 a day."
+        },
+        {
+          "label": "Eating",
+          "text": "Ceviche at the fish market for US$1–4 a cup, plato del día at the Casco fondas for $6–10, rondón in Old Bank on Bastimentos, and fish in coconut at Bibi’s on Carenero."
+        },
+        {
+          "label": "Bars",
+          "text": "A small, real scene in Panama City: El Apartamento in El Cangrejo, and Gato Blanco, a gay-friendly rooftop in Casco. Drag Brunch Panamá runs ticketed shows now and then. Bocas has no gay bar. No marriage equality."
+        },
+        {
+          "label": "Black travellers",
+          "text": "A large Afro-Panamanian population, both West Indian and colonial. Black Americans tend to pass as Panamanian until they speak English, then get curiosity rather than exclusion. Colourism is strong and falls on Afro-Panamanians, with Black neighbourhoods like El Chorrillo and Colón stigmatised and heavily policed."
+        },
+        {
+          "label": "The catch",
+          "text": "The weakest on LGBTQ rights: the Supreme Court upheld the marriage ban in 2023, there are no civil unions, and it is conservative outside Casco and Bocas. Bocas has a chance of rain on about half of January days, and the inside flights are the main cost."
+        }
+      ],
+      "days": [
+        "Sat 9 · into Tocumen, Casco Viejo, sunset at Gato Blanco",
+        "Sun 10 to Mon 11 · Casco on foot, the Black history walk, the fish market",
+        "Tue 12 · Pipeline Road at dawn, Miraflores in the afternoon",
+        "Wed 13 to Thu 14 · the Biomuseo and the causeway, Monkey Island",
+        "Fri 15 · fly to Bocas",
+        "Sat 16 to Thu 21 · Dolphin Bay and Zapatilla, Starfish Beach, Old Bank, quiet nights on Carenero",
+        "Fri 22 · back to the city",
         "Sat 23 · out"
       ]
     },
@@ -139,6 +296,10 @@
           "text": "Pride Café in San Telmo does drag brunches; Maricafe in Palermo is a café-bar with a queer bookshop; Peuteo is a relaxed video bar, closed Monday and Tuesday. La Marshall for queer tango on Wednesdays. In Montevideo, Chains Pub."
         },
         {
+          "label": "Black travellers",
+          "text": "Buenos Aires has the most consistent reports on this list of staring, people pointing out Blackness, and hair being touched without asking. Under 1% of people identify as Black, and one scholar says it has grown more open since 2023. Colonia is small and quiet, with few accounts either way."
+        },
+        {
           "label": "The catch",
           "text": "The least nature of the three, humid heat in the afternoons, and January is when locals leave the city for the coast. Jabari’s flight is long and expensive, and prices in Argentina change month to month."
         }
@@ -148,10 +309,57 @@
         "Sun 10 · the San Telmo fair, brunch at Pride Café",
         "Mon 11 to Tue 12 · Recoleta and El Ateneo in the heat, the parks in the evening",
         "Wed 13 · the Costanera Sur reserve in the morning, queer tango at La Marshall at night",
-        "Thu 14 to Sun 17 · Tigre one day, the rest slow",
-        "Mon 18 · ferry to Colonia",
-        "Tue 19 to Fri 22 · Colonia overnight, then Montevideo and the rambla",
-        "Sat 23 · out from Montevideo"
+        "Thu 14 to Mon 18 · Tigre one day, the rest slow",
+        "Tue 19 · the ferry to Colonia",
+        "Wed 20 to Fri 22 · Colonia’s old town, then back",
+        "Sat 23 · out from Buenos Aires"
+      ]
+    },
+    {
+      "type": "activities",
+      "categories": ["chile"],
+      "alternate": false
+    },
+    {
+      "type": "detail",
+      "rows": [
+        {
+          "label": "Getting there",
+          "text": "Os: SKY flies Salvador to Santiago nonstop on Mondays and Fridays, 16:10 to 22:20, so the Friday 8th lands the night before. LATAM starts Wednesday, Friday and Sunday flights on 3 January. Jabari: one stop from Philadelphia, about 12 hours."
+        },
+        {
+          "label": "Where to stay",
+          "text": "Cerro Alegre or Cerro Concepción in Valparaíso, about $50–90 a night; Lastarria in Santiago for a night or two, about $45–90. Then about 5 nights in Pisco Elqui or Vicuña, cabins around CLP 50,000–60,000, and 3 in La Serena for the penguins and the flight out."
+        },
+        {
+          "label": "Getting around",
+          "text": "Buses do most of it: Santiago to Valparaíso about 2 hours for CLP 4,500–5,800; La Serena up the valley every 30 minutes for CLP 2,000–3,000. Santiago to La Serena is worth flying, 1h10 from about CLP 22,000 if booked early. A car for 3 or 4 days in Elqui is optional."
+        },
+        {
+          "label": "Eating",
+          "text": "Chorrillana to share at J. Cruz in Valparaíso, fried fish at the Caleta Portales stalls, a lomito at Fuente Alemana and a market lunch at La Vega Central in Santiago, and Peumayén in Bellavista for one proper dinner of Mapuche and Rapa Nui food."
+        },
+        {
+          "label": "Bars",
+          "text": "Bellavista in Santiago has the drag: Farinelli from about 23:00, Tuesday to Sunday, and Contramano for cabaret with dinner. In Valparaíso, El Internado on Cerro Alegre is a relaxed mixed bar. No drag brunch turned up."
+        },
+        {
+          "label": "Black travellers",
+          "text": "First-hand accounts are thin: visitors describe some staring and little else. The sharper problem is structural racism against Haitian migrants, now at a policy peak, with deportation flights resuming in May 2026. A Black man not obviously a tourist can be taken for a migrant, which makes ID checks likelier, so a passport is worth carrying."
+        },
+        {
+          "label": "The catch",
+          "text": "Chilean summer holidays, so January is peak season in Elqui and on the coast, and the daily costs are the highest of the three, about $80–110 for two. Mondays close Neruda’s house, the zoo, and landings on the penguin island."
+        }
+      ],
+      "days": [
+        "Sat 9 · meet in Santiago, bus to Valparaíso, Cerro Alegre in the evening",
+        "Sun 10 to Tue 12 · the hills, the lifts, the walking tour, La Sebastiana, the sea lions at Portales",
+        "Wed 13 to Thu 14 · Santiago: San Cristóbal, the zoo, Bellavista at night, maybe Teatro a Mil",
+        "Fri 15 · fly to La Serena, bus up to Vicuña",
+        "Sat 16 to Tue 19 · Mamalluca at night, Pisco Elqui, the river, a distillery",
+        "Wed 20 to Fri 22 · La Serena and the penguin boat, with a spare day for weather",
+        "Sat 23 · out"
       ]
     },
     {
@@ -166,7 +374,12 @@
             {
               "name": "Mexico",
               "where": "Been",
-              "detail": "Mexico City, Oaxaca and Mérida all fit January well, but we have both been."
+              "detail": "Mexico City, Oaxaca, Mérida and Puerto Vallarta all fit January well, but we have both been."
+            },
+            {
+              "name": "The Dominican Republic",
+              "where": "Not for us",
+              "detail": "In 2022 the US Embassy warned darker-skinned Americans that they could be detained after being mistaken for Haitians."
             },
             {
               "name": "Rio, Paraty, Florianópolis",
@@ -177,11 +390,6 @@
               "name": "Iguazú, the Andes, the Atacama",
               "where": "Weather",
               "detail": "Rainy or stormy season in January. Iguazú would only work as a two-night side trip."
-            },
-            {
-              "name": "Costa Rica, Puerto Vallarta",
-              "where": "Budget",
-              "detail": "Dry and good for animals, but January is peak season and rentals go over the cap."
             },
             {
               "name": "The Galápagos",

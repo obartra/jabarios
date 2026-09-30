@@ -24,6 +24,19 @@ describe('page.json', () => {
   });
 });
 
+describe('options compared on one page', () => {
+  it('give every option the same rows, in the same order', () => {
+    // A page comparing options (January) is only useful if each one answers the
+    // same questions; a row missing from one option is a question left open.
+    for (const [slug, page] of Object.entries(PAGES)) {
+      const details = page.sections.filter((s) => s.type === 'detail');
+      if (details.length < 2) continue;
+      const labels = details.map((d) => d.rows.map((r) => r.label));
+      for (const rows of labels) expect(rows, slug).toEqual(labels[0]);
+    }
+  });
+});
+
 describe('PageSchema', () => {
   it('rejects a key it does not know, rather than silently dropping it', () => {
     const page = { headline: 'x', footer: 'y', sections: [{ type: 'crossing', text: 'z' }] };

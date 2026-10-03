@@ -1,5 +1,5 @@
 {
-  "headline": "Christmas in West Philly, then *south*.",
+  "headline": "Christmas in *West Philly*.",
   "headlineWidth": "18ch",
   "footer": "{nights} nights in West Philly, and Christmas Day with Jabari’s mom.",
   "sections": [
@@ -32,8 +32,8 @@
         },
         {
           "when": "Sun 27 Dec",
-          "what": "South",
-          "detail": "A separate trip and a separate booking. Worth knowing the flight time before planning anything into the last morning."
+          "what": "Nothing fixed after",
+          "detail": "Salvador is off, so no flight sets the end of the week any more. The 27th is a rough edge rather than a deadline."
         }
       ]
     },
@@ -70,15 +70,11 @@
     },
     {
       "type": "booking",
-      "intro": "Short list, because most of this week does not need one. The flight south is already bought; the flight up from Miami is not.",
+      "intro": "Short list, because most of this week does not need one, and the flight up from Miami is the only one in it.",
       "items": [
         {
           "label": "The flight up from Miami",
           "detail": "Saturday the 19th, after the 11:00 checkout. Not bought yet."
-        },
-        {
-          "label": "The flight south on the 27th",
-          "detail": "Bought, and the one thing here that cannot move. Everything else bends around it."
         },
         {
           "label": "Magic Gardens",

@@ -1,0 +1,211 @@
+{
+  "headline": "The aurora, then *West Philly*.",
+  "headlineWidth": "16ch",
+  "tags": [
+    { "text": "New moon 6 Feb", "hot": true },
+    { "text": "Nothing booked" },
+    { "text": "−25 °C nights" }
+  ],
+  "footer": "Rough dates, and which part of the north is not decided yet.",
+  "sections": [
+    {
+      "type": "shape",
+      "paragraphs": [
+        "Northern Canada instead of South America: four or five nights somewhere the aurora is overhead most clear nights, then down to Philadelphia for a week or two at Jabari’s place. After that Os heads to Miami, which is a separate trip.",
+        "Where in the north is open. The three options below are the ones with real infrastructure for a February night outside: heated cabins to wait in, someone watching the forecast, and clothes to rent. They differ mostly in how far they are to get to and what fills the daytime."
+      ],
+      "notes": [
+        {
+          "lead": "The moon sets the week.",
+          "rest": "New moon on Saturday 6 February, full on the 20th. The nights from about the 3rd to the 10th are the dark ones, which is why the Canada leg comes first and Philly second."
+        },
+        {
+          "lead": "February is the good month.",
+          "rest": "Darker nights than March, clearer skies than December, and a little less cold than January. Yellowknife logs the aurora on about 26 nights of an average February. Cloud is the thing that cancels a night, not the aurora."
+        },
+        {
+          "lead": "Neither of us is packed for this.",
+          "rest": "Yellowknife averages −24.5 °C in February and Whitehorse −9 °C by day and −19 °C at night, with cold snaps past −40. Neither of us travels with clothes for that, so renting the outer layer is likely the answer. The whole kit is below."
+        },
+        {
+          "lead": "None of it is booked.",
+          "rest": "Dates are rough, the place is open, and the Philly stretch can be one week or two."
+        }
+      ]
+    },
+    {
+      "type": "leg",
+      "id": "north",
+      "nav": "The north",
+      "navDates": "4–9",
+      "number": "LEG 01",
+      "title": "The aurora",
+      "meta": "About 4–9 Feb · 4 or 5 nights · together",
+      "intro": "The nights look the same in all three: pickup around 21:00 or 22:00, a heated cabin or teepee out of town, outside whenever the sky starts moving, and back by 01:00 or 02:00. Days are short and slow, and sleeping late is part of the plan rather than a failure of it.",
+      "blocks": [
+        {
+          "kind": "options",
+          "title": "Three places, none decided",
+          "sub": "In order of how likely each is to deliver clear skies with the least effort getting there.",
+          "items": [
+            {
+              "title": "Yellowknife",
+              "meta": "Northwest Territories · one or two stops from Philadelphia, through Toronto, Calgary or Edmonton",
+              "text": "The default. Flat, dry and directly under the auroral oval, so it gets more clear aurora nights than anywhere else that is this easy to reach. Aurora Village runs heated teepees about 25 minutes out of town, and its hotel packages bundle the nights, the transfers and the cold-weather clothing. The town itself is small: Old Town on the lake, the ice road when it is open, and dog sledding by day.",
+              "chips": [
+                { "text": "Most clear nights", "kind": "key" },
+                { "text": "Coldest of the three", "kind": "dry" },
+                { "text": "3 nights from CA$670 pp" }
+              ]
+            },
+            {
+              "title": "Whitehorse",
+              "meta": "Yukon · usually two stops from Philadelphia, the last one Vancouver",
+              "text": "Mountains rather than flat tundra, a proper small city, and noticeably milder. The Yukon Quest sled dog race starts in town on the 6th, the new moon, and the Rendezvous festival runs 6 to 22 February, so the days have something in them. Slightly more cloud than Yellowknife, and Northern Tales and others drive out to cabins in the hills to get under it.",
+              "chips": [
+                { "text": "Yukon Quest starts 6 Feb", "kind": "key" },
+                { "text": "Mildest days" },
+                { "text": "Packages from CA$675 pp" }
+              ]
+            },
+            {
+              "title": "Churchill",
+              "meta": "Manitoba · to Winnipeg, then about 2.5 hours on Calm Air or two nights on the train",
+              "text": "The structured version. The Northern Studies Centre runs a six-night Winter Skies programme on 5 to 10 February 2027: aurora lectures, a heated viewing dome, dog sledding and snowshoeing, all meals and rooms included. A research station 23 km out of town rather than a hotel, with a group and a timetable, which is either the appeal or the reason not to.",
+              "chips": [
+                { "text": "Runs 5–10 Feb", "kind": "key" },
+                { "text": "Hardest to reach", "kind": "dry" },
+                { "text": "CA$3,200 pp, most things in" }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "fine",
+          "paragraphs": [
+            "**Getting the shot:** phone cameras manage the aurora on night mode now, but a small tripod helps, and batteries drain fast in the cold. A spare kept in an inside pocket is the trick.",
+            "**Nothing is guaranteed:** the operators watch the forecast and the cloud cover, and a cloudy night is simply lost. Four or five nights is the usual advice for that reason, so that one or two bad ones do not matter."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "leg",
+      "id": "wear",
+      "nav": "What to wear",
+      "theme": "sea",
+      "number": "KIT",
+      "title": "What to wear at −25 °C",
+      "meta": "Three layers, and rent the expensive one",
+      "intro": "Standing still outside at night is the hardest version of cold, colder than skiing or walking. The rule is layers that trap air, nothing cotton, and nothing tight on the hands or feet.",
+      "blocks": [
+        {
+          "kind": "rows",
+          "title": "From the skin out",
+          "items": [
+            {
+              "k": "Base layer",
+              "v": "Merino or synthetic long-sleeve top and long johns, midweight. Worn every night, and useful in Philly after. About US$60–120 each for merino. Buy."
+            },
+            {
+              "k": "Middle layer",
+              "v": "A fleece or a light down jacket, and fleece or wool trousers. Most people own one of these already. Bring."
+            },
+            {
+              "k": "Outer layer",
+              "v": "A parka and insulated overtrousers rated to about −30 °C. Expensive to buy, bulky to carry, and useless in Miami. Rent."
+            },
+            {
+              "k": "Feet",
+              "v": "Boots rated to −40 °C, a size up so the toes can move, over one pair of thick wool socks rather than two thin ones. Rent the boots, buy the socks."
+            },
+            {
+              "k": "Hands",
+              "v": "Thin liner gloves for using a phone, inside big insulated mitts. Mitts beat gloves at this temperature. Liners and mitts both come cheap."
+            },
+            {
+              "k": "Head",
+              "v": "A warm hat over the ears and a neck gaiter or balaclava that can come up over the nose. The face is what gets frostnip first."
+            },
+            {
+              "k": "Extras",
+              "v": "Chemical hand and toe warmers, about US$1 a pair, and lip balm. The air is very dry."
+            }
+          ]
+        },
+        {
+          "kind": "callout",
+          "title": "Renting the outer layer",
+          "text": "Aurora Village delivers a five-piece set (parka, overtrousers, boots, mitts, face mask) to the hotel for CA$70 a day or CA$145 for four days, and includes it in its packages. Northern Tales in Whitehorse rents a similar set for CA$155–199 for two to four nights. The Churchill programme sends a packing list instead, so that option means buying or borrowing more."
+        },
+        {
+          "kind": "fine",
+          "paragraphs": [
+            "**Travelling in:** the flights land into −20 °C, so the base layer and a mid layer go on for the last leg, with a warm hat in the bag. The rental arrives at the hotel, not the airport.",
+            "**Philly in February:** around 5 °C by day and below freezing at night. The base layers, hats and gloves from the north cover it, with an ordinary winter coat."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "crossing",
+      "text": "South to Philadelphia, about 9–10 Feb, one or two stops"
+    },
+    {
+      "type": "leg",
+      "id": "philly",
+      "nav": "Philly",
+      "navDates": "10–21",
+      "number": "LEG 02",
+      "title": "West Philly",
+      "meta": "About 10–21 Feb · a week or two · at Jabari’s place",
+      "intro": "Back to Jabari’s place to thaw out, with no plan in particular. Jabari is likely working some of it, and the length can be one week or two depending on what Miami needs.",
+      "blocks": [
+        {
+          "kind": "notes",
+          "items": [
+            {
+              "title": "Valentine’s Day falls in it",
+              "text": "Sunday the 14th. The one dinner in the stretch worth booking ahead, since every good room in the city is full that night."
+            },
+            {
+              "title": "Black History Month",
+              "text": "The African American Museum on Arch Street and the city’s February programme run all month. Worth a look at what is on once the dates are firm."
+            },
+            {
+              "title": "Then Miami",
+              "text": "Os heads south after this, on a date set by how long the Philly stretch runs. A separate trip and a separate booking."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "booking",
+      "intro": "Short, because nothing is decided. The place in the north decides the rest.",
+      "items": [
+        {
+          "label": "Which part of the north",
+          "detail": "Yellowknife, Whitehorse or Churchill. Everything after this follows from it."
+        },
+        {
+          "label": "The Churchill programme, if that is the one",
+          "detail": "One group, fixed dates of 5 to 10 February, and limited places. The option that fills first."
+        },
+        {
+          "label": "Flights north",
+          "detail": "One or two stops from Philadelphia, depending on the place. February is high season in the north, so earlier is cheaper."
+        },
+        {
+          "label": "Clothing rental",
+          "detail": "Booked with the aurora package in Yellowknife and Whitehorse, so it comes with that decision rather than separately."
+        },
+        {
+          "label": "Somewhere to sleep in Philly",
+          "detail": "Nothing to book. It is Jabari’s place."
+        }
+      ],
+      "caveat": "Prices are in Canadian dollars, per person, and from the operators’ 2026/27 winter pages as of October 2026. Package prices depend on the hotel and how many share the room."
+    }
+  ]
+}

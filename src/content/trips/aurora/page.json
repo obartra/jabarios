@@ -2,16 +2,23 @@
   "headline": "The aurora, then *West Philly*.",
   "headlineWidth": "16ch",
   "tags": [
-    { "text": "New moon 6 Feb", "hot": true },
-    { "text": "Nothing booked" },
-    { "text": "−25 °C nights" }
+    {
+      "text": "New moon 6 Feb",
+      "hot": true
+    },
+    {
+      "text": "Nothing booked"
+    },
+    {
+      "text": "−25 °C nights"
+    }
   ],
   "footer": "Rough dates, and which part of the north is not decided yet.",
   "sections": [
     {
       "type": "shape",
       "paragraphs": [
-        "Northern Canada instead of South America: four or five nights somewhere the aurora is overhead most clear nights, then down to Philadelphia for a week or two at Jabari’s place. After that Os heads to Miami, which is a separate trip.",
+        "Four or five nights in northern Canada, somewhere the aurora is overhead most clear nights, then down to Philadelphia for a week or two at Jabari’s place.",
         "Where in the north is open. The three options below are the ones with real infrastructure for a February night outside: heated cabins to wait in, someone watching the forecast, and clothes to rent. They differ mostly in how far they are to get to and what fills the daytime."
       ],
       "notes": [
@@ -53,9 +60,17 @@
               "meta": "Northwest Territories · one or two stops from Philadelphia, through Toronto, Calgary or Edmonton",
               "text": "The default. Flat, dry and directly under the auroral oval, so it gets more clear aurora nights than anywhere else that is this easy to reach. Aurora Village runs heated teepees about 25 minutes out of town, and its hotel packages bundle the nights, the transfers and the cold-weather clothing. The town itself is small: Old Town on the lake, the ice road when it is open, and dog sledding by day.",
               "chips": [
-                { "text": "Most clear nights", "kind": "key" },
-                { "text": "Coldest of the three", "kind": "dry" },
-                { "text": "3 nights from CA$670 pp" }
+                {
+                  "text": "Most clear nights",
+                  "kind": "key"
+                },
+                {
+                  "text": "Coldest of the three",
+                  "kind": "dry"
+                },
+                {
+                  "text": "3 nights from CA$670 pp"
+                }
               ]
             },
             {
@@ -63,9 +78,16 @@
               "meta": "Yukon · usually two stops from Philadelphia, the last one Vancouver",
               "text": "Mountains rather than flat tundra, a proper small city, and noticeably milder. The Yukon Quest sled dog race starts in town on the 6th, the new moon, and the Rendezvous festival runs 6 to 22 February, so the days have something in them. Slightly more cloud than Yellowknife, and Northern Tales and others drive out to cabins in the hills to get under it.",
               "chips": [
-                { "text": "Yukon Quest starts 6 Feb", "kind": "key" },
-                { "text": "Mildest days" },
-                { "text": "Packages from CA$675 pp" }
+                {
+                  "text": "Yukon Quest starts 6 Feb",
+                  "kind": "key"
+                },
+                {
+                  "text": "Mildest days"
+                },
+                {
+                  "text": "Packages from CA$675 pp"
+                }
               ]
             },
             {
@@ -73,9 +95,17 @@
               "meta": "Manitoba · to Winnipeg, then about 2.5 hours on Calm Air or two nights on the train",
               "text": "The structured version. The Northern Studies Centre runs a six-night Winter Skies programme on 5 to 10 February 2027: aurora lectures, a heated viewing dome, dog sledding and snowshoeing, all meals and rooms included. A research station 23 km out of town rather than a hotel, with a group and a timetable, which is either the appeal or the reason not to.",
               "chips": [
-                { "text": "Runs 5–10 Feb", "kind": "key" },
-                { "text": "Hardest to reach", "kind": "dry" },
-                { "text": "CA$3,200 pp, most things in" }
+                {
+                  "text": "Runs 5–10 Feb",
+                  "kind": "key"
+                },
+                {
+                  "text": "Hardest to reach",
+                  "kind": "dry"
+                },
+                {
+                  "text": "CA$3,200 pp, most things in"
+                }
               ]
             }
           ]
@@ -113,7 +143,7 @@
             },
             {
               "k": "Outer layer",
-              "v": "A parka and insulated overtrousers rated to about −30 °C. Expensive to buy, bulky to carry, and useless in Miami. Rent."
+              "v": "A parka and insulated overtrousers rated to about −30 °C. Expensive to buy, bulky to carry, and no use after February. Rent."
             },
             {
               "k": "Feet",
@@ -159,7 +189,7 @@
       "number": "LEG 02",
       "title": "West Philly",
       "meta": "About 10–21 Feb · a week or two · at Jabari’s place",
-      "intro": "Back to Jabari’s place to thaw out, with no plan in particular. Jabari is likely working some of it, and the length can be one week or two depending on what Miami needs.",
+      "intro": "A week or two at Jabari’s place with no plan in particular. Jabari is likely working some of it.",
       "blocks": [
         {
           "kind": "notes",
@@ -171,10 +201,6 @@
             {
               "title": "Black History Month",
               "text": "The African American Museum on Arch Street and the city’s February programme run all month. Worth a look at what is on once the dates are firm."
-            },
-            {
-              "title": "Then Miami",
-              "text": "Os heads south after this, on a date set by how long the Philly stretch runs. A separate trip and a separate booking."
             }
           ]
         }
@@ -199,10 +225,6 @@
         {
           "label": "Clothing rental",
           "detail": "Booked with the aurora package in Yellowknife and Whitehorse, so it comes with that decision rather than separately."
-        },
-        {
-          "label": "Somewhere to sleep in Philly",
-          "detail": "Nothing to book. It is Jabari’s place."
         }
       ],
       "caveat": "Prices are in Canadian dollars, per person, and from the operators’ 2026/27 winter pages as of October 2026. Package prices depend on the hotel and how many share the room."

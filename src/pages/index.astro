@@ -17,14 +17,17 @@ import {
 const now = Date.now();
 const ordered = sortTrips(trips, now);
 
+// A pivot is a plan we dropped, so it counts towards nothing.
+const taken = trips.filter((trip) => trip.pivoted === undefined);
+const hasPivots = taken.length < trips.length;
 // An undated trip adds no days: we do not know how many it is yet.
-const totalDays = trips.reduce((sum, trip) => sum + (trip.dates ? durationDays(trip.dates) : 0), 0);
-const totalCountries = trips.reduce((sum, trip) => sum + trip.countries, 0);
-const next = nextTrip(trips, now);
+const totalDays = taken.reduce((sum, trip) => sum + (trip.dates ? durationDays(trip.dates) : 0), 0);
+const totalCountries = taken.reduce((sum, trip) => sum + trip.countries, 0);
+const next = nextTrip(taken, now);
 const initial = next ? countdown(parseDay(next.dates.start), now) : null;
 
 const stats = [
-  { value: String(trips.length), label: trips.length === 1 ? 'Trip' : 'Trips' },
+  { value: String(taken.length), label: taken.length === 1 ? 'Trip' : 'Trips' },
   { value: String(totalCountries), label: totalCountries === 1 ? 'Country' : 'Countries' },
   { value: String(totalDays), label: 'Days away' },
   { value: next ? shortMonth(next.dates.start) : 'None', label: 'Next departure' },
@@ -82,6 +85,13 @@ const stats = [
         <button role="tab" aria-selected="true" data-filter="all">All</button>
         <button role="tab" aria-selected="false" data-filter="upcoming">Upcoming</button>
         <button role="tab" aria-selected="false" data-filter="past">Past</button>
+        {
+          hasPivots && (
+            <button role="tab" aria-selected="false" data-filter="pivots">
+              Pivots
+            </button>
+          )
+        }
       </div>
     </div>
 

@@ -1,0 +1,167 @@
+{
+  "categories": [
+    {
+      "id": "near",
+      "label": "Within forty minutes of Manresa",
+      "short": "Nearby",
+      "note": "Short drives and short days. Any of these leaves the afternoon free, and none of them needs booking more than a day ahead."
+    },
+    {
+      "id": "coast",
+      "label": "Barcelona and Sitges",
+      "short": "Barcelona",
+      "note": "About an hour each way, so one thing per trip is plenty. Both picks in Barcelona are seated or step-free."
+    },
+    {
+      "id": "north",
+      "label": "The long day north, for Dalí",
+      "short": "Dalí",
+      "note": "Two hours each way. Worth it once, and probably with a night up there rather than four hours of driving in one day."
+    }
+  ],
+  "items": [
+    {
+      "id": "montserrat",
+      "name": "Montserrat",
+      "category": "near",
+      "price": "Rack railway around €15 return · basilica ticketed",
+      "duration": "Half a day",
+      "blurb": "The closest big thing to Manresa and the easiest on a bad leg. The rack railway climbs 550 metres from Monistrol in about fifteen minutes and stops level with the abbey square, so the mountain comes without the walking. The boys’ choir sings in the basilica at 13:00.",
+      "facts": [
+        "Free car park at Monistrol-Vila, 20 minutes from Manresa",
+        "Rack railway trains and stations are adapted for reduced mobility; the two funiculars are not",
+        "The choir’s own site says 13:00 and 19:00 daily; other sources say not on Saturdays",
+        "Basilica entry is timed, so the 13:00 slot is the one to reserve",
+        "About 5 °C colder than Manresa at 720 m"
+      ],
+      "photo": "montserrat.jpg",
+      "link": "https://www.cremallerademontserrat.cat/en/"
+    },
+    {
+      "id": "sant-benet",
+      "name": "Sant Benet de Bages",
+      "category": "near",
+      "price": "Around €12, worth checking",
+      "duration": "Two hours",
+      "blurb": "A Benedictine monastery from the 10th century on the Llobregat, ten minutes from Manresa. A Romanesque cloister, and upstairs the summer rooms of the painter Ramon Casas, whose family bought the place in 1907. Flat, quiet, and mostly indoors if it rains.",
+      "facts": [
+        "One listing has it closed Mondays and Tuesdays and shut by 15:00 midweek",
+        "Saturday 9:00 to 19:00, Sunday 9:00 to 18:00, by the same listing",
+        "The cloister is on the level; the upstairs rooms are not"
+      ],
+      "photo": "santbenet.jpg",
+      "link": "https://monsantbenet.com/"
+    },
+    {
+      "id": "cardona",
+      "name": "Cardona",
+      "category": "near",
+      "price": "Salt mountain around €14",
+      "duration": "Half a day",
+      "blurb": "Thirty minutes up the Cardener. A castle that held out until 1714 and is now a parador, so the view comes with coffee and no ticket, and below it a mountain of salt mined from Roman times until 1990.",
+      "facts": [
+        "The salt mountain tour goes 86 m underground on foot, so this one depends on the leg",
+        "Tours are guided and timed, mostly at weekends outside summer",
+        "The castle is a drive-up; the terrace and the bar are open to anyone",
+        "Cardona’s mushroom fair is usually late October, dates worth checking"
+      ],
+      "photo": "cardona.jpg",
+      "link": "https://www.cardonaturisme.cat/"
+    },
+    {
+      "id": "vic",
+      "name": "Vic on market day",
+      "category": "near",
+      "price": "Free",
+      "duration": "A morning",
+      "blurb": "Forty minutes east on the C-25. The market has filled the Plaça Major every Tuesday and Saturday for centuries: an arcaded square of sand, flat all the way round, with café tables under the arches. October is mushroom season and the stalls show it.",
+      "facts": [
+        "Tuesday 20 and Saturday 24 are the two market days in the week",
+        "Mornings only, winding down from about 13:30",
+        "Vic is where fuet comes from, and the shops around the square sell little else",
+        "Fog sits on the plain here on autumn mornings and lifts by eleven"
+      ],
+      "photo": "vic.jpg"
+    },
+    {
+      "id": "sagrada",
+      "name": "Sagrada Família",
+      "category": "coast",
+      "price": "Around €26",
+      "duration": "90 minutes inside",
+      "blurb": "The one thing in Barcelona that cannot be seen from the pavement. The nave is step-free and the point of it is to sit down and look up, which suits us. Afternoon slots get the orange light through the west windows.",
+      "facts": [
+        "Online tickets only, timed, and they sell out weeks ahead",
+        "The towers are closed to anyone with reduced mobility, so the basic ticket is the one",
+        "A separate step-free entrance on Carrer de la Marina",
+        "Free entry with a disability certificate, by several guides; the threshold varies by source"
+      ],
+      "photo": "sagrada.jpg",
+      "link": "https://sagradafamilia.org/en/"
+    },
+    {
+      "id": "montjuic",
+      "name": "Montjuïc by cable car",
+      "category": "coast",
+      "price": "Around €17 return",
+      "duration": "Two hours",
+      "blurb": "The city from a seat. The cable car runs 750 metres from the funicular station to the castle, with the port on one side and the whole grid on the other. A taxi to the lower station takes the hill out of it.",
+      "facts": [
+        "Closes around 19:00 in October; sunset is about 18:55 until the clocks change",
+        "Cabins are level-boarding and hold eight",
+        "The castle at the top is flat inside the walls",
+        "Pairs with the Sagrada Família on the same trip, by taxi rather than metro"
+      ],
+      "photo": "montjuic.jpg",
+      "link": "https://www.telefericdemontjuic.cat/en"
+    },
+    {
+      "id": "sitges",
+      "name": "Sitges",
+      "category": "coast",
+      "price": "Free, plus lunch",
+      "duration": "A long lunch",
+      "blurb": "About 75 minutes from Manresa. A seafront promenade that runs flat for two and a half kilometres with a bench every few metres, the church on its rock at one end, and lunch facing the water. In late October the sea is still around 20 °C and the town is half-asleep, which may be the point.",
+      "facts": [
+        "The film festival usually finishes the week before, so tables are easy",
+        "The church sits up a flight of steps; it looks the same from the bottom",
+        "The old town behind the front is cobbled and sloped",
+        "The C-32 through the Garraf tunnels is a toll road"
+      ],
+      "photo": "sitges.jpg"
+    },
+    {
+      "id": "dali",
+      "name": "Dalí Theatre-Museum, Figueres",
+      "category": "north",
+      "price": "Around €20, sources disagree",
+      "duration": "Two hours inside",
+      "blurb": "Dalí built it himself in the burnt-out theatre of the town where Dalí was born, and is buried under the stage. It is in Figueres rather than Roses, which is 25 minutes further on at the coast. The building is the exhibit: a red wall topped with eggs, a glass dome, and a Cadillac in the courtyard.",
+      "facts": [
+        "Reported closed on Mondays outside July and August, which would rule out the 19th",
+        "Timed tickets, and midweek mornings are the calm ones",
+        "It is a converted theatre on several levels, so there are stairs; worth asking about the lift when booking",
+        "About 1 h 50 from Manresa by the C-25 and the AP-7"
+      ],
+      "photo": "dali.jpg",
+      "link": "https://www.salvador-dali.org/en/"
+    },
+    {
+      "id": "cadaques",
+      "name": "Cadaqués and Dalí’s house",
+      "category": "north",
+      "price": "House €15.50 online",
+      "duration": "The other half of the day",
+      "blurb": "Forty minutes beyond Figueres over a pass, and the reason to stay a night. A white town on a bay, and round the headland at Portlligat the fishermen’s huts Dalí and Gala joined into a house over forty years. Roses is on the way, for lunch on the front.",
+      "facts": [
+        "The house is not accessible: narrow stairs throughout, and the foundation says so",
+        "Advance booking always required, with entry in small groups every ten minutes",
+        "Open daily 10:30 to 18:00 until 31 October",
+        "The olive grove alone is €8 and on the level",
+        "The road in is 15 km of bends"
+      ],
+      "photo": "cadaques.jpg",
+      "link": "https://www.salvador-dali.org/en/museums/house-salvador-dali-in-portlligat/"
+    }
+  ]
+}

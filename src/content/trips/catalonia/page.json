@@ -1,0 +1,124 @@
+{
+  "headline": "A week out of *Manresa*.",
+  "headlineWidth": "14ch",
+  "footer": "{nights} nights based in Manresa, in place of Hanoi and Thailand. Ideas rather than a plan.",
+  "sections": [
+    {
+      "type": "shape",
+      "paragraphs": [
+        "Hanoi and Thailand came off when Os got injured, and this is what the week became instead: Manresa, where Os grew up, as the base, and day trips out from it. Os’s parents may join for some of them.",
+        "Everything below is an option rather than a plan. It is sorted by how far it is from Manresa, because the drive decides the day more than the place does. None of it is booked, and the dates are rough."
+      ],
+      "notes": [
+        {
+          "lead": "Few steps, on purpose.",
+          "rest": "Os is not walking far. Everything here was picked for seats, lifts, level ground and a car park near the door, and the cards say where that breaks down."
+        },
+        {
+          "lead": "One thing a day.",
+          "rest": "Barcelona and Sitges are an hour or more each way and Figueres is two. A trip out and a slow evening back in Manresa is a full day."
+        },
+        {
+          "lead": "It assumes a car.",
+          "rest": "Trains reach Barcelona in about 1 h 25 on either the R5 or the R4, and Sitges with a change. Cardona, Sant Benet and the Dalí day do not work without one."
+        },
+        {
+          "lead": "October is the wet month.",
+          "rest": "Around 20 °C by day on the coast and 9 °C at dawn in Manresa. Rain comes in whole days, so the indoor cards are worth holding back for one."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "id": "week",
+      "nav": "The week",
+      "title": "What the calendar decides",
+      "note": "Not a schedule. Only what each day rules in or out.",
+      "items": [
+        {
+          "when": "Mon 19 Oct",
+          "what": "In",
+          "detail": "Arrival, roughly. Sant Benet and the Dalí museum are both reported closed on Mondays, so nothing is lost by doing nothing."
+        },
+        {
+          "when": "Tue 20 Oct",
+          "what": "Market day in Vic",
+          "detail": "The first of two. Sant Benet may still be closed."
+        },
+        {
+          "when": "Wed 21 to Fri 23",
+          "what": "The open days",
+          "detail": "Everything on the page is open. Midweek is the calm time for Montserrat, the Sagrada Família and Figueres, so the long trips fit best here."
+        },
+        {
+          "when": "Sat 24 Oct",
+          "what": "Market day again",
+          "detail": "Vic’s bigger market. Sant Benet keeps its longest hours. Montserrat is at its busiest and the choir may not sing."
+        },
+        {
+          "when": "Sun 25 Oct",
+          "what": "The clocks go back",
+          "detail": "An extra hour at 03:00, and sunset moves from about 18:55 to 17:55. Out, roughly, with nothing planned into it."
+        }
+      ]
+    },
+    {
+      "type": "activities"
+    },
+    {
+      "type": "places",
+      "id": "manresa",
+      "nav": "Manresa",
+      "title": "Manresa itself",
+      "note": "Os’s to show. Three that do not need a guide, all on or above the river.",
+      "lists": [
+        {
+          "items": [
+            {
+              "name": "La Seu",
+              "where": "On the hill above the Cardener",
+              "detail": "The Gothic basilica that is the town’s skyline, begun in 1328 by Berenguer de Montagut, who went on to build Santa Maria del Mar in Barcelona. It sits at the top of the old town, so it is a drive up rather than a climb."
+            },
+            {
+              "name": "The Pont Vell",
+              "where": "Across the Cardener",
+              "detail": "A medieval bridge on Roman footings, blown up in 1939 and rebuilt in the 1960s. The far bank is the place to see La Seu from."
+            },
+            {
+              "name": "The Cova de Sant Ignasi",
+              "where": "Below La Seu",
+              "detail": "Ignatius of Loyola spent eleven months in Manresa in 1522 and wrote most of the Spiritual Exercises in a cave over the river. The Jesuits built a Baroque church over it, and the cave is still inside."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "booking",
+      "intro": "Nothing is booked. Three things are worth doing before the rest, because each one decides what the week can hold.",
+      "items": [
+        {
+          "label": "Flights, and so the dates",
+          "detail": "The 19th to the 25th is approximate. Everything in the calendar above shifts with them."
+        },
+        {
+          "label": "A car",
+          "detail": "For the week, or at least for the Cardona and Figueres days."
+        },
+        {
+          "label": "Sagrada Família",
+          "detail": "The only thing here that sells out weeks ahead. Timed, online only, and the afternoon slots go first."
+        },
+        {
+          "label": "Dalí’s house, if we go",
+          "detail": "Advance booking only, in small groups. Worth deciding first whether the stairs make it a no."
+        },
+        {
+          "label": "A night near Figueres, if we go",
+          "detail": "It turns four hours of driving in a day into two and two."
+        }
+      ],
+      "caveat": "Prices and hours were looked up on 10 October 2026. The Portlligat and rack railway details are from their own sites. The Dalí museum, Sant Benet, Cardona and Sagrada Família figures are from listings that disagree with each other, so each wants checking on its own site before we rely on it."
+    }
+  ]
+}

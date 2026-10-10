@@ -1,0 +1,104 @@
+{
+  "name": "Catalonia",
+  "start": "2026-10-19",
+  "end": "2026-10-25",
+  "countries": 1,
+  "lede": "A week based in Manresa, where Os grew up, in place of Hanoi and Thailand. Montserrat is 20 minutes away, Barcelona and Sitges about an hour, and Dalí’s museum in Figueres two. Os is injured, so all of it is picked for few steps. Ideas rather than a plan.",
+  "blurb": "A week out of Manresa, where Os grew up. Montserrat by rack railway, Barcelona and Sitges an hour off, Dalí in Figueres, and all of it picked for few steps.",
+  "description": "A week in Catalonia in October 2026, based in Manresa. Montserrat, Barcelona, Sitges and Dalí in Figueres, all picked for few steps. Ideas, not a plan.",
+  "places": ["Manresa", "Montserrat", "Barcelona", "Sitges", "Figueres"],
+  "notes": ["Rough dates", "Nothing booked"],
+  "cover": "cover.jpg",
+  "photos": {
+    "cover.jpg": {
+      "alt": "The Seu basilica on its sandstone bluff above the Cardener valley in Manresa, with the stone arches of the Pont Vell below",
+      "credit": {
+        "subject": "Manresa, the Seu and Pont Vell",
+        "author": "Canaan",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Seu_i_Pont_Vell,_Manresa.jpg"
+      }
+    },
+    "montserrat.jpg": {
+      "alt": "The ochre buildings of Montserrat abbey at the foot of rounded rock pillars, with cloud catching on the peaks",
+      "credit": {
+        "subject": "Montserrat abbey",
+        "author": "Orlith1",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Monastery,_Montserrat.jpg"
+      }
+    },
+    "santbenet.jpg": {
+      "alt": "The Romanesque church of Sant Benet de Bages, with its round apse and two square bell towers, seen through trees and cypresses",
+      "credit": {
+        "subject": "Sant Benet de Bages",
+        "author": "Josep Renalias",
+        "licence": "CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sant_Benet_de_Bages_-_General.jpg"
+      }
+    },
+    "cardona.jpg": {
+      "alt": "Cardona castle and its stone ramparts on top of a grassy hill, with town houses at the foot",
+      "credit": {
+        "subject": "Cardona castle",
+        "author": "Alvesgaspar",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Cardona_March_2015-4a.jpg"
+      }
+    },
+    "sagrada.jpg": {
+      "alt": "Branching stone columns inside the Sagrada Família, lit green and blue by the stained glass windows",
+      "credit": {
+        "subject": "Sagrada Família interior",
+        "author": "Richard Mortel",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sagrada_Familia,_interior_(13)_(30907447600).jpg"
+      }
+    },
+    "montjuic.jpg": {
+      "alt": "Cabins of the Montjuïc cable car passing a pylon, with the rooftops of Barcelona and the Collserola hills behind",
+      "credit": {
+        "subject": "Montjuïc cable car",
+        "author": "Mariordo",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Montju%C3%AFc_Cable_Car_BCN_04_2016_7109.jpg"
+      }
+    },
+    "sitges.jpg": {
+      "alt": "The church of Sant Bartomeu i Santa Tecla above the palm-lined promenade and sand of Platja de la Fragata in Sitges",
+      "credit": {
+        "subject": "Sitges seafront",
+        "author": "Enric",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:038_Platja_de_la_Fragata_i_esgl%C3%A9sia_de_Sant_Bartomeu_i_Santa_Tecla_(Sitges).jpg"
+      }
+    },
+    "dali.jpg": {
+      "alt": "The red Torre Galatea of the Dalí Theatre-Museum in Figueres, topped with giant eggs, with the glass dome behind it",
+      "credit": {
+        "subject": "Dalí Theatre-Museum, Figueres",
+        "author": "Sharon Hahn Darlin",
+        "licence": "CC BY 2.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Figueres,_Catalu%C3%B1a_Oct_2023_-_Teatre-Museu_Dal%C3%AD.jpg"
+      }
+    },
+    "cadaques.jpg": {
+      "alt": "White houses with terracotta roofs along the sea wall at Cadaqués, seen across the water of the bay with scrub-covered hills behind",
+      "credit": {
+        "subject": "Cadaqués from across the bay",
+        "author": "Berthold Werner",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Cadaqu%C3%A9s_BW_2019-10-08_11-43-52.jpg"
+      }
+    },
+    "vic.jpg": {
+      "alt": "Clothing stalls and shoppers at the Tuesday market on the sandy Plaça Major in Vic, with arcaded town houses behind",
+      "credit": {
+        "subject": "Plaça Major market, Vic",
+        "author": "Enric",
+        "licence": "CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:005_Mercat_del_dimarts_a_la_pla%C3%A7a_Major_de_Vic.jpg"
+      }
+    }
+  }
+}

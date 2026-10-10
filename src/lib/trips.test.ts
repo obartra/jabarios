@@ -3,12 +3,14 @@ import {
   countdown,
   durationDays,
   formatRange,
+  matchesFilter,
   nextTrip,
   parseDay,
   requireDates,
   shortMonth,
   sortTrips,
   statusOf,
+  statusOfTrip,
   UNDATED_LABEL,
 } from './trips.ts';
 
@@ -17,6 +19,10 @@ const at = (iso: string) => Date.parse(iso);
 /** sortTrips and nextTrip take whole trips, so fixtures carry a dates field. */
 const dated = (slug: string, start: string, end: string) => ({ slug, dates: { start, end } });
 const undated = (slug: string) => ({ slug, dates: null });
+const pivoted = (slug: string, start: string, end: string) => ({
+  ...dated(slug, start, end),
+  pivoted: true,
+});
 
 describe('parseDay', () => {
   it('anchors a calendar day at midday UTC', () => {
@@ -68,6 +74,52 @@ describe('statusOf', () => {
   });
 });
 
+describe('statusOfTrip', () => {
+  it('follows the dates for a trip we are taking', () => {
+    expect(statusOfTrip({ dates: thai }, at('2026-10-20T00:00:00Z'))).toBe('now');
+    expect(statusOfTrip({ dates: null }, at('2026-10-20T00:00:00Z'))).toBe('undated');
+  });
+
+  it('calls a pivoted trip pivoted before, during and after its dates', () => {
+    const trip = { dates: thai, pivoted: true };
+    for (const when of ['2026-08-31', '2026-10-20', '2027-01-01']) {
+      expect(statusOfTrip(trip, at(`${when}T00:00:00Z`))).toBe('pivoted');
+    }
+    expect(statusOfTrip({ dates: null, pivoted: true }, at('2026-10-20T00:00:00Z'))).toBe(
+      'pivoted',
+    );
+  });
+});
+
+describe('matchesFilter', () => {
+  it('shows every trip we are taking or took under "all"', () => {
+    for (const status of ['upcoming', 'now', 'undated', 'past'] as const) {
+      expect(matchesFilter(status, 'all')).toBe(true);
+    }
+  });
+
+  it('splits upcoming from past, with in-progress and undated trips as upcoming', () => {
+    expect(matchesFilter('now', 'upcoming')).toBe(true);
+    expect(matchesFilter('undated', 'upcoming')).toBe(true);
+    expect(matchesFilter('past', 'upcoming')).toBe(false);
+    expect(matchesFilter('past', 'past')).toBe(true);
+    expect(matchesFilter('upcoming', 'past')).toBe(false);
+  });
+
+  it('keeps a pivot under its own tab and nowhere else', () => {
+    expect(matchesFilter('pivoted', 'pivots')).toBe(true);
+    for (const filter of ['all', 'upcoming', 'past'] as const) {
+      expect(matchesFilter('pivoted', filter)).toBe(false);
+    }
+  });
+
+  it('shows nothing but pivots under "pivots"', () => {
+    for (const status of ['upcoming', 'now', 'undated', 'past'] as const) {
+      expect(matchesFilter(status, 'pivots')).toBe(false);
+    }
+  });
+});
+
 describe('requireDates', () => {
   it('returns the dates when they are there', () => {
     expect(requireDates({ dates: thai }, 'thai')).toEqual(thai);
@@ -104,6 +156,12 @@ describe('nextTrip', () => {
     expect(nextTrip([undated('someday'), later], now)?.slug).toBe('c');
     expect(nextTrip([undated('someday')], now)).toBeNull();
   });
+
+  it('never picks a pivoted trip, even one whose dates are the soonest', () => {
+    const off = pivoted('off', '2026-10-13', '2026-10-15');
+    expect(nextTrip([off, later], now)?.slug).toBe('c');
+    expect(nextTrip([off], at('2026-10-14T00:00:00Z'))).toBeNull();
+  });
 });
 
 describe('sortTrips', () => {
@@ -132,6 +190,21 @@ describe('sortTrips', () => {
       'soon',
       'someday',
       'old',
+    ]);
+  });
+
+  it('puts pivots last, most recent first, whatever their dates', () => {
+    const trips = [
+      pivoted('off-early', '2026-10-13', '2026-10-15'),
+      dated('old', '2024-01-01', '2024-01-10'),
+      pivoted('off-late', '2026-10-15', '2026-11-01'),
+      dated('soon', '2026-10-19', '2026-10-25'),
+    ];
+    expect(sortTrips(trips, at('2026-10-10T00:00:00Z')).map((t) => t.slug)).toEqual([
+      'soon',
+      'old',
+      'off-late',
+      'off-early',
     ]);
   });
 

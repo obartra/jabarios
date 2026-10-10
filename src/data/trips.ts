@@ -42,6 +42,12 @@ const TripSchema = z
      */
     start: z.iso.date().optional(),
     end: z.iso.date().optional(),
+    /**
+     * Set on a trip we planned and then replaced: one line saying what happened
+     * and what took its place. Its presence is what files the trip under
+     * Pivots; the line itself is shown at the top of the trip page.
+     */
+    pivoted: z.string().min(1).optional(),
     countries: z.number().int().positive().default(1),
     /** Hero line on the trip page. */
     lede: z.string().min(1),

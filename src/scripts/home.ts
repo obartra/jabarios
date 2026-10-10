@@ -6,15 +6,16 @@
  */
 import {
   countdown,
+  matchesFilter,
   nextTrip,
   parseDay,
   STATUS_LABEL,
   statusOf,
+  statusOfTrip,
   type MaybeDated,
+  type TripFilter,
   type TripStatus,
 } from '../lib/trips.ts';
-
-type Filter = 'all' | 'upcoming' | 'past';
 
 interface CardTrip extends MaybeDated {
   el: HTMLElement;
@@ -26,6 +27,7 @@ const PILL_CLASS: Record<TripStatus, string> = {
   now: 'pill live',
   upcoming: 'pill',
   undated: 'pill',
+  pivoted: 'pill done',
 };
 
 function readCards(): CardTrip[] {
@@ -34,13 +36,15 @@ function readCards(): CardTrip[] {
     if (!name) return [];
     // A card with no dates still needs painting and filtering, so it stays in
     // the list with dates null rather than being dropped on the floor.
-    return [{ el, name, dates: start && end ? { start, end } : null }];
+    return [
+      { el, name, dates: start && end ? { start, end } : null, pivoted: 'pivoted' in el.dataset },
+    ];
   });
 }
 
 function paintStatus(cards: CardTrip[], now: number): void {
   for (const card of cards) {
-    const status = statusOf(card.dates, now);
+    const status = statusOfTrip(card, now);
     card.el.dataset.status = status;
     const pill = card.el.querySelector<HTMLElement>('[data-status-pill]');
     if (pill) {
@@ -100,15 +104,10 @@ function wireFilter(cards: CardTrip[]): void {
   const empty = document.getElementById('empty');
   if (tabs.length === 0) return;
 
-  const apply = (want: Filter): void => {
+  const apply = (want: TripFilter): void => {
     let shown = 0;
     for (const card of cards) {
-      const status = card.el.dataset.status as TripStatus | undefined;
-      // "Upcoming" keeps trips in progress as well as ones still ahead.
-      const keep =
-        want === 'all' ||
-        (want === 'past' && status === 'past') ||
-        (want === 'upcoming' && status !== 'past');
+      const keep = matchesFilter(card.el.dataset.status as TripStatus, want);
       card.el.style.display = keep ? '' : 'none';
       if (keep) shown++;
     }
@@ -118,7 +117,7 @@ function wireFilter(cards: CardTrip[]): void {
   for (const tab of tabs) {
     tab.addEventListener('click', () => {
       for (const other of tabs) other.setAttribute('aria-selected', String(other === tab));
-      apply((tab.dataset.filter as Filter | undefined) ?? 'all');
+      apply((tab.dataset.filter as TripFilter | undefined) ?? 'all');
     });
   }
 }

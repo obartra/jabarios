@@ -54,6 +54,12 @@ countdown or the days-away total. It sorts after the trips that do have dates
 and ahead of the finished ones. A page that reads the dates should call
 `requireDates`, which fails the build rather than rendering an empty range.
 
+A trip we planned and then replaced gets a `pivoted` line in its `trip.json`:
+one sentence saying what happened and what took its place. The page stays up
+with that line at the top, the card moves to the Pivots tab on the homepage
+and shows under no other, and the trip drops out of the countdown and the
+totals. The dates stay, because the plan had them.
+
 ## Merging
 
 `main` requires the three CI jobs to pass, with no bypass, so every change
@@ -78,8 +84,8 @@ suite. Netlify runs the build, which includes `scripts/check-dist.mjs`, so a
 broken deploy fails rather than ships.
 
 **Unit** (`src/**/*.test.ts`) covers the date logic: trip duration across a
-daylight-saving change, status on the departure and return day, next-trip
-selection, sorting, countdown, and date-range formatting. Plus the trip data
+daylight-saving change, status on the departure and return day, pivoted trips, the
+homepage filter, next-trip selection, sorting, countdown, and date-range formatting. Plus the trip data
 itself: unique slugs, dates in order, description length, cover alt text.
 
 **Post-build** (`scripts/check-dist.mjs`) runs against `dist/`, so it inspects
@@ -90,7 +96,7 @@ every bundled photo having a credit that renders, and the house style rules
 from `CLAUDE.md`.
 
 **End to end** (`tests/e2e/`) covers what only a browser can: cards revealing
-on scroll, the filter and its empty state, the live countdown, the back link,
+on scroll, the filter and its empty state, the Pivots tab, the live countdown, the back link,
 no horizontal scroll, no failing requests including lazy-loaded photos, and a
 real 404 status on an unknown path.
 

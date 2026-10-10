@@ -2,7 +2,13 @@
 import { Picture } from 'astro:assets';
 import type { Trip } from '../data/trips.ts';
 import { photo, WIDTHS } from '../lib/photos.ts';
-import { durationDays, STATUS_LABEL, statusOf, type TripStatus } from '../lib/trips.ts';
+import {
+  durationDays,
+  matchesFilter,
+  STATUS_LABEL,
+  statusOfTrip,
+  type TripStatus,
+} from '../lib/trips.ts';
 
 interface Props {
   trip: Trip;
@@ -14,7 +20,11 @@ interface Props {
 
 const { trip, now, eager = false } = Astro.props;
 
-const status: TripStatus = statusOf(trip.dates, now);
+const pivoted = trip.pivoted !== undefined;
+const status: TripStatus = statusOfTrip({ dates: trip.dates, pivoted }, now);
+// The page opens on "All", so a card that tab leaves out starts hidden rather
+// than flashing in before the script runs.
+const shown = matchesFilter(status, 'all');
 const days = trip.dates ? durationDays(trip.dates) : null;
 const chips = [...trip.places, ...trip.notes];
 ---
@@ -28,7 +38,9 @@ const chips = [...trip.places, ...trip.notes];
   data-start={trip.dates?.start}
   data-end={trip.dates?.end}
   data-countries={trip.countries}
+  data-pivoted={pivoted ? '' : undefined}
   data-status={status}
+  style={shown ? undefined : 'display:none'}
 >
   <div class="shot">
     <Picture
@@ -45,7 +57,9 @@ const chips = [...trip.places, ...trip.notes];
 
   <div class="body">
     <div class="top">
-      <span class="pill" data-status-pill>{STATUS_LABEL[status]}</span>
+      <span class:list={['pill', { done: status === 'pivoted' }]} data-status-pill
+        >{STATUS_LABEL[status]}</span
+      >
       {days !== null && <span class="pill">{days} days</span>}
     </div>
 

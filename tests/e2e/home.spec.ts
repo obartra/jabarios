@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { trips } from '../../src/data/trips.ts';
 
+const pivots = trips.filter((trip) => trip.pivoted !== undefined);
+const taken = trips.filter((trip) => trip.pivoted === undefined);
+
 test.describe('homepage', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -13,13 +16,16 @@ test.describe('homepage', () => {
     // agree; this proves the homepage actually renders one for every trip.
     await expect(cards).toHaveCount(trips.length);
 
-    const thai = cards.filter({ hasText: 'Thailand' });
-    await expect(thai.getByRole('heading', { name: 'Thailand' })).toBeVisible();
-    await expect(thai).toContainText('15 October – 1 November 2026');
+    // Any dated trip we are taking will do; found in the data so that this
+    // keeps working when the trip it happened to pick is over or called off.
+    const trip = taken.find((t) => t.dates !== null)!;
+    const card = page.locator(`[data-slug="${trip.slug}"]`);
+    await expect(card.getByRole('heading', { name: trip.name })).toBeVisible();
+    await expect(card).toContainText(trip.dateLabel);
 
-    await thai.click();
-    await expect(page).toHaveURL(/\/thai\/$/);
-    await expect(page).toHaveTitle(/Thailand/);
+    await card.click();
+    await expect(page).toHaveURL(new RegExp(`/${trip.slug}/$`));
+    await expect(page).toHaveTitle(new RegExp(trip.name));
   });
 
   test('reveals cards once they are scrolled into view', async ({ page }) => {
@@ -72,10 +78,61 @@ test.describe('homepage', () => {
   });
 });
 
+test.describe('a trip we pivoted away from', () => {
+  test.beforeEach(async ({ page }) => {
+    test.skip(pivots.length === 0, 'no pivoted trip in the data');
+    await page.goto('/');
+  });
+
+  test('shows only under Pivots, with the pill to match', async ({ page }) => {
+    // Before any tab is touched: the page opens on "All", which leaves them out.
+    for (const trip of pivots) {
+      await expect(page.locator(`[data-slug="${trip.slug}"]`)).toBeHidden();
+    }
+    for (const trip of pivots) {
+      const card = page.locator(`[data-slug="${trip.slug}"]`);
+      for (const tab of ['All', 'Upcoming', 'Past']) {
+        await page.getByRole('tab', { name: tab }).click();
+        await expect(card).toBeHidden();
+      }
+      await page.getByRole('tab', { name: 'Pivots' }).click();
+      await expect(card).toBeVisible();
+      // It was display:none when the reveal observer started, so this is the
+      // proof that a card shown later still fades in.
+      await card.scrollIntoViewIfNeeded();
+      await expect(card).toHaveCSS('opacity', '1');
+      await expect(card).toHaveAttribute('data-status', 'pivoted');
+      await expect(card.locator('[data-status-pill]')).toHaveText('Pivoted');
+    }
+  });
+
+  test('leaves the Pivots tab holding nothing else', async ({ page }) => {
+    await page.getByRole('tab', { name: 'Pivots' }).click();
+    await expect(page.locator('[data-trip]:visible')).toHaveCount(pivots.length);
+    await expect(page.locator('#empty')).toBeHidden();
+  });
+
+  test('is never the trip the countdown points at, and adds nothing to the totals', async ({
+    page,
+  }) => {
+    for (const trip of pivots) {
+      await expect(page.locator('#nextup-name')).not.toHaveText(trip.name);
+    }
+    await expect(page.locator('.stat b').first()).toHaveText(String(taken.length));
+  });
+
+  test('says what happened at the top of its own page', async ({ page }) => {
+    for (const trip of pivots) {
+      await page.goto(trip.href);
+      await expect(page.locator('.hero .pivot')).toHaveText(trip.pivoted!);
+    }
+  });
+});
+
 test.describe('a trip with no dates', () => {
   // Found in the data rather than hard-coded, so this keeps testing the right
   // card once Vegas gets its dates and some other trip becomes the undated one.
-  const undated = trips.find((trip) => trip.dates === null);
+  const undated = taken.find((trip) => trip.dates === null);
 
   test.beforeEach(async ({ page }) => {
     test.skip(undated === undefined, 'no undated trip in the data');

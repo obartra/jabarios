@@ -41,6 +41,16 @@
       ]
     },
     {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Philly Pretzel Factory with chocolate dip"
+        }
+      ]
+    },
+    {
       "kind": "heading",
       "level": 1,
       "runs": [
@@ -76,6 +86,16 @@
       "runs": [
         {
           "text": "3D pens"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Christmas village"
         }
       ]
     },

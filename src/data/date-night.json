@@ -100,6 +100,16 @@
       ]
     },
     {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Chocolate covered frozen fruit"
+        }
+      ]
+    },
+    {
       "kind": "heading",
       "level": 1,
       "runs": [

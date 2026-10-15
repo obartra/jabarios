@@ -13,12 +13,14 @@ src/
   data/trips.ts          loads and validates the trip folders
   data/activities.ts     loads and validates the cards
   data/pages.ts          loads and validates page.json, and the section types
+  data/feed.ts           the public trips feed, derived from the trip data
   data/date-night.json   snapshot of the shared Google Doc, written by the sync
   lib/trips.ts           pure date/status logic, shared by build and browser
   layouts/BaseLayout     <head>, fonts, canonical and social tags
   components/            AppBar, TripNav, TripCard, ActivityCard, SiteFooter
   pages/
     index.astro          homepage, generated from the trip data
+    trips.json.ts        the public trips feed, /trips.json
     404.astro
     [slug]/index.astro   every trip page, rendered from its page.json
   components/sections/   the section types a page.json can use
@@ -59,6 +61,35 @@ one sentence saying what happened and what took its place. The page stays up
 with that line at the top, the card moves to the Pivots tab on the homepage
 and shows under no other, and the trip drops out of the countdown and the
 totals. The dates stay, because the plan had them.
+
+## The trips feed
+
+`/trips.json` lists every trip folder, built from the trip data like the
+homepage cards, for other things we build to read (the telephone uses it to
+find each trip's music). Each entry has the slug, name, `start` and `end`
+(both `null` for a trip with no dates), places, the country count and the page
+URL, and nothing else: every field is already on the trip's card or page.
+Adding a field is a decision about what is public, so it goes in
+`src/data/feed.ts` deliberately. `scripts/check-dist.mjs` fails the build if
+the feed misses a trip folder, lists one that does not exist, or carries any
+other field.
+
+```json
+{
+  "version": 1,
+  "trips": [
+    {
+      "slug": "kona",
+      "name": "Kona",
+      "start": "2026-12-06",
+      "end": "2026-12-13",
+      "places": ["Kailua-Kona", "Keauhou", "Mauna Kea", "Volcanoes"],
+      "countries": 1,
+      "url": "https://jabarios.com/kona/"
+    }
+  ]
+}
+```
 
 ## Merging
 

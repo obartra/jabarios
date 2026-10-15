@@ -10,6 +10,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve } from 'node:path';
 import { trips } from '../src/data/trips.ts';
+import { FEED_KEYS, FEED_PATH } from '../src/data/feed.ts';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const DIST = join(ROOT, 'dist');
@@ -214,6 +215,38 @@ for (const slug of carded) {
   if (!trips.some((t) => t.slug === slug)) {
     fail('index.html', `card for "${slug}" has no matching entry in src/data/trips.ts`);
   }
+}
+
+// ----------------------------------------------------------- trips feed ----
+// The public feed lists exactly the trip folders, with only the public fields.
+// See src/data/feed.ts.
+
+const feedFile = join(DIST, FEED_PATH.replace(/^\//, ''));
+if (!existsSync(feedFile)) {
+  fail(FEED_PATH, 'was not built');
+} else {
+  let feed = null;
+  try {
+    feed = JSON.parse(readFileSync(feedFile, 'utf8'));
+  } catch (err) {
+    fail(FEED_PATH, `is not JSON: ${err.message}`);
+  }
+  const entries = Array.isArray(feed?.trips) ? feed.trips : [];
+  if (feed && !Array.isArray(feed.trips)) fail(FEED_PATH, 'has no trips list');
+  const listed = entries.map((t) => t.slug);
+  for (const trip of trips) {
+    if (!listed.includes(trip.slug)) fail(FEED_PATH, `is missing trip "${trip.slug}"`);
+  }
+  for (const entry of entries) {
+    if (!trips.some((t) => t.slug === entry.slug)) {
+      fail(FEED_PATH, `lists "${entry.slug}", which has no trip folder`);
+    }
+    const keys = Object.keys(entry).join(',');
+    if (keys !== FEED_KEYS.join(',')) {
+      fail(FEED_PATH, `"${entry.slug}" carries ${keys}, not exactly ${FEED_KEYS.join(',')}`);
+    }
+  }
+  if (new Set(listed).size !== listed.length) fail(FEED_PATH, 'lists a trip twice');
 }
 
 // ---------------------------------------------------------------- report ---

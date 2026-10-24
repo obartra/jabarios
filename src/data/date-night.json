@@ -237,6 +237,36 @@
           "text": "Gold Standard Cafe"
         }
       ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Morimoto"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Umami steak and sushi"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Double Knot"
+        }
+      ]
     }
   ]
 }

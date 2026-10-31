@@ -190,6 +190,16 @@
       ]
     },
     {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Slay!"
+        }
+      ]
+    },
+    {
       "kind": "heading",
       "level": 1,
       "runs": [
@@ -235,6 +245,46 @@
       "runs": [
         {
           "text": "Gold Standard Cafe"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Morimoto"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Umami steak and sushi"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Double Knot"
+        }
+      ]
+    },
+    {
+      "kind": "item",
+      "ordered": false,
+      "depth": 0,
+      "runs": [
+        {
+          "text": "Parc"
         }
       ]
     }
